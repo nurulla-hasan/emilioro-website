@@ -37,7 +37,7 @@ const Page = () => {
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="max-w-4xl mt-14 border border-[#658dc469] mx-auto shadow-[0px_0px_18px_5px_#ebf4ff]  p-5 rounded-lg "
+                className="max-w-4xl mt-14 mx-auto shadow-[0px_0px_33px_14px_#ebf4ff]  p-5 rounded-lg "
             >
 
 

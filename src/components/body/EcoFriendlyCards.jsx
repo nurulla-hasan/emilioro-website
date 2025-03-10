@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import image from '../../../public/browse.png'
-import Image from 'next/image';
 import { RiTeamLine } from "react-icons/ri";
 
 
