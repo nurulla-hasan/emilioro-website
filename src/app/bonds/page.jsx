@@ -1,6 +1,7 @@
 "use client"
 import { useForm } from "react-hook-form";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const Page = () => {
     const {
@@ -23,9 +24,11 @@ const Page = () => {
                     whileTap={{ scale: 0.95 }}
                     className="text-blue-500 font-semibold mb-4 cursor-pointer"
                 >
-                    <button className="cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white px-4 py-2 rounded-md font-medium">
-                        My Bond →
-                    </button>
+                    <Link href='/bonds/myBond'>
+                        <button className="cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white px-4 py-2 rounded-md font-medium">
+                            My Bond →
+                        </button>
+                    </Link>
                 </motion.div>
             </div>
 
@@ -57,7 +60,7 @@ const Page = () => {
                                 <label className="block text-sm text-[#1C4587] font-medium mb-1">Give</label>
                                 <select
                                     {...register("give", { required: "Give is required" })}
-                                    className="w-full p-2 border border-[#1C4587] rounded-lg text-xs"
+                                    className="w-full p-2 *:p-2 border border-[#1C4587] rounded-lg text-xs"
                                 >
                                     <option value="Teaching Math">Teaching Math</option>
                                     <option value="Firing Computer">Firing Computer</option>
