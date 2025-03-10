@@ -10,7 +10,7 @@ const Navbar = () => {
     { title: "Object", href: "/object" },
     { title: "Institution", href: "/institution" },
     { title: "Message", href: "/message" },
-    { title: "We are chatting", href: "/chat" },
+    { title: "We are chatting", href: "/chatting" },
   ];
 
 

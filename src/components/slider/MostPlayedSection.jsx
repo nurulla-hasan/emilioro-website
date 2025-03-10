@@ -77,9 +77,6 @@ const MostPlayedSection = () => {
         <div className="mx-auto my-16 w-3/4 px-5 relative">
             <div className="flex items-center justify-between mx-auto">
                 <h1 className="text-2xl my-5 font-bold text-blue-900">Most played in this week</h1>
-                <Link href="#" className="text-[#1C4587] font-medium">
-                    View all
-                </Link>
             </div>
 
             <Swiper

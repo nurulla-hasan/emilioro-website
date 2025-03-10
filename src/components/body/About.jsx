@@ -30,7 +30,7 @@ const About = () => {
                         <div className="w-36 h-[2px] bg-[#1e3a8a]"></div>
                     </div>
 
-                    <div className="space-y-4 text-[#6F6F6F]">
+                    <div className="my-6 text-[#6F6F6F]">
                         <p>
                             Welcome to Bankybondy, where conversations come to life. We are a platform dedicated to preserving the authenticity of human interactions through shared audio recordings. Whether it's a dinner discussion, a tea-time chat, or meaningful exchanges with friends, we believe every conversation has a story to tell.
                             Our mission is simple: to connect, inspire, and learn from the everyday talks that make us who we are. Join our growing community today!
