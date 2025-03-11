@@ -1,7 +1,12 @@
 "use client";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
+import { useState } from "react";
+import { FiMenu, FiX } from "react-icons/fi";
 
 const Navbar = () => {
+  const pathname = usePathname();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const navLinks = [
     { title: "Home", href: "/" },
@@ -13,9 +18,8 @@ const Navbar = () => {
     { title: "We are chatting", href: "/chatting" },
   ];
 
-
   return (
-    <nav className="bg-[#1C4587] py-4 px-6 flex justify-center gap-18 items-center">
+    <nav className="bg-[#1C4587] z-50 py-4 px-6 md:px-0 flex lg:justify-center justify-between items-center relative">
       {/* Logo */}
       <div className="h-[35px] border-[#FFFFFF] font-bold text-lg flex justify-center items-center gap-2 border-2 rounded-[100%] p-2">
         <div className="w-[11px] h-[11px] rounded-full bg-[#22B14C]"></div>
@@ -23,21 +27,41 @@ const Navbar = () => {
         <div className="w-[11px] h-[11px] rounded-full bg-[#ED1C24]"></div>
       </div>
 
+      {/* Mobile Menu Button */}
+      <button className="md:hidden text-white text-2xl" onClick={() => setMenuOpen(!menuOpen)}>
+        {menuOpen ? <FiX /> : <FiMenu />}
+      </button>
+
       {/* Menu Items */}
-      <div className="hidden md:flex space-x-6">
+      <div
+        className={`absolute lg:static top-16 left-0 w-full lg:justify-center lg:w-2/4 bg-[#1C4587] md:bg-transparent md:flex md:space-x-0 ${menuOpen ? "block" : "hidden"
+          }`}
+      >
         {navLinks.map((link, index) => (
           <Link
             key={index}
             href={link.href}
-            className="text-white hover:font-semibold font-[300] text-[15px] transition"
+            onClick={() => setMenuOpen(!menuOpen)}
+            className={`block sticky md:inline-block text-white lg:px-3 px-6 py-2 md:py-0 transition ${pathname === link.href ? "font-semibold" : "font-[300]"
+              }`}
           >
-            {link.title} {/* এখানে `link` না দিয়ে `link.title` ব্যবহার করতে হবে */}
+            {link.title}
           </Link>
         ))}
+
+        <div className="ml-6 mt-3 mb-5 md:hidden space-x-4">
+          <button className="text-white text-[14px] font-semibold border border-white px-6 py-[6px] rounded-md transition cursor-pointer">
+            Login
+          </button>
+          <button className="text-[14px] font-semibold bg-gradient-to-t from-[#1C4587] to-[#3279EA] border text-white px-6 py-[6px] rounded-md cursor-pointer">
+            Sign Up
+          </button>
+        </div>
       </div>
 
       {/* Buttons */}
-      <div className="space-x-4">
+
+      <div className="hidden lg:flex space-x-4">
         <button className="text-white text-[14px] font-semibold border border-white px-6 py-[6px] rounded-md transition cursor-pointer">
           Login
         </button>
@@ -45,6 +69,7 @@ const Navbar = () => {
           Sign Up
         </button>
       </div>
+
     </nav>
   );
 };

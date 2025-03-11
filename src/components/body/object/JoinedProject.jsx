@@ -1,8 +1,7 @@
-
 import image from '../../../../public/browse.png';
 import { RiTeamLine } from "react-icons/ri";
 
-const AllProject = () => {
+const JoinedProject = () => {
 
     const data = {
         cards: [
@@ -16,74 +15,12 @@ const AllProject = () => {
                 image: image,
                 participant: "10"
             },
-            {
-                id: "2",
-                title: "Recyclable Materials",
-                status: ["Ongoing", 'Public'],
-                description: "Use recyclable materials to create packaging that can be reused.",
-                author: "MR. Ahmed",
-                authorRole: ["Owner"],
-                image: image,
-                participant: "10"
-            },
-            {
-                id: "3",
-                title: "Minimalist Design",
-                status: ['Ongoing', 'Public'],
-                description: "Implement minimalist design principles to reduce waste and improve.",
-                author: "MS. Fatima",
-                authorRole: ["Owner"],
-                image: image,
-                participant: "10"
-            },
-            {
-                id: "4",
-                title: "Minimalist Design",
-                status: ['Ongoing', 'Public'],
-                description: "Implement minimalist design principles to reduce waste and improve.",
-                author: "MS. Fatima",
-                authorRole: ["Owner"],
-                image: image,
-                participant: "10"
-            },
-            {
-                id: "5",
-                title: "Minimalist Design",
-                status: ['Ongoing', 'Public'],
-                description: "Implement minimalist design principles to reduce waste and improve .",
-                author: "MS. Fatima",
-                authorRole: ["Owner"],
-                image: image,
-                participant: "10"
-            },
-            {
-                id: "6",
-                title: "Minimalist Design",
-                status: ['Ongoing', 'Public'],
-                description: "Implement minimalist design principles to reduce waste and improve .",
-                author: "MS. Fatima",
-                authorRole: ["Owner"],
-                image: image,
-                participant: "10"
-            },
-            {
-                id: "7",
-                title: "Minimalist Design",
-                status: ['Ongoing', 'Public'],
-                description: "Implement minimalist design principles to reduce waste and improve .",
-                author: "MS. Fatima",
-                authorRole: ["Owner"],
-                image: image,
-                participant: "10"
-            }
         ]
     };
-
-
     return (
-        <div className='mt-10 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 items-center gap-5 rounded-lg'>
+        <div className='mt-14 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 items-center gap-5 rounded-lg'>
             {data.cards.map((card) => (
-                <div key={card.id} className='w-[400] lg:w-full mx-auto flex flex-col gap-2 shadow-[0px_3px_14px_1px_#d9e7ff]'>
+                <div key={card.id} className='w-[400] lg:w-full mx-auto flex flex-col gap-2 shadow-[0px_0px_33px_14px_#ebf4ff]'>
                     <div>
                         <img
                             src={card.image.src}
@@ -145,4 +82,4 @@ const AllProject = () => {
     );
 };
 
-export default AllProject;
+export default JoinedProject;

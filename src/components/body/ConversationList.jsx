@@ -39,12 +39,12 @@ const ConversationList = () => {
 
     return (
 
-        <div className="mx-auto my-16 w-3/4 px-5">
+        <div className="mx-auto my-16 lg:w-3/4 w-5/6 lg:px-5">
 
             <div className="flex items-center justify-between mx-auto">
 
-                <h1 className="text-2xl my-5 font-bold text-blue-900">Discover Conversations You’ll Love</h1>
-                <Link href="#" className="text-[#1C4587] font-medium">
+                <h1 className="lg:text-2xl text-lg my-5 font-bold text-[#1C4587]">Discover Conversations</h1>
+                <Link href="#" className="text-[#1C4587] text-sm lg:text-lg font-medium">
                     View all
                 </Link>
             </div>
@@ -53,7 +53,7 @@ const ConversationList = () => {
 
 
 
-            <div className=" grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 items-center gap-5 mx-auto rounded-lg ">
+            <div className=" grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 items-center gap-8 lg:gap-5 mx-auto rounded-lg ">
                 {conversations.map((conversation, index) => (
                     <div key={conversation.id} className='flex flex-col gap-2'>
                         <div>

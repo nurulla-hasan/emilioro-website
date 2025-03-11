@@ -26,18 +26,18 @@ const trendingData = [
 
 const TrendingTopics = () => {
   return (
-    <section className="mx-auto my-16 w-3/4 px-5">
+    <section className="mx-auto my-16 lg:w-3/4 w-5/6 lg:px-5">
       {/* Header */}
       <div className="flex items-center justify-between my-5">
-        <h2 className="text-2xl font-bold text-[#1C4587]">Trending topics
+        <h2 className="lg:text-2xl text-lg font-bold text-[#1C4587]">Trending topics
         </h2>
-        <Link href="#" className="text-[#1C4587] font-medium">
+        <Link href="#" className="text-[#1C4587] text-sm lg:text-lg font-medium">
           View all
         </Link>
       </div>
 
       {/* Cards */}
-      <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5  justify-between items-center">
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 lg:justify-between justify-items-center items-center">
         {trendingData.map((item) => (
           <div
             key={item.id}

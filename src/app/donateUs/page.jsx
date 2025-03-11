@@ -43,8 +43,9 @@ const DonateUs = () => {
 
     return (
         <div>
-            <div className="flex items-center justify-center h-[90vh] bg-[#1C4587] p-6">
-                <div className="bg-white rounded-lg shadow-lg p-8 w-[700px] text-center">
+            <div className="flex items-center justify-center lg:h-[90vh] bg-[#1C4587] p-6">
+            <div className={`bg-white rounded-lg shadow-lg p-8 ${isPaymentOpen ? "lg:h-[342] h-[120vh]" : ""} w-[700px] text-center`}>
+
                     <h2 className="text-xl font-bold text-[#1C4587]">Support the Community</h2>
                     <p className="text-gray-600 text-sm mt-4">
                         The average donation is{' '}
@@ -52,7 +53,7 @@ const DonateUs = () => {
                     </p>
 
                     {/* Donation Amount Buttons */}
-                    <div className="flex justify-center gap-6 mt-6">
+                    <div className="flex justify-center lg:gap-6 gap-3 mt-6 ">
                         {amounts.map((amount) => (
                             <button
                                 key={amount}
@@ -98,7 +99,7 @@ const DonateUs = () => {
                             animate={{ x: 0 }}
                             exit={{ x: '100%' }}
                             transition={{ duration: 0.5 }}
-                            className="fixed right-1/2 transform translate-x-1/2 w-[700px] bg-white rounded-lg shadow-lg p-6 flex flex-col"
+                            className="fixed top-28 right-1/2 transform translate-x-1/2 w-[400px] lg:w-[700px] bg-white rounded-lg shadow-lg p-6 flex flex-col"
                         >
                             <button onClick={() => setIsPaymentOpen(false)} className="ml-auto text-gray-600">
                                 ✖

@@ -61,9 +61,9 @@ const MyBondPage = () => {
             case "My Bond":
                 return (
 
-                    <div className="flex items-center gap-8 mt-20">
+                    <div className="flex flex-col lg:flex-row items-center gap-8 my-20">
                         {/* Section 1 */}
-                        <div className="w-full shadow-2xl rounded-sm p-5">
+                        <div className="w-full shadow-[0px_3px_14px_1px_#d9e7ff] rounded-sm p-5">
                             <div className="flex justify-between">
                                 <h1 className="text-xl text-[#1C4587] font-bold mb-4">Give</h1>
                                 <motion.div
@@ -93,7 +93,7 @@ const MyBondPage = () => {
                         </div>
 
                         {/* Section 2 */}
-                        <div className="w-full shadow-2xl rounded-sm p-5">
+                        <div className="w-full shadow-[0px_3px_14px_1px_#d9e7ff] rounded-sm p-5">
                             <div className="flex justify-between">
                                 <h1 className="text-xl text-[#1C4587] font-bold mb-4">Get</h1>
                                 <motion.div
@@ -161,14 +161,14 @@ const MyBondPage = () => {
 
 
     return (
-        <div className="min-h-screen w-2/3 mx-auto mt-10">
+        <div className="min-h-screen lg:w-2/3 p-5 mx-auto mt-10">
             <div className="flex justify-between">
                 <h1 className="text-xl text-[#1C4587] font-bold mb-4">My Bond</h1>
                 <div className="border border-[#D6D6D6] rounded-lg flex">
                     <select
                         value={selectedOption}
                         onChange={(e) => setSelectedOption(e.target.value)}  // Update state when option changes
-                        className="border-none outline-0 cursor-pointer text-[#595D62] bg-white font-normal px-1 border border-[#1C4587] rounded-lg text-sm"
+                        className="border-none outline-0 cursor-pointer text-[#595D62] bg-white font-normal lg:px-1 border border-[#1C4587] rounded-lg text-sm"
                     >
                         <option value="My Bond">My Bond</option>
                         <option value="Bond Request">Bond Request</option>
@@ -194,7 +194,7 @@ const MyBondPage = () => {
                     exit={{ opacity: 0, scale: 0.8 }}
                     className="fixed inset-0 bg-black/25 flex justify-center items-center"
                 >
-                    <div className="bg-white p-6 rounded-sm shadow-lg w-1/3">
+                    <div className="bg-white p-6 rounded-sm shadow-lg lg:w-1/3">
                         <div className="flex justify-between items-center mb-4">
                             <h2 className="text-sm font-semibold">Create new Bond</h2>
                             <IoClose
@@ -251,8 +251,6 @@ const MyBondPage = () => {
                 </motion.div>
             )}
 
-            {/* ----------- */}
-
             {/* Modal for Edit Bond */}
             {isEditModalOpen && currentBond && (
                 <motion.div
@@ -261,7 +259,7 @@ const MyBondPage = () => {
                     exit={{ opacity: 0, scale: 0.8 }}
                     className="fixed inset-0 bg-black/30 flex justify-center items-center"
                 >
-                    <div className="bg-white p-6 rounded-sm shadow-lg w-2/5">
+                    <div className="bg-white p-6 rounded-sm shadow-lg lg:w-2/5">
                         <div className="flex justify-between items-center mb-4">
                             <h2 className="text-sm font-semibold">Edit Bond</h2>
                             <IoClose
@@ -298,7 +296,7 @@ const MyBondPage = () => {
                     className="fixed inset-0 bg-black/30 flex justify-center items-center"
                 >
 
-                    <div className="bg-white text-center p-6 space-y-2 rounded-sm shadow-lg w-1/5 relative">
+                    <div className="bg-white text-center p-6 space-y-2 rounded-sm shadow-lg lg:w-1/5 relative">
                         <h2 className="text-sm text-[#1C4587] font-semibold">Are you sure !!</h2>
                         <h2 className="text-xs text-[#1C4587] font-normal">Do you want to  delete this content ?</h2>
                         <div className="mt-10">
