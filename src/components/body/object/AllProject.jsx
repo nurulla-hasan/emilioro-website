@@ -1,9 +1,12 @@
-
+import { motion, AnimatePresence } from 'framer-motion';
+import { useState } from 'react';
 import image from '../../../../public/browse.png';
 import { RiTeamLine } from "react-icons/ri";
+import Image from 'next/image';
 
 const AllProject = () => {
 
+    const [selectedCard, setSelectedCard] = useState(null);
     const data = {
         cards: [
             {
@@ -81,9 +84,9 @@ const AllProject = () => {
 
 
     return (
-        <div className='mt-10 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 items-center gap-5 rounded-lg'>
+        <div className=' mt-10 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 items-center gap-5 rounded-lg'>
             {data.cards.map((card) => (
-                <div key={card.id} className='w-[400] lg:w-full mx-auto flex flex-col gap-2 shadow-[0px_3px_14px_1px_#d9e7ff]'>
+                <div onClick={() => setSelectedCard(card)} key={card.id} className='cursor-pointer w-[400] lg:w-full mx-auto flex flex-col gap-2 shadow-[0px_3px_14px_1px_#d9e7ff]'>
                     <div>
                         <img
                             src={card.image.src}
@@ -107,9 +110,6 @@ const AllProject = () => {
                                 </div>
                             </div>
                         </div>
-
-
-
                         <div className='flex flex-col gap-4'>
                             <p className='text-[#6F6F6F] text-sm'>{card.description}</p>
                             <div className='flex justify-between items-center'>
@@ -130,9 +130,6 @@ const AllProject = () => {
                                 </div>
                             </div>
                         </div>
-
-
-
                         <div className='flex justify-between items-center mt-4'>
                             <button className="cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white text-xs px-4 py-2 rounded-lg font-medium">
                                 Request to join
@@ -141,6 +138,41 @@ const AllProject = () => {
                     </div>
                 </div>
             ))}
+
+
+            {/* Modal */}
+            {/* Modal */}
+            <AnimatePresence>
+                {selectedCard && (
+                    <div
+                        className='fixed bg-black/50 top-20 inset-0 flex items-center justify-center mx-auto lg:h-[100vh]'>
+                        <div className='bg-white shadow-2xl rounded-lg w-3/4 lg:w-[600px] lg:h-[70vh] p-8 relative'>
+                            <button onClick={() => setSelectedCard(null)} className='absolute top-4 right-4 text-gray-600 text-lg'>✖</button>
+                            <h2 className='text-2xl font-bold text-[#1C4587]'>{selectedCard.title}</h2>
+                            <p className='text-gray-600 mt-4'>{selectedCard.description}</p>
+
+                            <div className='flex justify-between items-center mt-6'>
+                                <div className='flex items-center gap-3'>
+                                    <Image src={selectedCard.image.src} alt='author' width={50} height={50} className='rounded-full' />
+                                    <div>
+                                        <h5 className='text-lg font-semibold'>{selectedCard.author}</h5>
+                                        <p className='text-sm text-gray-500'>{selectedCard.authorRole}</p>
+                                    </div>
+                                </div>
+                                <div className='flex items-center gap-2 text-gray-600 text-md'>
+                                    <RiTeamLine color='#1C4587' size={24} />
+                                    <span>{selectedCard.participant} Participants</span>
+                                </div>
+                            </div>
+
+                            <button className='mt-6 w-full bg-[#1C4587] text-white text-lg py-3 rounded-md hover:bg-opacity-80'>
+                                Request to Join
+                            </button>
+                        </div>
+                    </div>
+                )}
+            </AnimatePresence>
+
         </div>
     );
 };

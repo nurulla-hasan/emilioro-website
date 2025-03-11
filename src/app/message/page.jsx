@@ -1,11 +1,11 @@
 import React from 'react';
 
-const MassagePage = () => {
+const page = () => {
     return (
         <div>
-            This is Massage Page
+            Message Page
         </div>
     );
 };
 
-export default MassagePage;
+export default page;

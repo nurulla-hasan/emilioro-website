@@ -44,8 +44,13 @@ const DonateUs = () => {
     return (
         <div>
             <div className="flex items-center justify-center lg:h-[90vh] bg-[#1C4587] p-6">
-            <div className={`bg-white rounded-lg shadow-lg p-8 ${isPaymentOpen ? "lg:h-[342] h-[120vh]" : ""} w-[700px] text-center`}>
 
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5 }}
+                    className={`bg-white rounded-lg shadow-lg p-8 ${isPaymentOpen ? "lg:h-[342] h-[120vh]" : ""} w-[700px] text-center`}
+                >
                     <h2 className="text-xl font-bold text-[#1C4587]">Support the Community</h2>
                     <p className="text-gray-600 text-sm mt-4">
                         The average donation is{' '}
@@ -59,8 +64,8 @@ const DonateUs = () => {
                                 key={amount}
                                 onClick={() => handleSelectAmount(amount)}
                                 className={`w-[125px] py-3 rounded-sm border transition font-semibold text-xs ${selectedAmounts.includes(amount)
-                                        ? 'bg-[#1C4587] text-white hover:bg-opacity-80'
-                                        : 'bg-white text-[#1C4587] border-[#1C4587]'
+                                    ? 'bg-[#1C4587] text-white hover:bg-opacity-80'
+                                    : 'bg-white text-[#1C4587] border-[#1C4587]'
                                     }`}
                             >
                                 {amount}$
@@ -82,14 +87,16 @@ const DonateUs = () => {
 
                     {/* Donate Button */}
                     <div>
-                        <button
+                        <motion.button
                             onClick={() => setIsPaymentOpen(true)}
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
                             className="mt-6 w-3/6 bg-[#1C4587] text-white font-medium py-2 px-5 rounded-md text-sm hover:bg-opacity-80 transition"
                         >
                             Donate now
-                        </button>
+                        </motion.button>
                     </div>
-                </div>
+                </motion.div>
 
                 {/* Payment Modal with React Hook Form */}
                 <AnimatePresence>
