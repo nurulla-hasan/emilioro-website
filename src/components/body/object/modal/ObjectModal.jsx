@@ -20,7 +20,7 @@ const ObjectModal = ({ selectedCard, setSelectedCard }) => {
                     animate={{ scale: 1, opacity: 1 }}
                     exit={{ scale: 0.95, opacity: 0 }}
                     transition={{ type: "spring", damping: 25 }}
-                    className="bg-white lg:top-10 rounded-lg w-full max-w-xl overflow-hidden relative"
+                    className="bg-white lg:top-10 rounded-lg w-full lg:h-auto h-[90vh] max-w-xl overflow-y-auto  scrollbar-hide relative"
                 >
                     {/* Close Button */}
                     <button
