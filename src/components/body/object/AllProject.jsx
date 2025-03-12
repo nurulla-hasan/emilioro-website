@@ -1,12 +1,9 @@
-import { motion, AnimatePresence } from 'framer-motion';
-import { useState } from 'react';
+import { motion } from 'framer-motion';
 import image from '../../../../public/browse.png';
 import { RiTeamLine } from "react-icons/ri";
-import Image from 'next/image';
 
-const AllProject = () => {
 
-    const [selectedCard, setSelectedCard] = useState(null);
+const AllProject = ({ setSelectedCard }) => {
     const data = {
         cards: [
             {
@@ -17,7 +14,8 @@ const AllProject = () => {
                 author: "MR. Sarwar",
                 authorRole: ["Owner"],
                 image: image,
-                participant: "10"
+                participant: "10",
+                created : "22 may 2023"
             },
             {
                 id: "2",
@@ -27,7 +25,8 @@ const AllProject = () => {
                 author: "MR. Ahmed",
                 authorRole: ["Owner"],
                 image: image,
-                participant: "10"
+                participant: "10",
+                created : "22 may 2023"
             },
             {
                 id: "3",
@@ -37,7 +36,8 @@ const AllProject = () => {
                 author: "MS. Fatima",
                 authorRole: ["Owner"],
                 image: image,
-                participant: "10"
+                participant: "10",
+                created : "22 may 2023"
             },
             {
                 id: "4",
@@ -47,7 +47,8 @@ const AllProject = () => {
                 author: "MS. Fatima",
                 authorRole: ["Owner"],
                 image: image,
-                participant: "10"
+                participant: "10",
+                created : "22 may 2023"
             },
             {
                 id: "5",
@@ -57,7 +58,8 @@ const AllProject = () => {
                 author: "MS. Fatima",
                 authorRole: ["Owner"],
                 image: image,
-                participant: "10"
+                participant: "10",
+                created : "22 may 2023"
             },
             {
                 id: "6",
@@ -67,7 +69,8 @@ const AllProject = () => {
                 author: "MS. Fatima",
                 authorRole: ["Owner"],
                 image: image,
-                participant: "10"
+                participant: "10",
+                created : "22 may 2023"
             },
             {
                 id: "7",
@@ -77,22 +80,27 @@ const AllProject = () => {
                 author: "MS. Fatima",
                 authorRole: ["Owner"],
                 image: image,
-                participant: "10"
+                participant: "10",
+                created : "22 may 2023"
             }
         ]
     };
 
-
     return (
-        <div className=' mt-10 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 items-center gap-5 rounded-lg'>
+        <div className='mt-10 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 items-center gap-5 rounded-lg'>
             {data.cards.map((card) => (
-                <div onClick={() => setSelectedCard(card)} key={card.id} className='cursor-pointer w-[400] lg:w-full mx-auto flex flex-col gap-2 shadow-[0px_3px_14px_1px_#d9e7ff]'>
+                <motion.div
+                    onClick={() => setSelectedCard(card)}
+                    key={card.id}
+                    className='cursor-pointer w-[400] lg:w-full mx-auto flex flex-col gap-2 shadow-[0px_3px_14px_1px_#d9e7ff]'
+                    whileHover={{ scale: 1.02 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                >
                     <div>
                         <img
-                            src={card.image.src}
+                            src={card.image.src || "/placeholder.svg"}
                             alt='image'
-                        >
-                        </img>
+                        />
                     </div>
 
                     <div className='flex flex-col gap-2 bg-[#FFFFFF] shadow-2xl p-3 rounded-b-sm'>
@@ -102,7 +110,6 @@ const AllProject = () => {
                             </div>
                             <div>
                                 <div className="flex items-center gap-1">
-
                                     <div className="flex items-center gap-1">
                                         <p className="bg-[#9A9A9A33] rounded-sm px-1 py-[1] text-[#1C4587] text-[10px] font-normal">{card.status[0]}</p>
                                         <p className="bg-[#9A9A9A33] rounded-sm px-1 py-[1] text-[#1C4587] text-[10px] font-normal">{card.status[1]}</p>
@@ -114,7 +121,7 @@ const AllProject = () => {
                             <p className='text-[#6F6F6F] text-sm'>{card.description}</p>
                             <div className='flex justify-between items-center'>
                                 <div className='flex gap-2 items-center'>
-                                    <img className='rounded-full w-[30px] h-[30px]' src={card.image.src} alt="image" />
+                                    <img className='rounded-full w-[30px] h-[30px]' src={card.image.src || "/placeholder.svg"} alt="image" />
                                     <div>
                                         <h5 className='text-[13px] text-gray-800'>{card.author}</h5>
                                         <p className='text-[10px] text-gray-500'>{card.authorRole}</p>
@@ -136,43 +143,8 @@ const AllProject = () => {
                             </button>
                         </div>
                     </div>
-                </div>
+                </motion.div>
             ))}
-
-
-            {/* Modal */}
-            {/* Modal */}
-            <AnimatePresence>
-                {selectedCard && (
-                    <div
-                        className='fixed bg-black/50 top-20 inset-0 flex items-center justify-center mx-auto lg:h-[100vh]'>
-                        <div className='bg-white shadow-2xl rounded-lg w-3/4 lg:w-[600px] lg:h-[70vh] p-8 relative'>
-                            <button onClick={() => setSelectedCard(null)} className='absolute top-4 right-4 text-gray-600 text-lg'>✖</button>
-                            <h2 className='text-2xl font-bold text-[#1C4587]'>{selectedCard.title}</h2>
-                            <p className='text-gray-600 mt-4'>{selectedCard.description}</p>
-
-                            <div className='flex justify-between items-center mt-6'>
-                                <div className='flex items-center gap-3'>
-                                    <Image src={selectedCard.image.src} alt='author' width={50} height={50} className='rounded-full' />
-                                    <div>
-                                        <h5 className='text-lg font-semibold'>{selectedCard.author}</h5>
-                                        <p className='text-sm text-gray-500'>{selectedCard.authorRole}</p>
-                                    </div>
-                                </div>
-                                <div className='flex items-center gap-2 text-gray-600 text-md'>
-                                    <RiTeamLine color='#1C4587' size={24} />
-                                    <span>{selectedCard.participant} Participants</span>
-                                </div>
-                            </div>
-
-                            <button className='mt-6 w-full bg-[#1C4587] text-white text-lg py-3 rounded-md hover:bg-opacity-80'>
-                                Request to Join
-                            </button>
-                        </div>
-                    </div>
-                )}
-            </AnimatePresence>
-
         </div>
     );
 };

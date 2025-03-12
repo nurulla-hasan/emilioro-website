@@ -5,9 +5,12 @@ import JoinedProject from '@/components/body/object/JoinedProject';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import { CiSearch } from "react-icons/ci";
+import ObjectModal from '@/components/body/object/modal/ObjectModal';
 
 const ObjectPage = () => {
     const [activeTab, setActiveTab] = useState("all");
+    const [selectedCard, setSelectedCard] = useState(null);
+    console.log(selectedCard);
 
     const pageVariants = {
         initial: { opacity: 0, y: 20 },
@@ -27,103 +30,111 @@ const ObjectPage = () => {
     };
 
     return (
-        <motion.div 
-            className='min-h-screen lg:w-2/3 mx-auto mt-10 mb-20'
-            initial="initial"
-            animate="in"
-            exit="out"
-            variants={pageVariants}
-            transition={pageTransition}
-        >
-            <motion.div 
-                className="flex flex-col lg:flex-row gap-5 justify-between items-center"
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
+        <div>
+            <motion.div
+                className='min-h-screen lg:w-2/3 mx-auto mt-10 mb-20'
+                initial="initial"
+                animate="in"
+                exit="out"
+                variants={pageVariants}
+                transition={pageTransition}
             >
-                <motion.h1 
-                    className="text-xl text-[#1C4587] font-bold"
-                    whileHover={{ scale: 1.05 }}
+                <motion.div
+                    className="flex flex-col lg:flex-row gap-5 justify-between items-center"
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2 }}
                 >
-                    Exchange Services & Goods
-                </motion.h1>
-                <div className='flex gap-5 items-center justify-center'>
-                    <motion.div 
-                        className="relative lg:w-[250] w-[150] border border-[#365173] rounded-lg flex items-center px-2"
+                    <motion.h1
+                        className="text-xl text-[#1C4587] font-bold"
                         whileHover={{ scale: 1.05 }}
                     >
-                        <CiSearch className='cursor-pointer' color='#1C4587' size={15} />
-                        <input
-                            type="text"
-                            placeholder="Search Project"
-                            className="px-2 py-1 lg:w-full w-36 rounded-full lg:py-2 border-none outline-none text-[#1C4587]"
-                        />
-                    </motion.div>
-                    <motion.button
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="cursor-pointer bg-gradient-to-b from-[#193f7c] to-[#2965c4] text-white px-4 lg:py-2 py-[9] rounded-md font-medium text-xs lg:text-lg"
-                    >
-                        +Create New Project
-                    </motion.button>
-                </div>
-            </motion.div>
+                        Exchange Services & Goods
+                    </motion.h1>
+                    <div className='flex gap-5 items-center justify-center'>
+                        <motion.div
+                            className="relative lg:w-[250] w-[150] border border-[#365173] rounded-lg flex items-center px-2"
+                            whileHover={{ scale: 1.05 }}
+                        >
+                            <CiSearch className='cursor-pointer' color='#1C4587' size={15} />
+                            <input
+                                type="text"
+                                placeholder="Search Project"
+                                className="px-2 py-1 lg:w-full w-36 rounded-full lg:py-2 border-none outline-none text-[#1C4587]"
+                            />
+                        </motion.div>
+                        <motion.button
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            className="cursor-pointer bg-gradient-to-b from-[#193f7c] to-[#2965c4] text-white px-4 lg:py-2 py-[9] rounded-md font-medium text-xs lg:text-lg"
+                        >
+                            +Create New Project
+                        </motion.button>
+                    </div>
+                </motion.div>
 
-            {/* Tabs */}
-            <motion.div 
-                className="flex mx-auto lg:ml-0 border-[#1C4587] border w-80 justify-between rounded-sm mt-5 lg:mt-10"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
-            >
-                {[
-                    { id: "all", label: "All Project" },
-                    { id: "my", label: "My Project" },
-                    { id: "joined", label: "Joined Project" },
-                ].map((tab) => (
-                    <motion.button
-                        key={tab.id}
-                        className={`px-4 py-2 text-xs font-medium transition-all border rounded-sm ${
-                            activeTab === tab.id
+                {/* Tabs */}
+                <motion.div
+                    className="flex mx-auto lg:ml-0 border-[#1C4587] border w-80 justify-between rounded-sm mt-5 lg:mt-10"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4 }}
+                >
+                    {[
+                        { id: "all", label: "All Project" },
+                        { id: "my", label: "My Project" },
+                        { id: "joined", label: "Joined Project" },
+                    ].map((tab) => (
+                        <motion.button
+                            key={tab.id}
+                            className={`px-4 py-2 text-xs font-medium transition-all border rounded-sm ${activeTab === tab.id
                                 ? "bg-[#1C4587] border border-[#1C4587] text-white"
                                 : "border-transparent text-[#1C4587]"
-                        }`}
-                        onClick={() => setActiveTab(tab.id)}
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
+                                }`}
+                            onClick={() => setActiveTab(tab.id)}
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.9 }}
+                        >
+                            {tab.label}
+                        </motion.button>
+                    ))}
+                </motion.div>
+
+                {/* Tab Content */}
+                <AnimatePresence mode="wait">
+                    <motion.div
+                        key={activeTab}
+                        initial="hidden"
+                        animate="visible"
+                        exit="hidden"
+                        variants={tabContentVariants}
+                        transition={{ duration: 0.5 }}
+                        className="mt-4"
                     >
-                        {tab.label}
-                    </motion.button>
-                ))}
+                        {activeTab === "all" && <AllProjects setSelectedCard={setSelectedCard} />}
+                        {activeTab === "my" && <MyProjects />}
+                        {activeTab === "joined" && <JoinedProjects />}
+                    </motion.div>
+                </AnimatePresence>
             </motion.div>
 
-            {/* Tab Content */}
-            <AnimatePresence mode="wait">
-                <motion.div 
-                    key={activeTab}
-                    initial="hidden"
-                    animate="visible"
-                    exit="hidden"
-                    variants={tabContentVariants}
-                    transition={{ duration: 0.5 }}
-                    className="mt-4"
-                >
-                    {activeTab === "all" && <AllProjects />}
-                    {activeTab === "my" && <MyProjects />}
-                    {activeTab === "joined" && <JoinedProjects />}
-                </motion.div>
-            </AnimatePresence>
-        </motion.div>
+
+            {/* Modal---------------- */}
+            <ObjectModal
+                setSelectedCard={setSelectedCard}
+                selectedCard={selectedCard}
+            ></ObjectModal>
+        </div>
     );
 };
 
-const AllProjects = () => (
+const AllProjects = ({ setSelectedCard }) => (
     <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
     >
-        <AllProject />
+        <AllProject setSelectedCard={setSelectedCard}/>
     </motion.div>
 );
 
@@ -134,7 +145,7 @@ const MyProjects = () => (
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
     >
-        <motion.div 
+        <motion.div
             className='absolute -top-10 right-[40%] lg:-top-[84px] lg:right-0 border border-[#1e4a9b] px-1 rounded-sm bg-white'
             whileHover={{ scale: 1.05 }}
         >
@@ -154,7 +165,7 @@ const JoinedProjects = () => (
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
     >
-        <motion.div 
+        <motion.div
             className='absolute -top-10 right-[40%] lg:-top-[84px] lg:right-0 border border-[#1e4a9b] px-1 rounded-sm'
             whileHover={{ scale: 1.05 }}
         >
