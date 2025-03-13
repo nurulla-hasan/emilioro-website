@@ -12,10 +12,10 @@ const Navbar = () => {
   const navLinks = [
     { title: "Home", href: "/" },
     { title: "Donate Us", href: "/donateUs" },
+    { title: "People", href: "/people" },
     { title: "Bonds", href: "/bonds" },
     { title: "Object", href: "/object" },
     { title: "Institution", href: "/institution" },
-    { title: "People", href: "/people" },
     { title: "Message", href: "/message" },
     { title: "We are chatting", href: "/chatting" },
   ]
