@@ -124,7 +124,6 @@ const MyProjectDetails = () => {
         return <p className="text-center text-gray-500">Project not found</p>;
     }
 
-
     return (
         <div className="px-5 mb-20">
             <div className=" max-w-3xl shadow-[0px_2px_11px_0px_#96b6ff] mx-auto mt-10 p-5 rounded-lg bg-white">
