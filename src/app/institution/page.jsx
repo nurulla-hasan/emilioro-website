@@ -1,5 +1,6 @@
 'use client'
 import AllInstitution from '@/components/body/institution/AllInstitution';
+import CreateInstituteModal from '@/components/body/institution/modal/CreateInstituteModal';
 import MyInstitution from '@/components/body/institution/MyInstitution';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
@@ -7,6 +8,7 @@ import { CiSearch } from "react-icons/ci";
 
 const InstitutionPage = () => {
     const [activeTab, setActiveTab] = useState("all");
+    const [isOpen, setIsOpen] = useState(false);
 
     return (
         <motion.div 
@@ -31,7 +33,7 @@ const InstitutionPage = () => {
                         whileTap={{ scale: 0.95 }}
                         className="text-blue-500 font-semibold cursor-pointer"
                     >
-                        <button className="cursor-pointer bg-gradient-to-b from-[#193f7c] to-[#2965c4] text-white px-4 lg:py-2 py-[9px] rounded-md font-medium text-xs lg:text-lg">
+                        <button onClick={() => setIsOpen(true)} className="cursor-pointer bg-gradient-to-b from-[#193f7c] to-[#2965c4] text-white px-4 lg:py-2 py-[9px] rounded-md font-medium text-xs lg:text-lg">
                             +Create New Project
                         </button>
                     </motion.div>
@@ -82,6 +84,10 @@ const InstitutionPage = () => {
                     )}
                 </AnimatePresence>
             </div>
+
+            
+          {/* Modal */}
+          <CreateInstituteModal isOpen={isOpen} setIsOpen={setIsOpen}/>
         </motion.div>
     );
 };
@@ -95,6 +101,7 @@ const MyInstitutionComponent = () => (
             </select>
         </div>
         <MyInstitution />
+
     </div>
 );
 

@@ -1,7 +1,11 @@
 import { RiTeamLine } from "react-icons/ri";
 import image from '../../../../public/institute.png'
+import JoinInstitutionModal from "./modal/JoinInstituteModal";
+import { useState } from "react";
 
 const AllInstitution = () => {
+
+    const [isOpen, setIsOpen] = useState(false)
 
     const data = {
         cards: [
@@ -124,13 +128,14 @@ const AllInstitution = () => {
                                 View Details
                             </button>
 
-                            <button className="cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white px-6 py-2 rounded-lg font-medium text-[11px]">
+                            <button onClick={() => setIsOpen(true)} className="cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white px-6 py-2 rounded-lg font-medium text-[11px]">
                                 Join Institute
                             </button>
                         </div>
                     </div>
                 </div>
             ))}
+            <JoinInstitutionModal isOpen={isOpen} setIsOpen={setIsOpen} />
         </div>
     );
 };

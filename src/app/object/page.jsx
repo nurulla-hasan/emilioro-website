@@ -6,12 +6,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import { CiSearch } from "react-icons/ci";
 import ObjectModal from '@/components/body/object/modal/ObjectModal';
+import CreateProjectModal from '@/components/body/object/modal/CreateProjectModal';
 
 const ObjectPage = () => {
     const [activeTab, setActiveTab] = useState("all");
     const [selectedCard, setSelectedCard] = useState(null);
-    console.log(selectedCard);
-
+    const [isOpen, setIsOpen] = useState(false);
     const pageVariants = {
         initial: { opacity: 0, y: 20 },
         in: { opacity: 1, y: 0 },
@@ -66,6 +66,7 @@ const ObjectPage = () => {
                         <motion.button
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
+                            onClick={() => setIsOpen(true)}
                             className="cursor-pointer bg-gradient-to-b from-[#193f7c] to-[#2965c4] text-white px-4 lg:py-2 py-[9] rounded-md font-medium text-xs lg:text-lg"
                         >
                             +Create New Project
@@ -124,6 +125,8 @@ const ObjectPage = () => {
                 setSelectedCard={setSelectedCard}
                 selectedCard={selectedCard}
             ></ObjectModal>
+
+            <CreateProjectModal setIsOpen={setIsOpen} isOpen={isOpen}/>
         </div>
     );
 };

@@ -94,11 +94,11 @@ const AllInstitution = () => {
 
 
                             <button className='px-6 py-[6] items-center bg-white  rounded-lg font-semibold border-2 border-[#1C4587] to-[#3279EA] text-[#1C4587] text-[11px]'>
-                                View Details
+                                Delete
                             </button>
 
                             <button className="cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white px-6 py-2 rounded-lg font-medium text-[11px]">
-                                Join Institute
+                                Edit
                             </button>
                         </div>
                     </div>
