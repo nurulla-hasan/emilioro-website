@@ -1,10 +1,10 @@
-import image from '../../../../public/browse.png';
+"use client";
+import image from "../../../../public/browse.png";
 import { RiTeamLine } from "react-icons/ri";
 import { useRouter } from "next/navigation";
 
 const MyProject = () => {
     const router = useRouter();
-
     const data = {
         cards: [
             {
@@ -86,25 +86,8 @@ const MyProject = () => {
             }
         ]
     };
-
-    const handleCardClick = (card) => {
-        const queryParams = new URLSearchParams({
-            id: card.id,
-            title: card.title,
-            description: card.description,
-            author: card.author,
-            participant: card.participant,
-            image: card.image.src,
-        });
-
-        card.status.forEach(status => queryParams.append('status', status));
-        card.authorRole.forEach(role => queryParams.append('authorRole', role));
-
-        router.push(`/object/myProject?${queryParams.toString()}`);
-    };
-
-    
     return (
+
         <div className='mt-14 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 items-center gap-5 rounded-lg'>
             {data.cards.map((card) => (
                 <div
