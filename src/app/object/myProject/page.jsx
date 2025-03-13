@@ -388,6 +388,7 @@ const MyProjectDetails = () => {
 
             {/* Modal */}
             <AddUserModal isOpen={isAddUserOpen} setIsOpen={setIsAddUserOpen} />
+            
         </div >
     );
 };
