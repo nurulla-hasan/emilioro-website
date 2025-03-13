@@ -1,6 +1,6 @@
 import { Dialog } from "@headlessui/react";
 import { AiOutlineClose } from "react-icons/ai";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 
 const AddProducerModal = ({ isOpen, setIsOpen }) => {
@@ -104,7 +104,7 @@ const AddProducerModal = ({ isOpen, setIsOpen }) => {
                                     <div className="bg-gray-200">
                                         {p.role}
                                     </div>
-                                    <button onClick={() => handleRemoveProducer(index)} className="text-red-500 font-bold">×</button>
+                                    <button onClick={() => handleRemoveProducer(index)} className="cursor-pointer text-red-500 font-bold">×</button>
                                 </motion.div>
                             ))}
                         </div>

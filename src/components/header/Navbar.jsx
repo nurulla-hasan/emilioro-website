@@ -15,6 +15,7 @@ const Navbar = () => {
     { title: "Bonds", href: "/bonds" },
     { title: "Object", href: "/object" },
     { title: "Institution", href: "/institution" },
+    { title: "People", href: "/people" },
     { title: "Message", href: "/message" },
     { title: "We are chatting", href: "/chatting" },
   ]
@@ -164,11 +165,11 @@ const Navbar = () => {
           <motion.div key={index} variants={menuItemVariants}>
             <Link
               href={link.href}
-              className={`inline-block text-white lg:px-3 py-2 transition ${
+              className={`inline-block  text-white lg:px-3 py-2 transition ${
                 pathname === link.href ? "font-semibold" : "font-[300]"
               }`}
             >
-              {link.title}
+              <span className="text-sm">{link.title}</span>
             </Link>
           </motion.div>
         ))}

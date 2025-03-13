@@ -91,14 +91,24 @@ const projects = [
 ];
 
 const MyProjectDetails = () => {
-    const [isAddProducerOpen, setIsAddProducerOpen] = useState(false)
-    const [isAddUserOpen, setIsAddUserOpen] = useState(false)
+    const [isAddProducerOpen, setIsAddProducerOpen] = useState(false);
+    const [isAddUserOpen, setIsAddUserOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
+    const [project, setProject] = useState(null);
+    const [loading, setLoading] = useState(true);
+
     const searchParams = useSearchParams();
     const projectId = searchParams.get("id");
-    const [project, setProject] = useState(null);
 
-    const [isOpen, setIsOpen] = useState(false);
     const { register, handleSubmit, reset } = useForm();
+
+    useEffect(() => {
+        if (!projectId) return;
+
+        const selectedProject = projects.find((p) => p.id === projectId);
+        setProject(selectedProject);
+        setLoading(false);
+    }, [projectId]);
 
     const onSubmit = (data) => {
         console.log("Edited Project Data:", data);
@@ -106,14 +116,14 @@ const MyProjectDetails = () => {
         reset();
     };
 
-    useEffect(() => {
-        const selectedProject = projects.find(p => p.id === projectId);
-        setProject(selectedProject);
-    }, [projectId]);
+    if (loading) {
+        return <p className="text-center text-gray-500">Loading project...</p>;
+    }
 
     if (!project) {
         return <p className="text-center text-gray-500">Project not found</p>;
     }
+
 
     return (
         <div className="px-5 mb-20">

@@ -109,7 +109,7 @@ const MyProject = () => {
             {data.cards.map((card) => (
                 <div
                     onClick={() => router.push(`/object/myProject?id=${card.id}`)}
-                    key={card.id} className='w-[400] lg:w-full mx-auto flex flex-col gap-2 shadow-[0px_0px_33px_14px_#ebf4ff]'>
+                    key={card.id} className='cursor-pointer w-[400] lg:w-full mx-auto flex flex-col gap-2 shadow-[0px_0px_33px_14px_#ebf4ff]'>
                     <div>
                         <img
                             src={card.image.src}
