@@ -5,6 +5,10 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { motion } from "framer-motion";
 import { IoClose } from "react-icons/io5";
+import BondRequest from "@/components/body/bonds/bondRequest/BondRequest";
+import OngoingBond from "@/components/body/bonds/ongoingBond/OngoingBond";
+import CompletedBond from "@/components/body/bonds/completedBond/CompletedBond";
+import MyBond from "@/components/body/bonds/myBond/MyBond";
 
 const MyBondPage = () => {
     const { register, handleSubmit, reset } = useForm();
@@ -60,95 +64,38 @@ const MyBondPage = () => {
         switch (selectedOption) {
             case "My Bond":
                 return (
-
-                    <div className="flex flex-col lg:flex-row items-center gap-8 my-20">
-                        {/* Section 1 */}
-                        <div className="w-full shadow-[0px_3px_14px_1px_#d9e7ff] rounded-sm p-5">
-                            <div className="flex justify-between">
-                                <h1 className="text-xl text-[#1C4587] font-bold mb-4">Give</h1>
-                                <motion.div
-                                    whileHover={{ scale: 1.05 }}
-                                    whileTap={{ scale: 0.95 }}
-                                    className="text-blue-500 font-semibold mb-4 cursor-pointer"
-                                >
-                                    <button
-                                        onClick={() => setIsModalOpen(true)}
-                                        className="cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white px-2 py-[6] rounded-md font-medium text-xs"
-                                    >
-                                        +Add New Bond
-                                    </button>
-                                </motion.div>
-                            </div>
-                            <div className="flex flex-col gap-3 mt-6">
-                                {bonds.map((bond) => (
-                                    <div key={bond.id} className="flex items-center justify-between px-5 py-3 bg-[#EAF0FB] rounded-sm">
-                                        <h3 className="text-sm">{bond.title}</h3>
-                                        <div className="flex gap-2">
-                                            <AiOutlineDelete color="red" onClick={() => handleDeleteClick(bond)} />
-                                            <BiEditAlt onClick={() => handleEditClick(bond)} />
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-
-                        {/* Section 2 */}
-                        <div className="w-full shadow-[0px_3px_14px_1px_#d9e7ff] rounded-sm p-5">
-                            <div className="flex justify-between">
-                                <h1 className="text-xl text-[#1C4587] font-bold mb-4">Get</h1>
-                                <motion.div
-                                    whileHover={{ scale: 1.05 }}
-                                    whileTap={{ scale: 0.95 }}
-                                    className="text-blue-500 font-semibold mb-4 cursor-pointer"
-                                >
-                                    <button
-                                        onClick={() => setIsModalOpen(true)}
-                                        className="cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white px-2 py-[6] rounded-md font-medium text-xs"
-                                    >
-                                        +Add New Bond
-                                    </button>
-                                </motion.div>
-                            </div>
-
-                            <div className="flex flex-col gap-3 mt-6">
-                                {bonds.map((bond) => (
-                                    <div key={bond.id} className="flex items-center justify-between px-5 py-3 bg-[#EAF0FB] rounded-sm">
-                                        <h3 className="text-sm">{bond.title}</h3>
-                                        <div className="flex gap-2">
-                                            <AiOutlineDelete color="red" onClick={() => handleDeleteClick(bond)} />
-                                            <BiEditAlt onClick={() => handleEditClick(bond)} />
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-
+                    <MyBond
+                        title="My Bond"
+                        bonds={bonds}
+                        onAddNewBond={() => setIsModalOpen(true)}
+                        onEditBond={handleEditClick}
+                        onDeleteBond={handleDeleteClick}
+                    />
                 );
 
             case "Bond Request":
                 return (
-                    <div className="w-full shadow-2xl rounded-sm mt-20">
+                    <div className="w-full rounded-sm mt-5">
                         {/* Render your Bond Request section content here */}
-                        <h2>Bond Request Section</h2>
+                        <BondRequest />
                         {/* Add your own content here */}
                     </div>
                 );
 
             case "Ongoing Bond":
                 return (
-                    <div className="w-full shadow-2xl rounded-sm mt-20">
+                    <div className="w-full rounded-sm mt-5">
                         {/* Render your Ongoing Bond section content here */}
-                        <h2>Ongoing Bond Section</h2>
+                        <OngoingBond />
                         {/* Add your own content here */}
                     </div>
                 );
 
             case "Completed Bond":
                 return (
-                    <div className="w-full shadow-2xl rounded-sm mt-20">
+                    <div className="w-full rounded-sm mt-5">
                         {/* Render your Completed Bond section content here */}
-                        <h2>Completed Bond Section</h2>
+                        <CompletedBond />
                         {/* Add your own content here */}
                     </div>
                 );
@@ -162,13 +109,12 @@ const MyBondPage = () => {
 
     return (
         <div className="min-h-screen lg:w-2/3 p-5 mx-auto mt-10">
-            <div className="flex justify-between">
-                <h1 className="text-xl text-[#1C4587] font-bold mb-4">My Bond</h1>
+            <div className="flex justify-end">
                 <div className="border border-[#D6D6D6] rounded-lg flex">
                     <select
                         value={selectedOption}
                         onChange={(e) => setSelectedOption(e.target.value)}  // Update state when option changes
-                        className="border-none outline-0 cursor-pointer text-[#595D62] bg-white font-normal lg:px-1 border border-[#1C4587] rounded-lg text-sm"
+                        className="border-none p-2 outline-0 cursor-pointer text-[#595D62] bg-white font-normal lg:px-1 border border-[#1C4587] rounded-lg text-sm"
                     >
                         <option value="My Bond">My Bond</option>
                         <option value="Bond Request">Bond Request</option>
@@ -180,7 +126,7 @@ const MyBondPage = () => {
 
             {/* Render content based on selected option */}
             <section>
-                <div className="">
+                <div>
                     {renderSection()}
                 </div>
             </section>
