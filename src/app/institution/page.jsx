@@ -18,7 +18,7 @@ const InstitutionPage = () => {
             className='min-h-screen lg:w-2/3 mx-auto mt-10 mb-20'
         >
             <div className="flex flex-col lg:flex-row gap-5 justify-between items-center">
-                <h1 className="text-xl text-[#1C4587] font-bold">Exchange Services & Goods</h1>
+                <h1 className="text-xl text-[#1C4587] font-bold">Institute</h1>
                 <div className='flex gap-5 items-center justify-center'>
                     <div className="relative lg:w-[250px] w-[150px] border border-[#365173] rounded-lg flex items-center px-2">
                         <CiSearch className='cursor-pointer' color='#1C4587' size={15} />
@@ -34,7 +34,7 @@ const InstitutionPage = () => {
                         className="text-blue-500 font-semibold cursor-pointer"
                     >
                         <button onClick={() => setIsOpen(true)} className="cursor-pointer bg-gradient-to-b from-[#193f7c] to-[#2965c4] text-white px-4 lg:py-2 py-[9px] rounded-md font-medium text-xs lg:text-lg">
-                            +Create New Project
+                            +Create Institute
                         </button>
                     </motion.div>
                 </div>

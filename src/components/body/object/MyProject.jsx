@@ -12,7 +12,7 @@ const MyProject = () => {
                 title: "Eco-Friendly Packaging",
                 status: ["Ongoing", "Public"],
                 description: "Develop sustainable packaging solutions using biodegradable materials dsjh.",
-                author: "MR. Sarwar",
+                author: "MR. Nurulla",
                 authorRole: ["Owner"],
                 image: image,
                 participant: "10",
@@ -23,7 +23,7 @@ const MyProject = () => {
                 title: "Recyclable Materials",
                 status: ["Ongoing", 'Public'],
                 description: "Use recyclable materials to create packaging that can be reused.",
-                author: "MR. Ahmed",
+                author: "MR. Golap",
                 authorRole: ["Owner"],
                 image: image,
                 participant: "10",
@@ -91,8 +91,7 @@ const MyProject = () => {
         <div className='mt-14 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 items-center gap-5 rounded-lg'>
             {data.cards.map((card) => (
                 <div
-                    onClick={() => router.push(`/object/myProject?id=${card.id}`)}
-                    key={card.id} className='cursor-pointer w-[400] lg:w-full mx-auto flex flex-col gap-2 shadow-[0px_0px_33px_14px_#ebf4ff]'>
+                    key={card.id} className='w-[400] lg:w-full mx-auto flex flex-col gap-2 shadow-[0px_0px_33px_14px_#ebf4ff]'>
                     <div>
                         <img
                             src={card.image.src}
@@ -143,8 +142,11 @@ const MyProject = () => {
 
 
                         <div className='flex justify-between items-center mt-4'>
+                            <button onClick={() => router.push(`/object/myProject/myProjectDetails?id=${card.id}`)} className="cursor-pointer bg-white text-[#1C4587] border morder-[1C4587] text-xs px-4 py-[6px] rounded-lg font-medium">
+                                View Details
+                            </button>
                             <button className="cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white text-xs px-4 py-2 rounded-lg font-medium">
-                                Request to join
+                                Open Workspace
                             </button>
                         </div>
                     </div>

@@ -1,21 +1,90 @@
+
 import image from '../../../../public/browse.png';
 import { RiTeamLine } from "react-icons/ri";
+import { useRouter } from 'next/navigation';
 
 const JoinedProject = () => {
-
+ const router = useRouter();
     const data = {
         cards: [
-            {
-                id: "1",
-                title: "Eco-Friendly Packaging",
-                status: ["Ongoing", "Public"],
-                description: "Develop sustainable packaging solutions using biodegradable materials dsjh.",
-                author: "MR. Sarwar",
-                authorRole: ["Owner"],
-                image: image,
-                participant: "10"
-            },
-        ]
+                    {
+                        id: "1",
+                        title: "Eco-Friendly Packaging",
+                        status: ["Ongoing", "Public"],
+                        description: "Develop sustainable packaging solutions using biodegradable materials dsjh.",
+                        author: "MR. Nurulla",
+                        authorRole: ["Owner"],
+                        image: image,
+                        participant: "10",
+                        created: "22 may 2023"
+                    },
+                    {
+                        id: "2",
+                        title: "Recyclable Materials",
+                        status: ["Ongoing", 'Public'],
+                        description: "Use recyclable materials to create packaging that can be reused.",
+                        author: "MR. Golap",
+                        authorRole: ["Owner"],
+                        image: image,
+                        participant: "10",
+                        created: "22 may 2023"
+                    },
+                    {
+                        id: "3",
+                        title: "Minimalist Design",
+                        status: ['Ongoing', 'Public'],
+                        description: "Implement minimalist design principles to reduce waste and improve.",
+                        author: "MS. Fatima",
+                        authorRole: ["Owner"],
+                        image: image,
+                        participant: "10",
+                        created: "22 may 2023"
+                    },
+                    {
+                        id: "4",
+                        title: "Minimalist Design",
+                        status: ['Ongoing', 'Public'],
+                        description: "Implement minimalist design principles to reduce waste and improve.",
+                        author: "MS. Fatima",
+                        authorRole: ["Owner"],
+                        image: image,
+                        participant: "10",
+                        created: "22 may 2023"
+                    },
+                    {
+                        id: "5",
+                        title: "Minimalist Design",
+                        status: ['Ongoing', 'Public'],
+                        description: "Implement minimalist design principles to reduce waste and improve .",
+                        author: "MS. Fatima",
+                        authorRole: ["Owner"],
+                        image: image,
+                        participant: "10",
+                        created: "22 may 2023"
+                    },
+                    {
+                        id: "6",
+                        title: "Minimalist Design",
+                        status: ['Ongoing', 'Public'],
+                        description: "Implement minimalist design principles to reduce waste and improve .",
+                        author: "MS. Fatima",
+                        authorRole: ["Owner"],
+                        image: image,
+                        participant: "10",
+                        created: "22 may 2023"
+                    },
+                    {
+                        id: "7",
+                        title: "Minimalist Design",
+                        status: ['Ongoing', 'Public'],
+                        description: "Implement minimalist design principles to reduce waste and improve .",
+                        author: "MS. Fatima",
+                        authorRole: ["Owner"],
+                        image: image,
+                        participant: "10",
+                        created: "22 may 2023"
+                    }
+                ]
     };
     return (
         <div className='mt-14 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 items-center gap-5 rounded-lg'>
@@ -71,8 +140,11 @@ const JoinedProject = () => {
 
 
                         <div className='flex justify-between items-center mt-4'>
+                            <button onClick={() => router.push(`/object/myProject/myProjectDetails?id=${card.id}`)} className="cursor-pointer bg-white text-[#1C4587] border morder-[1C4587] text-xs px-4 py-[6px] rounded-lg font-medium">
+                                View Details
+                            </button>
                             <button className="cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white text-xs px-4 py-2 rounded-lg font-medium">
-                                Request to join
+                                Open Workspace
                             </button>
                         </div>
                     </div>

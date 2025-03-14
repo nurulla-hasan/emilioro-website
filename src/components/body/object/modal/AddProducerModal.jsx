@@ -3,9 +3,10 @@ import { AiOutlineClose } from "react-icons/ai";
 import { useState } from "react";
 import { motion } from "framer-motion";
 
-const AddProducerModal = ({ isOpen, setIsOpen }) => {
+const AddProducerModal = ({ isAddProducerOpen, setIsAddProducerOpen }) => {
     const [producer, setProducer] = useState("");
     const [designation, setDesignation] = useState("CEO");
+    
     const [producerList, setProducerList] = useState([]);
 
     // Producer + Designation যোগ করার ফাংশন
@@ -21,26 +22,17 @@ const AddProducerModal = ({ isOpen, setIsOpen }) => {
         const updatedList = [...producerList];
         updatedList.splice(index, 1);
         setProducerList(updatedList);
-        console.log("Modal should still be open:", isOpen);
-    };
-
-    // **Enter**
-    const handleKeyDown = (e) => {
-        if (e.key === "Enter") {
-            e.preventDefault();
-            handleAddProducer();
-        }
     };
 
     // Submit Function
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log("Added Producers:", producerList);
-        setIsOpen(false);
+        setIsAddProducerOpen(false);
     };
 
     return (
-        <Dialog open={isOpen} onClose={() => isOpen && setIsOpen(false)} className="relative z-50">
+        <Dialog open={isAddProducerOpen} onClose={() => setIsAddProducerOpen(false)} className="relative z-50">
             <div className="fixed inset-0 bg-black/30 flex items-center justify-center p-6">
                 <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
@@ -51,7 +43,7 @@ const AddProducerModal = ({ isOpen, setIsOpen }) => {
                     {/* Header */}
                     <div className="flex justify-between items-center mb-4">
                         <Dialog.Title className="text-lg font-semibold">Create new Project</Dialog.Title>
-                        <button onClick={() => setIsOpen(false)} className="text-gray-500 hover:text-gray-700">
+                        <button onClick={() => setIsAddProducerOpen(false)} className="text-gray-500 hover:text-gray-700">
                             <AiOutlineClose size={20} />
                         </button>
                     </div>
@@ -66,7 +58,6 @@ const AddProducerModal = ({ isOpen, setIsOpen }) => {
                                     type="text"
                                     value={producer}
                                     onChange={(e) => setProducer(e.target.value)}
-                                    onKeyDown={handleKeyDown}
                                     className="border-gray-300 w-full px-3 py-2 border rounded-lg text-xs focus:ring-2 focus:ring-blue-500"
                                     placeholder="Search to select producer"
                                 />
@@ -104,7 +95,9 @@ const AddProducerModal = ({ isOpen, setIsOpen }) => {
                                     <div className="bg-gray-200">
                                         {p.role}
                                     </div>
-                                    <button onClick={() => handleRemoveProducer(index)} className="cursor-pointer text-red-500 font-bold">×</button>
+                                    <button onClick={() => handleRemoveProducer(index)} className="cursor-pointer text-red-500 font-bold">
+                                        x
+                                    </button>
                                 </motion.div>
                             ))}
                         </div>

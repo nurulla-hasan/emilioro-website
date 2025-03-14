@@ -4,10 +4,14 @@ import Link from "next/link"
 import { useState } from "react"
 import { FiMenu, FiX } from "react-icons/fi"
 import { motion, AnimatePresence } from "framer-motion"
+import LoginModal from "../authentication/login/LoginModal"
+import SignUpModal from "../authentication/signUp/SignUpModal"
 
 const Navbar = () => {
   const pathname = usePathname()
   const [menuOpen, setMenuOpen] = useState(false)
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const [isSignUpOpen, setIsSignUpOpen] = useState(false);
 
   const navLinks = [
     { title: "Home", href: "/" },
@@ -125,19 +129,21 @@ const Navbar = () => {
                 <Link
                   href={link.href}
                   onClick={() => setMenuOpen(false)}
-                  className={`block text-white px-6 py-2 transition ${
-                    pathname === link.href ? "font-semibold" : "font-[300]"
-                  }`}
+                  className={`block text-white px-6 py-2 transition ${pathname === link.href ? "font-semibold" : "font-[300]"
+                    }`}
                 >
                   {link.title}
                 </Link>
               </motion.div>
             ))}
 
-            <motion.div variants={menuItemVariants} className="ml-6 mt-3 mb-5 space-x-4">
+            {/* <Link href="/login"> */}
+            <motion.div onClick={() => setMenuOpen(false)} variants={menuItemVariants} className="ml-6 mt-3 mb-5 space-x-4">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+
+                onClick={() => setIsLoginModalOpen(true)}
                 className="text-white text-[14px] font-semibold border border-white px-6 py-[6px] rounded-md transition cursor-pointer"
               >
                 Login
@@ -145,11 +151,15 @@ const Navbar = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={() => setIsSignUpOpen(true)}
                 className="text-[14px] font-semibold bg-gradient-to-t from-[#1C4587] to-[#3279EA] border text-white px-6 py-[6px] rounded-md cursor-pointer"
               >
                 Sign Up
               </motion.button>
             </motion.div>
+            {/* </Link> */}
+
+
           </motion.div>
         )}
       </AnimatePresence>
@@ -165,9 +175,8 @@ const Navbar = () => {
           <motion.div key={index} variants={menuItemVariants}>
             <Link
               href={link.href}
-              className={`inline-block  text-white lg:px-3 py-2 transition ${
-                pathname === link.href ? "font-semibold" : "font-[300]"
-              }`}
+              className={`inline-block  text-white lg:px-3 py-2 transition ${pathname === link.href ? "font-semibold" : "font-[300]"
+                }`}
             >
               <span className="text-sm">{link.title}</span>
             </Link>
@@ -176,10 +185,12 @@ const Navbar = () => {
       </motion.div>
 
       {/* Desktop Buttons */}
+      {/* <Link href="/login"> */}
       <motion.div className="hidden lg:flex space-x-4" initial="hidden" animate="visible" variants={buttonVariants}>
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
+          onClick={() => setIsLoginModalOpen(true)}
           className="text-white text-[14px] font-semibold border border-white px-6 py-[6px] rounded-md transition cursor-pointer"
         >
           Login
@@ -187,11 +198,18 @@ const Navbar = () => {
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
+          onClick={() => setIsSignUpOpen(true)}
           className="text-[14px] font-semibold bg-gradient-to-t from-[#1C4587] to-[#3279EA] border text-white px-6 py-[6px] rounded-md cursor-pointer"
         >
           Sign Up
         </motion.button>
       </motion.div>
+      {/* </Link> */}
+
+      {/* Login Modal */}
+      <LoginModal isOpen={isLoginModalOpen} setIsSignUpOpen={setIsSignUpOpen} onClose={() => setIsLoginModalOpen(false)} />
+      {/* SignUp Modal */}
+      <SignUpModal isOpen={isSignUpOpen} setIsLoginModalOpen={setIsLoginModalOpen} onClose={() => setIsSignUpOpen(false)} />
     </nav>
   )
 }

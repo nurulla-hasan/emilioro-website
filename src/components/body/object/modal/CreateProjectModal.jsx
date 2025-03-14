@@ -36,7 +36,7 @@ const CreateProjectModal = ({ isOpen, setIsOpen }) => {
 
     return (
         <div className="fixed inset-0 bg-black/30 bg-opacity-50 flex justify-center items-center z-50">
-            <div className="bg-white p-6 mt-10 rounded-lg w-[90%] h-[80vh] max-w-md lg:max-w-lg shadow-lg relative overflow-auto scrollbar-none">
+            <div className="bg-white p-6 mt-10 rounded-lg w-[90%] h-[80vh] max-w-md lg:max-w-lg shadow-lg relative overflow-auto hide-scrollbar">
                 {/* Close Button */}
                 <button onClick={() => setIsOpen(false)} className="absolute top-3 right-3 text-gray-600 hover:text-black">
                     <IoMdClose size={24} />
