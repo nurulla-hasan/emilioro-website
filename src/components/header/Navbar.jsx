@@ -6,12 +6,20 @@ import { FiMenu, FiX } from "react-icons/fi"
 import { motion, AnimatePresence } from "framer-motion"
 import LoginModal from "../authentication/login/LoginModal"
 import SignUpModal from "../authentication/signUp/SignUpModal"
+import ForgotPasswordModal from "../authentication/forgotPassword/ForgotPassModal"
+import VerifyCodeModal from "../authentication/verify/VerifyCodeModal"
+import SuccessModal from "../authentication/success/SuccessModal"
+import ResetPasswordModal from "../authentication/resetPass/ResetPasswordModal"
 
 const Navbar = () => {
   const pathname = usePathname()
   const [menuOpen, setMenuOpen] = useState(false)
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [isSignUpOpen, setIsSignUpOpen] = useState(false);
+  const [isForgotPassModalOpen, setIsForgotPassModalOpen] = useState(false);
+  const [isVerifyModalOpen, setIsVerifyModalOpen] = useState(false);
+  const [isResetModalOpen, setIsResetModalOpen] = useState(false);
+  const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
 
   const navLinks = [
     { title: "Home", href: "/" },
@@ -207,9 +215,38 @@ const Navbar = () => {
       {/* </Link> */}
 
       {/* Login Modal */}
-      <LoginModal isOpen={isLoginModalOpen} setIsSignUpOpen={setIsSignUpOpen} onClose={() => setIsLoginModalOpen(false)} />
+      <LoginModal
+        isOpen={isLoginModalOpen}
+        setIsSignUpOpen={setIsSignUpOpen}
+        onClose={() => setIsLoginModalOpen(false)}
+        setIsForgotPassModalOpen={setIsForgotPassModalOpen}
+      />
       {/* SignUp Modal */}
       <SignUpModal isOpen={isSignUpOpen} setIsLoginModalOpen={setIsLoginModalOpen} onClose={() => setIsSignUpOpen(false)} />
+      {/* Forgot Pass Modal */}
+      <ForgotPasswordModal
+        isOpen={isForgotPassModalOpen}
+        onClose={() => setIsForgotPassModalOpen(false)} 
+        setIsVerifyModalOpen={setIsVerifyModalOpen}
+        />
+      {/* Verify Modal */}
+      <VerifyCodeModal
+        isOpen={isVerifyModalOpen}
+        onClose={() => setIsVerifyModalOpen(false)}
+        setIsResetModalOpen={setIsResetModalOpen}
+      />
+        {/* Reset Modal */}
+        <ResetPasswordModal
+        isOpen={isResetModalOpen}
+        onClose={() => setIsResetModalOpen(false)}
+        setIsSuccessModalOpen={setIsSuccessModalOpen}
+      />
+      {/* Success Modal */}
+      <SuccessModal
+        isOpen={isSuccessModalOpen}
+        onClose={() => setIsSuccessModalOpen(false)}
+        setIsLoginModalOpen={setIsLoginModalOpen}
+      />
     </nav>
   )
 }

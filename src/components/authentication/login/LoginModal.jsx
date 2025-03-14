@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { X, Eye, EyeOff } from "lucide-react"
 import Link from "next/link"
 
-const LoginModal = ({ isOpen, onClose, setIsSignUpOpen }) => {
+const LoginModal = ({ isOpen, onClose, setIsSignUpOpen, setIsForgotPassModalOpen }) => {
   const {
     register,
     handleSubmit,
@@ -98,9 +98,14 @@ const LoginModal = ({ isOpen, onClose, setIsSignUpOpen }) => {
                     </div>
                     <span className="text-gray-700 text-sm">Remember Password</span>
                   </label>
-                  <Link onClick={onClose} href="forgot-password" className="text-red-500 hover:text-red-600 text-sm">
+                  <button
+                    onClick={() => {
+                      onClose();
+                      setIsForgotPassModalOpen(true);
+                    }}
+                    className="text-red-500 hover:text-red-600 text-sm">
                     Forgot Password?
-                  </Link>
+                  </button>
                 </div>
 
                 {/* Login Button */}
@@ -126,7 +131,7 @@ const LoginModal = ({ isOpen, onClose, setIsSignUpOpen }) => {
                   onClick={() => {
                     onClose();
                     setIsSignUpOpen(true);
-                }}
+                  }}
                 >
                   Sign Up
                 </button>
