@@ -5,8 +5,11 @@ import wave2 from "../../../public/wave (2).png"
 import wave3 from "../../../public/wave (3).png"
 import heroImage from "../../../public/heroImage.png"
 import { motion } from "framer-motion"
+import { setIsSignUpOpen } from "@/store/mainSlice"
+import { useDispatch } from "react-redux"
 
 const Hero = () => {
+  const dispatch = useDispatch();
   const fadeInUp = {
     hidden: { opacity: 0, y: 20 },
     visible: {
@@ -66,6 +69,7 @@ const Hero = () => {
           variants={scaleIn}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
+          onClick={() => dispatch(setIsSignUpOpen(true))}
           className="mt-8 lg:mt-16 px-8 lg:px-16 py-2 lg:py-3 border border-white rounded-md text-white hover:bg-white bg-gradient-to-b from-[#1C4587] to-[#3279EA] transition text-[14px] font-semibold"
         >
           Sign Up for free

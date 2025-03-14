@@ -1,17 +1,8 @@
-// import { Geist, Geist_Mono } from "next/font/google";
+
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/header/Navbar";
-
-// const geistSans = Geist({
-//   variable: "--font-geist-sans",
-//   subsets: ["latin"],
-// });
-
-// const geistMono = Geist_Mono({
-//   variable: "--font-geist-mono",
-//   subsets: ["latin"],
-// });
+import { Providers } from "@/store/providers";
 
 // Poppins font setup
 const poppins = Poppins({
@@ -31,8 +22,10 @@ export default function RootLayout({ children }) {
       <body
         className={`${poppins.variable} antialiased container mx-auto`}
       >
-        <Navbar />
-        {children}
+        <Providers>
+          <Navbar />
+          {children}
+        </Providers>
       </body>
     </html>
   );
