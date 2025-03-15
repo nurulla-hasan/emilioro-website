@@ -28,7 +28,11 @@ const Navbar = () => {
 
   const dispatch = useDispatch();
   const isSignUpOpen = useSelector((state) => state.main.isSignUpOpen);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isMobileDropdownOpen, setIsMobileDropdownOpen] = useState(false);
   const user = useSelector((state) => state.main.user);
+
+
 
   const navLinks = [
     { title: "Home", href: "/" },
@@ -111,81 +115,139 @@ const Navbar = () => {
 
   return (
     <div>
-      <nav className="bg-[#1C4587] z-50 py-4 px-6 md:px-0 flex lg:justify-center justify-between items-center relative">
-        {/* Logo */}
-        <motion.div initial="hidden" animate="visible" variants={logoVariants}>
-          <Link href="/">
-            <div className="h-[35px] border-[#FFFFFF] font-bold text-lg flex justify-center items-center gap-2 border-2 rounded-[100%] p-2">
-              <div className="w-[11px] h-[11px] rounded-full bg-[#22B14C]"></div>
-              <div className="w-10 h-[10px] rounded-full bg-[#FFF200]"></div>
-              <div className="w-[11px] h-[11px] rounded-full bg-[#ED1C24]"></div>
-            </div>
-          </Link>
-        </motion.div>
+      <nav className="bg-[#1C4587] z-50 py-4 px-6 lg:px-56 flex justify-between items-center relative">
 
-        {/* Mobile Menu Button */}
-        <motion.button
-          className="md:hidden text-white text-2xl"
-          onClick={() => setMenuOpen(!menuOpen)}
-          whileTap={{ scale: 0.95 }}
-        >
-          {menuOpen ? <FiX /> : <FiMenu />}
-        </motion.button>
+        {/* Mobile nav */}
+        <div className=" flex items-center justify-between w-full lg:w-auto">
 
-        {/* Menu Items */}
-        <AnimatePresence>
-          {menuOpen && (
-            <motion.div
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-              variants={mobileMenuVariants}
-              className="absolute top-16 left-0 w-full bg-[#1C4587] md:hidden"
-            >
-              {navLinks.map((link, index) => (
-                <motion.div key={index} variants={menuItemVariants}>
-                  <Link
-                    href={link.href}
-                    onClick={() => setMenuOpen(false)}
-                    className={`block text-white px-6 py-2 transition ${pathname === link.href ? "font-semibold" : "font-[300]"
-                      }`}
+          {/* Mobile Menu Button */}
+          <div
+            className="md:hidden cursor-pointer bg-[#4080c1] rounded-full p-1 text-white flex justify-end text-xl"
+          >
+            <span onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <FiX /> : <FiMenu />}</span>
+          </div>
+
+          {/* Logo */}
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={logoVariants}
+            className="flex flex-col justify-center"
+          >
+            <Link href="/">
+              <div className="lg:h-[35px] border-[#FFFFFF] font-bold text-lg flex justify-center items-center gap-2 border-2 rounded-[100%] p-2">
+                <div className="w-[11px] h-[11px] rounded-full bg-[#22B14C]"></div>
+                <div className="w-10 h-[10px] rounded-full bg-[#FFF200]"></div>
+                <div className="w-[11px] h-[11px] rounded-full bg-[#ED1C24]"></div>
+              </div>
+            </Link>
+          </motion.div>
+
+
+
+          {/* Mobile avater */}
+          <div className="lg:hidden">
+            {
+              user ? (
+                <div className="relative">
+                  <div
+                    className="lg:flex items-center space-x-3 cursor-pointer"
+                    onClick={() => setIsMobileDropdownOpen(!isMobileDropdownOpen)}
                   >
-                    {link.title}
-                  </Link>
+                    <img
+                      src={avatar.src || "/default-avatar.png"}
+                      alt="User Avatar"
+                      className="w-8 h-8 rounded-full"
+                    />
+                    <p className="text-sm font-semibold">{user.name}</p>
+                  </div>
+
+                  {/* Dropdown Menu */}
+                  {isMobileDropdownOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      className="absolute right-0 mt-2 shadow-md rounded-lg overflow-hidden"
+                    >
+                      <button
+                        onClick={() => {
+                          // dispatch(logout());
+                          setIsDropdownOpen(false);
+                        }}
+                        className="block cursor-pointer text-left px-4 py-2 text-sm text-white bg-blue-500"
+                      >
+                        Logout
+                      </button>
+                    </motion.div>
+                  )}
+                </div>
+              ) : (
+                <div></div>
+              )
+            }
+          </div>
+        </div>
+
+
+        {/* Mobile Menu Items */}
+        
+          <AnimatePresence>
+              {menuOpen && (
+                <motion.div
+                  initial="hidden"
+                  animate="visible"
+                  exit="exit"
+                  variants={mobileMenuVariants}
+                  className="absolute top-16 left-0 bg-[#1C4587] w-full md:hidden"
+                >
+                    {navLinks.map((link, index) => (
+                      <motion.div key={index} variants={menuItemVariants}>
+                        <Link
+                          href={link.href}
+                          onClick={() => setMenuOpen(false)}
+                          className={`block text-white px-6 py-2 w-56 transition ${pathname === link.href ? "font-semibold" : "font-[300]"
+                            }`}
+                        >
+                          <span className="bg-[#4080c1] px-5 rounded-full">{link.title}</span>
+                        </Link>
+                      </motion.div>
+                    ))}
+
+
+                  {
+                    !user &&
+                    <motion.div onClick={() => setMenuOpen(false)} variants={menuItemVariants} className="ml-6 mt-3 mb-5 space-x-4">
+                      <motion.button
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+
+                        onClick={() => setIsLoginModalOpen(true)}
+                        className="text-white text-[14px] font-semibold border border-white px-6 py-[6px] rounded-md transition cursor-pointer"
+                      >
+                        Login
+                      </motion.button>
+                      <motion.button
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        onClick={() => dispatch(setIsSignUpOpen(true))}
+                        className="text-[14px] font-semibold bg-gradient-to-t from-[#1C4587] to-[#3279EA] border text-white px-6 py-[6px] rounded-md cursor-pointer"
+                      >
+                        Sign Up
+                      </motion.button>
+                    </motion.div>
+                  }
+
                 </motion.div>
-              ))}
-
-
-              <motion.div onClick={() => setMenuOpen(false)} variants={menuItemVariants} className="ml-6 mt-3 mb-5 space-x-4">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-
-                  onClick={() => setIsLoginModalOpen(true)}
-                  className="text-white text-[14px] font-semibold border border-white px-6 py-[6px] rounded-md transition cursor-pointer"
-                >
-                  Login
-                </motion.button>
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={() => dispatch(setIsSignUpOpen(true))}
-                  className="text-[14px] font-semibold bg-gradient-to-t from-[#1C4587] to-[#3279EA] border text-white px-6 py-[6px] rounded-md cursor-pointer"
-                >
-                  Sign Up
-                </motion.button>
-              </motion.div>
-
-            </motion.div>
-          )}
-        </AnimatePresence>
+              )}
+          </AnimatePresence>
 
         {/* Desktop Menu Items */}
         <motion.div
           initial="hidden"
           animate="visible"
           variants={menuVariants}
-          className="hidden md:flex lg:justify-center lg:w-2/4"
+          className="hidden md:flex lg:justify-center"
         >
           {navLinks.map((link, index) => (
             <motion.div key={index} variants={menuItemVariants}>
@@ -201,15 +263,40 @@ const Navbar = () => {
         </motion.div>
 
         {/* Desktop Buttons */}
-        {/* User থাকলে Avatar, না থাকলে Login & Sign Up */}
+        {/*If User, Avatar & Dropdown, if no, Login & Sign Up */}
         {user ? (
-          <div className="flex items-center space-x-3">
-            <img
-              src={avatar.src || "/default-avatar.png"}
-              alt="User Avatar"
-              className="w-8 h-8 rounded-full cursor-pointer"
-            />
-            <p className="text-sm font-semibold">{user.name}</p>
+          <div className="relative">
+            <div
+              className="hidden lg:flex items-center space-x-3 cursor-pointer"
+              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+            >
+              <img
+                src={avatar.src || "/default-avatar.png"}
+                alt="User Avatar"
+                className="w-8 h-8 rounded-full"
+              />
+              <p className="text-sm font-semibold">{user.name}</p>
+            </div>
+
+            {/* Dropdown Menu */}
+            {isDropdownOpen && (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                className="absolute right-0 mt-2 w-40 shadow-md rounded-lg overflow-hidden"
+              >
+                <button
+                  onClick={() => {
+                    // dispatch(logout());
+                    setIsDropdownOpen(false);
+                  }}
+                  className="block w-full text-left px-4 py-2 text-sm text-white bg-blue-500"
+                >
+                  Logout
+                </button>
+              </motion.div>
+            )}
           </div>
         ) : (
           <motion.div
@@ -228,7 +315,6 @@ const Navbar = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => dispatch(setIsSignUpOpen(true))}
               className="text-[14px] font-semibold bg-gradient-to-t from-[#1C4587] to-[#3279EA] border text-white px-6 py-[6px] rounded-md cursor-pointer"
             >
               Sign Up

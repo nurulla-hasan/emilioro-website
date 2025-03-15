@@ -145,7 +145,10 @@ const MyProject = () => {
                             <button onClick={() => router.push(`/object/myProject/myProjectDetails?id=${card.id}`)} className="cursor-pointer bg-white text-[#1C4587] border morder-[1C4587] text-xs px-4 py-[6px] rounded-lg font-medium">
                                 View Details
                             </button>
-                            <button className="cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white text-xs px-4 py-2 rounded-lg font-medium">
+                            
+                            <button 
+                            onClick={()=>router.push(`/object/myProject/ecoFriendlyPackage?id=${card.id}`)}
+                            className="cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white text-xs px-4 py-2 rounded-lg font-medium">
                                 Open Workspace
                             </button>
                         </div>

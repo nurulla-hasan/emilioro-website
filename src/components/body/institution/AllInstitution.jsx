@@ -2,10 +2,12 @@ import { RiTeamLine } from "react-icons/ri";
 import image from '../../../../public/institute.png'
 import JoinInstitutionModal from "./modal/JoinInstituteModal";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 const AllInstitution = () => {
 
     const [isOpen, setIsOpen] = useState(false)
+    const router = useRouter()
 
     const data = {
         cards: [
@@ -124,7 +126,7 @@ const AllInstitution = () => {
                         <div className='flex justify-between items-center'>
 
 
-                            <button className='px-6 py-[6] items-center bg-white  rounded-lg font-semibold border-2 border-[#1C4587] to-[#3279EA] text-[#1C4587] text-[11px]'>
+                            <button onClick={() => router.push(`/institution/${card.id}`)} className='px-6 py-[6] items-center bg-white  rounded-lg font-semibold border-2 border-[#1C4587] to-[#3279EA] text-[#1C4587] text-[11px]'>
                                 View Details
                             </button>
 

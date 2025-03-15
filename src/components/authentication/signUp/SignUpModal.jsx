@@ -32,7 +32,7 @@ const SignUpModal = ({ isOpen, onClose, setIsLoginModalOpen }) => {
                     exit={{ opacity: 0 }}
                 >
                     <motion.div
-                        className="bg-white w-full h-[80vh] max-w-4xl rounded-lg shadow-xl flex flex-col md:flex-row relative overflow-hidden"
+                        className="bg-white overflow-y-scroll hide-scrollbar w-full h-[80vh] max-w-4xl rounded-lg shadow-xl flex flex-col md:flex-row relative overflow-hidden"
                         initial={{ scale: 0.9, opacity: 0 }}
                         animate={{ scale: 1, opacity: 1 }}
                         exit={{ scale: 0.9, opacity: 0 }}
@@ -47,7 +47,7 @@ const SignUpModal = ({ isOpen, onClose, setIsLoginModalOpen }) => {
                         </button>
 
                         {/* Left Section */}
-                        <div className="w-full hidden md:w-1/2 p-8 md:p-12 lg:flex flex-col items-center justify-center gap-10">
+                        <div className="w-full md:w-1/2 p-8 md:p-12 flex flex-col items-center justify-center gap-10">
                             <h2 className="text-[#1C4587] text-xl md:text-2xl font-bold mb-4">Hello Friend!</h2>
                             <p className="text-[#1C4587] text-center mb-8 w-2/3">
                                 Please provide the information's to register your account

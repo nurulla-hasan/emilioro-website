@@ -1,5 +1,4 @@
 "use client";
-
 import { RiEdit2Line, RiTeamLine } from "react-icons/ri";
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";
