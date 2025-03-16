@@ -57,11 +57,11 @@ const Hero = () => {
     >
       {/* Left Content */}
       <motion.div variants={fadeInUp} className="text-start flex-1 mt-8 lg:mt-[-100px] z-10">
-        <motion.h1 variants={fadeInUp} className="text-[32px] lg:text-[50px] lg:w-[600px] font-bold">
-          Bankybondy We are chatting
+        <motion.h1 variants={fadeInUp} className="text-[32px] lg:text-[40px] lg:w-[500px] font-bold">
+          We are what we do together
         </motion.h1>
-        <motion.p variants={fadeInUp} className="text-base lg:text-lg text-[#E3E3E3] mt-4 lg:mt-6 font-[300]">
-          Real conversations between people
+        <motion.p variants={fadeInUp} className="text-base lg:text-md text-[#E3E3E3] mt-4 lg:mt-6 font-[300]">
+          We are chatting
         </motion.p>
 
         {/* Signup Button */}

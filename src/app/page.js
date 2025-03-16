@@ -12,14 +12,13 @@ export default function HomePage() {
   return (
     <div>
       <Hero />
-      <MostPlayedSection/>
+      {/* <MostPlayedSection/>
       <About/>
       <TrendingTopics/>
       <ConversationList/>
       <EcoFriendlyCards/>
       <InstituteSection/>
-      {/* <Footer/> */}
-      <DonateUsFooter/>
+      <DonateUsFooter/> */}
     </div>
   );
 }
