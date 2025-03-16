@@ -6,6 +6,7 @@ import ConversationList from "@/components/body/ConversationList";
 import EcoFriendlyCards from "@/components/body/EcoFriendlyCards";
 import InstituteSection from "@/components/body/InstituteSection";
 import Footer from "@/components/footer/Footer";
+import DonateUsFooter from "@/components/body/DonateUsFooter";
 
 export default function HomePage() {
   return (
@@ -17,7 +18,8 @@ export default function HomePage() {
       <ConversationList/>
       <EcoFriendlyCards/>
       <InstituteSection/>
-      <Footer/>
+      {/* <Footer/> */}
+      <DonateUsFooter/>
     </div>
   );
 }

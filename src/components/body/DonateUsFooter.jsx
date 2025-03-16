@@ -15,7 +15,7 @@ const DonateUsFooter = () => {
                         </div>
                         <h2 className="text-xl font-bold">Bankybondy</h2>
                     </div>
-                    <p className="text-xs text-gray-200 md:absolute md:top-8 md:left-14">We are chatting</p>
+                    <p className="text-xs text-gray-200 md:absolute md:top-8 md:left-36">We are chatting</p>
                     <p className="text-sm font-[300] mt-4 md:mt-12 mx-auto md:mx-0 max-w-xs">
                         A free platform for sharing and exploring daily life conversations. Enjoy authentic audio snippets from real
                         people, and if you&apos;d like to support us, donations are always appreciated.

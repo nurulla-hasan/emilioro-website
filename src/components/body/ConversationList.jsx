@@ -43,7 +43,7 @@ const ConversationList = () => {
 
             <div className="flex items-center justify-between mx-auto">
 
-                <h1 className="lg:text-2xl text-lg my-5 font-bold text-[#1C4587]">Discover Conversations</h1>
+                <h1 className="lg:text-2xl text-lg my-5 font-bold text-[#1C4587]">Discover Conversations You’ll Love</h1>
                 <Link href="#" className="text-[#1C4587] text-sm lg:text-lg font-medium">
                     View all
                 </Link>

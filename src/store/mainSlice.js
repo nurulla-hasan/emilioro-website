@@ -4,7 +4,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   isSignUpOpen: false,
-  user: "ami",
+  user: null,
 };
 
 const mainSlice = createSlice({

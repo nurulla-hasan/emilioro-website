@@ -1,12 +1,11 @@
 "use client";
 
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
+import { motion } from "framer-motion"
 import { Suspense, useState } from "react";
 import Image from "next/image";
-import { useForm } from "react-hook-form";
 import { Search, Upload, Send } from 'lucide-react';
 import titleImage from '../../../../public/institute.png'
-import { BsMenuButtonWide } from "react-icons/bs";
 import { AiOutlineDelete } from "react-icons/ai";
 import { RiEditLine } from "react-icons/ri";
 import avatar from '../../../../public/heroImage.png'
@@ -90,10 +89,13 @@ const messages = [
 ];
 
 const categories = [
-    "Sustainable Development & Climate Action",
-    "Sustainable Development & Climate Action",
-    "Sustainable Development & Climate Action",
+    { id: 1, name: "Sustainable Development & Climate Action" },
+    { id: 2, name: "Technology & Innovation" },
+    { id: 3, name: "Health & Well-being" },
+    { id: 4, name: "Education & Research" },
 ];
+
+
 
 // Project data from props
 const projects = [
@@ -212,20 +214,45 @@ const projects = [
 const EcoFriendlyPackage = () => {
     const searchParams = useSearchParams();
     const projectId = searchParams.get("id");
-    // const { register, handleSubmit } = useForm();
-    // const [message, setMessage] = useState("");
     const [selected, setSelected] = useState(null);
     const [createGroupModal, setCreateGroupModal] = useState(false);
-
-
-
     // Find the current project
     const project = projects.find(p => p.id === projectId) || projects[0];
 
-    // const onSubmit = (data) => {
-    //     console.log("Message sent:", data.message);
-    //     // setMessage("");
-    // };
+    const router = useRouter()
+    const handleClick = (index, categoryId) => {
+        setSelected(index);
+        router.push(`/thinktankAcademy/topic/${categoryId}`);
+      };
+      
+
+    const [selectedVote, setSelectedVote] = useState("")
+    const [voted, setVoted] = useState(false)
+    // Initial vote data
+    const [votes, setVotes] = useState({
+        "Innovators Hub": 5,
+        "Change makers": 3,
+        Pioneers: 2,
+    })
+    const totalVotes = Object.values(votes).reduce((a, b) => a + b, 0)
+
+    const handleVote = (name) => {
+        if (!voted) {
+            setSelectedVote(name)
+        }
+    }
+
+    const handleSubmit = () => {
+        if (selectedVote) {
+            // Update votes
+            setVotes((prev) => ({
+                ...prev,
+                [selectedVote]: prev[selectedVote] + 1,
+            }))
+            setVoted(true)
+        }
+    }
+
 
     return (
         <div className="lg:w-2/3 px-5 lg:px-0 mx-auto py-10">
@@ -241,21 +268,21 @@ const EcoFriendlyPackage = () => {
             </div>
 
             {/* Header Section */}
-            <div className="mb-6">
+            <div className="mb-6 px-2">
                 <div className="flex justify-between items-start mb-2">
                     <div className="flex items-center justify-between w-full">
                         <h1 className="text-xl font-semibold text-[#1C4587]">{project.title}</h1>
-                        <BsMenuButtonWide size={20} color="#1C4587" />
+                        <img src="/filter.svg" alt="Filter Icon" className="w-5 h-5 inline-block" />
                     </div>
                 </div>
             </div>
 
-            <p className="text-[10px] text-gray-500">
+            <p className="text-[10px] text-gray-500 px-2">
                 {project.description}
             </p>
 
-            <div className="shadow-md px-2 mt-6 border border-gray-200 rounded-lg">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            <div className="p-2 mt-6 rounded-lg">
+                <div className="grid grid-cols-1 border border-gray-200 rounded-md lg:grid-cols-12 gap-6">
                     {/* Producer Section */}
                     <div className="lg:col-span-3 bg-white rounded-lg">
                         <div className="p-4">
@@ -304,12 +331,12 @@ const EcoFriendlyPackage = () => {
                             <div className="p-2">
                                 {categories.map((category, index) => (
                                     <div
-                                        key={index}
+                                        key={category.id}
                                         className={`flex justify-between items-center px-4 py-3 border border-gray-200 rounded-md mb-2 cursor-pointer transition ${selected === index ? "bg-blue-100 border-blue-300" : "bg-white"
                                             }`}
-                                        onClick={() => setSelected(index)}
+                                        onClick={() => handleClick(index, category.id)}
                                     >
-                                        <span className="text-sm text-gray-800">{category}</span>
+                                        <span className="text-sm text-gray-800">{category.name}</span>
                                         <div className="flex items-center gap-2">
                                             <button className="text-red-500 hover:text-red-600">
                                                 <AiOutlineDelete size={16} />
@@ -321,6 +348,7 @@ const EcoFriendlyPackage = () => {
                                     </div>
                                 ))}
                             </div>
+
                         </div>
                     </div>
 
@@ -363,8 +391,8 @@ const EcoFriendlyPackage = () => {
                     </div>
                 </div>
 
-                {/* Project Discussion */}
-                <div className="mt-6 border-t border-gray-200 mb-10">
+                {/* Mediators */}
+                <div className="mt-6 border-t border-gray-200 mb-10 shadow-[0px_5px_17px_2px_rgba(1,_75,_250,_0.20)] rounded-md">
                     <h2 className="text-[#1C4587] font-semibold ml-8 my-4">Mediators</h2>
                     <div className="bg-white p-4 rounded-lg">
                         <div className="grid grid-cols-4 md:grid-cols-6 gap-4">
@@ -381,6 +409,89 @@ const EcoFriendlyPackage = () => {
                             ))}
                         </div>
                     </div>
+                </div>
+                {/* vote section  */}
+                <div className="flex flex-col lg:flex-row justify-between shadow-[0px_5px_17px_2px_rgba(1,_75,_250,_0.20)] rounded-md p-2">
+                    {/* Main Voting Area */}
+                    <div className="bg-white p-6 rounded-lg">
+                        <h2 className="text-xl font-bold text-[#1C4587]">Vote for the Group Name</h2>
+
+                        {voted && <p className="text-[#1C4587] text-xs mt-1">Remaining time: 1h 10 min</p>}
+
+                        <div className="mt-6 space-y-5">
+                            {Object.keys(votes).map((name) => (
+                                <div key={name} className="space-y-1">
+                                    <label className="flex items-center gap-3 cursor-pointer">
+                                        <div
+                                            className={`w-5 h-5 rounded-full border-2 border-[#1C4587] flex items-center justify-center ${selectedVote === name || (voted && name === "Innovators Hub") ? "bg-[#1C4587]" : "bg-white"
+                                                }`}
+                                            onClick={() => handleVote(name)}
+                                        >
+                                            {(selectedVote === name || (voted && name === "Innovators Hub")) && (
+                                                <div className="w-2 h-2 bg-white rounded-full"></div>
+                                            )}
+                                        </div>
+                                        <span className="text-[#1C4587] text-sm">{name}</span>
+                                    </label>
+
+                                    {voted && (
+                                        <div className="pl-8">
+                                            <div className="w-full h-1.5 bg-gray-200 rounded-full mt-1">
+                                                <div
+                                                    className="h-full bg-[#1C4587] rounded-full"
+                                                    style={{ width: `${(votes[name] / totalVotes) * 100}%` }}
+                                                ></div>
+                                            </div>
+                                            <p className="text-xs text-[#1C4587] mt-1">{`0${votes[name]}`}/10 votes</p>
+                                        </div>
+                                    )}
+                                </div>
+                            ))}
+                        </div>
+
+                        {!voted && (
+                            <button
+                                className="mt-6 bg-[#1C4587] text-white py-2 px-8 rounded-md text-sm hover:bg-[#15366b] transition-colors"
+                                onClick={handleSubmit}
+                                disabled={!selectedVote}
+                            >
+                                Submit
+                            </button>
+                        )}
+                    </div>
+
+                    {/* Vote Count Section - Only visible after voting */}
+                    {voted && (
+                        <motion.div
+                            initial={{ opacity: 0, x: 20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            className="bg-white border border-gray-300 p-6 rounded-lg w-full lg:w-80"
+                        >
+                            <h3 className="text-lg font-bold text-[#1C4587] mb-4">Vote Count</h3>
+
+                            <div className="space-y-6">
+                                {Object.keys(votes).map((name) => (
+                                    <div key={name} className="space-y-1">
+                                        <div className="flex items-center gap-3">
+                                            <div className="w-5 h-5 rounded-full bg-[#1C4587] flex items-center justify-center">
+                                                <div className="w-2 h-2 bg-white rounded-full"></div>
+                                            </div>
+                                            <span className="text-[#1C4587] text-sm">{name}</span>
+                                        </div>
+
+                                        <div className="w-full h-1.5 bg-gray-200 rounded-full mt-2">
+                                            <div
+                                                className="h-full bg-[#1C4587] rounded-full"
+                                                style={{ width: `${(votes[name] / totalVotes) * 100}%` }}
+                                            ></div>
+                                        </div>
+
+                                        <p className="text-xs text-[#1C4587] mt-1">{`0${votes[name]}`}/10 votes</p>
+                                    </div>
+                                ))}
+                            </div>
+                        </motion.div>
+                    )}
                 </div>
             </div>
             {/* Modal */}
