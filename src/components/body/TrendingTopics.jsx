@@ -1,26 +1,24 @@
-import Image from 'next/image';
-import tradingImage from '../../../public/tradingTopics.png'
+
 import Link from 'next/link';
 
-// JSON Data
 const trendingData = [
   {
     id: 1,
     title: "Family Conversation",
     audioCount: "3k+ audio",
-    image: tradingImage,
+    image: "/trading1.png",
   },
   {
     id: 2,
     title: "Friends Conversation",
     audioCount: "3k+ audio",
-    image: tradingImage,
+    image: "/trading2.png",
   },
   {
     id: 3,
     title: "Travel Conversation",
     audioCount: "3k+ audio",
-    image: tradingImage,
+    image: "/trading3.png",
   },
 ];
 
@@ -31,13 +29,13 @@ const TrendingTopics = () => {
       <div className="flex items-center justify-between my-5">
         <h2 className="lg:text-2xl text-lg font-bold text-[#1C4587]">Trending topics
         </h2>
-        <Link href="#" className="text-[#1C4587] text-sm lg:text-lg font-medium">
+        <Link href="/chatting/allTopics" className="text-[#1C4587] text-sm lg:text-md font-medium">
           View all
         </Link>
       </div>
 
       {/* Cards */}
-      <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 lg:justify-between justify-items-center items-center">
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8 lg:justify-between justify-items-center items-center">
         {trendingData.map((item) => (
           <div
             key={item.id}
@@ -46,7 +44,7 @@ const TrendingTopics = () => {
             <div>
               {/* Image */}
               <img
-                src={item.image.src}
+                src={item.image}
                 alt={item.title}
                 className="w-[150px] bg-white object-cover rounded-md"
               />

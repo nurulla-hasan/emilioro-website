@@ -3,7 +3,7 @@ import { AiOutlineDelete } from "react-icons/ai";
 import { BiEditAlt } from "react-icons/bi";
 import { motion } from "framer-motion";
 
-const MyBond = ({ title, bonds, onAddNewBond, onEditBond, onDeleteBond }) => {
+const MyBond = ({ bonds, onAddNewBond, onEditBond, onDeleteBond }) => {
     return (
         <div>
             <h1 className="text-xl text-[#1C4587] font-bold mb-4">My Bond</h1>

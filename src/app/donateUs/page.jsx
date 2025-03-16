@@ -58,7 +58,7 @@ const DonateUs = () => {
                     </p>
 
                     {/* Donation Amount Buttons */}
-                    <div className="flex justify-center lg:gap-6 gap-3 mt-6 ">
+                    <div className="flex flex-wrap justify-center lg:gap-6 gap-3 mt-6 ">
                         {amounts.map((amount) => (
                             <button
                                 key={amount}
@@ -214,8 +214,8 @@ const DonateUs = () => {
                     )}
                 </AnimatePresence>
             </div>
-            <DonateUsFooter></DonateUsFooter>
-            <div className='h-20 bg-black'></div>
+            {/* <DonateUsFooter></DonateUsFooter>
+            <div className='h-20 bg-black'></div> */}
         </div>
     );
 };

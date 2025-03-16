@@ -20,7 +20,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${poppins.variable} antialiased container mx-auto`}
+        className={`${poppins.variable} antialiased container max-w-[96rem] mx-auto`}
       >
         <Providers>
           <Navbar />

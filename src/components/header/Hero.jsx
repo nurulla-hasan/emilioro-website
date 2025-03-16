@@ -53,10 +53,10 @@ const Hero = () => {
     <motion.section
       initial="hidden"
       animate="visible"
-      className="bg-[#1C4587] lg:h-[calc(100vh-72px)] w-full flex flex-col lg:flex-row text-white items-center justify-between text-center px-6 lg:px-56 relative overflow-hidden"
+      className="bg-[#1C4587] lg:h-[calc(100vh-72px)] h-[calc(100vh-62.2px)] flex lg:flex-row flex-col text-white items-center lg:justify-between text-center px-6 lg:px-56 relative overflow-hidden"
     >
       {/* Left Content */}
-      <motion.div variants={fadeInUp} className="text-start flex-1 mt-8 lg:mt-[-100px] z-10">
+      <motion.div variants={fadeInUp} className="lg:text-start flex-1 mt-8 lg:mt-[-100px] z-10">
         <motion.h1 variants={fadeInUp} className="text-[32px] lg:text-5xl lg:w-[350px] font-bold">
           Bankybondy
         </motion.h1>
@@ -77,7 +77,7 @@ const Hero = () => {
       </motion.div>
 
       {/* Image */}
-      <motion.div variants={fadeIn} className="mt-10 relative flex-1 z-10 flex justify-center mb-5 lg:mb-0">
+      <motion.div variants={fadeIn} className="lg:mt-10 relative flex-1 z-10 flex justify-center mb-5 lg:mb-0">
         <motion.div
           variants={scaleIn}
           className="flex justify-center items-center w-48 h-48 lg:w-[420px] lg:h-[420px] rounded-full"

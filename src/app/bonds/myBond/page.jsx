@@ -108,7 +108,7 @@ const MyBondPage = () => {
 
 
     return (
-        <div className="min-h-screen lg:w-2/3 p-5 mx-auto mt-10">
+        <div className="lg:w-2/3 p-5 mx-auto mt-10">
             <div className="flex justify-end">
                 <div className="border border-[#D6D6D6] rounded-lg flex">
                     <select
