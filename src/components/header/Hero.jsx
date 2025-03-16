@@ -53,15 +53,15 @@ const Hero = () => {
     <motion.section
       initial="hidden"
       animate="visible"
-      className="bg-[#1C4587] lg:h-[662px] flex flex-col lg:flex-row text-white items-center justify-between text-center px-6 lg:px-56 relative overflow-hidden"
+      className="bg-[#1C4587] lg:h-[calc(100vh-72px)] w-full flex flex-col lg:flex-row text-white items-center justify-between text-center px-6 lg:px-56 relative overflow-hidden"
     >
       {/* Left Content */}
       <motion.div variants={fadeInUp} className="text-start flex-1 mt-8 lg:mt-[-100px] z-10">
-        <motion.h1 variants={fadeInUp} className="text-[32px] lg:text-[40px] lg:w-[500px] font-bold">
-          We are what we do together
+        <motion.h1 variants={fadeInUp} className="text-[32px] lg:text-5xl lg:w-[350px] font-bold">
+          Bankybondy
         </motion.h1>
         <motion.p variants={fadeInUp} className="text-base lg:text-md text-[#E3E3E3] mt-4 lg:mt-6 font-[300]">
-          We are chatting
+          We are what we do together
         </motion.p>
 
         {/* Signup Button */}

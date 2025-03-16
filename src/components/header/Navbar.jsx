@@ -263,7 +263,6 @@ const Navbar = () => {
         </motion.div>
 
         {/* Desktop Buttons */}
-        {/*If User, Avatar & Dropdown, if no, Login & Sign Up */}
         {user ? (
           <div className="relative">
             <div
@@ -313,6 +312,7 @@ const Navbar = () => {
             >
               Login
             </motion.button>
+            
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
