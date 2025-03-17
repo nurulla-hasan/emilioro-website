@@ -4,7 +4,11 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   isSignUpOpen: false,
-  user: null,
+  user: {
+     name: "Nurulla Hasan",
+     email: "nurullahasan.dev@gmail.com",
+     photo: ""
+  },
 };
 
 const mainSlice = createSlice({

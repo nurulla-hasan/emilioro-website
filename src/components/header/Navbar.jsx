@@ -2,7 +2,7 @@
 import { usePathname } from "next/navigation"
 import Link from "next/link"
 import { useState } from "react"
-import { FiMenu, FiX } from "react-icons/fi"
+import { FiLogOut, FiMenu, FiX } from "react-icons/fi"
 import { motion, AnimatePresence } from "framer-motion"
 import LoginModal from "../authentication/login/LoginModal"
 import SignUpModal from "../authentication/signUp/SignUpModal"
@@ -13,6 +13,9 @@ import ResetPasswordModal from "../authentication/resetPass/ResetPasswordModal"
 import { useDispatch, useSelector } from "react-redux";
 import { setIsSignUpOpen } from "@/store/mainSlice"
 import avatar from '../../../public/heroImage.png'
+import { CgProfile } from "react-icons/cg"
+import { FaRegHeart } from "react-icons/fa6";
+import { MdPlaylistPlay } from "react-icons/md";
 // import Hero from "./Hero"
 
 const Navbar = () => {
@@ -159,7 +162,7 @@ const Navbar = () => {
                       alt="User Avatar"
                       className="w-8 h-8 rounded-full"
                     />
-                    <p className="text-sm font-semibold">{user.name}</p>
+                    {/* <p className="text-sm font-semibold">{user.name}</p> */}
                   </div>
 
                   {/* Dropdown Menu */}
@@ -168,16 +171,22 @@ const Navbar = () => {
                       initial={{ opacity: 0, y: -10 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -10 }}
-                      className="absolute right-0 mt-2 shadow-md rounded-lg overflow-hidden"
+                      className="absolute right-0 mt-2 w-44 bg-white shadow-lg rounded-lg *:rounded-lg border border-gray-300"
                     >
+                      <button className="flex items-center gap-2 w-full px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-100">
+                        <CgProfile size={20} color="#1C4587" className="text-blue-600" /> Profile
+                      </button>
+                      <button className="flex items-center gap-2 w-full px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-100">
+                        <FaRegHeart size={20} color="#1C4587" className="text-gray-700" /> Favorite
+                      </button>
+                      <button className="flex items-center gap-2 w-full px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-100">
+                        <img src="/playlist.svg" alt="" /> Playlist
+                      </button>
                       <button
-                        onClick={() => {
-                          // dispatch(logout());
-                          setIsDropdownOpen(false);
-                        }}
-                        className="block cursor-pointer text-left px-4 py-2 text-sm text-white bg-blue-500"
+                        onClick={() => setIsMobileDropdownOpen(false)}
+                        className="flex items-center gap-2 w-full px-4 py-3 text-sm font-semibold text-red-600 hover:bg-gray-100"
                       >
-                        Logout
+                        <FiLogOut size={20} className="text-black" /> Log out
                       </button>
                     </motion.div>
                   )}
@@ -191,56 +200,56 @@ const Navbar = () => {
 
 
         {/* Mobile Menu Items */}
-        
-          <AnimatePresence>
-              {menuOpen && (
-                <motion.div
-                  initial="hidden"
-                  animate="visible"
-                  exit="exit"
-                  variants={mobileMenuVariants}
-                  className="absolute top-16 left-0 bg-[#1C4587] w-full md:hidden"
-                >
-                    {navLinks.map((link, index) => (
-                      <motion.div key={index} variants={menuItemVariants}>
-                        <Link
-                          href={link.href}
-                          onClick={() => setMenuOpen(false)}
-                          className={`block text-white px-6 py-2 w-56 transition ${pathname === link.href ? "font-semibold" : "font-[300]"
-                            }`}
-                        >
-                          <span className="bg-[#4080c1] px-5 rounded-full">{link.title}</span>
-                        </Link>
-                      </motion.div>
-                    ))}
 
-
-                  {
-                    !user &&
-                    <motion.div onClick={() => setMenuOpen(false)} variants={menuItemVariants} className="ml-6 mt-3 mb-5 space-x-4">
-                      <motion.button
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-
-                        onClick={() => setIsLoginModalOpen(true)}
-                        className="text-white text-[14px] font-semibold border border-white px-6 py-[6px] rounded-md transition cursor-pointer"
-                      >
-                        Login
-                      </motion.button>
-                      <motion.button
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        onClick={() => dispatch(setIsSignUpOpen(true))}
-                        className="text-[14px] font-semibold bg-gradient-to-t from-[#1C4587] to-[#3279EA] border text-white px-6 py-[6px] rounded-md cursor-pointer"
-                      >
-                        Sign Up
-                      </motion.button>
-                    </motion.div>
-                  }
-
+        <AnimatePresence>
+          {menuOpen && (
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              variants={mobileMenuVariants}
+              className="absolute top-16 left-0 bg-[#1C4587] w-full md:hidden"
+            >
+              {navLinks.map((link, index) => (
+                <motion.div key={index} variants={menuItemVariants}>
+                  <Link
+                    href={link.href}
+                    onClick={() => setMenuOpen(false)}
+                    className={`block text-white px-6 py-2 w-56 transition ${pathname === link.href ? "font-semibold" : "font-[300]"
+                      }`}
+                  >
+                    <span className="bg-[#4080c1] px-5 rounded-full">{link.title}</span>
+                  </Link>
                 </motion.div>
-              )}
-          </AnimatePresence>
+              ))}
+
+
+              {
+                !user &&
+                <motion.div onClick={() => setMenuOpen(false)} variants={menuItemVariants} className="ml-6 mt-3 mb-5 space-x-4">
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+
+                    onClick={() => setIsLoginModalOpen(true)}
+                    className="text-white text-[14px] font-semibold border border-white px-6 py-[6px] rounded-md transition cursor-pointer"
+                  >
+                    Login
+                  </motion.button>
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => dispatch(setIsSignUpOpen(true))}
+                    className="text-[14px] font-semibold bg-gradient-to-t from-[#1C4587] to-[#3279EA] border text-white px-6 py-[6px] rounded-md cursor-pointer"
+                  >
+                    Sign Up
+                  </motion.button>
+                </motion.div>
+              }
+
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         {/* Desktop Menu Items */}
         <motion.div
@@ -264,17 +273,18 @@ const Navbar = () => {
 
         {/* Desktop Buttons */}
         {user ? (
-          <div className="relative">
+          <div onClick={() => setIsDropdownOpen(!isDropdownOpen)} className="relative">
             <div
               className="hidden lg:flex items-center space-x-3 cursor-pointer"
-              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+
             >
               <img
                 src={avatar.src || "/default-avatar.png"}
                 alt="User Avatar"
-                className="w-8 h-8 rounded-full"
+                className="w-10 h-10 rounded-full"
               />
-              <p className="text-sm font-semibold">{user.name}</p>
+              {/* <p className="text-sm font-semibold">{user.name}</p> */}
+              <img src="/down.svg" alt="" />
             </div>
 
             {/* Dropdown Menu */}
@@ -283,16 +293,24 @@ const Navbar = () => {
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
-                className="absolute right-0 mt-2 w-40 shadow-md rounded-lg overflow-hidden"
+                className="absolute right-0 mt-2 w-44 bg-white shadow-lg rounded-lg *:rounded-lg border border-gray-300"
               >
+                <button className="flex items-center gap-2 w-full px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-100">
+                  <CgProfile size={20} color="#1C4587" className="text-blue-600" /> Profile
+                </button>
+                <button className="flex items-center gap-2 w-full px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-100">
+                  <FaRegHeart size={20} color="#1C4587" className="text-gray-700" /> Favorite
+                </button>
+                <Link href="/chatting/allPlaylist/myPlaylist">
+                  <button className="flex items-center gap-2 w-full px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-100">
+                    <img src="/playlist.svg" alt="" /> Playlist
+                  </button>
+                </Link>
                 <button
-                  onClick={() => {
-                    // dispatch(logout());
-                    setIsDropdownOpen(false);
-                  }}
-                  className="block w-full text-left px-4 py-2 text-sm text-white bg-blue-500"
+                  onClick={() => setIsDropdownOpen(false)}
+                  className="flex items-center gap-2 w-full px-4 py-3 text-sm font-semibold text-red-600 hover:bg-gray-100"
                 >
-                  Logout
+                  <FiLogOut size={20} className="text-black" /> Log out
                 </button>
               </motion.div>
             )}
@@ -312,7 +330,7 @@ const Navbar = () => {
             >
               Login
             </motion.button>
-            
+
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
