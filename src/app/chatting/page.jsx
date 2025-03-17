@@ -8,8 +8,8 @@ import { CiSearch } from 'react-icons/ci';
 const ChattingPage = () => {
     return (
         <div className='my-10'>
-            <div className="lg:w-3/4 lg:px-5 mx-auto flex flex-col lg:flex-row gap-5 justify-between items-center">
-                <h1 className="text-xl text-[#1C4587] font-bold">We are chatting</h1>
+            <div className="lg:w-4/6 lg:px-5 mx-auto flex flex-col lg:flex-row gap-5 justify-between items-center">
+                <h1 className="text-3xl text-[#1C4587] font-bold">We are chatting</h1>
                 <div className='flex gap-5 items-center justify-center'>
                     <div className="relative lg:w-[250px] w-[150px] border border-[#1C4587] rounded-lg flex items-center px-2">
                         <CiSearch className='cursor-pointer' color='#1C4587' size={15} />

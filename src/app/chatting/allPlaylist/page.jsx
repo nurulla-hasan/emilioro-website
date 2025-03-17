@@ -77,9 +77,9 @@ const AllPlaylist = () => {
     ]
 
     return (
-        <div className='px-5 mx-auto my-10'>
-            <div className="lg:w-3/4 lg:px-5 mx-auto flex flex-col lg:flex-row gap-5 justify-between items-center">
-                <h1 className="text-xl text-[#1C4587] font-bold">All Playlist</h1>
+        <div className='px-5 mx-auto lg:my-20 mt-10 lg:w-4/6'>
+            <div className=" lg:px-5 mx-auto flex flex-col lg:flex-row gap-5 justify-between items-center">
+                <h1 className="text-xl lg:text-3xl text-[#1C4587] font-bold">All Playlist</h1>
                 <div className='flex gap-5 items-center justify-center'>
                     <div className="relative lg:w-[250px] w-[150px] border border-[#1C4587] rounded-lg flex items-center px-2">
                         <CiSearch className='cursor-pointer' color='#1C4587' size={15} />
@@ -102,7 +102,7 @@ const AllPlaylist = () => {
             </div>
 
             {/* Cards */}
-            <div className="mx-auto my-16 lg:w-3/4 w-5/6 lg:px-5 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 lg:justify-between justify-items-center items-center">
+            <div className="mx-auto my-16 lg:px-5 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 lg:justify-between justify-items-center items-center">
                 {conversations.map((conversation, index) => (
                     <div key={conversation.id} className='flex flex-col gap-2'>
                         <div>

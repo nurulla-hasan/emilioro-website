@@ -115,7 +115,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <nav className="bg-[#1C4587] z-50 py-4 px-6 lg:px-56 flex justify-between items-center relative">
+      <nav className="bg-[#1C4587] z-50 py-4 px-6 lg:px-56 flex justify-evenly items-center relative">
 
         {/* Mobile nav */}
         <div className=" flex items-center justify-between w-full lg:w-auto">
@@ -135,10 +135,10 @@ const Navbar = () => {
             className="flex flex-col justify-center"
           >
             <Link href="/">
-              <div className="lg:h-[35px] border-[#FFFFFF] font-bold text-lg flex justify-center items-center gap-2 border-2 rounded-[100%] p-2">
-                <div className="w-[11px] h-[11px] rounded-full bg-[#22B14C]"></div>
-                <div className="w-10 h-[10px] rounded-full bg-[#FFF200]"></div>
-                <div className="w-[11px] h-[11px] rounded-full bg-[#ED1C24]"></div>
+              <div className="lg:h-10 border-[#FFFFFF] font-bold text-lg flex justify-center items-center gap-2 border-2 rounded-[100%] p-2">
+                <div className="lg:w-3 w-2 lg:h-3 h-2 rounded-full bg-[#22B14C]"></div>
+                <div className="lg:w-14 w-8  h-2 rounded-full bg-[#FFF200]"></div>
+                <div className="lg:w-3 w-2 lg:h-3 h-2 rounded-full bg-[#ED1C24]"></div>
               </div>
             </Link>
           </motion.div>
@@ -256,7 +256,7 @@ const Navbar = () => {
                 className={`inline-block  text-white lg:px-3 py-2 transition ${pathname === link.href ? "font-semibold" : "font-[300]"
                   }`}
               >
-                <span className="text-sm">{link.title}</span>
+                <span className="text-md">{link.title}</span>
               </Link>
             </motion.div>
           ))}
@@ -308,7 +308,7 @@ const Navbar = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setIsLoginModalOpen(true)}
-              className="text-white text-[14px] font-semibold border border-white px-6 py-[6px] rounded-md transition cursor-pointer"
+              className="text-white text-lg font-semibold border border-white px-6 py-[6px] rounded-md transition cursor-pointer"
             >
               Login
             </motion.button>
@@ -317,7 +317,7 @@ const Navbar = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => dispatch(setIsSignUpOpen(true))}
-              className="text-[14px] font-semibold bg-gradient-to-t from-[#1C4587] to-[#3279EA] border text-white px-6 py-[6px] rounded-md cursor-pointer"
+              className="text-lg font-semibold bg-gradient-to-t from-[#1C4587] to-[#3279EA] border text-white px-6 py-[6px] rounded-md cursor-pointer"
             >
               Sign Up
             </motion.button>

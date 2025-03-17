@@ -1,5 +1,6 @@
 "use client"
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { CiSearch } from "react-icons/ci";
 
 
@@ -81,9 +82,9 @@ const AllTopics = () => {
     ];
 
     return (
-        <div className='px-5 mx-auto my-10'>
-            <div className="lg:w-3/4 lg:px-5 mx-auto flex flex-col lg:flex-row gap-5 justify-between items-center">
-                <h1 className="text-xl text-[#1C4587] font-bold">Trending topics</h1>
+        <div className='px-5 mx-auto my-20 lg:w-4/6'>
+            <div className=" lg:px-5 mx-auto flex flex-col lg:flex-row gap-5 justify-between items-center">
+                <h1 className="text-xl lg:text-3xl text-[#1C4587] font-bold">Trending topics</h1>
                 <div className='flex gap-5 items-center justify-center'>
                     <div className="relative lg:w-[250px] w-[150px] border border-[#1C4587] rounded-lg flex items-center px-2">
                         <CiSearch className='cursor-pointer' color='#1C4587' size={15} />
@@ -106,11 +107,11 @@ const AllTopics = () => {
             </div>
 
             {/* Cards */}
-            <div className="mx-auto my-16 lg:w-3/4 w-5/6 lg:px-5 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8 lg:justify-between justify-items-center items-center">
+            <div className="mx-auto my-16 lg:px-5 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8 lg:justify-between justify-items-center items-center">
                 {trendingData.map((item) => (
                     <div
                         key={item.id}
-                        className="bg-[#1C4587] w-[340] rounded-sm flex p-2 gap-3 items-center text-white"
+                        className="bg-[#1C4587] w-full rounded-sm flex p-2 gap-3 items-center text-white"
                     >
                         <div>
                             {/* Image */}
@@ -131,9 +132,11 @@ const AllTopics = () => {
 
                             </div>
                             {/* Button */}
-                            <button className="border mt-8 border-white px-3 py-1 rounded-md hover:bg-white hover:text-[#1C4587] text-xs bg-gradient-to-b from-[#1C4587] to-[#3279EA] transition">
-                                Listen Now
-                            </button>
+                            <Link href="/chatting/allTopics/familyConversion/audio">
+                                <button className="border mt-8 border-white px-3 py-1 rounded-md hover:bg-white hover:text-[#1C4587] text-xs bg-gradient-to-b from-[#1C4587] to-[#3279EA] transition">
+                                    Listen Now
+                                </button>
+                            </Link>
                         </div>
                     </div>
                 ))}

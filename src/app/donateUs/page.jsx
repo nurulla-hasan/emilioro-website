@@ -43,7 +43,7 @@ const DonateUs = () => {
 
     return (
         <div>
-            <div className="flex items-center justify-center lg:h-[90vh] bg-[#1C4587] p-6">
+            <div className="flex items-center justify-center h-[calc(100vh-72px)] bg-[#1C4587] p-6">
 
                 <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}

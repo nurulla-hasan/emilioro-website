@@ -73,9 +73,9 @@ const data = [
 
 const MostPlayedSection = () => {
     return (
-        <div className="mx-auto my-16 lg:w-3/4 lg:px-5 relative">
+        <div className="mx-auto my-8 lg:my-16 lg:w-4/6 lg:px-5 relative">
             <div className="flex items-center justify-center lg:justify-start mx-auto">
-                <h1 className="text-2xl my-5 font-bold text-blue-900">Most played in this week</h1>
+                <h1 className="lg:text-2xl text-xl my-5 font-bold text-blue-900">Most played in this week</h1>
             </div>
 
             <Swiper
@@ -97,8 +97,8 @@ const MostPlayedSection = () => {
             >
                 {data.map((item) => (
                     <SwiperSlide key={item.id}>
-                        <div className="relative flex-shrink-0 mx-auto w-96
-                         lg:w-64 rounded-lg group">
+                        <div className="relative flex-shrink-0 mx-auto w-full lg:px-0 px-5
+                         lg:w-72 rounded-lg group">
                             {/* Image Container */}
                             <div className="relative h-40 overflow-hidden rounded-xl">
                                 <img

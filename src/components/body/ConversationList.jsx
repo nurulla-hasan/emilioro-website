@@ -37,11 +37,11 @@ const ConversationList = () => {
 
     return (
 
-        <div className="mx-auto my-16 lg:w-3/4 w-5/6 lg:px-5">
+        <div className="mx-auto my-16 lg:w-4/6 w-5/6 lg:px-5">
 
             <div className="flex items-center justify-between mx-auto">
 
-                <h1 className="lg:text-2xl text-lg my-5 font-bold text-[#1C4587]">Discover Conversations You’ll Love</h1>
+                <h1 className="lg:text-2xl w-60 lg:w-[500px] text-lg my-5 font-bold text-[#1C4587]">Discover Conversations You’ll Love</h1>
                 <Link href="/chatting/allPlaylist" className="text-[#1C4587] text-sm lg:text-md font-medium">
                     View all
                 </Link>

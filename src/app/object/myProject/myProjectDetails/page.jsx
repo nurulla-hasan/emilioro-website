@@ -158,7 +158,7 @@ const ProjectContent = () => {
                 </div>
 
 
-                <div className="h-[40vh] overflow-scroll hide-scrollbar">
+                <div className="lg:h-[50vh] h-[42vh] overflow-scroll hide-scrollbar">
                     <div className='flex justify-between items-center mt-2'>
                         <div className='flex gap-2 items-center'>
                             <img className='rounded-full w-[30px] h-[30px]' src={project.image.src} alt="image" />

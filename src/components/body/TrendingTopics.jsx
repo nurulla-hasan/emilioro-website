@@ -24,7 +24,7 @@ const trendingData = [
 
 const TrendingTopics = () => {
   return (
-    <section className="mx-auto my-16 lg:w-3/4 w-5/6 lg:px-5">
+    <section className="mx-auto my-16 lg:w-4/6 w-5/6 lg:px-5">
       {/* Header */}
       <div className="flex items-center justify-between my-5">
         <h2 className="lg:text-2xl text-lg font-bold text-[#1C4587]">Trending topics
@@ -35,11 +35,11 @@ const TrendingTopics = () => {
       </div>
 
       {/* Cards */}
-      <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8 lg:justify-between justify-items-center items-center">
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 lg:justify-between justify-items-center items-center">
         {trendingData.map((item) => (
           <div
             key={item.id}
-            className="bg-[#1C4587] w-[340] rounded-sm flex p-2 gap-3 items-center text-white"
+            className="bg-[#1C4587] w-full rounded-sm flex p-2 gap-3 items-center text-white"
           >
             <div>
               {/* Image */}
@@ -60,9 +60,11 @@ const TrendingTopics = () => {
 
               </div>
               {/* Button */}
-              <button className="border mt-8 border-white px-3 py-1 rounded-md hover:bg-white hover:text-[#1C4587] text-xs bg-gradient-to-b from-[#1C4587] to-[#3279EA] transition">
-                Listen Now
-              </button>
+              <Link href="/chatting/allTopics/familyConversion/audio">
+                <button className="border mt-8 border-white px-3 py-1 rounded-md hover:bg-white hover:text-[#1C4587] text-xs bg-gradient-to-b from-[#1C4587] to-[#3279EA] transition">
+                  Listen Now
+                </button>
+              </Link>
             </div>
           </div>
         ))}
