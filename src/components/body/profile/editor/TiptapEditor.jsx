@@ -144,7 +144,7 @@ const TiptapEditor = ({ initialContent = "<p>Start writing your story...</p>" })
       {/* Editor Content */}
       <EditorContent
         editor={editor}
-        className="min-h-[295px] w-full outline-none border-none h-full prose prose-sm max-w-none"
+        className="min-h-[280px] w-full outline-none border-none"
       />
 
       {/* Button */}
