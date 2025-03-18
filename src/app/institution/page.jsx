@@ -15,7 +15,7 @@ const InstitutionPage = () => {
             initial={{ opacity: 0 }} 
             animate={{ opacity: 1 }} 
             transition={{ duration: 0.5 }}
-            className='lg:w-2/3 mx-auto my-10'
+            className='xl:w-6/9 lg:w-5/6 px-5 mx-auto my-10'
         >
             <div className="flex flex-col lg:flex-row gap-5 justify-between items-center">
                 <h1 className="text-xl text-[#1C4587] font-bold">Institute</h1>

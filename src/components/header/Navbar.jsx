@@ -15,14 +15,11 @@ import { setIsSignUpOpen } from "@/store/mainSlice"
 import avatar from '../../../public/heroImage.png'
 import { CgProfile } from "react-icons/cg"
 import { FaRegHeart } from "react-icons/fa6";
-import { MdPlaylistPlay } from "react-icons/md";
-// import Hero from "./Hero"
 
 const Navbar = () => {
   const pathname = usePathname()
   const [menuOpen, setMenuOpen] = useState(false)
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
-  // const [isSignUpOpen, setIsSignUpOpen] = useState(false);
   const [isForgotPassModalOpen, setIsForgotPassModalOpen] = useState(false);
   const [isVerifyModalOpen, setIsVerifyModalOpen] = useState(false);
   const [isResetModalOpen, setIsResetModalOpen] = useState(false);
@@ -117,8 +114,8 @@ const Navbar = () => {
   }
 
   return (
-    <div>
-      <nav className="bg-[#1C4587] z-50 py-4 px-6 lg:px-56 flex justify-evenly items-center relative">
+    <div className="bg-[#1C4587]">
+      <nav className="z-50 py-4 lg:w-5/6 xl:w-7/9 mx-auto  flex justify-evenly items-center relative">
 
         {/* Mobile nav */}
         <div className=" flex items-center justify-between w-full lg:w-auto">
@@ -171,17 +168,24 @@ const Navbar = () => {
                       initial={{ opacity: 0, y: -10 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -10 }}
+                      onClick={() => setIsMobileDropdownOpen(false)}
                       className="absolute right-0 mt-2 w-44 bg-white shadow-lg rounded-lg *:rounded-lg border border-gray-300"
                     >
-                      <button className="flex items-center gap-2 w-full px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-100">
-                        <CgProfile size={20} color="#1C4587" className="text-blue-600" /> Profile
-                      </button>
-                      <button className="flex items-center gap-2 w-full px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-100">
-                        <FaRegHeart size={20} color="#1C4587" className="text-gray-700" /> Favorite
-                      </button>
-                      <button className="flex items-center gap-2 w-full px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-100">
-                        <img src="/playlist.svg" alt="" /> Playlist
-                      </button>
+                      <Link href='/profile'>
+                        <button className="flex items-center gap-2 w-full px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-100">
+                          <CgProfile size={20} color="#1C4587" className="text-blue-600" /> Profile
+                        </button>
+                      </Link>
+                      <Link href="/favorite">
+                        <button className="flex items-center gap-2 w-full px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-100">
+                          <FaRegHeart size={20} color="#1C4587" className="text-gray-700" /> Favorite
+                        </button>
+                      </Link>
+                      <Link href="/chatting/allPlaylist/myPlaylist">
+                        <button className="flex items-center gap-2 w-full px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-100">
+                          <img src="/playlist.svg" alt="" /> Playlist
+                        </button>
+                      </Link>
                       <button
                         onClick={() => setIsMobileDropdownOpen(false)}
                         className="flex items-center gap-2 w-full px-4 py-3 text-sm font-semibold text-red-600 hover:bg-gray-100"
@@ -265,7 +269,7 @@ const Navbar = () => {
                 className={`inline-block  text-white lg:px-3 py-2 transition ${pathname === link.href ? "font-semibold" : "font-[300]"
                   }`}
               >
-                <span className="text-md">{link.title}</span>
+                <span className="text-lg">{link.title}</span>
               </Link>
             </motion.div>
           ))}
@@ -295,12 +299,16 @@ const Navbar = () => {
                 exit={{ opacity: 0, y: -10 }}
                 className="absolute right-0 mt-2 w-44 bg-white shadow-lg rounded-lg *:rounded-lg border border-gray-300"
               >
-                <button className="flex items-center gap-2 w-full px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-100">
-                  <CgProfile size={20} color="#1C4587" className="text-blue-600" /> Profile
-                </button>
-                <button className="flex items-center gap-2 w-full px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-100">
-                  <FaRegHeart size={20} color="#1C4587" className="text-gray-700" /> Favorite
-                </button>
+                <Link href='/profile'>
+                  <button className="flex items-center gap-2 w-full px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-100">
+                    <CgProfile size={20} color="#1C4587" className="text-blue-600" /> Profile
+                  </button>
+                </Link>
+                <Link href="/favorite">
+                  <button className="flex items-center gap-2 w-full px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-100">
+                    <FaRegHeart size={20} color="#1C4587" className="text-gray-700" /> Favorite
+                  </button>
+                </Link>
                 <Link href="/chatting/allPlaylist/myPlaylist">
                   <button className="flex items-center gap-2 w-full px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-100">
                     <img src="/playlist.svg" alt="" /> Playlist

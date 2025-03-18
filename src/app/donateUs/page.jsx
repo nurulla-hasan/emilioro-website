@@ -42,7 +42,7 @@ const DonateUs = () => {
     };
 
     return (
-        <div>
+        <div className=''>
             <div className="flex items-center justify-center h-[calc(100vh-72px)] bg-[#1C4587] p-6">
 
                 <motion.div

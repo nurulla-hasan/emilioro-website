@@ -32,7 +32,7 @@ const ObjectPage = () => {
     return (
         <div>
             <motion.div
-                className='min-h-screen lg:w-2/3 mx-auto mt-10 mb-20'
+                className='min-h-screen xl:w-6/9 lg:w-5/6 px-5 mx-auto mt-10 mb-20'
                 initial="initial"
                 animate="in"
                 exit="out"

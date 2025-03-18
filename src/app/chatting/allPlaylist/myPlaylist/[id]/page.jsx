@@ -1,5 +1,5 @@
 "use client";
-
+import { motion } from 'framer-motion';
 import { useParams } from "next/navigation";
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
@@ -8,6 +8,8 @@ import { AiFillEye, AiFillStar } from "react-icons/ai";
 import { CiHeart } from "react-icons/ci";
 import { FaPause, FaPlay, FaTrashAlt } from "react-icons/fa";
 import { IoTimeOutline } from "react-icons/io5";
+import { PiTrash } from "react-icons/pi";
+
 
 const PlaylistDetails = () => {
     const { id } = useParams();
@@ -16,97 +18,97 @@ const PlaylistDetails = () => {
 
     const detailedConversations = [
         {
-          id: 1,
-          title: "Family Conversation",
-          image: "/conversion1.png",
-          duration: "1 hr 23m",
-          type: "10+ audio",
-          lastUpdated: "Jan 18",
-          creator: {
-            name: "Emili Roo",
-            role: "creator",
-            avatar: "/heroImage.png",
-          },
-          audios: [
-            {
-              id: 1,
-              title: "Family Conversation",
-              image: "/conversion1.png",
-              duration: "02:20min",
-              views: "3.5k",
-              rating: 5,
-              tags: ["Family", "Travel"],
-              audioUrl: "/audio.mp3",
-              description:
-                "Lorem ipsum dolor sit amet consectetur. Elementum maecenas adipiscing tempus quis aliquam et odio eget.",
+            id: 1,
+            title: "Family Conversation",
+            image: "/conversion1.png",
+            duration: "1 hr 23m",
+            type: "10+ audio",
+            lastUpdated: "Jan 18",
+            creator: {
+                name: "Emili Roo",
+                role: "creator",
+                avatar: "/heroImage.png",
             },
-            {
-              id: 2,
-              title: "Family Conversation",
-              image: "/conversion2.png",
-              duration: "02:20min",
-              views: "3.5k",
-              rating: 5,
-              tags: ["Family", "Travel"],
-              audioUrl: "/audio.mp3",
-              description:
-                "Lorem ipsum dolor sit amet consectetur. Elementum maecenas adipiscing tempus quis aliquam et odio eget.",
-            },
-            {
-              id: 3,
-              title: "Family Conversation",
-              image: "/conversion3.png",
-              duration: "02:20min",
-              views: "3.5k",
-              rating: 5,
-              tags: ["Family", "Travel"],
-              audioUrl: "/audio.mp3",
-              description:
-                "Lorem ipsum dolor sit amet consectetur. Elementum maecenas adipiscing tempus quis aliquam et odio eget.",
-            },
-            {
-              id: 4,
-              title: "Family Conversation",
-              image: "/conversion3.png",
-              duration: "02:20min",
-              views: "3.5k",
-              rating: 5,
-              tags: ["Family", "Travel"],
-              audioUrl: "/audio.mp3",
-              description:
-                "Lorem ipsum dolor sit amet consectetur. Elementum maecenas adipiscing tempus quis aliquam et odio eget.",
-            },
-          ],
+            audios: [
+                {
+                    id: 1,
+                    title: "Family Conversation",
+                    image: "/conversion1.png",
+                    duration: "02:20min",
+                    views: "3.5k",
+                    rating: 5,
+                    tags: ["Family", "Travel"],
+                    audioUrl: "/audio.mp3",
+                    description:
+                        "Lorem ipsum dolor sit amet consectetur. Elementum maecenas adipiscing tempus quis aliquam et odio eget.",
+                },
+                {
+                    id: 2,
+                    title: "Family Conversation",
+                    image: "/conversion2.png",
+                    duration: "02:20min",
+                    views: "3.5k",
+                    rating: 5,
+                    tags: ["Family", "Travel"],
+                    audioUrl: "/audio.mp3",
+                    description:
+                        "Lorem ipsum dolor sit amet consectetur. Elementum maecenas adipiscing tempus quis aliquam et odio eget.",
+                },
+                {
+                    id: 3,
+                    title: "Family Conversation",
+                    image: "/conversion3.png",
+                    duration: "02:20min",
+                    views: "3.5k",
+                    rating: 5,
+                    tags: ["Family", "Travel"],
+                    audioUrl: "/audio.mp3",
+                    description:
+                        "Lorem ipsum dolor sit amet consectetur. Elementum maecenas adipiscing tempus quis aliquam et odio eget.",
+                },
+                {
+                    id: 4,
+                    title: "Family Conversation",
+                    image: "/conversion3.png",
+                    duration: "02:20min",
+                    views: "3.5k",
+                    rating: 5,
+                    tags: ["Family", "Travel"],
+                    audioUrl: "/audio.mp3",
+                    description:
+                        "Lorem ipsum dolor sit amet consectetur. Elementum maecenas adipiscing tempus quis aliquam et odio eget.",
+                },
+            ],
         },
         {
-          id: 2,
-          title: "Family Conversation",
-          image: "/conversion2.png",
-          duration: "1 hr 23m",
-          type: "10+ audio",
-          lastUpdated: "Jan 18",
-          creator: {
-            name: "Emili Roo",
-            role: "creator",
-            avatar: "/heroImage.png",
-          },
-          audios: [
-            {
-              id: 5,
-              title: "Family Conversation",
-              image: "/conversion2.png",
-              duration: "02:20min",
-              views: "3.5k",
-              rating: 5,
-              tags: ["Family", "Travel"],
-              audioUrl: "/audio.mp3",
-              description:
-                "Lorem ipsum dolor sit amet consectetur. Elementum maecenas adipiscing tempus quis aliquam et odio eget.",
+            id: 2,
+            title: "Family Conversation",
+            image: "/conversion2.png",
+            duration: "1 hr 23m",
+            type: "10+ audio",
+            lastUpdated: "Jan 18",
+            creator: {
+                name: "Emili Roo",
+                role: "creator",
+                avatar: "/heroImage.png",
             },
-          ],
+            audios: [
+                {
+                    id: 5,
+                    title: "Family Conversation",
+                    image: "/conversion2.png",
+                    duration: "02:20min",
+                    views: "3.5k",
+                    rating: 5,
+                    tags: ["Family", "Travel"],
+                    audioUrl: "/audio.mp3",
+                    description:
+                        "Lorem ipsum dolor sit amet consectetur. Elementum maecenas adipiscing tempus quis aliquam et odio eget.",
+                },
+            ],
         },
-      ];
-      
+    ];
+
 
     const conversation = detailedConversations.find((conv) => conv.id === parseInt(id));
 
@@ -148,7 +150,30 @@ const PlaylistDetails = () => {
     };
 
     return (
-        <div className="lg:w-4/6 mx-auto py-10 lg:py-20 px-5">
+        <div className="lg:w-4/6 mx-auto py-5 xl:py-10 px-5">
+
+            <div className='flex gap-5 items-center justify-end mb-8'>
+                
+                <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.99 }}
+                    className="text-blue-500 font-semibold cursor-pointer"
+                >
+                    <button className="cursor-pointer bg-white border border-[#193f7c] text-[#193f7c] px-5 lg:py-[10px] py-[9px] rounded-lg font-semibold text-xs lg:text-[15px] flex items-center gap-1">
+                    <PiTrash color='#ef2a2a' size={17}/><span>Delete Playlist</span>
+                    </button>
+                </motion.div>
+                <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.99 }}
+                    className="text-blue-500 font-semibold cursor-pointer"
+                >
+                    <button className="cursor-pointer bg-gradient-to-b from-[#193f7c] to-[#2965c4] text-white px-5 lg:py-[10px] py-[9px] rounded-lg font-semibold text-xs lg:text-[15px]">
+                    <span>Edit Playlist</span>
+                    </button>
+                </motion.div>
+            </div>
+
             {/* Cover Image */}
             <div className="w-full h-48 bg-cover bg-center rounded-lg" style={{ backgroundImage: `url(${conversation.image})` }}></div>
 

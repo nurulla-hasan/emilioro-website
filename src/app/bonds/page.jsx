@@ -18,7 +18,7 @@ const Page = () => {
     const [toggle, setToggle] = useState(false);
 
     return (
-        <div className=" w-full md:w-2/3 mx-auto mt-10 px-4">
+        <div className=" w-full xl:w-6/9 lg:w-5/6 px-5 mx-auto mt-10">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
                 <h1 className="text-lg md:text-xl text-[#1C4587] font-bold mb-4 md:mb-0 text-center md:text-start">
                     Exchange Services & Goods
