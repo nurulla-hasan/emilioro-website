@@ -13,7 +13,7 @@ const Favorite = () => {
 
                 {/* Dropdown */}
                 <select
-                    className="border border-blue-500 px-4 py-1 rounded-md"
+                    className="border text-[#595D62] outline-none border-[#1C4587] px-4 py-1 rounded-md"
                     value={selectedOption}
                     onChange={(e) => setSelectedOption(e.target.value)}
                 >

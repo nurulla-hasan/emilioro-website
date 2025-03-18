@@ -115,7 +115,7 @@ const Navbar = () => {
 
   return (
     <div className="bg-[#1C4587]">
-      <nav className="z-50 py-4 lg:w-5/6 xl:w-7/9 mx-auto  flex justify-evenly items-center relative">
+      <nav className="z-50 py-4 px-5 lg:px-0 lg:w-5/6 xl:w-7/9 mx-auto flex justify-evenly items-center relative">
 
         {/* Mobile nav */}
         <div className=" flex items-center justify-between w-full lg:w-auto">
@@ -172,7 +172,7 @@ const Navbar = () => {
                       className="absolute right-0 mt-2 w-44 bg-white shadow-lg rounded-lg *:rounded-lg border border-gray-300"
                     >
                       <Link href='/profile'>
-                        <button className="flex items-center gap-2 w-full px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-100">
+                        <button className="flex items-center gap-2 w-full px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-100  hover:rounded-lg">
                           <CgProfile size={20} color="#1C4587" className="text-blue-600" /> Profile
                         </button>
                       </Link>
@@ -300,7 +300,7 @@ const Navbar = () => {
                 className="absolute right-0 mt-2 w-44 bg-white shadow-lg rounded-lg *:rounded-lg border border-gray-300"
               >
                 <Link href='/profile'>
-                  <button className="flex items-center gap-2 w-full px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-100">
+                  <button className="flex items-center gap-2 w-full px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-100 hover:rounded-lg">
                     <CgProfile size={20} color="#1C4587" className="text-blue-600" /> Profile
                   </button>
                 </Link>
