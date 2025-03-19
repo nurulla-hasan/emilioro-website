@@ -1,6 +1,4 @@
 "use client";
-import { AiOutlineDelete } from "react-icons/ai";
-import { BiEditAlt } from "react-icons/bi";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { motion } from "framer-motion";
@@ -65,7 +63,7 @@ const MyBondPage = () => {
             case "My Bond":
                 return (
                     <MyBond
-                        title="My Bond"
+                        // title="My Bond"
                         bonds={bonds}
                         onAddNewBond={() => setIsModalOpen(true)}
                         onEditBond={handleEditClick}
@@ -108,7 +106,7 @@ const MyBondPage = () => {
 
 
     return (
-        <div className="lg:w-2/3 p-5 mx-auto mt-10">
+        <div className="xl:w-6/9 lg:w-5/6 p-5 mx-auto mt-10">
             <div className="flex justify-end">
                 <div className="border border-[#D6D6D6] rounded-lg flex">
                     <select
@@ -135,19 +133,25 @@ const MyBondPage = () => {
             {/* Modal for Add Bond */}
             {isModalOpen && (
                 <motion.div
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.8 }}
-                    className="fixed inset-0 bg-black/25 flex justify-center items-center"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                    className="fixed inset-0 bg-black/40 flex justify-center items-start z-50 overflow-y-auto py-4"
                 >
-                    <div className="bg-white p-6 rounded-sm shadow-lg lg:w-1/3">
+                    <motion.div
+                        initial={{ scale: 0.95, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        exit={{ scale: 0.95, opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="bg-white p-6 rounded-lg shadow-lg w-5/6 md:w-1/4 my-auto mx-4"
+                    >
                         <div className="flex justify-between items-center mb-4">
                             <h2 className="text-sm font-semibold">Create new Bond</h2>
-                            <IoClose
-                                color="#fff"
-                                className="text-xl rounded-full bg-blue-800 cursor-pointer"
-                                onClick={() => setIsModalOpen(false)}
-                            />
+                            <div className="text-xl rounded-full bg-[#1C4587] text-white cursor-pointer">
+                                <img onClick={() => setIsModalOpen(false)} src="/x.svg" alt="" />
+                            </div>
+
                         </div>
 
                         <form onSubmit={handleSubmit(onSubmit)}>
@@ -155,17 +159,16 @@ const MyBondPage = () => {
                             <input
                                 {...register("offer", { required: true })}
                                 placeholder="Type here"
-                                className="w-full p-2 border border-gray-300 rounded-sm mb-3"
+                                className="w-full p-2 border border-gray-300 rounded-md mb-3"
                             />
 
                             {/* Display Tags */}
                             <div className="flex flex-col gap-2 mb-3">
                                 {tags.map((tag, index) => (
-                                    <div key={index} className="border border-gray-300 w-full px-2 py-1 rounded-sm text-sm flex items-center justify-between">
+                                    <div key={index} className="border border-gray-300 w-full px-2 py-1 rounded-md text-sm flex items-center justify-between">
                                         {tag}
                                         <IoClose
-                                            color="#f71919"
-                                            className="ml-1 cursor-pointer"
+                                            className="ml-1 text-red-500 cursor-pointer"
                                             onClick={() => removeTag(tag)}
                                         />
                                     </div>
@@ -183,84 +186,114 @@ const MyBondPage = () => {
                                         input.value = "";
                                     }
                                 }}
-                                className="border w-full border-gray-300 text-gray-500 px-3 py-1 rounded-sm text-sm mb-3"
+                                className="border w-full border-gray-300 text-gray-500 px-3 py-1 rounded-md text-sm mb-3"
                             >
-                                +Add more
+                                + Add more
                             </button>
 
                             {/* Submit Button */}
-                            <button type="submit" className="w-full bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white p-2 rounded-md">
+                            <button type="submit" className="w-full bg-gradient-to-b from-[#164083] to-[#1f5fc8] text-white p-2 rounded-md">
                                 Submit
                             </button>
                         </form>
-                    </div>
+                    </motion.div>
                 </motion.div>
             )}
+
 
             {/* Modal for Edit Bond */}
             {isEditModalOpen && currentBond && (
                 <motion.div
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.8 }}
-                    className="fixed inset-0 bg-black/30 flex justify-center items-center"
+                    className="fixed inset-0 bg-black/40 flex justify-center items-start z-50 overflow-y-auto py-4"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
                 >
-                    <div className="bg-white p-6 rounded-sm shadow-lg lg:w-2/5">
-                        <div className="flex justify-between items-center mb-4">
-                            <h2 className="text-sm font-semibold">Edit Bond</h2>
-                            <IoClose
-                                color="#fff"
-                                className="text-xl rounded-full bg-[#1C4587] cursor-pointer"
+                    <motion.div
+                        className="bg-white w-full max-w-lg rounded-lg shadow-lg overflow-hidden my-auto mx-4"
+                        initial={{ scale: 0.95, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        exit={{ scale: 0.95, opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                    >
+                        <div className="relative p-6">
+                            {/* Close Button */}
+                            <button
                                 onClick={() => setIsEditModalOpen(false)}
-                            />
-                        </div>
-
-                        <form onSubmit={(e) => {
-                            e.preventDefault();
-                            handleEditConfirm(e.target.title.value);
-                        }}>
-                            <h1 className="text-sm mb-2 font-semibold">What do you need ?</h1>
-                            <input
-                                defaultValue={currentBond.title}
-                                name="title"
-                                className="w-full p-2 border border-gray-300 rounded-sm mb-3"
-                            />
-                            <button type="submit" className="mt-5 px-8 py-2 bg-gradient-to-b bg-[#1C4587] to-[#3279EA] text-white p-2 rounded-md">
-                                Sabmit
+                                className="absolute top-6 right-6 bg-[#1C4587] rounded-full text-white hover:text-gray-700"
+                                aria-label="Close"
+                            >
+                                <img src="/x.svg" alt="Close" />
                             </button>
-                        </form>
-                    </div>
+
+                            {/* Title */}
+                            <h2 className="text-sm font-semibold mb-5">Edit Bond</h2>
+
+                            {/* Form */}
+                            <form className="" onSubmit={(e) => {
+                                e.preventDefault();
+                                handleEditConfirm(e.target.title.value);
+                            }}>
+                                <h1 className="text-sm mb-2 font-semibold">What do you need?</h1>
+                                <input
+                                    defaultValue={currentBond.title}
+                                    name="title"
+                                    className="w-full p-2 border border-gray-300 rounded-sm mb-5"
+                                />
+
+                                {/* Submit Button */}
+                                <button type="submit" className=" px-4 py-2 bg-[#1C4587] text-white font-medium rounded-lg transition">
+                                    Submit
+                                </button>
+                            </form>
+                        </div>
+                    </motion.div>
                 </motion.div>
             )}
 
             {/* Modal for Delete Bond */}
             {isDeleteModalOpen && currentBond && (
                 <motion.div
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.8 }}
-                    className="fixed inset-0 bg-black/30 flex justify-center items-center"
+                    className="fixed inset-0 bg-black/40 flex justify-center items-start z-50 overflow-y-auto py-4"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
                 >
+                    <motion.div
+                        className="bg-white w-full max-w-sm rounded-lg shadow-lg overflow-hidden my-auto mx-4 text-center p-6 relative"
+                        initial={{ scale: 0.95, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        exit={{ scale: 0.95, opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                    >
+                        {/* Close Button */}
+                        <button
+                            onClick={() => setIsDeleteModalOpen(false)}
+                            className="absolute top-2 right-2 bg-[#1C4587] text-white rounded-full"
+                            aria-label="Close"
+                        >
+                            <img src="/x.svg" alt="" />
+                        </button>
 
-                    <div className="bg-white text-center p-6 space-y-2 rounded-sm shadow-lg lg:w-1/5 relative">
-                        <h2 className="text-sm text-[#1C4587] font-semibold">Are you sure !!</h2>
-                        <h2 className="text-xs text-[#1C4587] font-normal">Do you want to  delete this content ?</h2>
-                        <div className="mt-10">
+                        {/* Modal Content */}
+                        <h2 className="text-sm text-[#1C4587] font-semibold">Are you sure?</h2>
+                        <p className="text-xs text-[#1C4587] font-normal mt-1">
+                            Do you want to delete this content?
+                        </p>
+
+                        {/* Buttons */}
+                        <div className="mt-6 flex justify-center gap-3">
                             <button
                                 onClick={handleDeleteConfirm}
-                                className=" bg-[#1C4587] text-white px-6 py-2 rounded-md"
+                                className="bg-[#1C4587] text-white px-5 py-2 rounded-md"
                             >
                                 Delete
                             </button>
-                            <IoClose
-                                color="#fff"
-                                className="text-xl absolute top-2 right-2 rounded-full bg-[#1C4587] cursor-pointer"
-                                onClick={() => setIsDeleteModalOpen(false)}
-                            />
                         </div>
-                    </div>
+                    </motion.div>
                 </motion.div>
             )}
+
         </div>
     )
 };

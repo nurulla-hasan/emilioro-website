@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 const DonateUsFooter = () => {
     return (
-        <footer className="bg-[#1a4585] text-white py-6 px-4 md:px-8">
+        <footer className="bg-[#1a4585] text-white">
             <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 justify-center justify-items-center text-center md:text-left">
                 {/* Logo and Description */}
                 <div className="space-y-4 relative">
