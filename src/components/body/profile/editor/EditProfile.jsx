@@ -2,26 +2,34 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { motion } from "framer-motion";
+import SelectSkillsModal from "../modal/SelectSkillsModal";
 
 const EditProfile = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
-    const [skills, setSkills] = useState(["Artist", "Engineer", "Actor"]);
-    const [newSkill, setNewSkill] = useState("");
+    const { register, handleSubmit, setValue, formState: { errors } } = useForm();
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [selectedSkills, setSelectedSkills] = useState([]);
 
-    const addSkill = () => {
-        if (newSkill && skills.length < 3) {
-            setSkills([...skills, newSkill]);
-            setNewSkill("");
+    const skillsOptions = ["Artist", "Engineer", "Actor", "Musician", "Doctor", "Teacher"];
+
+    const handleSaveSkill = (skill) => {
+        if (!selectedSkills.includes(skill)) {
+            const updatedSkills = [...selectedSkills, skill];
+            setSelectedSkills(updatedSkills);
+            setValue("skills", updatedSkills);
         }
+        setIsModalOpen(false);
     };
 
     const removeSkill = (skill) => {
-        setSkills(skills.filter((s) => s !== skill));
+        const updatedSkills = selectedSkills.filter((s) => s !== skill);
+        setSelectedSkills(updatedSkills);
+        setValue("skills", updatedSkills);
     };
 
     const onSubmit = (data) => {
         console.log("Form Data:", data);
     };
+
 
     return (
         <motion.div
@@ -46,46 +54,46 @@ const EditProfile = () => {
                     </div>
 
                     {/* Skills */}
-                    <div>
-                        <div className="flex justify-between items-center mb-2">
-                            <label className="block font-semibold text-sm">Skills</label>
+                    <div className="">
+                        <div className="flex justify-between items-center">
+                            <label className="block font-semibold text-sm mb-2">Skills</label>
                             <button
                                 type="button"
-                                onClick={addSkill}
-                                className="bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white text-xs px-5 py-2 rounded-xl "
+                                onClick={() => setIsModalOpen(true)}
+                                className="bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white text-xs px-5 py-2 rounded-lg"
                             >
-                                +Add Skill
+                                + Add Skill
                             </button>
                         </div>
-                        <div className="flex items-center w-full">
-                            <input
-                                value={newSkill}
-                                onChange={(e) => setNewSkill(e.target.value)}
-                                className="border border-[#1C4587] w-full rounded-lg p-2"
-                                placeholder="Add a skill"
-                            />
 
-                        </div>
-                        <div className="mt-2 flex gap-2 flex-wrap">
-                            {skills.map((skill, index) => (
-                                <motion.div
-                                    key={index}
-                                    initial={{ scale: 0 }}
-                                    animate={{ scale: 1 }}
-                                    exit={{ scale: 0 }}
-                                    className="bg-gray-200 text-sm text-[#1C4587] px-3 py-1 rounded-sm flex items-center gap-2"
-                                >
-                                    {skill}
-                                    <button
-                                        type="button"
-                                        onClick={() => removeSkill(skill)}
-                                        className="cursor-pointer text-red-500 text-sm font-bold"
+                        {/* Hidden Input for Skills */}
+                        <input type="hidden" {...register("skills", { required: "At least one skill is required" })} />
+
+                        {/* Selected Skills */}
+                        <div className="mt-2 flex flex-col gap-5 py-3 px-5 w-full border  border-[#1C4587] rounded-lg">
+                            <div className="flex gap-3">
+                                {selectedSkills.map((skill, index) => (
+                                    <motion.div
+                                        key={index}
+                                        initial={{ scale: 0 }}
+                                        animate={{ scale: 1 }}
+                                        exit={{ scale: 0 }}
+                                        className="bg-gray-200 text-sm text-[#1C4587] px-3 py-1 rounded-sm flex items-center gap-2"
                                     >
-                                        -
-                                    </button>
-                                </motion.div>
-                            ))}
+                                        {skill}
+                                        <button
+                                            type="button"
+                                            onClick={() => removeSkill(skill)}
+                                            className="cursor-pointer text-red-500 text-sm font-bold"
+                                        >
+                                            -
+                                        </button>
+                                    </motion.div>
+                                ))}
+                            </div>
+                            <p className="text-gray-300 text-xs">e.g: you can add only 3 skills </p>
                         </div>
+                        {errors.skills && <p className="text-red-500 text-sm">{errors.skills.message}</p>}
                     </div>
 
                     {/* Bio */}
@@ -102,7 +110,10 @@ const EditProfile = () => {
                     <div>
                         <label className="block font-semibold text-sm mb-2">Email</label>
                         <input
-                            {...register("email", { required: "Email is required" })}
+                            {...register("email", {
+                                required: "Email is required",
+                                pattern: { value: /^\S+@\S+\.\S+$/, message: "Invalid email format" }
+                            })}
                             className="w-full border border-[#1C4587] rounded-lg p-2 focus:outline-blue-500"
                             placeholder="Enter your email"
                         />
@@ -113,10 +124,13 @@ const EditProfile = () => {
                     <div>
                         <label className="block font-semibold text-sm mb-2">Contact No</label>
                         <input
-                            {...register("contact")}
+                            {...register("contact", {
+                                pattern: { value: /^[0-9]+$/, message: "Only numbers are allowed" }
+                            })}
                             className="w-full border border-[#1C4587] rounded-lg p-2 focus:outline-blue-500"
                             placeholder="Enter your phone number"
                         />
+                        {errors.contact && <p className="text-red-500 text-sm">{errors.contact.message}</p>}
                     </div>
 
                     {/* Address */}
@@ -134,12 +148,15 @@ const EditProfile = () => {
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         type="submit"
-                        className="w-full bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white py-3 rounded-lg font-semibold text-lg "
+                        className="w-full bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white py-3 rounded-lg font-semibold text-lg"
                     >
                         Save Changes
                     </motion.button>
                 </form>
             </div>
+
+            {/* Skills Modal */}
+            {isModalOpen && <SelectSkillsModal onClose={() => setIsModalOpen(false)} onSave={handleSaveSkill} />}
         </motion.div>
     );
 };

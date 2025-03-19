@@ -43,13 +43,13 @@ const DonateUs = () => {
 
     return (
         <div className=''>
-            <div className="flex items-center justify-center h-[calc(100vh-72px)] bg-[#1C4587] p-6">
+            <div className="flex items-center justify-center h-[calc(100vh-76px)] bg-[#1C4587] p-6">
 
                 <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.5 }}
-                    className={`bg-white rounded-lg shadow-lg p-8 ${isPaymentOpen ? "lg:h-[342] h-[120vh]" : ""} w-[700px] text-center`}
+                    className={`bg-white rounded-lg p-8 ${isPaymentOpen ? "md:h-[342] h-[120vh]" : ""} w-[700px] text-center`}
                 >
                     <h2 className="text-xl font-bold text-[#1C4587]">Support the Community</h2>
                     <p className="text-gray-600 text-sm mt-4">
@@ -214,8 +214,7 @@ const DonateUs = () => {
                     )}
                 </AnimatePresence>
             </div>
-            {/* <DonateUsFooter></DonateUsFooter>
-            <div className='h-20 bg-black'></div> */}
+            {/* <DonateUsFooter></DonateUsFooter> */}
         </div>
     );
 };

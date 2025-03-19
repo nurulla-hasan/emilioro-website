@@ -18,7 +18,9 @@ import {
   ChevronDown,
 } from "lucide-react"
 
-const TiptapEditor = ({ initialContent = "<p>Start writing your story...</p>" }) => {
+const TiptapEditor = () => {
+  const initialContent = "I still remember the excitement and nervousness bubbling inside me as I stepped off the plane at Kansai International Airport. It was my first-ever solo trip, and Japan had always been a dream destination. With my backpack strapped on, I took a deep breath, ready to embrace the adventure ahead. The first challenge came almost immediately—navigating the train system. I had researched it a hundred times before coming, but standing in front of a ticket machine with Japanese characters flashing before my eyes was another story. After fumbling for a few minutes, a kind elderly man noticed my struggle and helped me purchase the right ticket. His warm smile and patient guidance reassured me that I was in good hands. On my second day in Kyoto, I visited the iconic Fushimi Inari Shrine. As I walked through the thousands of vermillion torii gates, I felt an overwhelming sense of peace. The further I climbed, the quieter it became. I stopped at a secluded spot, sat on a stone bench, and watched the sunlight filter through the trees.";
+
   const [fontSize, setFontSize] = useState("12")
   const [showFontSizes, setShowFontSizes] = useState(false)
 
@@ -31,7 +33,7 @@ const TiptapEditor = ({ initialContent = "<p>Start writing your story...</p>" })
         alignments: ["left", "center", "right"],
       }),
     ],
-    // content: initialContent,
+    content: initialContent,
   })
 
   if (!editor) {
@@ -144,7 +146,7 @@ const TiptapEditor = ({ initialContent = "<p>Start writing your story...</p>" })
       {/* Editor Content */}
       <EditorContent
         editor={editor}
-        className="min-h-[280px] w-full outline-none border-none"
+        className="min-h-[280px] outline-none border-none text-sm text-gray-500"
       />
 
       {/* Button */}

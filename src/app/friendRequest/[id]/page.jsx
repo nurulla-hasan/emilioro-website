@@ -1,20 +1,14 @@
 "use client"
-import { useState } from "react"
-import { Plus, Camera, Calendar } from "lucide-react"
+import { Camera, Calendar } from "lucide-react"
 import TiptapEditor from "@/components/body/profile/editor/TiptapEditor";
-import Link from "next/link";
-import SocialAccountModal from "../../components/body/profile/modal/SocialAccountModal";
-import AddEventModal from "../../components/body/profile/modal/AddEventModal";
-import EditEventModal from "../../components/body/profile/modal/EditEventModal";
-import DeleteConfirmationModal from "../../components/body/profile/modal/DeleteConfirmationModal";
-import AddRelativesModal from "../../components/body/profile/modal/AddRelativesModal";
+import ReportModal from "@/components/body/profile/modal/ReportModal";
+import { useState } from "react";
+import { useParams } from "next/navigation";
+const RequestProfile = () => {
+    const [modal, setModal] = useState(false);
+    const { id } = useParams();
 
-const ProfilePage = () => {
-    const [isSocialAccountModalOpen, setIsSocialAccountModalOpen] = useState(false);
-    const [isEventModalOpen, setIsEventModalOpen] = useState(false);
-    const [isEditEventModalOpen, setIsEditEventModalOpen] = useState(false);
-    const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
-    const [addRelativesModal, setAddRelativesModal] = useState(false);
+    
 
     const profileData = {
         profile: {
@@ -87,6 +81,8 @@ const ProfilePage = () => {
         ],
     }
 
+    const friend = profileData.friends.find(friend => friend.id === Number(id));
+
     return (
         <div className="lg:w-5/6 xl:w-6/9 px-5 my-10 mx-auto">
             {/* Cover Photo */}
@@ -117,9 +113,9 @@ const ProfilePage = () => {
 
             {/* Profile Info */}
             <div className="mt-4">
-                <div className="flex justify-between items-start">
+                <div className="flex flex-col md:flex-row gap-4 justify-between items-start">
                     <div>
-                        <h1 className="text-2xl font-bold text-[#1C4587]">{profileData.profile.name}</h1>
+                        <h1 className="text-2xl font-bold text-[#1C4587]">{friend.name}</h1>
                         <div className="flex gap-2 mt-2">
                             {profileData.profile.tags.map((tag, index) => (
                                 <span key={index} className="bg-blue-50 text-[#1C4587] text-xs px-3 py-1 rounded-md">
@@ -128,9 +124,16 @@ const ProfilePage = () => {
                             ))}
                         </div>
                     </div>
-                    <Link href="/profile/editProfile"><button className="bg-gradient-to-b from-[#1C4587] to-[#3279EA] gap-1 flex items-center text-white text-sm px-4 py-2 rounded-lg">
-                        <img src="/edit.png" alt="" /> Edit Profile
-                    </button></Link>
+                    <div className="flex gap-5 items-center">
+                        <button className=" border-[#1C4587] border text-[#1C4587] gap-1 flex items-center bg-white text-sm font-semibold px-4 py-[6px] rounded-lg">
+                            <img src="/edit.png" alt="" /> Reject
+                        </button>
+                        <button className="bg-gradient-to-b from-[#1C4587] to-[#3279EA] gap-1 flex items-center text-white text-sm font-semibold px-4 py-2 rounded-lg">
+                            <img src="/edit.png" alt="" /> Accept
+                        </button>
+
+                        <img onClick={() => setModal(true)} className="w-10 h-10" src="/requestMenu.svg" alt="" />
+                    </div>
                 </div>
 
                 <div className="mt-4">
@@ -142,10 +145,9 @@ const ProfilePage = () => {
             {/* Social Links */}
             <div className="mt-8">
                 <div className="flex justify-between items-center mb-4">
-                    <h2 className="xl:text-2xl text-xl font-semibold text-[#1C4587]">Social Links</h2>
-                    <button onClick={() => setIsSocialAccountModalOpen(true)} className="bg-gradient-to-b from-[#1C4587] to-[#2570e9] gap-1 flex items-center text-white text-sm px-4 py-2 rounded-lg">
-                        + Add Social account
-                    </button>
+                    <h2 className="xl:text-2xl text-xl font-semibold text-[#1C4587]">Social Links
+
+                    </h2>
                 </div>
                 <div className="space-y-3">
                     <div className="flex justify-between items-center">
@@ -158,14 +160,6 @@ const ProfilePage = () => {
                             </div>
                             {profileData.social_links[0].url}
                         </a>
-                        <div className="flex gap-2">
-                            <button className="text-red-500">
-                                <img src="/delete.svg" alt="" />
-                            </button>
-                            <button className="text-blue-800">
-                                <img src="/edit.svg" alt="" />
-                            </button>
-                        </div>
                     </div>
 
                     <div className="flex justify-between items-center">
@@ -196,9 +190,9 @@ const ProfilePage = () => {
                 <div className="mt-8">
                     <div className="flex justify-between items-center mb-6">
                         <h2 className="xl:text-2xl text-xl font-semibold text-[#1C4587]">Friends</h2>
-                        <Link href="/profile/friends" className="text-[#1C4587] text-sm hover:underline">
+                        <a href="#" className="text-[#1C4587] text-sm hover:underline">
                             view more
-                        </Link>
+                        </a>
                     </div>
 
                     <div className="grid grid-cols-4 sm:grid-cols-8 gap-x-2 gap-y-4 md:w-3/4 mx-auto">
@@ -229,9 +223,6 @@ const ProfilePage = () => {
                 <div className="mt-12">
                     <div className="flex justify-between items-center mb-6">
                         <h2 className="xl:text-2xl text-xl font-semibold text-[#1C4587]">Your Life story</h2>
-                        <button onClick={() => setIsEventModalOpen(true)} className="bg-gradient-to-b from-[#1C4587] to-[#3279EA]  text-white text-sm px-3 py-2 rounded-md flex items-center">
-                            + Add New event
-                        </button>
                     </div>
 
                     <div className="flex flex-col md:flex-row gap-6">
@@ -278,9 +269,6 @@ const ProfilePage = () => {
                     {/* Header */}
                     <div className="flex flex-col gap-2 md:flex-row justify-between items-center mb-6">
                         <h2 className="xl:text-2xl text-lg font-semibold text-[#1C4587]">Relatives & Relationships</h2>
-                        <button onClick={() => setAddRelativesModal(true)} className="bg-gradient-to-b from-[#1C4587] to-[#3279EA]  text-white text-md px-3 py-2 rounded-md flex items-center">
-                            <Plus size={14} className="mr-1" /> Add New relatives
-                        </button>
                     </div>
 
                     {/* Two-column layout */}
@@ -356,30 +344,10 @@ const ProfilePage = () => {
                 </div>
             </div>
 
-            {/* Modal Component */}
-            <SocialAccountModal
-                isOpen={isSocialAccountModalOpen}
-                onClose={() => setIsSocialAccountModalOpen(false)}
-            />
-            {/* Add event */}
-            {isEventModalOpen && (
-                <AddEventModal onClose={() => setIsEventModalOpen(false)} />
-            )}
-
-            {/* Edit Event */}
-            {isEditEventModalOpen && (
-                <EditEventModal onClose={() => setIsEditEventModalOpen(false)} />
-            )}
-            {/* Delete Modal */}
-            {isDeleteModalOpen && (
-                <DeleteConfirmationModal onClose={() => setIsDeleteModalOpen(false)} />
-            )}
-
-            {/* Add Relative Modal */}
-            <AddRelativesModal isOpen={addRelativesModal} onClose={() => setAddRelativesModal(false)} />
+            <ReportModal isOpen={modal} onClose={() => setModal(false)} />
         </div>
-    )
-}
+        
+    );
+};
 
-export default ProfilePage
-
+export default RequestProfile;
