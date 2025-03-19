@@ -3,8 +3,12 @@ import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { motion, AnimatePresence } from "framer-motion"
 import { X, Eye, EyeOff } from "lucide-react"
+import { setUser } from "@/store/mainSlice"
+import { useDispatch } from "react-redux"
 
 const SignUpModal = ({ isOpen, onClose, setIsLoginModalOpen }) => {
+
+    const dispatch = useDispatch()
     const {
         register,
         handleSubmit,
@@ -18,9 +22,12 @@ const SignUpModal = ({ isOpen, onClose, setIsLoginModalOpen }) => {
         setTimeout(() => {
             setLoading(false)
             console.log(data)
+            dispatch(setUser(data));
             onClose()
         }, 1500)
     }
+
+    
 
     return (
         <AnimatePresence>

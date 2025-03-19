@@ -11,7 +11,7 @@ import VerifyCodeModal from "../authentication/verify/VerifyCodeModal"
 import SuccessModal from "../authentication/success/SuccessModal"
 import ResetPasswordModal from "../authentication/resetPass/ResetPasswordModal"
 import { useDispatch, useSelector } from "react-redux";
-import { setIsSignUpOpen } from "@/store/mainSlice"
+import { logout, setIsSignUpOpen } from "@/store/mainSlice"
 import avatar from '../../../public/heroImage.png'
 import { CgProfile } from "react-icons/cg"
 import { FaRegHeart } from "react-icons/fa6";
@@ -32,6 +32,11 @@ const Navbar = () => {
   const [isMobileDropdownOpen, setIsMobileDropdownOpen] = useState(false);
   const user = useSelector((state) => state.main.user);
 
+  const handleLogout = () => {
+    dispatch(logout());
+    setIsMobileDropdownOpen(false)
+  };
+  
 
 
   const navLinks = [
@@ -187,7 +192,7 @@ const Navbar = () => {
                         </button>
                       </Link>
                       <button
-                        onClick={() => setIsMobileDropdownOpen(false)}
+                        onClick={handleLogout}
                         className="flex items-center gap-2 w-full px-4 py-3 text-sm font-semibold text-red-600 hover:bg-gray-100"
                       >
                         <FiLogOut size={20} className="text-black" /> Log out
@@ -315,7 +320,7 @@ const Navbar = () => {
                   </button>
                 </Link>
                 <button
-                  onClick={() => setIsDropdownOpen(false)}
+                  onClick={handleLogout}
                   className="flex items-center gap-2 w-full px-4 py-3 text-sm font-semibold text-red-600 hover:bg-gray-100"
                 >
                   <FiLogOut size={20} className="text-black" /> Log out

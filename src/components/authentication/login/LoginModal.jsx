@@ -3,20 +3,25 @@ import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { motion, AnimatePresence } from "framer-motion"
 import { X, Eye, EyeOff } from "lucide-react"
-import Link from "next/link"
+import { useDispatch } from "react-redux"
+import { setUser } from "@/store/mainSlice"
 
 const LoginModal = ({ isOpen, onClose, setIsSignUpOpen, setIsForgotPassModalOpen }) => {
+  const dispatch = useDispatch()
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm()
+
   const [showPassword, setShowPassword] = useState(false)
   const [remember, setRemember] = useState(false)
 
   const onSubmit = (data) => {
     console.log("Login Data:", data)
-    onClose()
+    dispatch(setUser(data));
+    onClose();
   }
 
   return (
@@ -29,7 +34,7 @@ const LoginModal = ({ isOpen, onClose, setIsSignUpOpen, setIsForgotPassModalOpen
           exit={{ opacity: 0 }}
         >
           <motion.div
-            className="bg-white  w-full max-w-4xl rounded-lg shadow-xl flex flex-col md:flex-row relative"
+            className="bg-white w-full max-w-4xl rounded-lg shadow-xl flex flex-col md:flex-row relative"
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
@@ -100,10 +105,11 @@ const LoginModal = ({ isOpen, onClose, setIsSignUpOpen, setIsForgotPassModalOpen
                   </label>
                   <button
                     onClick={() => {
-                      onClose();
-                      setIsForgotPassModalOpen(true);
+                      onClose()
+                      setIsForgotPassModalOpen(true)
                     }}
-                    className="text-red-500 hover:text-red-600 text-sm">
+                    className="text-red-500 hover:text-red-600 text-sm"
+                  >
                     Forgot Password?
                   </button>
                 </div>
@@ -117,26 +123,6 @@ const LoginModal = ({ isOpen, onClose, setIsSignUpOpen, setIsForgotPassModalOpen
                 </button>
               </form>
             </div>
-
-            {/* Right Section - Welcome Message */}
-            <div className="w-full md:w-1/2 hidden rounded-r-lg bg-[#C0D3F2] p-8 md:p-12 lg:flex flex-col justify-center items-center gap-10 text-center">
-              <h2 className="text-[#1C4587] text-xl md:text-2xl font-bold mb-4">Welcome Back !</h2>
-              <p className="text-[#1C4587] mb-8 w-2/3">
-                Please Sign in into your account with the given details to continue
-              </p>
-              <div className="text-center">
-                <p className="text-[#1C4587] mb-4">New here ? create a new account</p>
-                <button
-                  className="bg-[#1C4587] text-sm hover:bg-[#15366b] text-white px-16 py-2 rounded-md font-medium transition-colors"
-                  onClick={() => {
-                    onClose();
-                    setIsSignUpOpen(true);
-                  }}
-                >
-                  Sign Up
-                </button>
-              </div>
-            </div>
           </motion.div>
         </motion.div>
       )}
@@ -145,4 +131,3 @@ const LoginModal = ({ isOpen, onClose, setIsSignUpOpen, setIsForgotPassModalOpen
 }
 
 export default LoginModal
-
