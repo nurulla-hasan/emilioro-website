@@ -274,7 +274,7 @@ const Navbar = () => {
                 className={`inline-block  text-white lg:px-3 py-2 transition ${pathname === link.href ? "font-semibold" : "font-[300]"
                   }`}
               >
-                <span className="text-lg">{link.title}</span>
+                <span className="text-md">{link.title}</span>
               </Link>
             </motion.div>
           ))}

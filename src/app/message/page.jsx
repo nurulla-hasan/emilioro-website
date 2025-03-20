@@ -101,10 +101,10 @@ const ChatInterface = () => {
           </motion.div>
         </div>
 
-        <div className="flex h-[75vh] bg-white border-2 mt-5 border-blue-200 rounded-md mb-10 overflow-hidden">
+        <div className="flex bg-white border-2 mt-5 border-[#ABC4ED] rounded-md mb-10 overflow-hidden">
           {/* Left Sidebar - Chat List */}
           {(showSidebar || activeView === 'list') && (
-            <div className={`${isMobile ? 'w-full' : 'w-80'} border-r border-blue-900 flex flex-col`}>
+            <div className={`${isMobile ? 'w-full' : 'w-80'} border-r border-[#ABC4ED] flex flex-col`}>
               {/* Profile Section */}
               <div className="p-4">
                 <div className="flex items-center gap-3 mb-4">
@@ -117,7 +117,7 @@ const ChatInterface = () => {
                   <input
                     type="text"
                     placeholder="Search"
-                    className="w-full pl-8 pr-4 py-2 border rounded-md text-sm border-blue-900"
+                    className="w-full pl-8 pr-4 py-2 border rounded-md text-sm border-[#ABC4ED]"
                   />
                   <Search className="absolute left-2 top-2.5 h-4 w-4 text-gray-400" />
                 </div>
@@ -166,7 +166,7 @@ const ChatInterface = () => {
           {((!isMobile) || activeView === 'chat') && (
             <div className="flex-1 flex flex-col">
               {/* Chat Header */}
-              <div className="p-4 border-b border-blue-900 flex items-center gap-3">
+              <div className="p-4 border-b border-[#ABC4ED] flex items-center gap-3">
                 {isMobile && (
                   <button onClick={handleBackToList} className="mr-2">
                     <ArrowLeft className="h-5 w-5 text-blue-900" />
@@ -213,13 +213,13 @@ const ChatInterface = () => {
               </div>
 
               {/* Message Input */}
-              <div className="p-4 border-t border-blue-900 flex items-center gap-2">
+              <div className="p-4 border-t border-[#ABC4ED] flex items-center gap-2">
                 <input
                   type="text"
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   placeholder="Type a message..."
-                  className="flex-1 p-2 border border-blue-900 rounded-md text-sm"
+                  className="flex-1 p-2 border border-[#ABC4ED] rounded-md text-sm"
                 />
                 <motion.button whileHover={{ scale: 1.1 }} className="p-2 text-blue-600">
                   <Paperclip className="h-5 w-5" />
@@ -233,7 +233,7 @@ const ChatInterface = () => {
 
           {/* Right Sidebar - Media */}
           {((showRightSidebar && !isMobile) || (isMobile && activeView === 'media')) && (
-            <div className={`${isMobile ? 'w-full' : 'w-80'} border-l border-blue-900 p-4`}>
+            <div className={`${isMobile ? 'w-full' : 'w-80'} border-l border-[#ABC4ED] p-4`}>
               {isMobile && (
                 <div className="flex justify-between items-center mb-4">
                   <button onClick={() => setActiveView('chat')} className="text-blue-900">
@@ -248,7 +248,7 @@ const ChatInterface = () => {
               <Image src={avatar || "/placeholder.svg"} alt="Media" width={80} height={80} className="rounded-lg object-cover" />
 
               <h3 className="font-medium text-sm mt-4 mb-2">Attachments (1)</h3>
-              <div className="border border-blue-900 rounded-lg p-3">
+              <div className="border border-[#ABC4ED] rounded-lg p-3">
                 <p className="text-sm font-medium">document.pdf</p>
                 <p className="text-xs text-gray-500">2.00 MB</p>
               </div>

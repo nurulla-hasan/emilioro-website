@@ -28,7 +28,7 @@ const Page = () => {
                     whileTap={{ scale: 0.95 }}
                     className="text-blue-500 font-semibold cursor-pointer"
                 >
-                    <Link href='/bonds/myBond'>
+                    <Link href='/bonds/myBondPage'>
                         <button className="cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white px-4 py-2 rounded-md font-medium">
                             My Bond →
                         </button>
@@ -40,7 +40,7 @@ const Page = () => {
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="max-w-4xl mt-10 md:mt-14 mx-auto border-[#ABC4ED] border shadow-[0px_16px_29px_-2px_#cbc3de] p-5 md:p-8 rounded-lg"
+                className="shadow-[0px_19px_48px_0px_#CFC9DDB2] max-w-4xl mt-10 md:mt-14 mx-auto border-[#ABC4ED] border p-5 md:p-8 rounded-lg"
             >
                 {/* Text */}
                 <p className="text-center font-bold text-[#1C4587] mb-6">
@@ -58,15 +58,17 @@ const Page = () => {
                             className="w-full"
                         >
                             <label className="block text-sm text-[#1C4587] font-medium mb-1">Give</label>
-                            <select
-                                {...register("give", { required: "Give is required" })}
-                                className="w-full outline-none p-2 border border-[#1C4587] rounded-lg text-xs"
-                            >
-                                <option value="Teaching Math">Teaching Math</option>
-                                <option value="Firing Computer">Firing Computer</option>
-                                <option value="Teaching English">Teaching English</option>
-                                <option value="Spend Time Together">Spend Time Together</option>
-                            </select>
+                            <div className="border p-2 border-[#1C4587] rounded-lg">
+                                <select
+                                    {...register("give", { required: "Give is required" })}
+                                    className="w-full outline-none border-[#1C4587] rounded-lg text-xs text-[#595D62]"
+                                >
+                                    <option value="Teaching Math">Teaching Math</option>
+                                    <option value="Firing Computer">Firing Computer</option>
+                                    <option value="Teaching English">Teaching English</option>
+                                    <option value="Spend Time Together">Spend Time Together</option>
+                                </select>
+                            </div>
                             {errors.give && (
                                 <p className="text-red-500 text-sm mt-1">{errors.give.message}</p>
                             )}
@@ -80,15 +82,17 @@ const Page = () => {
                             className="w-full"
                         >
                             <label className="block text-sm text-[#1C4587] font-medium mb-1">Get</label>
-                            <select
-                                {...register("get", { required: "Get is required" })}
-                                className="w-full outline-none p-2 border border-[#1C4587] rounded-lg text-xs"
-                            >
-                                <option value="Cooking Code">Cooking Code</option>
-                                <option value="Firing Car Bodies">Firing Car Bodies</option>
-                                <option value="Doing the Lawn">Doing the Lawn</option>
-                                <option value="Hoody">Hoody</option>
-                            </select>
+                            <div className="border p-2 border-[#1C4587] rounded-lg">
+                                <select
+                                    {...register("get", { required: "Get is required" })}
+                                    className="w-full outline-none rounded-lg text-[#595D62] text-xs"
+                                >
+                                    <option value="Cooking Code">Cooking Code</option>
+                                    <option value="Firing Car Bodies">Firing Car Bodies</option>
+                                    <option value="Doing the Lawn">Doing the Lawn</option>
+                                    <option value="Hoody">Hoody</option>
+                                </select>
+                            </div>
                             {errors.get && (
                                 <p className="text-red-500 text-sm mt-1">{errors.get.message}</p>
                             )}
@@ -104,18 +108,18 @@ const Page = () => {
                     >
                         {toggle && (
                             <div className="p-2">
-                                <div className="border flex flex-col gap-2 p-3 border-gray-300 mt-5 rounded-lg">
+                                <div className="border flex flex-col gap-2 p-3 border-gray-300 mt-5 rounded-md">
                                     <h1 className="text-sm font-semibold text-[#1C4587]">Matching Bonds</h1>
 
                                     {/* Matching Items */}
                                     <div className="p-2 text-xs rounded-sm bg-[#EAF0FB] flex items-center gap-2">
-                                        <img className="h-5 w-5 bg-gray-400 rounded-full" src="image" alt="" />
+                                        <img className="h-5 w-5 bg-gray-400 rounded-full" src="/heroImage.png" alt="" />
                                         <div className="">Mr. John <span className="text-[#1C4587]">(Cooking Cake - Teaching Math)</span></div>
                                     </div>
 
                                     <div className="p-2 text-xs rounded-sm border-gray-300 border flex items-center gap-2">
                                         <div className="flex gap-2 items-center">
-                                            <img className="h-5 w-5 bg-gray-400 rounded-full" src="image" alt="" />
+                                            <img className="h-5 w-5 bg-gray-400 rounded-full" src="/heroImage.png" alt="" />
                                             <div className="">Mr. John <span className="text-[#1C4587]">(Cooking Cake - Teaching Math)</span></div>
                                         </div>
                                     </div>
@@ -130,7 +134,7 @@ const Page = () => {
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                             onClick={() => setToggle(!toggle)}
-                            className="w-full md:w-2/5 bg-[#1C4587] text-white p-2 rounded-lg transition-all"
+                            className="w-full md:w-2/5 bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white p-2 rounded-lg transition-all"
                         >
                             {toggle ? (
                                 <Link href='/message'>
