@@ -21,7 +21,7 @@ const InstitutionPage = () => {
                 <h1 className="text-xl text-[#1C4587] font-bold">Institute</h1>
                 <div className='flex gap-5 items-center justify-center'>
                     <div className="relative lg:w-[250px] w-[150px] border border-[#365173] rounded-lg flex items-center px-2">
-                        <CiSearch className='cursor-pointer' color='#1C4587' size={15} />
+                        <CiSearch className='cursor-pointer' color='#1C4587' size={20} />
                         <input
                             type="text"
                             placeholder="Search Project"
@@ -41,7 +41,7 @@ const InstitutionPage = () => {
             </div>
 
             {/* Tabs------ */}
-            <div className="flex ml-8 lg:ml-0 border-[#1C4587] border w-60 justify-between rounded-sm mt-5 lg:mt-10">
+            <div className="flex mx-auto md:ml-0 lg:ml-0 border-[#1C4587] border w-60 justify-between rounded-sm mt-5 lg:mt-10">
                 {[{ id: "all", label: "All Institution" }, { id: "my", label: "My Institution" }].map((tab) => (
                     <motion.button
                         key={tab.id}
@@ -93,13 +93,8 @@ const InstitutionPage = () => {
 };
 
 const MyInstitutionComponent = () => (
-    <div className='relative'>
-        <div className='absolute -top-22 right-8 lg:-top-[84px] lg:right-0 border border-[#1e4a9b] px-1 rounded-sm bg-white'>
-            <select className='text-xs outline-none py-1'>
-                <option value="">Created</option>
-                <option value="">Joined</option>
-            </select>
-        </div>
+    <div>
+        
         <MyInstitution />
 
     </div>

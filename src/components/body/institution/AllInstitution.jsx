@@ -1,5 +1,4 @@
 import { RiTeamLine } from "react-icons/ri";
-import image from '../../../../public/institute.png'
 import JoinInstitutionModal from "./modal/JoinInstituteModal";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -15,73 +14,80 @@ const AllInstitution = () => {
                 id: "1",
                 institutionName: 'ThinkTank Academy ',
                 description: "Develop sustainable packaging solutions using biodegradable materials dsjh.",
-                image: image,
+                image: "/institute (1).png",
                 skils: ["Innovators Hub", "Critical Thinkers"],
                 participant1: "10",
                 participant2: "5",
+                status: ["Joined", "Public"],
             },
             {
                 id: "2",
                 institutionName: 'ThinkTank Academy ',
                 description: "Use recyclable materials to create packaging that can be reused .",
-                image: image,
+                image: "/institute (2).png",
                 skils: ["Innovators Hub", "Critical Thinkers"],
                 participant1: "10",
                 participant2: "5",
+                status: ["Created", "Public"],
             },
             {
                 id: "3",
                 institutionName: 'ThinkTank Academy ',
                 description: "Implement minimalist design principles to reduce waste and improve efficiency.",
-                image: image,
+                image: "/institute (3).png",
                 skils: ["Innovators Hub", "Critical Thinkers"],
                 participant1: "10",
                 participant2: "5",
+                status: ["Joined", "Public"],
             },
             {
                 id: "4",
                 institutionName: 'ThinkTank Academy ',
                 description: "Implement minimalist design principles to reduce waste and improve efficiency.",
-                image: image,
+                image: "/institute (1).png",
                 skils: ["Innovators Hub", "Critical Thinkers"],
                 participant1: "10",
                 participant2: "5",
+                status: ["Created", "Public"],
             },
             {
                 id: "5",
                 institutionName: 'ThinkTank Academy ',
                 description: "Implement minimalist design principles to reduce waste and improve efficiency.",
-                image: image,
+                image: "/institute (2).png",
                 skils: ["Innovators Hub", "Critical Thinkers"],
                 participant1: "10",
                 participant2: "5",
+                status: ["Joined", "Public"],
             },
             {
                 id: "6",
                 institutionName: 'ThinkTank Academy ',
                 description: "Implement minimalist design principles to reduce waste and improve efficiency.",
-                image: image,
+                image: "/institute (3).png",
                 skils: ["Innovators Hub", "Critical Thinkers"],
                 participant1: "10",
                 participant2: "5",
+                status: ["Created", "Public"],
             },
         ]
     };
 
 
     return (
-        <div className='mt-10 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 items-center gap-5 rounded-lg'>
+        <div className='mt-10 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 items-center gap-5 rounded-lg '>
             {data.cards.map((card) => (
-                <div key={card.id} className='w-[400] lg:w-full mx-auto flex flex-col gap-2 shadow-[0px_9px_23px_9px_#ebf4ff]'>
+                <div key={card.id} className=' lg:w-full mx-auto flex flex-col gap-2 shadow-[0px_15px_45px_0px_#CFC9DD99] bg-[#FFFFFF]'>
                     <div className='px-5'>
                         <img
-                            src={card.image.src}
+                            src={card.image}
                             alt='image'
+                            className='w-full'
                         >
                         </img>
                     </div>
 
-                    <div className='flex flex-col gap-2 bg-[#FFFFFF] shadow-2xl p-3 rounded-b-sm'>
+                    <div className='flex flex-col gap-2  p-3 rounded-b-sm'>
                         <div className='flex justify-between items-center'>
                             <div className="text-sm font-semibold mb-1">
                                 Institution name :
@@ -126,7 +132,7 @@ const AllInstitution = () => {
                         <div className='flex justify-between items-center'>
 
 
-                            <button onClick={() => router.push(`/institution/${card.id}`)} className='px-6 py-[6] items-center bg-white  rounded-lg font-semibold border-2 border-[#1C4587] to-[#3279EA] text-[#1C4587] text-[11px]'>
+                            <button onClick={() => router.push(`/institution/${card.id}`)} className='px-6 py-[6] items-center cursor-pointer bg-white  rounded-lg font-semibold border-2 border-[#1C4587] to-[#3279EA] text-[#1C4587] text-[11px]'>
                                 View Details
                             </button>
 

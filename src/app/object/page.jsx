@@ -75,10 +75,10 @@ const ObjectPage = () => {
                 </motion.div>
 
                 <div className='flex justify-between'>
-                    <div>
+                    <div className='mx-auto md:ml-0'>
                         {/* Tabs */}
                         <motion.div
-                            className="flex mx-auto lg:ml-0 border-[#1C4587] border justify-between rounded-sm mt-5 lg:mt-10"
+                            className="flex border-[#1C4587] border justify-between rounded-sm mt-5 lg:mt-10"
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.4 }}

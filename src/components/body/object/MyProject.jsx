@@ -101,7 +101,7 @@ const MyProject = () => {
     return (
         <>
             <motion.div
-                className='absolute -top-10 right-[40%] lg:-top-[84px] lg:right-0 border border-[#1C4587] px-1 rounded-sm bg-white'
+                className='absolute -top-11 right-[40%] lg:-top-[84px] lg:right-0 border border-[#1C4587] px-1 rounded-sm bg-white'
                 whileHover={{ scale: 1.05 }}
                 value={status}
                 onChange={(e) => setStatus(e.target.value)}
@@ -118,11 +118,12 @@ const MyProject = () => {
             <div className='mt-14 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 items-center gap-5 rounded-lg'>
                 {filteredCards.map((card) => (
                     <div
-                        key={card.id} className='w-[400] lg:w-full mx-auto flex flex-col gap-2 shadow-[0px_0px_33px_14px_#ebf4ff]'>
+                        key={card.id} className='lg:w-full mx-auto flex flex-col gap-2 shadow-[0px_0px_33px_14px_#ebf4ff]'>
                         <div>
                             <img
                                 src={card.image}
                                 alt='image'
+                                className='w-full'
                             >
                             </img>
                         </div>

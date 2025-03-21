@@ -1,37 +1,30 @@
 "use client";
 
-import { useRouter, useSearchParams } from "next/navigation";
+import { useParams, useRouter, useSearchParams } from "next/navigation";
 import { motion } from "framer-motion"
 import { Suspense, useState } from "react";
 import Image from "next/image";
-import { Search, Upload, Send } from 'lucide-react';
-import titleImage from '../../../../public/institute.png'
+import { Search } from 'lucide-react';
 import { AiOutlineDelete } from "react-icons/ai";
 import { RiEditLine } from "react-icons/ri";
 import avatar from '../../../../public/heroImage.png'
 import DetailsCreateGroupModal from "@/components/body/institution/modal/DetailsCreateGroupModal";
 
-
-
-
-
-
-
 // Additional data for the interface
 const producers = [
-    { id: 1, name: "Ahamad musa", role: "CEO", online: true },
-    { id: 2, name: "Ahamad musa", role: "General manager", online: true },
-    { id: 3, name: "Ahamad musa", role: "Chief of engineer", online: false },
-    { id: 4, name: "Ahamad musa", role: "work administrator", online: true },
-    { id: 5, name: "Ahamad musa", role: "Artist, Engineer, musician", online: true }
+    { id: 1, name: "Ahamad musa", role: "CEO", online: true, avatar: "/avatar.png" },
+    { id: 2, name: "Ahamad musa", role: "General manager", online: true, avatar: "/avatar.png" },
+    { id: 3, name: "Ahamad musa", role: "Chief of engineer", online: false, avatar: "/avatar.png" },
+    { id: 4, name: "Ahamad musa", role: "work administrator", online: true, avatar: "/avatar.png" },
+    { id: 5, name: "Ahamad musa", role: "Artist, Engineer, musician", online: true, avatar: "/avatar.png" }
 ];
 
 const users = [
-    { id: 1, name: "Ahamad musa", role: "Artist, Engineer, musician", online: true },
-    { id: 2, name: "Ahamad musa", role: "Artist, Engineer, musician", online: false },
-    { id: 3, name: "Ahamad musa", role: "Artist, Engineer, musician", online: true },
-    { id: 4, name: "Ahamad musa", role: "Artist, Engineer, musician", online: true },
-    { id: 5, name: "Ahamad musa", role: "Artist, Engineer, musician", online: false }
+    { id: 1, name: "Ahamad musa", role: "Artist, Engineer, musician", online: true, avatar: "/avatar.png" },
+    { id: 2, name: "Ahamad musa", role: "Artist, Engineer, musician", online: false, avatar: "/avatar.png" },
+    { id: 3, name: "Ahamad musa", role: "Artist, Engineer, musician", online: true, avatar: "/avatar.png" },
+    { id: 4, name: "Ahamad musa", role: "Artist, Engineer, musician", online: true, avatar: "/avatar.png" },
+    { id: 5, name: "Ahamad musa", role: "Artist, Engineer, musician", online: false, avatar: "/avatar.png" }
 ];
 
 const documents = [
@@ -42,9 +35,9 @@ const documents = [
 ];
 
 const images = [
-    { id: 1, src: titleImage, sharedBy: "MR. Sarwar" },
-    { id: 2, src: titleImage, sharedBy: "MR. Sarwar" },
-    { id: 3, src: titleImage, sharedBy: "MR. Sarwar" }
+    { id: 1, src: "/avatar.png", sharedBy: "MR. Sarwar" },
+    { id: 2, src: "/avatar.png", sharedBy: "MR. Sarwar" },
+    { id: 3, src: "/avatar.png", sharedBy: "MR. Sarwar" }
 ];
 
 const messages = [
@@ -54,7 +47,7 @@ const messages = [
         sender: "Dindiniya",
         role: "General manager",
         time: "musa-9:30",
-        avatar: titleImage,
+        avatar: "/avatar.png",
         online: true
     },
     {
@@ -63,7 +56,7 @@ const messages = [
         sender: "Dr.Dindiniya",
         role: "User",
         time: "you-9:30",
-        avatar: titleImage,
+        avatar: "/avatar.png",
         online: true,
         isRight: true
     },
@@ -73,7 +66,7 @@ const messages = [
         sender: "Dindiniya",
         role: "General manager",
         time: "musa-9:30",
-        avatar: titleImage,
+        avatar: "/avatar.png",
         online: true
     },
     {
@@ -82,7 +75,7 @@ const messages = [
         sender: "Dr.Dindiniya",
         role: "User",
         time: "you-9:30",
-        avatar: titleImage,
+        avatar: "/avatar.png",
         online: true,
         isRight: true
     }
@@ -106,9 +99,9 @@ const projects = [
         description: "Develop sustainable packaging solutions using biodegradable materials to reduce environmental impact. Focus on innovative designs that maintain product integrity while being eco-conscious.",
         author: "MR. Sarwar",
         authorRole: ["Owner"],
-        image: titleImage,
+        image: "/institute (1).png",
         participant: "10",
-        created: "22 may 2025"
+        created: "22 may 2025",
     },
     {
         id: "2",
@@ -117,7 +110,7 @@ const projects = [
         description: "Use recyclable materials to create packaging that can be reused.",
         author: "MR. Golap",
         authorRole: ["Owner"],
-        image: titleImage,
+        image: "/institute (2).png",
         participant: "10",
         created: "22 may 2023"
     },
@@ -128,7 +121,7 @@ const projects = [
         description: "Implement minimalist design principles to reduce waste and improve.",
         author: "MS. Fatima",
         authorRole: ["Owner"],
-        image: titleImage,
+        image: "/institute (3).png",
         participant: "10",
         created: "22 may 2023"
     },
@@ -139,7 +132,7 @@ const projects = [
         description: "Implement minimalist design principles to reduce waste and improve.",
         author: "MS. Fatima",
         authorRole: ["Owner"],
-        image: titleImage,
+        image: "/institute (1).png",
         participant: "10",
         created: "22 may 2023"
     },
@@ -150,81 +143,30 @@ const projects = [
         description: "Implement minimalist design principles to reduce waste and improve.",
         author: "MS. Fatima",
         authorRole: ["User"],
-        image: titleImage,
+        image: "/institute (2).png",
         participant: "10",
         created: "22 may 2023"
     },
-    {
-        id: "6",
-        title: "Minimalist Design",
-        status: ['Ongoing', 'Public'],
-        description: "Implement minimalist design principles to reduce waste and improve.",
-        author: "MS. Fatima",
-        authorRole: ["Owner"],
-        image: titleImage,
-        participant: "10",
-        created: "22 may 2023"
-    },
-    {
-        id: "7",
-        title: "Minimalist Design",
-        status: ['Ongoing', 'Public'],
-        description: "Implement minimalist design principles to reduce waste and improve.",
-        author: "MS. Fatima",
-        authorRole: ["User"],
-        image: titleImage,
-        participant: "10",
-        created: "22 may 2023"
-    },
-    {
-        id: "8",
-        title: "Minimalist Design",
-        status: ['Ongoing', 'Public'],
-        description: "Implement minimalist design principles to reduce waste and improve.",
-        author: "MS. Fatima",
-        authorRole: ["User"],
-        image: titleImage,
-        participant: "10",
-        created: "22 may 2023"
-    },
-    {
-        id: "9",
-        title: "Minimalist Design",
-        status: ['Ongoing', 'Public'],
-        description: "Implement minimalist design principles to reduce waste and improve.",
-        author: "MS. Fatima",
-        authorRole: ["User"],
-        image: titleImage,
-        participant: "10",
-        created: "22 may 2023"
-    },
-    {
-        id: "10",
-        title: "Minimalist Design",
-        status: ['Ongoing', 'Public'],
-        description: "Implement minimalist design principles to reduce waste and improve.",
-        author: "MS. Fatima",
-        authorRole: ["User"],
-        image: titleImage,
-        participant: "10",
-        created: "22 may 2023"
-    }
 ];
 
 const EcoFriendlyPackage = () => {
-    const searchParams = useSearchParams();
-    const projectId = searchParams.get("id");
+    const { id } = useParams(); // ✅ Dynamic route theke id nicchi
+
     const [selected, setSelected] = useState(null);
     const [createGroupModal, setCreateGroupModal] = useState(false);
-    // Find the current project
-    const project = projects.find(p => p.id === projectId) || projects[0];
 
-    const router = useRouter()
+    // Find the current project
+    const project = projects.find(p => p.id === id) || projects[0];
+
+    console.log("Project ID:", id);
+    
+
+
     const handleClick = (index, categoryId) => {
         setSelected(index);
         router.push(`/thinktankAcademy/topic/${categoryId}`);
-      };
-      
+    };
+
 
     const [selectedVote, setSelectedVote] = useState("")
     const [voted, setVoted] = useState(false)
@@ -259,7 +201,7 @@ const EcoFriendlyPackage = () => {
             {/* Banner Image */}
             <div className="w-full h-[200px] relative mb-4">
                 <Image
-                    src={project.image || titleImage}
+                    src={project.image}
                     alt={project.title}
                     layout="fill"
                     objectFit="cover"
@@ -304,7 +246,7 @@ const EcoFriendlyPackage = () => {
                                 <div key={user.id} className="flex items-center gap-3 p-[5] hover:bg-gray-50 border border-[#95B5E9] rounded-sm">
                                     <div className="relative">
                                         <img
-                                            src={titleImage.src || "/placeholder.svg"}
+                                            src={user.avatar || "/placeholder.svg"}
                                             alt={user.name}
                                             className="rounded-full w-8 h-8"
                                         />
@@ -373,7 +315,7 @@ const EcoFriendlyPackage = () => {
                                 <div key={user.id} className="flex items-center gap-3 p-[5] hover:bg-gray-50 border border-[#95B5E9] rounded-sm">
                                     <div className="relative">
                                         <img
-                                            src={titleImage.src || "/placeholder.svg"}
+                                            src={user.avatar || "/placeholder.svg"}
                                             alt={user.name}
                                             className="rounded-full w-8 h-8"
                                         />

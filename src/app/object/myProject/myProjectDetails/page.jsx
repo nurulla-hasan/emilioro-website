@@ -7,8 +7,9 @@ import { useForm } from "react-hook-form"
 import AddProducerModal from "@/components/body/object/modal/AddProducerModal"
 import EditProjectModal from "@/components/body/object/modal/EditProjectModal"
 import AddUserModal from "@/components/body/object/modal/AddUserModal"
-import { useSearchParams } from "next/navigation"
+import { useRouter, useSearchParams } from "next/navigation"
 import RemoveParticipantModal from "@/components/body/object/modal/RemoveParticipantModal"
+// import { useRouter } from "next/router"
 
 const MyProjectDetails = () => {
   return (
@@ -25,6 +26,8 @@ const ProjectContent = () => {
   const [project, setProject] = useState(null)
   const [loading, setLoading] = useState(true)
   const [removeParticipantModal, setRemoveParticipantModal] = useState(false);
+
+  const router = useRouter()
 
   const handleRemove = () => {
     console.log("Participant Removed!");
@@ -412,9 +415,10 @@ const ProjectContent = () => {
         {/* button */}
         <div className="flex justify-center mt-5">
           <motion.button
-            className="lg:w-1/3 text-sm bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white px-2 lg:px-0 py-1 rounded-md font-medium"
+            className="lg:w-1/3 text-sm bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white px-2 lg:px-0 py-2 rounded-md font-medium"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
+            onClick={() => router.push(`/object/myProject/ecoFriendlyPackage?id=${project.id}`)}
           >
             Open Workspace
           </motion.button>
