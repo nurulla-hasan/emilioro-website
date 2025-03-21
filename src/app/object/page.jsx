@@ -32,7 +32,7 @@ const ObjectPage = () => {
     return (
         <div>
             <motion.div
-                className='min-h-screen xl:w-6/9 lg:w-5/6 px-5 mx-auto mt-10 mb-20'
+                className='xl:w-6/9 lg:w-5/6 px-5 mx-auto mt-10 mb-20'
                 initial="initial"
                 animate="in"
                 exit="out"
@@ -53,7 +53,7 @@ const ObjectPage = () => {
                     </motion.h1>
                     <div className='flex gap-5 items-center justify-center'>
                         <motion.div
-                            className="relative lg:w-[250] w-[150] border border-[#365173] rounded-lg flex items-center px-2"
+                            className="relative lg:w-[250] w-[150] text-[#1C4587] border border-[#1C4587] rounded-lg flex items-center px-2"
                             whileHover={{ scale: 1.05 }}
                         >
                             <CiSearch className='cursor-pointer' color='#1C4587' size={15} />
@@ -74,32 +74,36 @@ const ObjectPage = () => {
                     </div>
                 </motion.div>
 
-                {/* Tabs */}
-                <motion.div
-                    className="flex mx-auto lg:ml-0 border-[#1C4587] border w-80 justify-between rounded-sm mt-5 lg:mt-10"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.4 }}
-                >
-                    {[
-                        { id: "all", label: "All Project" },
-                        { id: "my", label: "My Project" },
-                        { id: "joined", label: "Joined Project" },
-                    ].map((tab) => (
-                        <motion.button
-                            key={tab.id}
-                            className={`px-4 py-2 text-xs font-medium transition-all border rounded-sm ${activeTab === tab.id
-                                ? "bg-[#1C4587] border border-[#1C4587] text-white"
-                                : "border-transparent text-[#1C4587]"
-                                }`}
-                            onClick={() => setActiveTab(tab.id)}
-                            whileHover={{ scale: 1.1 }}
-                            whileTap={{ scale: 0.9 }}
+                <div className='flex justify-between'>
+                    <div>
+                        {/* Tabs */}
+                        <motion.div
+                            className="flex mx-auto lg:ml-0 border-[#1C4587] border justify-between rounded-sm mt-5 lg:mt-10"
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.4 }}
                         >
-                            {tab.label}
-                        </motion.button>
-                    ))}
-                </motion.div>
+                            {[
+                                { id: "all", label: "All Project" },
+                                { id: "my", label: "My Project" },
+                                { id: "joined", label: "Joined Project" },
+                            ].map((tab) => (
+                                <motion.button
+                                    key={tab.id}
+                                    className={`px-4 py-2 text-xs font-medium transition-all border rounded-sm ${activeTab === tab.id
+                                        ? "bg-[#1C4587] border border-[#1C4587] text-white"
+                                        : "border-transparent text-[#1C4587]"
+                                        }`}
+                                    onClick={() => setActiveTab(tab.id)}
+                                    whileHover={{ scale: 1.1 }}
+                                    whileTap={{ scale: 0.9 }}
+                                >
+                                    {tab.label}
+                                </motion.button>
+                            ))}
+                        </motion.div>
+                    </div>
+                </div>
 
                 {/* Tab Content */}
                 <AnimatePresence mode="wait">
@@ -126,7 +130,7 @@ const ObjectPage = () => {
                 selectedCard={selectedCard}
             ></ObjectModal>
 
-            <CreateProjectModal setIsOpen={setIsOpen} isOpen={isOpen}/>
+            <CreateProjectModal setIsOpen={setIsOpen} isOpen={isOpen} />
         </div>
     );
 };
@@ -137,7 +141,7 @@ const AllProjects = ({ setSelectedCard }) => (
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
     >
-        <AllProject setSelectedCard={setSelectedCard}/>
+        <AllProject setSelectedCard={setSelectedCard} />
     </motion.div>
 );
 
@@ -149,10 +153,10 @@ const MyProjects = () => (
         transition={{ duration: 0.5 }}
     >
         <motion.div
-            className='absolute -top-10 right-[40%] lg:-top-[84px] lg:right-0 border border-[#1e4a9b] px-1 rounded-sm bg-white'
+            className='absolute -top-10 right-[40%] lg:-top-[84px] lg:right-0 border border-[#1C4587] px-1 rounded-sm bg-white'
             whileHover={{ scale: 1.05 }}
         >
-            <select className='text-xs text outline-none py-1'>
+            <select className='text-xs text outline-none py-[6px] text-[#595D62]'>
                 <option value="">Active</option>
                 <option value="">Completed</option>
             </select>
@@ -169,10 +173,10 @@ const JoinedProjects = () => (
         transition={{ duration: 0.5 }}
     >
         <motion.div
-            className='absolute -top-10 right-[40%] lg:-top-[84px] lg:right-0 border border-[#1e4a9b] px-1 rounded-sm'
+            className='absolute -top-10 right-[40%] lg:-top-[84px] lg:right-0 border border-[#1C4587] px-1 rounded-sm'
             whileHover={{ scale: 1.05 }}
         >
-            <select className='text-xs text outline-none py-1'>
+            <select className='text-xs text outline-none py-[6px] text-[#595D62]'>
                 <option value="">Active</option>
                 <option value="">Completed</option>
             </select>

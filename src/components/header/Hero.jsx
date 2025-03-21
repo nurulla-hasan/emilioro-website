@@ -6,10 +6,11 @@ import wave3 from "../../../public/wave (3).png"
 import heroImage from "../../../public/heroImage.png"
 import { motion } from "framer-motion"
 import { setIsSignUpOpen } from "@/store/mainSlice"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 
 const Hero = () => {
   const dispatch = useDispatch();
+  const user = useSelector((state) => state.main.user);
   const fadeInUp = {
     hidden: { opacity: 0, y: 20 },
     visible: {
@@ -55,7 +56,7 @@ const Hero = () => {
       <motion.section
         initial="hidden"
         animate="visible"
-        className="mx-auto xl:w-6/9 lg:w-5/6 lg:h-[calc(100vh-76px)] h-[calc(100vh-64px)] flex lg:flex-row flex-col text-white items-center justify-center text-center relative overflow-hidden "
+        className="mx-auto xl:w-6/9 lg:w-5/6 lg:h-[calc(100vh-72px)] h-[calc(100vh-64px)] flex lg:flex-row flex-col text-white items-center justify-center text-center relative overflow-hidden "
       >
         {/* Left Content */}
         <motion.div variants={fadeInUp} className="lg:text-start flex flex-col justify-center items-center lg:justify-start mt-0 lg:mt-[-300px] flex-1 z-10">
@@ -67,15 +68,30 @@ const Hero = () => {
               We are chatting
             </motion.p>
 
-            {/* Signup Button */}
-            <motion.button
-              variants={scaleIn}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => dispatch(setIsSignUpOpen(true))}
-              className="mt-8 px-8 lg:px-16 py-2 lg:py-3 border border-white rounded-md text-white hover:bg-white bg-gradient-to-b from-[#1C4587] to-[#3279EA] transition text-[14px] font-semibold"
-            >
-              Sign Up for free
-            </motion.button>
+            {
+              user ?
+                <div>
+                  <motion.button
+                    variants={scaleIn}
+                    whileTap={{ scale: 0.95 }}
+                    className="mt-8 px-8 lg:px-16 py-2 lg:py-3 border border-white rounded-md text-white hover:bg-white bg-gradient-to-b from-[#1C4587] to-[#3279EA] transition text-md font-semibold"
+                  >
+                    Explore Now
+                  </motion.button>
+                </div>
+                :
+                <div>
+                  {/* Signup Button */}
+                  <motion.button
+                    variants={scaleIn}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => dispatch(setIsSignUpOpen(true))}
+                    className="mt-8 px-8 lg:px-16 py-2 lg:py-3 border border-white rounded-md text-white hover:bg-white bg-gradient-to-b from-[#1C4587] to-[#3279EA] transition text-md font-semibold"
+                  >
+                    Sign Up for free
+                  </motion.button>
+                </div>
+            }
           </div>
         </motion.div>
 
@@ -95,14 +111,14 @@ const Hero = () => {
           </motion.div>
         </motion.div>
 
-        
+
       </motion.section>
       {/* Wave Images */}
       <motion.div variants={waveAnimation} className="absolute right-0 bottom-28 left-0">
-          <motion.img variants={waveAnimation} className="absolute" src={wave3.src} alt="Wave 1" />
-          <motion.img variants={waveAnimation} className="" src={wave2.src} alt="Wave 3" />
-          <motion.img variants={waveAnimation} className="" src={wave2.src} alt="Wave 3" />
-        </motion.div>
+        <motion.img variants={waveAnimation} className="absolute" src={wave3.src} alt="Wave 1" />
+        <motion.img variants={waveAnimation} className="" src={wave2.src} alt="Wave 3" />
+        <motion.img variants={waveAnimation} className="" src={wave2.src} alt="Wave 3" />
+      </motion.div>
     </div>
   )
 }

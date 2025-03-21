@@ -302,6 +302,7 @@ const Navbar = () => {
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
+                
                 className="absolute right-0 mt-2 w-44 bg-white shadow-lg rounded-lg *:rounded-lg border border-gray-300"
               >
                 <Link href='/profile'>
@@ -348,7 +349,7 @@ const Navbar = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => dispatch(setIsSignUpOpen(true))}
-              className="text-lg font-semibold bg-gradient-to-t from-[#1C4587] to-[#3279EA] border text-white px-6 py-[6px] rounded-md cursor-pointer"
+              className="text-lg font-semibold bg-gradient-to-b from-[#13418b] to-[#2671eb] border text-white px-6 py-[6px] rounded-md cursor-pointer"
             >
               Sign Up
             </motion.button>

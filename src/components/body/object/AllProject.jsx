@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import image from '../../../../public/browse.png';
 import { RiTeamLine } from "react-icons/ri";
 
 
@@ -13,7 +12,8 @@ const AllProject = ({ setSelectedCard }) => {
                 description: "Develop sustainable packaging solutions using biodegradable materials dsjh.",
                 author: "MR. Sarwar",
                 authorRole: ["Owner"],
-                image: image,
+                image: "/project (1).png",
+                ownerImage: "/avatar.png",
                 participant: "10",
                 created : "22 may 2023"
             },
@@ -24,7 +24,8 @@ const AllProject = ({ setSelectedCard }) => {
                 description: "Use recyclable materials to create packaging that can be reused.",
                 author: "MR. Ahmed",
                 authorRole: ["Owner"],
-                image: image,
+                image: "/project (2).png",
+                ownerImage: "/avatar.png",
                 participant: "10",
                 created : "22 may 2023"
             },
@@ -35,7 +36,8 @@ const AllProject = ({ setSelectedCard }) => {
                 description: "Implement minimalist design principles to reduce waste and improve.",
                 author: "MS. Fatima",
                 authorRole: ["Owner"],
-                image: image,
+                image: "/project (3).png",
+                ownerImage: "/avatar.png",
                 participant: "10",
                 created : "22 may 2023"
             },
@@ -46,7 +48,8 @@ const AllProject = ({ setSelectedCard }) => {
                 description: "Implement minimalist design principles to reduce waste and improve.",
                 author: "MS. Fatima",
                 authorRole: ["Owner"],
-                image: image,
+                image: "/project (4).png",
+                ownerImage: "/avatar.png",
                 participant: "10",
                 created : "22 may 2023"
             },
@@ -57,7 +60,8 @@ const AllProject = ({ setSelectedCard }) => {
                 description: "Implement minimalist design principles to reduce waste and improve .",
                 author: "MS. Fatima",
                 authorRole: ["Owner"],
-                image: image,
+                image: "/project (5).png",
+                ownerImage: "/avatar.png",
                 participant: "10",
                 created : "22 may 2023"
             },
@@ -68,7 +72,8 @@ const AllProject = ({ setSelectedCard }) => {
                 description: "Implement minimalist design principles to reduce waste and improve .",
                 author: "MS. Fatima",
                 authorRole: ["Owner"],
-                image: image,
+                image: "/project (6).png",
+                ownerImage: "/avatar.png",
                 participant: "10",
                 created : "22 may 2023"
             },
@@ -79,7 +84,8 @@ const AllProject = ({ setSelectedCard }) => {
                 description: "Implement minimalist design principles to reduce waste and improve .",
                 author: "MS. Fatima",
                 authorRole: ["Owner"],
-                image: image,
+                image: "/project (1).png",
+                ownerImage: "/avatar.png",
                 participant: "10",
                 created : "22 may 2023"
             }
@@ -92,13 +98,13 @@ const AllProject = ({ setSelectedCard }) => {
                 <motion.div
                     onClick={() => setSelectedCard(card)}
                     key={card.id}
-                    className='cursor-pointer w-[400] lg:w-full mx-auto flex flex-col gap-2 shadow-[0px_3px_14px_1px_#d9e7ff]'
+                    className='cursor-pointer lg:w-full mx-auto flex flex-col gap-2 shadow-[0px_3px_14px_1px_#d9e7ff]'
                     whileHover={{ scale: 1.02 }}
                     transition={{ type: "spring", stiffness: 300 }}
                 >
                     <div>
                         <img
-                            src={card.image.src || "/placeholder.svg"}
+                            src={card.image}
                             alt='image'
                         />
                     </div>
@@ -121,7 +127,7 @@ const AllProject = ({ setSelectedCard }) => {
                             <p className='text-[#6F6F6F] text-sm'>{card.description}</p>
                             <div className='flex justify-between items-center'>
                                 <div className='flex gap-2 items-center'>
-                                    <img className='rounded-full w-[30px] h-[30px]' src={card.image.src || "/placeholder.svg"} alt="image" />
+                                    <img className='rounded-full w-[30px] h-[30px]' src={card.ownerImage} alt="image" />
                                     <div>
                                         <h5 className='text-[13px] text-gray-800'>{card.author}</h5>
                                         <p className='text-[10px] text-gray-500'>{card.authorRole}</p>
@@ -129,7 +135,7 @@ const AllProject = ({ setSelectedCard }) => {
                                 </div>
 
                                 <div className='flex gap-2 items-center'>
-                                    <RiTeamLine color='#1C4587' />
+                                <img src="/participants.svg" alt="" />
                                     <div className='flex gap-1 items-center text-[#6F6F6F] text-sm'>
                                         <p>{card.participant}</p>
                                         <p>Participents</p>
