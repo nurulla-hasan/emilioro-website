@@ -1,35 +1,40 @@
-import { Dialog } from "@headlessui/react";
-import { AiOutlineClose } from "react-icons/ai";
-import { useState } from "react";
-import { motion } from "framer-motion";
+"use client"
+
+import { Dialog } from "@headlessui/react"
+import { useState } from "react"
+import { motion } from "framer-motion"
+import { Search, X, ChevronDown } from "lucide-react"
 
 const AddProducerModal = ({ isAddProducerOpen, setIsAddProducerOpen }) => {
-    const [producer, setProducer] = useState("");
-    const [designation, setDesignation] = useState("CEO");
-    
-    const [producerList, setProducerList] = useState([]);
+    // State for the search input
+    const [searchName, setSearchName] = useState("")
+    const [searchRole, setSearchRole] = useState("CEO")
 
-    // Producer + Designation যোগ করার ফাংশন
+    // State for added producers
+    const [producers, setProducers] = useState([
+        
+    ])
+
+    // Add producer from search input
     const handleAddProducer = () => {
-        if (producer.trim() !== "") {
-            setProducerList([...producerList, { name: producer, role: designation }]);
-            setProducer(""); 
+        if (searchName.trim() !== "") {
+            const newId = producers.length > 0 ? Math.max(...producers.map((p) => p.id)) + 1 : 1
+            setProducers([...producers, { id: newId, name: searchName, role: searchRole }])
+            setSearchName("") // Clear the search input after adding
         }
-    };
+    }
 
-    // Producer + Designation
-    const handleRemoveProducer = (index) => {
-        const updatedList = [...producerList];
-        updatedList.splice(index, 1);
-        setProducerList(updatedList);
-    };
+    // Remove a producer
+    const handleRemoveProducer = (id) => {
+        setProducers(producers.filter((p) => p.id !== id))
+    }
 
     // Submit Function
     const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log("Added Producers:", producerList);
-        setIsAddProducerOpen(false);
-    };
+        e.preventDefault()
+        console.log("Added Producers:", producers)
+        setIsAddProducerOpen(false)
+    }
 
     return (
         <Dialog open={isAddProducerOpen} onClose={() => setIsAddProducerOpen(false)} className="relative z-50">
@@ -41,90 +46,115 @@ const AddProducerModal = ({ isAddProducerOpen, setIsAddProducerOpen }) => {
                     className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md"
                 >
                     {/* Header */}
-                    <div className="flex justify-between items-center mb-4">
-                        <Dialog.Title className="text-lg font-semibold">Create new Project</Dialog.Title>
-                        <button onClick={() => setIsAddProducerOpen(false)} className="text-gray-500 hover:text-gray-700">
-                            <AiOutlineClose size={20} />
+                    <div className="flex justify-between items-center mb-6">
+                        <Dialog.Title className="text-lg font-semibold text-gray-800">Create new Project</Dialog.Title>
+                        <button
+                            onClick={() => setIsAddProducerOpen(false)}
+                            className=" rounded-full"
+                        >
+                            <img src="/x.svg" alt="" />
                         </button>
                     </div>
 
                     {/* Form */}
                     <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-                        {/* Producer & Designation */}
-                        <div className="flex gap-3 items-center">
-                            <div className="flex-1">
-                                <label className="block text-sm font-medium">Add Producer</label>
-                                <input
-                                    type="text"
-                                    value={producer}
-                                    onChange={(e) => setProducer(e.target.value)}
-                                    className="border-gray-300 w-full px-3 py-2 border rounded-lg text-xs focus:ring-2 focus:ring-blue-500"
-                                    placeholder="Search to select producer"
-                                />
+
+                        <div className="flex flex-col gap-2">
+                            {/* Search Input Row - Fixed, not removable */}
+                            <div className="flex justify-between">
+                                <label className="block text-sm font-medium text-gray-700">Add Producer</label>
+                                <label className="block text-sm font-medium text-gray-700">Choose Designation</label>
                             </div>
 
-                            <div>
-                                <label className="block text-sm font-medium">Designation</label>
-                                <select
-                                    value={designation}
-                                    onChange={(e) => setDesignation(e.target.value)}
-                                    className="border-gray-300 text-xs w-full px-3 py-[7px] border rounded-lg"
-                                >
-                                    <option value="CEO">CEO</option>
-                                    <option value="General Manager">General Manager</option>
-                                    <option value="Chief Engineer">Chief Engineer</option>
-                                    <option value="Work Administrator">Work Administrator</option>
-                                    <option value="Artist">Artist</option>
-                                </select>
+                            <div className="flex gap-3 justify-between items-center">
+                                <div>
+                                    <div className="flex-1 relative">
+                                        <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={16} />
+                                        <input
+                                            type="text"
+                                            value={searchName}
+                                            onChange={(e) => setSearchName(e.target.value)}
+                                            className="outline-none border-gray-300 w-full pl-9 pr-3 py-2 border rounded-md text-sm"
+                                            placeholder="Search To select producer"
+                                        />
+                                    </div>
+                                </div>
+
+                                <div className="w-36 relative">
+                                    <select
+                                        value={searchRole}
+                                        onChange={(e) => setSearchRole(e.target.value)}
+                                        className="outline-none border-gray-300 text-sm w-full px-3 py-2 border rounded-md appearance-none pr-8"
+                                    >
+                                        <option value="CEO">CEO</option>
+                                        <option value="General Manager">General Manager</option>
+                                        <option value="Chief Engineer">Chief Engineer</option>
+                                        <option value="Work Administrator">Work Administrator</option>
+                                        <option value="Artist">Artist</option>
+                                    </select>
+                                    <ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={16} />
+                                </div>
+
+
                             </div>
                         </div>
+                        <div className="flex flex-col gap-2">
+                            {/* Added Producers List - Below the search input */}
+                            {producers.map((producer) => (
+                                <div key={producer.id} className="flex gap-3 items-center">
+                                    <div className="flex-1">
+                                        <input
+                                            type="text"
+                                            value={producer.name}
+                                            readOnly
+                                            className="outline-none border-gray-300 w-full px-3 py-2 border rounded-md text-sm bg-gray-50"
+                                        />
+                                    </div>
 
-                        {/* Added Producers */}
-                        <div className="flex flex-wrap gap-2">
-                            {producerList.map((p, index) => (
-                                <motion.div
-                                    key={index}
-                                    initial={{ opacity: 0, scale: 0.8 }}
-                                    animate={{ opacity: 1, scale: 1 }}
-                                    exit={{ opacity: 0, scale: 0.8 }}
-                                    className="flex gap-2 px-3 py-1 rounded-sm text-xs"
-                                >
-                                    <div className="bg-gray-200">
-                                        {p.name}
+                                    <div className="w-32 relative">
+                                        <input
+                                            type="text"
+                                            value={producer.role}
+                                            readOnly
+                                            className="outline-none border-gray-300 text-sm w-full px-3 py-2 border rounded-md bg-gray-50"
+                                        />
                                     </div>
-                                    <div className="bg-gray-200">
-                                        {p.role}
-                                    </div>
-                                    <button onClick={() => handleRemoveProducer(index)} className="cursor-pointer text-red-500 font-bold">
-                                        x
+
+                                    <button
+                                        type="button"
+                                        onClick={() => handleRemoveProducer(producer.id)}
+                                        className="w-6 h-6 flex items-center justify-center text-red-500"
+                                    >
+                                        <div className="w-4 h-0.5 bg-red-500"></div>
                                     </button>
-                                </motion.div>
+                                </div>
                             ))}
+
+                            {/* Add More Button */}
+                            <button
+                                type="button"
+                                onClick={handleAddProducer}
+                                className="border border-gray-300 text-gray-600 text-sm px-3 py-2 rounded-md hover:bg-gray-50 w-full mt-2"
+                            >
+                                +Add more
+                            </button>
+
+                            {/* Submit Button */}
+                            <motion.button
+                                type="submit"
+                                whileHover={{ scale: 1.02 }}
+                                whileTap={{ scale: 0.98 }}
+                                className="bg-[#1C4587] text-white py-2 rounded-md font-medium w-full mt-4"
+                            >
+                                Submit
+                            </motion.button>
                         </div>
-
-                        {/* Add More Button */}
-                        <button
-                            type="button"
-                            onClick={handleAddProducer}
-                            className="border text-gray-600 text-xs px-3 py-2 rounded-lg bg-gray-100 w-full"
-                        >
-                            + Add More
-                        </button>
-
-                        {/* Submit Button */}
-                        <motion.button
-                            type="submit"
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                            className="bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white py-2 rounded-lg font-medium w-full"
-                        >
-                            Submit
-                        </motion.button>
                     </form>
                 </motion.div>
             </div>
         </Dialog>
-    );
-};
+    )
+}
 
-export default AddProducerModal;
+export default AddProducerModal
+

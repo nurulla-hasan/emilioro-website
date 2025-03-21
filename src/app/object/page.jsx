@@ -152,15 +152,6 @@ const MyProjects = () => (
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
     >
-        <motion.div
-            className='absolute -top-10 right-[40%] lg:-top-[84px] lg:right-0 border border-[#1C4587] px-1 rounded-sm bg-white'
-            whileHover={{ scale: 1.05 }}
-        >
-            <select className='text-xs text outline-none py-[6px] text-[#595D62]'>
-                <option value="">Active</option>
-                <option value="">Completed</option>
-            </select>
-        </motion.div>
         <MyProject />
     </motion.div>
 );
@@ -172,15 +163,6 @@ const JoinedProjects = () => (
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
     >
-        <motion.div
-            className='absolute -top-10 right-[40%] lg:-top-[84px] lg:right-0 border border-[#1C4587] px-1 rounded-sm'
-            whileHover={{ scale: 1.05 }}
-        >
-            <select className='text-xs text outline-none py-[6px] text-[#595D62]'>
-                <option value="">Active</option>
-                <option value="">Completed</option>
-            </select>
-        </motion.div>
         <JoinedProject />
     </motion.div>
 );

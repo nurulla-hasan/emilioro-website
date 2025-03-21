@@ -1,5 +1,5 @@
 "use client"
-import { RiEdit2Line, RiTeamLine } from "react-icons/ri"
+import { RiEdit2Line } from "react-icons/ri"
 import Image from "next/image"
 import { motion } from "framer-motion"
 import { useState, useEffect, Suspense } from "react"
@@ -8,6 +8,7 @@ import AddProducerModal from "@/components/body/object/modal/AddProducerModal"
 import EditProjectModal from "@/components/body/object/modal/EditProjectModal"
 import AddUserModal from "@/components/body/object/modal/AddUserModal"
 import { useSearchParams } from "next/navigation"
+import RemoveParticipantModal from "@/components/body/object/modal/RemoveParticipantModal"
 
 const MyProjectDetails = () => {
   return (
@@ -23,43 +24,131 @@ const ProjectContent = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [project, setProject] = useState(null)
   const [loading, setLoading] = useState(true)
+  const [removeParticipantModal, setRemoveParticipantModal] = useState(false);
 
-  const searchParams = useSearchParams()
-  const cardParam = searchParams.get("card")
+  const handleRemove = () => {
+    console.log("Participant Removed!");
+    setRemoveParticipantModal(false);
+  };
 
+  const searchParams = useSearchParams();
+  const projectId = searchParams.get("id");
   const { register, handleSubmit, reset } = useForm()
 
+  const data = {
+    cards: [
+      {
+        id: "1",
+        title: "Eco-Friendly Packaging",
+        status: ["Ongoing", "Public"],
+        description: "Develop sustainable packaging solutions using biodegradable materials dsjh.",
+        author: "MR. Sarwar",
+        authorRole: ["Owner"],
+        image: "/project (1).png",
+        ownerImage: "/avatar.png",
+        participant: "10",
+        created: "22 may 2023"
+      },
+      {
+        id: "2",
+        title: "Recyclable Materials",
+        status: ["Ongoing", 'Public'],
+        description: "Use recyclable materials to create packaging that can be reused.",
+        author: "MR. Ahmed",
+        authorRole: ["Owner"],
+        image: "/project (2).png",
+        ownerImage: "/avatar.png",
+        participant: "10",
+        created: "22 may 2023"
+      },
+      {
+        id: "3",
+        title: "Minimalist Design",
+        status: ['Ongoing', 'Public'],
+        description: "Implement minimalist design principles to reduce waste and improve.",
+        author: "MS. Fatima",
+        authorRole: ["Owner"],
+        image: "/project (3).png",
+        ownerImage: "/avatar.png",
+        participant: "10",
+        created: "22 may 2023"
+      },
+      {
+        id: "4",
+        title: "Minimalist Design",
+        status: ['Ongoing', 'Public'],
+        description: "Implement minimalist design principles to reduce waste and improve.",
+        author: "MS. Fatima",
+        authorRole: ["Owner"],
+        image: "/project (4).png",
+        ownerImage: "/avatar.png",
+        participant: "10",
+        created: "22 may 2023"
+      },
+      {
+        id: "5",
+        title: "Minimalist Design",
+        status: ['Ongoing', 'Public'],
+        description: "Implement minimalist design principles to reduce waste and improve .",
+        author: "MS. Fatima",
+        authorRole: ["Owner"],
+        image: "/project (5).png",
+        ownerImage: "/avatar.png",
+        participant: "10",
+        created: "22 may 2023"
+      },
+      {
+        id: "6",
+        title: "Minimalist Design",
+        status: ['Ongoing', 'Public'],
+        description: "Implement minimalist design principles to reduce waste and improve .",
+        author: "MS. Fatima",
+        authorRole: ["Owner"],
+        image: "/project (6).png",
+        ownerImage: "/avatar.png",
+        participant: "10",
+        created: "22 may 2023"
+      },
+      {
+        id: "7",
+        title: "Minimalist Design",
+        status: ['Ongoing', 'Public'],
+        description: "Implement minimalist design principles to reduce waste and improve .",
+        author: "MS. Fatima",
+        authorRole: ["Owner"],
+        image: "/project (1).png",
+        ownerImage: "/avatar.png",
+        participant: "10",
+        created: "22 may 2023"
+      }
+    ]
+  };
+
   useEffect(() => {
-    if (!cardParam) {
-      setLoading(false)
-      return
+    if (!projectId) {
+      setLoading(false);
+      return;
     }
 
-    try {
-      const parsedCard = JSON.parse(decodeURIComponent(cardParam))
-      setProject(parsedCard)
-    } catch (error) {
-      console.error("Invalid JSON:", error)
-      setProject({
-        title: "Sample Project",
-        author: "John Doe",
-        authorRole: "Project Manager",
-        created: "Created on 20 Mar 2025",
-        description: "This is a sample project description. The actual project data could not be loaded.",
-        participant: 6,
-        image: "/placeholder.svg?height=200&width=400",
-        ownerImage: "/avatar.png",
-      })
-    } finally {
-      setLoading(false)
+    const selectedProject = data.cards.find((item) => item.id === projectId);
+
+    if (selectedProject) {
+      setProject(selectedProject);
+    } else {
+      console.error("Project not found");
     }
-  }, [cardParam])
+
+    setLoading(false);
+  }, [projectId]);
 
   const onSubmit = (data) => {
     console.log("Edited Project Data:", data)
     setIsOpen(false)
     reset()
   }
+
+
+
 
   if (loading) {
     return <p className="text-center text-gray-500">Loading project...</p>
@@ -82,7 +171,7 @@ const ProjectContent = () => {
   return (
     <div className="px-5 my-5">
       <div className="max-w-3xl shadow-[0px_15px_45px_0px_#CFC9DD99] mx-auto p-5 rounded-lg bg-white">
-        <div className="relative h-48 w-full">
+        <div className="relative h-[150px] md:h-52 w-full">
           <Image
             src={imageSrc || "/placeholder.svg"}
             alt="Project Header"
@@ -187,6 +276,7 @@ const ProjectContent = () => {
                           className="px-2 text-xs bg-white border border-red-500 text-red-500 py-1 rounded-md font-medium"
                           whileHover={{ scale: 1.02 }}
                           whileTap={{ scale: 0.98 }}
+                          onClick={() => setRemoveParticipantModal(true)}
                         >
                           Remove
                         </motion.button>
@@ -245,6 +335,7 @@ const ProjectContent = () => {
                           className="px-2 text-xs bg-white border border-red-500 text-red-500 py-1 rounded-md font-medium"
                           whileHover={{ scale: 1.02 }}
                           whileTap={{ scale: 0.98 }}
+                          onClick={() => setRemoveParticipantModal(true)}
                         >
                           Remove
                         </motion.button>
@@ -275,7 +366,7 @@ const ProjectContent = () => {
                   >
                     <div className="flex justify-between items-center w-full">
                       <div className="flex gap-2 items-center">
-                        <img src={imageSrc || "/placeholder.svg"} alt="Producer" className="w-8 h-8 rounded-full" />
+                        <img src={project.ownerImage || "/placeholder.svg"} alt="Producer" className="w-8 h-8 rounded-full" />
                         <div>
                           <p className="font-medium text-sm text-gray-700">Ahamad musa</p>
                           <p className="text-xs text-gray-500">
@@ -338,6 +429,13 @@ const ProjectContent = () => {
 
       {/* Modal */}
       <AddUserModal isOpen={isAddUserOpen} setIsOpen={setIsAddUserOpen} />
+
+      {/* Modal */}
+      <RemoveParticipantModal
+        isOpen={removeParticipantModal}
+        setRemoveParticipantModal={setRemoveParticipantModal}
+        onRemove={handleRemove}
+      />
     </div>
   )
 }
