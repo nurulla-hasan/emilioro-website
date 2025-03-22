@@ -50,19 +50,19 @@ const DetailsCreateGroupModal = ({ isOpen, onClose }) => {
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
-                className="bg-white rounded-lg w-[400px] shadow-lg"
+                className="bg-white relative rounded-lg w-[400px] shadow-lg"
             >
                 {/* Header */}
-                <div className="p-4 flex justify-between items-center border-b">
+                <div className="p-4 flex justify-between items-center">
                     <div>
                         <h3 className="text-lg font-semibold">Create group name poll</h3>
                         <p className="text-sm text-gray-500">(Minimum 2 names, Maximum 5 names)</p>
                     </div>
                     <button 
                         onClick={onClose}
-                        className="text-gray-400 hover:text-gray-600 p-1"
+                        className="absolute top-2 right-2 cursor-pointer"
                     >
-                        <X className="h-5 w-5" />
+                        <img src="/x.svg" alt="" />
                     </button>
                 </div>
 
@@ -176,7 +176,7 @@ const DetailsCreateGroupModal = ({ isOpen, onClose }) => {
                 </div>
 
                 {/* Submit Button */}
-                <div className="p-4 border-t">
+                <div className="p-4">
                     <button
                         onClick={handleSubmit(onSubmit)}
                         className="w-full bg-[#1C4587] hover:bg-[#15366b] text-white py-2.5 rounded-md text-sm font-medium transition-colors"

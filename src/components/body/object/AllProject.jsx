@@ -98,7 +98,7 @@ const AllProject = ({ setSelectedCard }) => {
                 <motion.div
                     onClick={() => setSelectedCard(card)}
                     key={card.id}
-                    className='cursor-pointer lg:w-full mx-auto flex flex-col gap-2 shadow-[0px_3px_14px_1px_#d9e7ff]'
+                    className='cursor-pointer lg:w-full mx-auto flex flex-col gap-2 shadow-[0px_15px_45px_0px_#CFC9DD99]'
                     whileHover={{ scale: 1.02 }}
                     transition={{ type: "spring", stiffness: 300 }}
                 >
@@ -106,6 +106,7 @@ const AllProject = ({ setSelectedCard }) => {
                         <img
                             src={card.image}
                             alt='image'
+                            className='w-full'
                         />
                     </div>
 

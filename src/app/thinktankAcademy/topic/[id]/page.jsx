@@ -25,9 +25,9 @@ const Page = () => {
                 id: 1,
                 user: "Dindiniya",
                 role: "General manager",
-                avatar: "/placeholder.svg?height=50&width=50",
+                avatar: "/avatar.png",
                 content:
-                    "Sustainable packaging focuses on reducing environmental impact by using eco-friendly materials, minimizing waste, and promoting recyclability. It includes biodegradable, compostable.",
+                    "Sustainable packaging focuses on reducing environmental impact by using eco-friendly materials, minimizing waste, and promoting recyclability. It includes biodegradable, compostable, or reusable alternatives to traditional packaging, helping businesses lower their carbon footprint while meeting consumer demand for greener solutions.",
                 date: "02/02/2025",
                 time: "10:00 AM",
             },
@@ -35,9 +35,9 @@ const Page = () => {
                 id: 2,
                 user: "Dindiniya",
                 role: "General manager",
-                avatar: "/placeholder.svg?height=50&width=50",
+                avatar: "/avatar.png",
                 content:
-                    "Sustainable packaging focuses on reducing environmental impact by using eco-friendly materials, minimizing waste, and promoting recyclability. It includes biodegradable, compostables.",
+                    "Sustainable packaging focuses on reducing environmental impact by using eco-friendly materials, minimizing waste, and promoting recyclability. It includes biodegradable, compostable, or reusable alternatives to traditional packaging, helping businesses lower their carbon footprint while meeting consumer demand for greener solutions.",
                 date: "02/02/2025",
                 time: "10:00 AM",
             },
@@ -45,12 +45,33 @@ const Page = () => {
                 id: 3,
                 user: "Dindiniya",
                 role: "General manager",
-                avatar: "/placeholder.svg?height=50&width=50",
+                avatar: "/avatar.png",
                 content:
-                    "Sustainable packaging focuses on reducing environmental impact by using eco-friendly materials, minimizing waste, and promoting recyclability. It includes biodegradable, compostable.",
+                    "Sustainable packaging focuses on reducing environmental impact by using eco-friendly materials, minimizing waste, and promoting recyclability. It includes biodegradable, compostable, or reusable alternatives to traditional packaging, helping businesses lower their carbon footprint while meeting consumer demand for greener solutions.",
                 date: "02/02/2025",
                 time: "10:00 AM",
             },
+            {
+                id: 4,
+                user: "Dindiniya",
+                role: "General manager",
+                avatar: "/avatar.png",
+                content:
+                    "Sustainable packaging focuses on reducing environmental impact by using eco-friendly materials, minimizing waste, and promoting recyclability. It includes biodegradable, compostable, or reusable alternatives to traditional packaging, helping businesses lower their carbon footprint while meeting consumer demand for greener solutions.",
+                date: "02/02/2025",
+                time: "10:00 AM",
+            },
+            {
+                id: 5,
+                user: "Dindiniya",
+                role: "General manager",
+                avatar: "/avatar.png",
+                content:
+                    "Sustainable packaging focuses on reducing environmental impact by using eco-friendly materials, minimizing waste, and promoting recyclability. It includes biodegradable, compostable, or reusable alternatives to traditional packaging, helping businesses lower their carbon footprint while meeting consumer demand for greener solutions.",
+                date: "02/02/2025",
+                time: "10:00 AM",
+            },
+            
         ]
         setComments(fetchedComments)
     }, [category])
@@ -72,28 +93,28 @@ const Page = () => {
     }
 
     return (
-        <div className="px-3">
-            <div className="w-full max-w-4xl mx-auto my-8 bg-white shadow-[0px_10px_17px_2px_#CFC9DDB2] rounded-md overflow-hidden border-x border-b border-gray-300">
+        <div className="mx-auto xl:w-6/9 lg:w-5/6 py-10 px-5">
+            <div className="bg-white shadow-[0px_10px_17px_2px_#CFC9DDB2] rounded-md overflow-hidden border-x border-b border-gray-300">
                 {/* Header */}
                 <div className="p-4 border-b border-blue-200">
                     <h2 className="text-[#1C4587] font-medium">{category} (Discussion)</h2>
                 </div>
 
                 {/* Comments Section */}
-                <div className="bg-[#EAF0FB] p-6">
+                <div className="bg-[#EAF0FB] md:h-[70vh] overflow-scroll hide-scrollbar p-6">
                     <h3 className="text-center text-gray-600 text-sm mb-4">Today</h3>
 
-                    <div className="space-y-4">
+                    <div className="space-y-4 ">
                         {comments.map((comment) => (
                             <div key={comment.id} className="bg-white p-5 rounded-md shadow-sm">
                                 <div className="flex justify-between">
                                     <div className="flex items-center gap-3">
                                         <Image
-                                            src="/heroImage.png"
+                                            src={comment.avatar || ""}
                                             alt={comment.user}
-                                            width={30}
-                                            height={30}
-                                            className="rounded-full"
+                                            width={40}
+                                            height={40}
+                                            className="border border-[#5689DC] rounded-full"
                                         />
                                         <div>
                                             <h4 className="font-medium text-sm">{comment.user}</h4>
@@ -102,60 +123,17 @@ const Page = () => {
                                     </div>
                                     <div className="text-xs text-gray-500 flex flex-col items-end">
                                         <div className="flex items-center gap-1">
-                                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M19 4H5C3.89543 4 3 4.89543 3 6V20C3 21.1046 3.89543 22 5 22H19C20.1046 22 21 21.1046 21 20V6C21 4.89543 20.1046 4 19 4Z"
-                                                    stroke="currentColor"
-                                                    strokeWidth="2"
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                />
-                                                <path
-                                                    d="M16 2V6"
-                                                    stroke="currentColor"
-                                                    strokeWidth="2"
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                />
-                                                <path
-                                                    d="M8 2V6"
-                                                    stroke="currentColor"
-                                                    strokeWidth="2"
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                />
-                                                <path
-                                                    d="M3 10H21"
-                                                    stroke="currentColor"
-                                                    strokeWidth="2"
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                />
-                                            </svg>
+                                            <img src="/calender.svg" alt="" />
                                             <span>{comment.date}</span>
                                         </div>
                                         <div className="flex items-center gap-1">
-                                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
-                                                    stroke="currentColor"
-                                                    strokeWidth="2"
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                />
-                                                <path
-                                                    d="M12 6V12L16 14"
-                                                    stroke="currentColor"
-                                                    strokeWidth="2"
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                />
-                                            </svg>
+                                            <img src="/clock.svg" alt="" />
                                             <span>{comment.time}</span>
                                         </div>
                                     </div>
                                 </div>
-                                <p className="text-xs text-gray-700 mt-3 leading-relaxed">{comment.content}</p>
+                                <p className="text-xs md:w-7/8 text-gray-700 mt-3 leading-relaxed">{comment.content}
+                                </p>
                             </div>
                         ))}
                     </div>

@@ -120,7 +120,7 @@ const Navbar = () => {
 
   return (
     <div className="bg-[#1C4587]">
-      <nav className="z-50 py-4 px-5 lg:px-0 lg:w-5/6 xl:w-7/9 mx-auto flex justify-evenly items-center relative">
+      <nav className="z-50 py-6 px-5 lg:px-0 lg:w-5/6 xl:w-7/9 mx-auto flex justify-evenly items-center relative">
 
         {/* Mobile nav */}
         <div className=" flex items-center justify-between w-full lg:w-auto">

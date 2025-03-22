@@ -11,9 +11,9 @@ const InstitutionPage = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <motion.div 
-            initial={{ opacity: 0 }} 
-            animate={{ opacity: 1 }} 
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
             className='xl:w-6/9 lg:w-5/6 px-5 mx-auto my-10'
         >
@@ -41,30 +41,32 @@ const InstitutionPage = () => {
             </div>
 
             {/* Tabs------ */}
-            <div className="flex mx-auto md:ml-0 lg:ml-0 border-[#1C4587] border w-60 justify-between rounded-sm mt-5 lg:mt-10">
-                {[{ id: "all", label: "All Institution" }, { id: "my", label: "My Institution" }].map((tab) => (
-                    <motion.button
-                        key={tab.id}
-                        className={`px-4 py-2 text-xs font-medium transition-all border rounded-sm ${activeTab === tab.id
-                            ? "bg-[#1C4587] border border-[#1C4587] text-white"
-                            : "border-transparent text-[#1C4587]"}`}
-                        onClick={() => setActiveTab(tab.id)}
-                        whileHover={{ scale: 1.08 }}
-                        whileTap={{ scale: 0.9 }}
-                    >
-                        {tab.label}
-                    </motion.button>
-                ))}
+            <div className='flex mx-auto md:ml-0'>
+                <div className=" border-[#1C4587] border  justify-between rounded-sm mt-5 lg:mt-10">
+                    {[{ id: "all", label: "All Institution" }, { id: "my", label: "My Institution" }].map((tab) => (
+                        <motion.button
+                            key={tab.id}
+                            className={`px-4 py-2 text-xs font-medium transition-all border rounded-sm ${activeTab === tab.id
+                                ? "bg-[#1C4587] border border-[#1C4587] text-white"
+                                : "border-transparent text-[#1C4587]"}`}
+                            onClick={() => setActiveTab(tab.id)}
+                            whileHover={{ scale: 1.08 }}
+                            whileTap={{ scale: 0.9 }}
+                        >
+                            {tab.label}
+                        </motion.button>
+                    ))}
+                </div>
             </div>
 
             {/* Tab Content */}
             <div className="mt-4">
                 <AnimatePresence mode="wait">
                     {activeTab === "all" && (
-                        <motion.div 
-                            key="all" 
-                            initial={{ opacity: 0, x: -10 }} 
-                            animate={{ opacity: 1, x: 0 }} 
+                        <motion.div
+                            key="all"
+                            initial={{ opacity: 0, x: -10 }}
+                            animate={{ opacity: 1, x: 0 }}
                             exit={{ opacity: 0, x: 10 }}
                             transition={{ duration: 0.3 }}
                         >
@@ -72,10 +74,10 @@ const InstitutionPage = () => {
                         </motion.div>
                     )}
                     {activeTab === "my" && (
-                        <motion.div 
-                            key="my" 
-                            initial={{ opacity: 0, x: -10 }} 
-                            animate={{ opacity: 1, x: 0 }} 
+                        <motion.div
+                            key="my"
+                            initial={{ opacity: 0, x: -10 }}
+                            animate={{ opacity: 1, x: 0 }}
                             exit={{ opacity: 0, x: 10 }}
                             transition={{ duration: 0.3 }}
                         >
@@ -85,16 +87,16 @@ const InstitutionPage = () => {
                 </AnimatePresence>
             </div>
 
-            
-          {/* Modal */}
-          <CreateInstituteModal isOpen={isOpen} setIsOpen={setIsOpen}/>
+
+            {/* Modal */}
+            <CreateInstituteModal isOpen={isOpen} setIsOpen={setIsOpen} />
         </motion.div>
     );
 };
 
 const MyInstitutionComponent = () => (
     <div>
-        
+
         <MyInstitution />
 
     </div>

@@ -1,9 +1,11 @@
 import { RiTeamLine } from "react-icons/ri";
 import { useState } from "react";
+import { motion } from 'framer-motion';
 import EditInstituteModal from "./modal/EditInstituteModal";
 
 const AllInstitution = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [status, setStatus] = useState("Created");
 
     const data = {
         cards: [
@@ -15,7 +17,7 @@ const AllInstitution = () => {
                 skils: ["Innovators Hub", "Critical Thinkers"],
                 participant1: "10",
                 participant2: "5",
-                status: ["Joined", "Public"],
+                status: ["Created", "Public"],
             },
             {
                 id: "2",
@@ -67,20 +69,42 @@ const AllInstitution = () => {
                 participant2: "5",
                 status: ["Created", "Public"],
             },
+            {
+                id: "7",
+                institutionName: 'ThinkTank Academy ',
+                description: "Implement minimalist design principles to reduce waste and improve efficiency.",
+                image: "/institute (2).png",
+                skils: ["Innovators Hub", "Critical Thinkers"],
+                participant1: "10",
+                participant2: "5",
+                status: ["Joined", "Public"],
+            },
         ]
     };
 
+    const filteredCards = data.cards.filter(card =>
+        card.status.includes(status)
+    );
 
     return (
         <div className="relative">
-            <div className='absolute -top-11 right-[40%] lg:-top-[84px] lg:right-0 border border-[#1e4a9b] px-1 rounded-sm bg-white'>
-                <select className='text-xs outline-none py-1'>
-                    <option value="">Created</option>
-                    <option value="">Joined</option>
+            <motion.div
+                className='absolute -top-11 right-[40%] lg:-top-[84px] lg:right-0 border border-[#1C4587] px-1 rounded-sm bg-white'
+                whileHover={{ scale: 1.05 }}
+                value={status}
+                onChange={(e) => setStatus(e.target.value)}
+            >
+                <select
+                    className='text-xs text outline-none py-[6px] text-[#595D62]'
+                    value={status}
+                    onChange={(e) => setStatus(e.target.value)}
+                >
+                    <option value="Created">Created</option>
+                    <option value="Joined">Joined</option>
                 </select>
-            </div>
+            </motion.div>
             <div className='mt-14 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 items-center gap-5 rounded-lg'>
-                {data.cards.map((card) => (
+                {filteredCards.map((card) => (
                     <div key={card.id} className='lg:w-full mx-auto bg-[#FFFFFF] flex flex-col gap-2 shadow-[0px_15px_45px_0px_#CFC9DD99]'>
                         <div className='px-5'>
                             <img

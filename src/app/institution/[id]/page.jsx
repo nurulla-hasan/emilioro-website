@@ -5,8 +5,6 @@ import { motion } from "framer-motion"
 import { Suspense, useState } from "react";
 import Image from "next/image";
 import { Search } from 'lucide-react';
-import { AiOutlineDelete } from "react-icons/ai";
-import { RiEditLine } from "react-icons/ri";
 import avatar from '../../../../public/heroImage.png'
 import DetailsCreateGroupModal from "@/components/body/institution/modal/DetailsCreateGroupModal";
 
@@ -150,7 +148,8 @@ const projects = [
 ];
 
 const EcoFriendlyPackage = () => {
-    const { id } = useParams(); // ✅ Dynamic route theke id nicchi
+    const router = useRouter()
+    const { id } = useParams();
 
     const [selected, setSelected] = useState(null);
     const [createGroupModal, setCreateGroupModal] = useState(false);
@@ -159,7 +158,7 @@ const EcoFriendlyPackage = () => {
     const project = projects.find(p => p.id === id) || projects[0];
 
     console.log("Project ID:", id);
-    
+
 
 
     const handleClick = (index, categoryId) => {
@@ -214,7 +213,7 @@ const EcoFriendlyPackage = () => {
                 <div className="flex justify-between items-start mb-2">
                     <div className="flex items-center justify-between w-full">
                         <h1 className="text-xl font-semibold text-[#1C4587]">{project.title}</h1>
-                        <img src="/filter.svg" alt="Filter Icon" className="w-5 h-5 inline-block" />
+                        <img src="/filter.svg" alt="Filter Icon" className="w-5 h-5 border border-[#1C4587] inline-block rounded-sm" />
                     </div>
                 </div>
             </div>
@@ -230,7 +229,10 @@ const EcoFriendlyPackage = () => {
                         <div className="p-4">
                             <div className="flex justify-between items-center mb-3">
                                 <h2 className="text-[#1C4587] font-medium">Innovators Hub</h2>
-                                <RiEditLine onClick={() => setCreateGroupModal(true)} color="#1C4587" />
+                                <img onClick={() => setCreateGroupModal(true)}
+                                    src="/edit.svg" alt=""
+                                    className="cursor-pointer"
+                                />
                             </div>
                             <div className="relative">
                                 <input
@@ -267,24 +269,30 @@ const EcoFriendlyPackage = () => {
                     <div className="lg:col-span-6 space-y-6">
                         {/* Documents */}
                         <div className="bg-white border rounded-b-md border-gray-100">
-                            <div className="flex border-b border-gray-200 p-2 justify-between items-center mb-4">
+                            <div className="flex border-b border-gray-200 p-4 justify-between items-center mb-4">
                                 <h2 className="text-[#1C4587] font-medium">All Topics</h2>
+                                <img onClick={() => setCreateGroupModal(true)}
+                                    src="/edit.svg" alt=""
+                                    className="cursor-pointer"
+                                />
                             </div>
                             <div className="p-2">
                                 {categories.map((category, index) => (
                                     <div
                                         key={category.id}
-                                        className={`flex justify-between items-center px-4 py-3 border border-gray-200 rounded-md mb-2 cursor-pointer transition ${selected === index ? "bg-blue-100 border-blue-300" : "bg-white"
+                                        className={`flex justify-between items-center px-4 py-3 border border-gray-200 rounded-md mb-2  transition ${selected === index ? "bg-blue-100 border-blue-300" : "bg-white"
                                             }`}
-                                        onClick={() => handleClick(index, category.id)}
+
                                     >
-                                        <span className="text-sm text-gray-800">{category.name}</span>
-                                        <div className="flex items-center gap-2">
-                                            <button className="text-red-500 hover:text-red-600">
-                                                <AiOutlineDelete size={16} />
+                                        <span onClick={() => handleClick(index, category.id)} className="cursor-pointer text-sm text-gray-800">
+                                            {category.name}
+                                        </span>
+                                        <div className="flex items-center gap-2 ">
+                                            <button className="cursor-pointer">
+                                                <img src="/Delete.svg" alt="" />
                                             </button>
-                                            <button className="text-blue-500 hover:text-blue-600">
-                                                <RiEditLine size={16} />
+                                            <button className="cursor-pointer">
+                                                <img src="/edit.svg" alt="" />
                                             </button>
                                         </div>
                                     </div>
@@ -299,7 +307,10 @@ const EcoFriendlyPackage = () => {
                         <div className="p-4">
                             <div className="flex flex-row-reverse justify-between items-center mb-3">
                                 <h2 className="text-[#1C4587] font-medium">Critical Thinkers</h2>
-                                <RiEditLine onClick={() => setCreateGroupModal(true)} color="#1C4587" />
+                                <img onClick={() => setCreateGroupModal(true)}
+                                    src="/edit.svg" alt=""
+                                    className="cursor-pointer"
+                                />
                             </div>
                             <div className="relative">
                                 <input
