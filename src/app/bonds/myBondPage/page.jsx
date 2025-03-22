@@ -44,8 +44,8 @@ const MyBondPage = () => {
     };
 
     return (
-        <div className="xl:w-6/9 lg:w-5/6 p-5 mx-auto mt-10">
-            <div className="flex justify-end">
+        <div className=" xl:w-8/11 lg:w-10/12 p-5 mx-auto mt-10 relative">
+            <div className="absolute right-5 top-9 ">
                 <div className="border p-2 border-[#D6D6D6] rounded-lg flex">
                     <select
                         value={selectedOption}

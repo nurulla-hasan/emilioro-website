@@ -84,7 +84,7 @@ const RequestProfile = () => {
     const friend = profileData.friends.find(friend => friend.id === Number(id));
 
     return (
-        <div className="lg:w-5/6 xl:w-6/9 px-5 my-10 mx-auto">
+        <div className="lg:w-8/11 px-5 my-10 mx-auto">
             {/* Cover Photo */}
             <div className="relative rounded-lg overflow-hidden">
                 <img

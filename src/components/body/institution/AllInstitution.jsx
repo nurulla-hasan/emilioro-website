@@ -75,7 +75,7 @@ const AllInstitution = () => {
 
 
     return (
-        <div className='mt-10 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 items-center gap-5 rounded-lg '>
+        <div className='mt-10 grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 items-center gap-5 rounded-lg '>
             {data.cards.map((card) => (
                 <div key={card.id} className=' lg:w-full mx-auto flex flex-col gap-2 shadow-[0px_15px_45px_0px_#CFC9DD99] bg-[#FFFFFF]'>
                     <div className='px-5'>

@@ -8,9 +8,9 @@ const Favorite = () => {
 
     return (
         <>
-            <div className="xl:w-6/9 lg:w-5/6 mx-auto px-5 py-10">
+            <div className="xl:w-6/9 lg:w-5/6 mx-auto px-5 lg:px-0 md:p-10 py-5">
                 <div className="flex justify-between items-center gap-4">
-                    <h2 className="xl:text-2xl text-xl font-bold text-[#1C4587]">My Favorite</h2>
+                    <h2 className="xl:text-2xl text-xl font-semibold text-[#1C4587]">My Favorite</h2>
 
                     {/* Dropdown */}
                     <select

@@ -73,32 +73,31 @@ const data = [
 
 const MostPlayedSection = () => {
     return (
-        <div className="mx-auto my-8 lg:my-16 lg:w-4/6 lg:px-5 relative">
+        <div className="mx-auto my-8 lg:my-16 xl:w-8/11 lg:w-10/12 lg:px-5 relative">
             <div className="flex items-center justify-center lg:justify-start mx-auto">
-                <h1 className="lg:text-2xl text-xl my-5 font-bold text-blue-900">Most played in this week</h1>
+                <h1 className="lg:text-xl text-sm my-5 font-bold text-blue-900">Most played in this week</h1>
             </div>
 
             <Swiper
                 modules={[Navigation]}
+                className="md:w-[85%] lg:w-full"
                 spaceBetween={20}
                 slidesPerView={4}
                 navigation={{
                     nextEl: ".swiper-button-next-custom",
                     prevEl: ".swiper-button-prev-custom",
                 }}
-                // pagination={{ clickable: true }}
-                // autoplay={{ delay: 10000 }}
                 breakpoints={{
-                    1024: { slidesPerView: 4 },
-                    768: { slidesPerView: 3 },
+                    1440: { slidesPerView: 4 },
+                    1024: { slidesPerView: 3 },
+                    768: { slidesPerView: 2 },
                     640: { slidesPerView: 2 },
                     320: { slidesPerView: 1 },
                 }}
             >
                 {data.map((item) => (
                     <SwiperSlide key={item.id}>
-                        <div className="relative flex-shrink-0 mx-auto w-full lg:px-0 px-5
-                         lg:w-72 rounded-lg group">
+                        <div className="relative flex-shrink-0 mx-auto lg:px-0 md:px-0 px-5 rounded-lg group">
                             {/* Image Container */}
                             <div className="relative h-40 overflow-hidden rounded-xl">
                                 <img

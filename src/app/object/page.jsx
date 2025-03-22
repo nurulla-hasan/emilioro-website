@@ -60,14 +60,14 @@ const ObjectPage = () => {
                             <input
                                 type="text"
                                 placeholder="Search Project"
-                                className="px-2 py-1 lg:w-full w-36 rounded-full lg:py-2 border-none outline-none text-[#1C4587]"
+                                className="px-2 py-1.5 lg:w-full w-36 rounded-md lg:py-2 border-none outline-none text-sm text-[#1C4587]"
                             />
                         </motion.div>
                         <motion.button
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                             onClick={() => setIsOpen(true)}
-                            className="cursor-pointer bg-gradient-to-b from-[#193f7c] to-[#2965c4] text-white px-4 lg:py-2 py-[9] rounded-md font-medium text-xs lg:text-lg"
+                            className="cursor-pointer bg-gradient-to-b from-[#193f7c] to-[#2965c4] text-white px-4 py-[9] rounded-lg font-medium lg:text-sm text-xs"
                         >
                             +Create New Project
                         </motion.button>

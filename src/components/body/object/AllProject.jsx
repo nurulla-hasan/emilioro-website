@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { RiTeamLine } from "react-icons/ri";
 
 
 const AllProject = ({ setSelectedCard }) => {
@@ -93,7 +92,7 @@ const AllProject = ({ setSelectedCard }) => {
     };
 
     return (
-        <div className='mt-10 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 items-center gap-5 rounded-lg'>
+        <div className='mt-10 grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 items-center gap-5 rounded-lg'>
             {data.cards.map((card) => (
                 <motion.div
                     onClick={() => setSelectedCard(card)}

@@ -52,10 +52,10 @@ const MyPlalist = () => {
 
     ]
     return (
-        <div className="lg:w-4/6 mx-auto px-5 my-10 lg:my-20">
-            <div className=" mx-auto flex flex-col lg:flex-row gap-5 justify-between items-center">
-                <h1 className="lg:text-2xl text-lg text-[#1C4587] font-semibold">My Playlists</h1>
-                <div className='flex gap-5 items-center justify-center'>
+        <div className="xl:w-8/12 lg:w-10/12 mx-auto px-5 lg:px-0 my-10 ">
+            <div className=" mx-auto flex flex-col md:flex-row gap-5 justify-between items-center">
+                <h1 className="lg:text-2xl w-full text-lg text-[#1C4587] md:text-left text-center font-semibold">My Playlists</h1>
+                <div className='flex gap-5 w-full items-center justify-center md:justify-end'>
                     <motion.div
                         className=' border border-[#1e4a9b] px-5 py-[6px] rounded-md bg-white'
                         whileHover={{ scale: 1.05 }}
@@ -70,7 +70,7 @@ const MyPlalist = () => {
                         whileTap={{ scale: 0.99 }}
                         className="text-blue-500 font-semibold cursor-pointer"
                     >
-                        <button onClick={() => setIsCreatePlaylistModalOpen(true)} className="cursor-pointer bg-gradient-to-b from-[#193f7c] to-[#2965c4] text-white px-5 lg:py-[10px] py-[9px] rounded-lg font-semibold text-xs lg:text-[15px]">
+                        <button onClick={() => setIsCreatePlaylistModalOpen(true)} className="cursor-pointer bg-gradient-to-b from-[#193f7c] to-[#2965c4] text-white px-5 py-3 lg:py-[10px] rounded-lg font-semibold text-xs lg:text-[15px]">
                             +Create new playlist
                         </button>
                     </motion.div>
@@ -78,7 +78,7 @@ const MyPlalist = () => {
             </div>
 
             {/* Cards */}
-            <div className="mx-auto my-16 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 lg:justify-between justify-items-center items-center">
+            <div className="mx-auto my-16 grid xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-5 lg:justify-between justify-items-center items-center">
                 {conversations.map((conversation, index) => (
                     <div key={conversation.id} className='flex flex-col gap-2'>
                         <div>

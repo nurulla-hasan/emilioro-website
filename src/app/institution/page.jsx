@@ -25,7 +25,7 @@ const InstitutionPage = () => {
                         <input
                             type="text"
                             placeholder="Search Project"
-                            className="px-2 py-1 lg:w-full w-36 rounded-full lg:py-2 border-none outline-none text-[#1C4587]"
+                            className="px-2 py-1.5 lg:w-full w-36 rounded-full lg:py-2 border-none outline-none text-[#1C4587] text-sm"
                         />
                     </div>
                     <motion.div
@@ -33,7 +33,7 @@ const InstitutionPage = () => {
                         whileTap={{ scale: 0.95 }}
                         className="text-blue-500 font-semibold cursor-pointer"
                     >
-                        <button onClick={() => setIsOpen(true)} className="cursor-pointer bg-gradient-to-b from-[#193f7c] to-[#2965c4] text-white px-4 lg:py-2 py-[9px] rounded-md font-medium text-xs lg:text-lg">
+                        <button onClick={() => setIsOpen(true)} className="cursor-pointer bg-gradient-to-b from-[#193f7c] to-[#2965c4] text-white px-4 lg:py-2 py-[9px] rounded-md font-medium text-xs lg:text-sm">
                             +Create Institute
                         </button>
                     </motion.div>
@@ -41,21 +41,23 @@ const InstitutionPage = () => {
             </div>
 
             {/* Tabs------ */}
-            <div className='flex mx-auto md:ml-0'>
-                <div className=" border-[#1C4587] border  justify-between rounded-sm mt-5 lg:mt-10">
-                    {[{ id: "all", label: "All Institution" }, { id: "my", label: "My Institution" }].map((tab) => (
-                        <motion.button
-                            key={tab.id}
-                            className={`px-4 py-2 text-xs font-medium transition-all border rounded-sm ${activeTab === tab.id
-                                ? "bg-[#1C4587] border border-[#1C4587] text-white"
-                                : "border-transparent text-[#1C4587]"}`}
-                            onClick={() => setActiveTab(tab.id)}
-                            whileHover={{ scale: 1.08 }}
-                            whileTap={{ scale: 0.9 }}
-                        >
-                            {tab.label}
-                        </motion.button>
-                    ))}
+            <div className='flex justify-between'>
+                <div className='mx-auto md:ml-0'>
+                    <div className=" flex border-[#1C4587] border justify-between rounded-sm mt-5 lg:mt-10">
+                        {[{ id: "all", label: "All Institution" }, { id: "my", label: "My Institution" }].map((tab) => (
+                            <motion.button
+                                key={tab.id}
+                                className={`px-4 py-2 text-xs font-medium transition-all border rounded-sm ${activeTab === tab.id
+                                    ? "bg-[#1C4587] border border-[#1C4587] text-white"
+                                    : "border-transparent text-[#1C4587]"}`}
+                                onClick={() => setActiveTab(tab.id)}
+                                whileHover={{ scale: 1.08 }}
+                                whileTap={{ scale: 0.9 }}
+                            >
+                                {tab.label}
+                            </motion.button>
+                        ))}
+                    </div>
                 </div>
             </div>
 

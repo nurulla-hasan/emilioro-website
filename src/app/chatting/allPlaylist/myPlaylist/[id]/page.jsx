@@ -150,7 +150,7 @@ const PlaylistDetails = () => {
     };
 
     return (
-        <div className="lg:w-4/6 mx-auto py-5 xl:py-10 px-5">
+        <div className="xl:w-8/11 lg:w-10/12 mx-auto py-5 xl:py-10 px-5">
 
             <div className='flex gap-5 items-center justify-end mb-8'>
                 
@@ -160,7 +160,9 @@ const PlaylistDetails = () => {
                     className="text-blue-500 font-semibold cursor-pointer"
                 >
                     <button className="cursor-pointer bg-white border border-[#193f7c] text-[#193f7c] px-5 lg:py-[10px] py-[9px] rounded-lg font-semibold text-xs lg:text-[15px] flex items-center gap-1">
-                    <PiTrash color='#ef2a2a' size={17}/><span>Delete Playlist</span>
+                    <PiTrash color='#ef2a2a' size={17}/>
+                    
+                    <span>Delete Playlist</span>
                     </button>
                 </motion.div>
                 <motion.div
@@ -249,7 +251,7 @@ const PlaylistDetails = () => {
                             {/* Delete Button */}
                             <div className="md:ml-4 mt-3 md:mt-0 flex md:items-start">
                                 <button className="border border-blue-900 text-blue-900 px-3 py-1 rounded-md flex items-center gap-1 text-sm hover:bg-red-50 transition-colors">
-                                    <FaTrashAlt color="#f21d1d" size={14} />
+                                <img src="/delete.svg" alt="" />
                                     <span>Delete</span>
                                 </button>
                             </div>

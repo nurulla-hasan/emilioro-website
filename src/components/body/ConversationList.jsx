@@ -37,7 +37,7 @@ const ConversationList = () => {
 
     return (
 
-        <div className="mx-auto my-16 lg:w-4/6 w-5/6 lg:px-5">
+        <div className="mx-auto my-16 xl:w-8/11 lg:w-10/12 w-5/6 lg:px-5">
 
             <div className="flex items-center justify-between mx-auto">
 

@@ -18,12 +18,12 @@ const PeoplePage = () => {
     };
 
     return (
-        <div className='lg:w-5/6 xl:w-6/9 px-5 my-10 mx-auto'>
+        <div className='lg:w-8/11 px-5 my-10 mx-auto'>
             <div className="mt-8">
                 {/* Friends Section */}
                 <div className="mt-8">
                     <div className="flex justify-between items-center mb-6">
-                        <h2 className="xl:text-2xl text-xl font-semibold text-[#1C4587]">Friends</h2>
+                        <h2 className="lg:text-xl text-lg font-semibold text-[#1C4587]">Friends</h2>
                         <a href="#" className="text-[#1C4587] text-sm hover:underline">
                             view more
                         </a>
@@ -40,7 +40,7 @@ const PeoplePage = () => {
                                                 friend.avatar ||
                                                 "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-wFgfsFe9yFppBiQ9HxG5BtxnZXMP61.png"
                                             }
-                                            className="w-12 h-12"
+                                            className="w-10 h-10"
                                         />
                                     </div>
                                     <p className="text-md font-medium text-center">{friend.name}</p>

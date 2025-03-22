@@ -85,12 +85,12 @@ const FavoriteAudio = () => {
 
     return (
         <div>
-            <div className="xl:w-6/9 lg:w-5/6 mx-auto py-10 flex flex-col gap-8 justify-between xl:h-[calc(100vh-235px)] px-5 xl:px-0 ">
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 overflow-scroll hide-scrollbar">
+            <div className="xl:w-8/12 lg:w-10/12 mx-auto mb-5 flex flex-col gap-8 justify-between xl:h-[calc(100vh-235px)] ">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 overflow-scroll hide-scrollbar">
                     {data.map((item) => (
                         <div
                             key={item.id}
-                            className="relative flex-shrink-0 mx-auto w-full lg:px-0 px-5 lg:w-72 rounded-lg group"
+                            className="relative flex-shrink-0 mx-auto w-full lg:px-0 px-5 rounded-lg group"
                         >
                             {/* Image Container */}
                             <div className="relative h-40 overflow-hidden rounded-xl">
@@ -155,7 +155,7 @@ const FavoriteAudio = () => {
                 </div>
             </div>
             <div className="border-b border-gray-500 mb-5"></div>
-            <div className="xl:w-6/9 lg:w-5/6 mb-5 mx-auto w-full rounded-md">
+            <div className="xl:w-8/11 lg:w-10/12 mb-5 mx-auto w-full rounded-md">
                 <AudioPlayer />
             </div>
 
