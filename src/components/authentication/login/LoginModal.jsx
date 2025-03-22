@@ -49,7 +49,7 @@ const LoginModal = ({ isOpen, onClose, setIsSignUpOpen, setIsForgotPassModalOpen
             </button>
 
             {/* Left Section - Login Form */}
-            <div className="w-full md:w-1/2 p-8 md:p-12">
+            <div className=" mx-auto p-8 md:p-12">
               <h2 className="text-[#1C4587] text-xl md:text-2xl font-bold text-center mb-3">Login to Account</h2>
               <p className="text-gray-500 text-center mb-8 text-xs">Please enter your email and password to continue</p>
 

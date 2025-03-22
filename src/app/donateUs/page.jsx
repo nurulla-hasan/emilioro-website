@@ -45,8 +45,8 @@ const DonateUs = () => {
     }
 
     return (
-        <div className="bg-[#1C4587]">
-            <div className="lg:w-5/6 xl:w-6/9 px-5 md:pt-40 pt-20 mx-auto flex flex-col items-center justify-between p-6">
+        <div className="bg-[#1C4587] ">
+            <div className=" px-5 lg:w-8/11 md:pt-40 pt-20 mx-auto flex flex-col items-center justify-between p-6">
                 <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
@@ -98,12 +98,12 @@ const DonateUs = () => {
                 </motion.div>
 
                 {/* Wave Images */}
-                <motion.div variants={waveAnimation} className=" absolute right-0 bottom-58 left-0">
+                <motion.div variants={waveAnimation} className=" absolute right-0 lg:bottom-20 bottom-96 left-0">
                     <motion.img variants={waveAnimation} className="absolute" src={wave3.src} alt="Wave 1" />
                     <motion.img variants={waveAnimation} className="" src={wave2.src} alt="Wave 3" />
                     <motion.img variants={waveAnimation} className="" src={wave2.src} alt="Wave 3" />
                 </motion.div>
-                <div className="mt-[141px]">
+                <div className="lg:mt-[165px] mt-[100px]">
                     <DonateUsFooter></DonateUsFooter>
                 </div>
 

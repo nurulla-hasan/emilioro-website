@@ -101,7 +101,7 @@ const DonateUsPaymentModal = ({ isOpen, onClose, totalAmount = 155.0 }) => {
 
               {/* Title */}
               <h2 className="text-[#1C4587] text-2xl font-bold mb-2">Payment</h2>
-              <p className="text-gray-500 mb-6">Personal Information</p>
+              <p className="text-gray-500 mb-6 text-center font-semibold">Personal Information</p>
 
               {/* Payment Form */}
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
@@ -110,7 +110,7 @@ const DonateUsPaymentModal = ({ isOpen, onClose, totalAmount = 155.0 }) => {
                     <input
                       type="text"
                       placeholder="First Name"
-                      className={`w-full border-b border-gray-300 py-2 focus:border-[#1C4587] outline-none ${errors.firstName ? "border-red-500" : ""}`}
+                      className={`w-full text-xs border-b border-gray-300 py-2 focus:border-[#1C4587] outline-none ${errors.firstName ? "border-red-500" : ""}`}
                       {...register("firstName", { required: true })}
                     />
                     {errors.firstName && <p className="text-red-500 text-xs mt-1">First name is required</p>}
@@ -120,7 +120,7 @@ const DonateUsPaymentModal = ({ isOpen, onClose, totalAmount = 155.0 }) => {
                     <input
                       type="text"
                       placeholder="Last Name"
-                      className={`w-full border-b border-gray-300 py-2 focus:border-[#1C4587] outline-none ${errors.lastName ? "border-red-500" : ""}`}
+                      className={`w-full text-xs border-b border-gray-300 py-2 focus:border-[#1C4587] outline-none ${errors.lastName ? "border-red-500" : ""}`}
                       {...register("lastName", { required: true })}
                     />
                     {errors.lastName && <p className="text-red-500 text-xs mt-1">Last name is required</p>}
@@ -130,7 +130,7 @@ const DonateUsPaymentModal = ({ isOpen, onClose, totalAmount = 155.0 }) => {
                     <input
                       type="email"
                       placeholder="Email"
-                      className={`w-full border-b border-gray-300 py-2 focus:border-[#1C4587] outline-none ${errors.email ? "border-red-500" : ""}`}
+                      className={`w-full text-xs border-b border-gray-300 py-2 focus:border-[#1C4587] outline-none ${errors.email ? "border-red-500" : ""}`}
                       {...register("email", {
                         required: true,
                         pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
@@ -149,7 +149,7 @@ const DonateUsPaymentModal = ({ isOpen, onClose, totalAmount = 155.0 }) => {
                       type="tel"
                       inputMode="numeric"
                       placeholder="Phone Number"
-                      className={`w-full border-b border-gray-300 py-2 focus:border-[#1C4587] outline-none ${errors.phoneNumber ? "border-red-500" : ""}`}
+                      className={`w-full text-xs border-b border-gray-300 py-2 focus:border-[#1C4587] outline-none ${errors.phoneNumber ? "border-red-500" : ""}`}
                       {...register("phoneNumber", { required: true })}
                       onInput={handleNumberInput}
                     />
@@ -160,7 +160,7 @@ const DonateUsPaymentModal = ({ isOpen, onClose, totalAmount = 155.0 }) => {
                     <input
                       type="text"
                       placeholder="Country"
-                      className={`w-full border-b border-gray-300 py-2 focus:border-[#1C4587] outline-none ${errors.country ? "border-red-500" : ""}`}
+                      className={`w-full text-xs border-b border-gray-300 py-2 focus:border-[#1C4587] outline-none ${errors.country ? "border-red-500" : ""}`}
                       {...register("country", { required: true })}
                     />
                     {errors.country && <p className="text-red-500 text-xs mt-1">Country is required</p>}
@@ -170,7 +170,7 @@ const DonateUsPaymentModal = ({ isOpen, onClose, totalAmount = 155.0 }) => {
                     <input
                       type="text"
                       placeholder="City"
-                      className={`w-full border-b border-gray-300 py-2 focus:border-[#1C4587] outline-none ${errors.city ? "border-red-500" : ""}`}
+                      className={`w-full text-xs border-b border-gray-300 py-2 focus:border-[#1C4587] outline-none ${errors.city ? "border-red-500" : ""}`}
                       {...register("city", { required: true })}
                     />
                     {errors.city && <p className="text-red-500 text-xs mt-1">City is required</p>}
@@ -182,7 +182,7 @@ const DonateUsPaymentModal = ({ isOpen, onClose, totalAmount = 155.0 }) => {
                       inputMode="numeric"
                       placeholder="Card Number"
                       maxLength={16}
-                      className={`w-full border-b border-gray-300 py-2 focus:border-[#1C4587] outline-none ${errors.cardNumber ? "border-red-500" : ""}`}
+                      className={`w-full text-xs border-b border-gray-300 py-2 focus:border-[#1C4587] outline-none ${errors.cardNumber ? "border-red-500" : ""}`}
                       {...register("cardNumber", {
                         required: true,
                         pattern: /^[0-9]{16}$/,
@@ -203,7 +203,7 @@ const DonateUsPaymentModal = ({ isOpen, onClose, totalAmount = 155.0 }) => {
                       inputMode="numeric"
                       placeholder="MM/YY"
                       maxLength={5}
-                      className={`w-full border-b border-gray-300 py-2 focus:border-[#1C4587] outline-none ${errors.expiry ? "border-red-500" : ""}`}
+                      className={`w-full text-xs border-b border-gray-300 py-2 focus:border-[#1C4587] outline-none ${errors.expiry ? "border-red-500" : ""}`}
                       {...register("expiry", {
                         required: true,
                         pattern: /^(0[1-9]|1[0-2])\/([0-9]{2})$/,
@@ -222,7 +222,7 @@ const DonateUsPaymentModal = ({ isOpen, onClose, totalAmount = 155.0 }) => {
                       inputMode="numeric"
                       placeholder="CVC"
                       maxLength={4}
-                      className={`w-full border-b border-gray-300 py-2 focus:border-[#1C4587] outline-none ${errors.cvc ? "border-red-500" : ""}`}
+                      className={`w-full text-xs border-b border-gray-300 py-2 focus:border-[#1C4587] outline-none ${errors.cvc ? "border-red-500" : ""}`}
                       {...register("cvc", {
                         required: true,
                         pattern: /^[0-9]{3,4}$/,
@@ -235,15 +235,15 @@ const DonateUsPaymentModal = ({ isOpen, onClose, totalAmount = 155.0 }) => {
                 </div>
 
                 {/* Total Amount */}
-                <div className="flex justify-between items-center pt-4 border-t border-gray-200">
-                  <span className="font-medium">Total Amount</span>
+                <div className="flex justify-between items-center pt-4  ">
+                  <span className="font-medium text-xs">Total Amount</span>
                   <span className="font-bold text-[#1C4587]">${totalAmount.toFixed(2)}</span>
                 </div>
 
                 {/* Payment Button */}
                 <button
                   type="submit"
-                  className="w-full bg-[#1C4587] hover:bg-[#15366b] text-white font-medium py-3 rounded transition"
+                  className="w-full bg-[#1C4587] hover:bg-[#15366b] text-white text-sm font-medium py-2 rounded transition"
                 >
                   Confirm to pay
                 </button>

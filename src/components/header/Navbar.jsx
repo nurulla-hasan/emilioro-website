@@ -10,34 +10,32 @@ import ForgotPasswordModal from "../authentication/forgotPassword/ForgotPassModa
 import VerifyCodeModal from "../authentication/verify/VerifyCodeModal"
 import SuccessModal from "../authentication/success/SuccessModal"
 import ResetPasswordModal from "../authentication/resetPass/ResetPasswordModal"
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux"
 import { logout, setIsSignUpOpen } from "@/store/mainSlice"
-import avatar from '../../../public/heroImage.png'
+import avatar from "../../../public/heroImage.png"
 import { CgProfile } from "react-icons/cg"
-import { FaRegHeart } from "react-icons/fa6";
+import { FaRegHeart } from "react-icons/fa6"
+import { TbLogin } from "react-icons/tb";
 
 const Navbar = () => {
   const pathname = usePathname()
   const [menuOpen, setMenuOpen] = useState(false)
-  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
-  const [isForgotPassModalOpen, setIsForgotPassModalOpen] = useState(false);
-  const [isVerifyModalOpen, setIsVerifyModalOpen] = useState(false);
-  const [isResetModalOpen, setIsResetModalOpen] = useState(false);
-  const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false)
+  const [isForgotPassModalOpen, setIsForgotPassModalOpen] = useState(false)
+  const [isVerifyModalOpen, setIsVerifyModalOpen] = useState(false)
+  const [isResetModalOpen, setIsResetPasswordModalOpen] = useState(false)
+  const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false)
 
-
-  const dispatch = useDispatch();
-  const isSignUpOpen = useSelector((state) => state.main.isSignUpOpen);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [isMobileDropdownOpen, setIsMobileDropdownOpen] = useState(false);
-  const user = useSelector((state) => state.main.user);
+  const dispatch = useDispatch()
+  const isSignUpOpen = useSelector((state) => state.main.isSignUpOpen)
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+  const [isMobileDropdownOpen, setIsMobileDropdownOpen] = useState(false)
+  const user = useSelector((state) => state.main.user)
 
   const handleLogout = () => {
-    dispatch(logout());
+    dispatch(logout())
     setIsMobileDropdownOpen(false)
-  };
-  
-
+  }
 
   const navLinks = [
     { title: "Home", href: "/" },
@@ -120,15 +118,11 @@ const Navbar = () => {
 
   return (
     <div className="bg-[#1C4587]">
-      <nav className="z-50 py-6 px-5 lg:px-0 lg:w-5/6 xl:w-7/9 mx-auto flex justify-evenly items-center relative">
-
+      <nav className="z-50 py-6 px-5 md:px-8 lg:px-0 lg:w-5/6 xl:w-7/9 mx-auto flex justify-evenly items-center relative">
         {/* Mobile nav */}
         <div className=" flex items-center justify-between w-full lg:w-auto">
-
           {/* Mobile Menu Button */}
-          <div
-            className="md:hidden cursor-pointer bg-[#4080c1] rounded-full p-1 text-white flex justify-end text-xl"
-          >
+          <div className="lg:hidden cursor-pointer bg-[#4080c1] rounded-full p-1 text-white flex justify-end text-xl">
             <span onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <FiX /> : <FiMenu />}</span>
           </div>
 
@@ -140,7 +134,7 @@ const Navbar = () => {
             className="flex flex-col justify-center"
           >
             <Link href="/">
-              <div className="lg:h-8 border-[#FFFFFF] font-bold text-lg flex justify-center items-center gap-2 border-2 rounded-[100%] p-2">
+              <div className="md:h-7 lg:h-8 border-[#FFFFFF] font-bold text-lg flex justify-center items-center gap-2 border-2 rounded-[100%] p-2">
                 <div className="lg:w-2 w-2 lg:h-2 h-2 rounded-full bg-[#22B14C]"></div>
                 <div className="lg:w-12 w-8  h-2 rounded-full bg-[#FFF200]"></div>
                 <div className="lg:w-2 w-2 lg:h-2 h-2 rounded-full bg-[#ED1C24]"></div>
@@ -148,65 +142,63 @@ const Navbar = () => {
             </Link>
           </motion.div>
 
-
-
           {/* Mobile avater */}
-          <div className="lg:hidden">
-            {
-              user ? (
-                <div className="relative">
-                  <div
-                    className="lg:flex items-center space-x-3 cursor-pointer"
-                    onClick={() => setIsMobileDropdownOpen(!isMobileDropdownOpen)}
-                  >
-                    <img
-                      src={avatar.src || "/default-avatar.png"}
-                      alt="User Avatar"
-                      className="w-8 h-8 rounded-full"
-                    />
-                    {/* <p className="text-sm font-semibold">{user.name}</p> */}
-                  </div>
-
-                  {/* Dropdown Menu */}
-                  {isMobileDropdownOpen && (
-                    <motion.div
-                      initial={{ opacity: 0, y: -10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
-                      onClick={() => setIsMobileDropdownOpen(false)}
-                      className="absolute right-0 mt-2 w-44 bg-white shadow-lg rounded-lg *:rounded-lg border border-gray-300"
-                    >
-                      <Link href='/profile'>
-                        <button className="flex items-center gap-2 w-full px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-100  hover:rounded-lg">
-                          <CgProfile size={20} color="#1C4587" className="text-blue-600" /> Profile
-                        </button>
-                      </Link>
-                      <Link href="/favorite">
-                        <button className="flex items-center gap-2 w-full px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-100">
-                          <FaRegHeart size={20} color="#1C4587" className="text-gray-700" /> Favorite
-                        </button>
-                      </Link>
-                      <Link href="/chatting/allPlaylist/myPlaylist">
-                        <button className="flex items-center gap-2 w-full px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-100">
-                          <img src="/playlist.svg" alt="" /> Playlist
-                        </button>
-                      </Link>
-                      <button
-                        onClick={handleLogout}
-                        className="flex items-center gap-2 w-full px-4 py-3 text-sm font-semibold text-red-600 hover:bg-gray-100"
-                      >
-                        <FiLogOut size={20} className="text-black" /> Log out
-                      </button>
-                    </motion.div>
-                  )}
+          {
+            user? (
+              <div className="lg:hidden flex items-center">
+            {user ? (
+              <div className="relative">
+                <div
+                  className="lg:flex items-center space-x-3 cursor-pointer"
+                  onClick={() => setIsMobileDropdownOpen(!isMobileDropdownOpen)}
+                >
+                  <img src={avatar.src || "/default-avatar.png"} alt="User Avatar" className="w-8 h-8 rounded-full" />
+                  {/* <p className="text-sm font-semibold">{user.name}</p> */}
                 </div>
-              ) : (
-                <div></div>
-              )
-            }
-          </div>
-        </div>
 
+                {/* Dropdown Menu */}
+                {isMobileDropdownOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    onClick={() => setIsMobileDropdownOpen(false)}
+                    className="absolute right-0 mt-2 w-44 z-50 bg-white shadow-lg rounded-lg *:rounded-lg border border-gray-300"
+                  >
+                    <Link href="/profile">
+                      <button className="flex items-center gap-2 w-full px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-100  hover:rounded-lg">
+                        <CgProfile size={20} color="#1C4587" className="text-blue-600" /> Profile
+                      </button>
+                    </Link>
+                    <Link href="/favorite">
+                      <button className="flex items-center gap-2 w-full px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-100">
+                        <FaRegHeart size={20} color="#1C4587" className="text-gray-700" /> Favorite
+                      </button>
+                    </Link>
+                    <Link href="/chatting/allPlaylist/myPlaylist">
+                      <button className="flex items-center gap-2 w-full px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-100">
+                        <img src="/playlist.svg" alt="" /> Playlist
+                      </button>
+                    </Link>
+                    <button
+                      onClick={handleLogout}
+                      className="flex items-center gap-2 w-full px-4 py-3 text-sm font-semibold text-red-600 hover:bg-gray-100"
+                    >
+                      <FiLogOut size={20} className="text-black" /> Log out
+                    </button>
+                  </motion.div>
+                )}
+              </div>
+            ) : (
+              <div></div>
+            )}
+          </div>
+            ):
+            (
+              <div onClick={() => setIsLoginModalOpen(true)} className="bg-[#4080c1] rounded-full p-1 lg:hidden"><TbLogin color="#fff" size={20}/></div>
+            )
+          }
+        </div>
 
         {/* Mobile Menu Items */}
 
@@ -217,29 +209,31 @@ const Navbar = () => {
               animate="visible"
               exit="exit"
               variants={mobileMenuVariants}
-              className="absolute top-16 left-0 bg-[#1C4587] w-full md:hidden"
+              className="absolute top-16 left-0 bg-[#1C4587] w-full lg:hidden"
             >
               {navLinks.map((link, index) => (
                 <motion.div key={index} variants={menuItemVariants}>
                   <Link
                     href={link.href}
                     onClick={() => setMenuOpen(false)}
-                    className={`block text-white px-6 py-2 w-56 transition ${pathname === link.href ? "font-semibold" : "font-[300]"
-                      }`}
+                    className={`block text-white px-6 py-2 w-56 transition ${
+                      pathname === link.href ? "font-semibold" : "font-[300]"
+                    }`}
                   >
                     <span className="bg-[#4080c1] px-5 rounded-full">{link.title}</span>
                   </Link>
                 </motion.div>
               ))}
 
-
-              {
-                !user &&
-                <motion.div onClick={() => setMenuOpen(false)} variants={menuItemVariants} className="ml-6 mt-3 mb-5 space-x-4">
+              {!user && (
+                <motion.div
+                  onClick={() => setMenuOpen(false)}
+                  variants={menuItemVariants}
+                  className="ml-6 mt-3 mb-5 space-x-4"
+                >
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-
                     onClick={() => setIsLoginModalOpen(true)}
                     className="text-white text-[14px] font-semibold border border-white px-6 py-[6px] rounded-md transition cursor-pointer"
                   >
@@ -254,8 +248,7 @@ const Navbar = () => {
                     Sign Up
                   </motion.button>
                 </motion.div>
-              }
-
+              )}
             </motion.div>
           )}
         </AnimatePresence>
@@ -265,14 +258,15 @@ const Navbar = () => {
           initial="hidden"
           animate="visible"
           variants={menuVariants}
-          className="hidden md:flex lg:justify-center"
+          className="hidden lg:flex justify-center"
         >
           {navLinks.map((link, index) => (
             <motion.div key={index} variants={menuItemVariants}>
               <Link
                 href={link.href}
-                className={`inline-block  text-white lg:px-3 py-2 transition ${pathname === link.href ? "font-semibold" : "font-[300]"
-                  }`}
+                className={`inline-block  text-white lg:px-3 py-2 transition ${
+                  pathname === link.href ? "font-semibold" : "font-[300]"
+                }`}
               >
                 <span className="text-sm">{link.title}</span>
               </Link>
@@ -283,15 +277,8 @@ const Navbar = () => {
         {/* Desktop Buttons */}
         {user ? (
           <div onClick={() => setIsDropdownOpen(!isDropdownOpen)} className="relative">
-            <div
-              className="hidden lg:flex items-center space-x-3 cursor-pointer"
-
-            >
-              <img
-                src={avatar.src || "/default-avatar.png"}
-                alt="User Avatar"
-                className="w-10 h-10 rounded-full"
-              />
+            <div className="hidden lg:flex items-center space-x-3 cursor-pointer">
+              <img src={avatar.src || "/default-avatar.png"} alt="User Avatar" className="w-10 h-10 rounded-full" />
               {/* <p className="text-sm font-semibold">{user.name}</p> */}
               <img src="/down.svg" alt="" />
             </div>
@@ -302,10 +289,9 @@ const Navbar = () => {
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
-                
                 className="absolute right-0 mt-2 w-44 bg-white shadow-lg rounded-lg *:rounded-lg border border-gray-300"
               >
-                <Link href='/profile'>
+                <Link href="/profile">
                   <button className="flex items-center gap-2 w-full px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-100 hover:rounded-lg">
                     <CgProfile size={20} color="#1C4587" className="text-blue-600" /> Profile
                   </button>
@@ -380,7 +366,7 @@ const Navbar = () => {
         <VerifyCodeModal
           isOpen={isVerifyModalOpen}
           onClose={() => setIsVerifyModalOpen(false)}
-          setIsResetModalOpen={setIsResetModalOpen}
+          setIsResetModalOpen={setIsResetPasswordModalOpen}
         />
         {/* Reset Modal */}
         <ResetPasswordModal
