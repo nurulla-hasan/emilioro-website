@@ -5,6 +5,7 @@ import AddBondModal from "@/components/body/bonds/modal/AddBondModal";
 import EditBondModal from "@/components/body/bonds/modal/EditBondModal";
 import DeleteBondModal from "@/components/body/bonds/modal/DeleteBondModal";
 import { useState } from "react";
+import Image from "next/image";
 
 const MyBond = () => {
     // modal state
@@ -79,7 +80,13 @@ const MyBond = () => {
                                 <div key={bond.id} className="flex items-center justify-between p-5 bg-[#EAF0FB] rounded-sm">
                                     <h3 className="text-md">{bond.title}</h3>
                                     <div className="flex gap-2">
-                                        <img className="cursor-pointer" onClick={() => onDeleteBond(bond)} src="/delete.svg" alt="Delete" />
+                                        <Image
+                                            width={18}
+                                            height={18}
+                                            className="cursor-pointer"
+                                            onClick={() => onDeleteBond(bond)}
+                                            src="/delete.svg" alt="Delete"
+                                        />
                                         <img className="cursor-pointer" onClick={() => onEditBond(bond)} src="/edit.svg" alt="Edit" />
                                     </div>
                                 </div>
@@ -106,7 +113,13 @@ const MyBond = () => {
                                 <div key={bond.id} className="flex items-center justify-between p-5 bg-[#EAF0FB] rounded-sm">
                                     <h3 className="text-md">{bond.title}</h3>
                                     <div className="flex gap-2">
-                                        <img className="cursor-pointer" onClick={() => onDeleteBond(bond)} src="/delete.svg" alt="Delete" />
+                                        <Image
+                                            width={18}
+                                            height={18}
+                                            className="cursor-pointer"
+                                            onClick={() => onDeleteBond(bond)}
+                                            src="/delete.svg" alt="Delete"
+                                        />
                                         <img className="cursor-pointer" onClick={() => onEditBond(bond)} src="/edit.svg" alt="Edit" />
                                     </div>
                                 </div>

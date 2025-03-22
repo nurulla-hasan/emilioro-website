@@ -56,7 +56,7 @@ const Hero = () => {
       <motion.section
         initial="hidden"
         animate="visible"
-        className="mx-auto lg:w-8/11 md:h-[calc(100vh-112px)] h-[calc(100vh-64px)] flex lg:flex-row flex-col text-white items-center justify-center text-center relative overflow-hidden "
+        className="mx-auto lg:w-8/11 md:h-[calc(100vh-88px)] h-[calc(100vh-64px)] flex lg:flex-row flex-col text-white items-center justify-center text-center relative overflow-hidden "
       >
         {/* Left Content */}
         <motion.div variants={fadeInUp} className=" h-full lg:text-start flex flex-col justify-center items-start flex-1 z-10 lg:-mt-[200px]">
