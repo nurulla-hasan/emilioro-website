@@ -3,7 +3,7 @@ import photo from "../../../public/mostPlayed.png";
 import { FaCirclePlay } from "react-icons/fa6";
 import { CiMenuKebab } from "react-icons/ci";
 import { LuEye } from "react-icons/lu";
-import { FaRegStar } from "react-icons/fa";
+import { FaPlay, FaRegStar } from "react-icons/fa";
 import { IoTimeOutline } from "react-icons/io5";
 import { CiHeart } from "react-icons/ci";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -73,9 +73,9 @@ const data = [
 
 const MostPlayedSection = () => {
     return (
-        <div className="mx-auto my-8 lg:my-16 xl:w-8/11 lg:w-10/12 lg:px-5 relative">
+        <div className="relative">
             <div className="flex items-center justify-center lg:justify-start mx-auto">
-                <h1 className="lg:text-xl text-sm my-5 font-bold text-blue-900">Most played in this week</h1>
+                <h1 className="text-xl my-5 font-semibold text-blue-900">Most played in this week</h1>
             </div>
 
             <Swiper
@@ -111,9 +111,10 @@ const MostPlayedSection = () => {
                                 </div>
 
                                 {/* Play Icon (Hidden before hover) */}
-                                <div className="absolute bottom-2 left-2 rounded-full text-[#1C4587] opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer">
-                                    <FaCirclePlay size={50} />
-                                </div>
+                                <button
+                                    className="bg-[#1C4587] text-white rounded-full w-10 h-10 flex items-center justify-center flex-shrink-0 absolute bottom-2 left-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer">
+                                    <FaPlay size={20} />
+                                </button>
 
                                 {/* Menu Icon (Hidden before hover) */}
                                 <div className="absolute top-0 right-2 p-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 rotate-90 cursor-pointer">
@@ -157,10 +158,10 @@ const MostPlayedSection = () => {
             </Swiper>
 
             {/* Custom Navigation Buttons */}
-            <div className="swiper-button-prev-custom absolute left-7 z-10 top-[55%] transform -translate-y-1/2 w-7 h-7 flex items-center justify-center rounded-full bg-white shadow-md cursor-pointer">
+            <div className="swiper-button-prev-custom absolute left-2 z-10 top-[55%] transform -translate-y-1/2 w-7 h-7 flex items-center justify-center rounded-full bg-white shadow-md cursor-pointer">
                 <IoChevronBack size={20} />
             </div>
-            <div className="swiper-button-next-custom absolute right-7 z-10 top-[55%] transform -translate-y-1/2 w-7 h-7 flex items-center justify-center rounded-full bg-white shadow-md cursor-pointer">
+            <div className="swiper-button-next-custom absolute right-2 z-10 top-[55%] transform -translate-y-1/2 w-7 h-7 flex items-center justify-center rounded-full bg-white shadow-md cursor-pointer">
                 <IoChevronForward size={20} />
             </div>
         </div>

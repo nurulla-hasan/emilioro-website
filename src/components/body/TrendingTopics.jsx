@@ -24,10 +24,10 @@ const trendingData = [
 
 const TrendingTopics = () => {
   return (
-    <section className="mx-auto my-16 xl:w-8/11 lg:w-10/12 w-5/6 lg:px-5">
+    <section className="mt-5">
       {/* Header */}
       <div className="flex items-center justify-between my-5">
-        <h2 className="lg:text-xl text-sm font-bold text-[#1C4587]">Trending topics
+        <h2 className="lg:text-xl font-semibold text-[#1C4587]">Trending topics
         </h2>
         <Link href="/chatting/allTopics" className="text-[#1C4587] text-sm lg:text-md font-medium">
           View all

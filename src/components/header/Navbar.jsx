@@ -117,7 +117,7 @@ const Navbar = () => {
   }
 
   return (
-    <div className="bg-[#1C4587]">
+    <div className="bg-[#1C4587] sticky top-0 z-50">
       <nav className="z-50 py-6 px-5 md:px-8 lg:px-0 lg:w-5/6 xl:w-7/9 mx-auto flex justify-evenly items-center relative">
         {/* Mobile nav */}
         <div className=" flex items-center justify-between w-full xl:w-auto">

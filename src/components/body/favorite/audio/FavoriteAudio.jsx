@@ -85,7 +85,7 @@ const FavoriteAudio = () => {
 
     return (
         <div>
-            <div className="xl:w-8/12 lg:w-10/12 mx-auto mb-5 flex flex-col gap-8 justify-between xl:h-[calc(100vh-235px)] ">
+            <div className=" mb-5 flex flex-col gap-8 justify-between xl:h-[calc(100vh-235px)] ">
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 overflow-scroll hide-scrollbar">
                     {data.map((item) => (
                         <div
@@ -154,10 +154,10 @@ const FavoriteAudio = () => {
                     ))}
                 </div>
             </div>
-            <div className="border-b border-gray-500 mb-5"></div>
+            {/* <div className="border-b border-gray-500 mb-5"></div>
             <div className="xl:w-8/11 lg:w-10/12 mb-5 mx-auto w-full rounded-md">
                 <AudioPlayer />
-            </div>
+            </div> */}
 
         </div>
     );

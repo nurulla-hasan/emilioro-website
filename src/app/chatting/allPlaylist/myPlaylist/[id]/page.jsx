@@ -6,7 +6,7 @@ import { useState, useEffect, useRef } from "react";
 import WaveSurfer from "wavesurfer.js";
 import { AiFillEye, AiFillStar } from "react-icons/ai";
 import { CiHeart } from "react-icons/ci";
-import { FaPause, FaPlay, FaTrashAlt } from "react-icons/fa";
+import { FaPause, FaPlay} from "react-icons/fa";
 import { IoTimeOutline } from "react-icons/io5";
 import { PiTrash } from "react-icons/pi";
 

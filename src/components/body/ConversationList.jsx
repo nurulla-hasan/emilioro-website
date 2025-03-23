@@ -37,18 +37,18 @@ const ConversationList = () => {
 
     return (
 
-        <div className="mx-auto my-16 xl:w-8/11 lg:w-10/12 w-5/6 lg:px-5">
+        <div className="mt-5">
 
             <div className="flex items-center justify-between mx-auto">
 
-                <h1 className="lg:text-2xl w-60 lg:w-[500px] text-lg my-5 font-bold text-[#1C4587]">Discover Conversations You’ll Love</h1>
+                <h1 className="text-xl w-60 lg:w-[500px] font-semibold text-[#1C4587]">Discover Conversations You’ll Love</h1>
                 <Link href="/chatting/allPlaylist" className="text-[#1C4587] text-sm lg:text-md font-medium">
                     View all
                 </Link>
             </div>
 
 
-            <div className=" grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 items-center gap-8 lg:gap-5 mx-auto rounded-lg ">
+            <div className="mt-5 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 items-center gap-8 lg:gap-5 mx-auto rounded-lg ">
                 {conversations.map((conversation, index) => (
                     <div key={conversation.id} className='flex flex-col gap-2'>
                         <div>

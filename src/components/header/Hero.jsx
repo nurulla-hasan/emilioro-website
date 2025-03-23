@@ -96,7 +96,7 @@ const Hero = () => {
         </motion.div>
 
         {/* Right Content Image */}
-        <motion.div variants={fadeIn} className="h-full relative flex-1 z-10 flex md:justify-end items-start md:items-center">
+        {/* <motion.div variants={fadeIn} className="h-full relative flex-1 z-10 flex md:justify-end items-start md:items-center">
           <motion.div
             variants={scaleIn}
             className="rounded-full"
@@ -110,7 +110,7 @@ const Hero = () => {
             />
 
           </motion.div>
-        </motion.div>
+        </motion.div> */}
 
 
       </motion.section>

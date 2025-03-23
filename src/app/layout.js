@@ -21,18 +21,18 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${poppins.variable} antialiased container max-w-[2560px] mx-auto`}
+        className={`${poppins.variable} antialiased container max-w-[2560px]`}
       >
         <Providers>
           <Navbar />
           <div className="">{children}</div>
 
-          <div className="sticky bottom-2 hidden">
-            <div className="border-b border-gray-500 mb-5"></div>
-            <div className="xl:w-8/11 lg:w-10/12 mb-5 mx-auto w-full rounded-md">
+          <div className="fixed hidden bottom-0 left-0 w-full backdrop-blur-2xl border-t border-gray-300 z-50">
+            <div className="flex justify-center items-center xl:w-8/11 lg:w-10/12 p-2 mx-auto w-full">
               <AudioPlayer />
             </div>
           </div>
+
         </Providers>
       </body>
     </html>
