@@ -3,6 +3,7 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/header/Navbar";
 import { Providers } from "@/store/providers";
+import AudioPlayer from "@/components/body/favorite/audio/AudioPlayer";
 
 // Poppins font setup
 const poppins = Poppins({
@@ -25,6 +26,13 @@ export default function RootLayout({ children }) {
         <Providers>
           <Navbar />
           <div className="">{children}</div>
+
+          <div className="sticky bottom-2 hidden">
+            <div className="border-b border-gray-500 mb-5"></div>
+            <div className="xl:w-8/11 lg:w-10/12 mb-5 mx-auto w-full rounded-md">
+              <AudioPlayer />
+            </div>
+          </div>
         </Providers>
       </body>
     </html>

@@ -77,7 +77,7 @@ const AllPlaylist = () => {
     ]
 
     return (
-        <div className='px-5 mx-auto lg:my-20 mt-10 lg:w-4/6'>
+        <div className='mx-auto lg:my-10 mt-10 xl:w-8/11 lg:w-10/12 px-5'>
             <div className=" lg:px-5 mx-auto flex flex-col lg:flex-row gap-5 justify-between items-center">
                 <h1 className="text-xl lg:text-3xl text-[#1C4587] font-bold">All Playlist</h1>
                 <div className='flex gap-5 items-center justify-center'>
