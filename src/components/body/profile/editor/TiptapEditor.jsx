@@ -146,7 +146,7 @@ const TiptapEditor = () => {
       {/* Editor Content */}
       <EditorContent
         editor={editor}
-        className="min-h-[280px] outline-none border-none text-sm text-gray-500"
+        className="outline-none border-none text-sm text-gray-500"
       />
 
       {/* Button */}

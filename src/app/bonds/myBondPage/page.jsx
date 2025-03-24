@@ -46,11 +46,11 @@ const MyBondPage = () => {
     return (
         <div className=" xl:w-8/11 lg:w-10/12 p-5 mx-auto mt-10 relative">
             <div className="absolute right-5 top-9 ">
-                <div className="border p-2 border-[#D6D6D6] rounded-lg flex">
+                <div className="border p-2 border-[#D6D6D6] rounded-sm flex">
                     <select
                         value={selectedOption}
                         onChange={(e) => setSelectedOption(e.target.value)}
-                        className="border-none outline-0 cursor-pointer text-[#595D62] bg-white font-normal border border-[#1C4587] rounded-lg text-sm"
+                        className="border-none outline-0 cursor-pointer text-[#595D62] bg-white font-normal border border-[#1C4587] rounded-sm text-sm"
                     >
                         <option value="My Bond">My Bond</option>
                         <option value="Bond Request">Bond Request</option>

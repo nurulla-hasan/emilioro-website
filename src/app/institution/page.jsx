@@ -15,10 +15,10 @@ const InstitutionPage = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className='xl:w-6/9 lg:w-5/6 px-5 mx-auto my-10'
+            className='xl:w-8/11 lg:w-10/12 px-5 my-10 mx-auto'
         >
             <div className="flex flex-col lg:flex-row gap-5 justify-between items-center">
-                <h1 className="text-xl text-[#1C4587] font-bold">Institute</h1>
+                <h1 className="text-xl text-[#1C4587] font-bold">Institution</h1>
                 <div className='flex gap-5 items-center justify-center'>
                     <div className="relative lg:w-[250px] w-[150px] border border-[#365173] rounded-lg flex items-center px-2">
                         <CiSearch className='cursor-pointer' color='#1C4587' size={20} />

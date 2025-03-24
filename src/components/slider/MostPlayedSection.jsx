@@ -113,7 +113,7 @@ const MostPlayedSection = () => {
                                 {/* Play Icon (Hidden before hover) */}
                                 <button
                                     className="bg-[#1C4587] text-white rounded-full w-10 h-10 flex items-center justify-center flex-shrink-0 absolute bottom-2 left-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer">
-                                    <FaPlay size={20} />
+                                    <FaPlay size={14} />
                                 </button>
 
                                 {/* Menu Icon (Hidden before hover) */}

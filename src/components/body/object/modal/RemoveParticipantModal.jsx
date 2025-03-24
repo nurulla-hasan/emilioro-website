@@ -5,35 +5,37 @@ const RemoveParticipantModal = ({ isOpen, setRemoveParticipantModal, onRemove })
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black/40 bg-opacity-30">
-      <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
+    <div className="fixed inset-0 flex items-center justify-center bg-black/30 p-4">
+    <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
-        exit={{ opacity: 0, scale: 0.8 }}
+        exit={{ opacity: 0, scale: 0.9 }}
         transition={{ duration: 0.3 }}
-        className="bg-white rounded-2xl w-[350px] sm:w-[400px] p-6 text-center relative"
-      >
+        className="bg-white rounded-sm w-[350px] sm:w-[400px] p-4 text-center relative shadow-lg"
+    >
         {/* Close Button */}
         <button
-          className="absolute top-3 right-3 bg-[#1C4587] text-white rounded-full p-2"
-          onClick={() => setRemoveParticipantModal(false)}
+            className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
+            onClick={() => setRemoveParticipantModal(false)}
         >
-          <img className="w-4 h-4" src="/x.svg" alt="" />
+            <img className="w-5" src="/x.svg" alt="Close" />
         </button>
 
         {/* Modal Content */}
-        <h2 className="text-xl font-semibold text-[#1C4587]">Are you sure !!</h2>
-        <p className="text-[#1C4587] mt-2">Do you want to remove this participant ?</p>
+        <h2 className="text-lg font-semibold text-gray-800">Are you sure?</h2>
+        <p className="text-gray-600 mt-1 text-xs">Do you want to remove this participant?</p>
 
         {/* Remove Button */}
-        <button
-          onClick={onRemove}
-          className="bg-[#1C4587] text-white font-semibold text-sm px-4 py-2 mt-4 rounded-lg"
+        <motion.button
+            whileTap={{ scale: 0.95 }}
+            onClick={onRemove}
+            className="bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white text-xs font-medium px-4 py-2 mt-3 rounded-sm"
         >
-          Remove
-        </button>
-      </motion.div>
-    </div>
+            Remove
+        </motion.button>
+    </motion.div>
+</div>
+
   );
 };
 

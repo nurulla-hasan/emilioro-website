@@ -10,7 +10,7 @@ const Friends = () => {
     const [searchTerm, setSearchTerm] = useState("");
 
     return (
-        <div className="lg:w-5/6 xl:w-6/9 px-5 my-10 mx-auto">
+        <div className="xl:w-8/11 lg:w-10/12 px-5 my-10 mx-auto">
             <div className="w-full my-20">
                 {/* Tabs */}
                 <div className="flex flex-col md:flex-row gap-5 justify-between items-center mb-8">
@@ -20,7 +20,7 @@ const Friends = () => {
                                 }`}
                             onClick={() => setActiveTab("my-friend")}
                         >
-                            <span className="md:text-xl text-sm">My Friends</span>
+                            <span className="md:text-md text-sm">My Friends</span>
                             {activeTab === "my-friend" && (
                                 <motion.div
                                     layoutId="activeTab"
@@ -33,7 +33,7 @@ const Friends = () => {
                                 }`}
                             onClick={() => setActiveTab("friend-request")}
                         >
-                            <span className="md:text-xl text-sm">Friend Request</span>
+                            <span className="md:text-md text-sm">Friend Request</span>
                             {activeTab === "friend-request" && (
                                 <motion.div
                                     layoutId="activeTab"
@@ -45,13 +45,13 @@ const Friends = () => {
 
                     {/* Search Input */}
                     <div className="relative">
-                        <Search className="absolute left-3 top-2.5 text-gray-400" size={18} />
+                        <Search className="absolute left-3 top-2.5 text-gray-400" size={14} />
                         <input
                             type="text"
                             placeholder="Search Friend"
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
-                            className="pl-10 pr-4 py-2 border rounded-lg outline-none text-[#1C4587] border-[#1C4587] focus:ring-2 focus:ring-[#1C4587]"
+                            className="pl-8 text-sm pr-4 py-1.5 border rounded-sm outline-none text-[#1C4587] border-[#1C4587]"
                         />
                     </div>
                 </div>

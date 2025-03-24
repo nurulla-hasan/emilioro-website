@@ -37,7 +37,7 @@ const Page = () => {
             {
               id: 1,
               type: "single",
-              users: [{ id: 101, name: "Mr. john", give: getValue, get: giveValue, avatar: "/heroImage.png" }],
+              users: [{ id: 101, name: "Mr. john", give: getValue, get: giveValue, avatar: "/avatar.png" }],
             },
           ])
         } else if (matchCount === 2) {
@@ -45,14 +45,14 @@ const Page = () => {
             {
               id: 1,
               type: "single",
-              users: [{ id: 101, name: "Mr. john", give: getValue, get: giveValue, avatar: "/heroImage.png" }],
+              users: [{ id: 101, name: "Mr. john", give: getValue, get: giveValue, avatar: "/avatar.png" }],
             },
             {
               id: 2,
               type: "bidirectional",
               users: [
-                { id: 102, name: "Mr. john", give: getValue, get: giveValue, avatar: "/heroImage.png" },
-                { id: 103, name: "Mr. john", give: giveValue, get: getValue, avatar: "/heroImage.png" },
+                { id: 102, name: "Mr. john", give: getValue, get: giveValue, avatar: "/avatar.png" },
+                { id: 103, name: "Mr. john", give: giveValue, get: getValue, avatar: "/avatar.png" },
               ],
             },
           ])
@@ -61,23 +61,23 @@ const Page = () => {
             {
               id: 1,
               type: "single",
-              users: [{ id: 101, name: "Mr. john", give: getValue, get: giveValue, avatar: "/heroImage.png" }],
+              users: [{ id: 101, name: "Mr. john", give: getValue, get: giveValue, avatar: "/avatar.png" }],
             },
             {
               id: 2,
               type: "bidirectional",
               users: [
-                { id: 102, name: "Mr. john", give: getValue, get: giveValue, avatar: "/heroImage.png" },
-                { id: 103, name: "Mr. john", give: giveValue, get: getValue, avatar: "/heroImage.png" },
+                { id: 102, name: "Mr. john", give: getValue, get: giveValue, avatar: "/avatar.png" },
+                { id: 103, name: "Mr. john", give: giveValue, get: getValue, avatar: "/avatar.png" },
               ],
             },
             {
               id: 3,
               type: "triangle",
               users: [
-                { id: 104, name: "Mr. john", give: getValue, get: giveValue, avatar: "/heroImage.png" },
-                { id: 105, name: "Mr. john", give: giveValue, get: "Teaching English", avatar: "/heroImage.png" },
-                { id: 106, name: "Mr. john", give: "Teaching English", get: getValue, avatar: "/heroImage.png" },
+                { id: 104, name: "Mr. john", give: getValue, get: giveValue, avatar: "/avatar.png" },
+                { id: 105, name: "Mr. john", give: giveValue, get: "Teaching English", avatar: "/avatar.png" },
+                { id: 106, name: "Mr. john", give: "Teaching English", get: getValue, avatar: "/avatar.png" },
               ],
             },
           ])
@@ -99,9 +99,9 @@ const Page = () => {
     <motion.div
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
-      className="p-3 mb-4 text-sm rounded-md bg-[#EAF0FB] flex items-center gap-2"
+      className="p-3 mb-4 text-sm rounded-sm bg-[#EAF0FB] flex items-center gap-2"
     >
-      <img className="h-8 w-8 rounded-full object-cover" src={user.avatar || "/heroImage.png"} alt="User avatar" />
+      <img className="h-8 w-8 rounded-full object-cover" src={user.avatar || "/avatar.png"} alt="User avatar" />
       <div>
         {user.name}{" "}
         <span className="text-[#1C4587]">
@@ -116,13 +116,13 @@ const Page = () => {
     <motion.div
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
-      className="mb-4 p-3 border border-gray-200 rounded-lg flex flex-col md:flex-row justify-between items-start md:items-center gap-3 md:gap-0"
+      className="mb-4 p-3 border border-gray-200 rounded-sm flex flex-col md:flex-row justify-between items-start md:items-center gap-3 md:gap-0"
     >
       {/* Left user */}
       <div className="flex items-center gap-2 w-full md:w-auto">
         <img
           className="h-8 w-8 rounded-full object-cover"
-          src={users[0].avatar || "/heroImage.png"}
+          src={users[0].avatar || "/avatar.png"}
           alt="User avatar"
         />
         <div className="text-sm">
@@ -137,7 +137,7 @@ const Page = () => {
       <div className="flex items-center gap-2 w-full md:w-auto md:flex-row-reverse">
         <img
           className="h-8 w-8 rounded-full object-cover"
-          src={users[1].avatar || "/heroImage.png"}
+          src={users[1].avatar || "/avatar.png"}
           alt="User avatar"
         />
         <div className="text-sm md:text-right">
@@ -155,13 +155,13 @@ const Page = () => {
     <motion.div
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
-      className="mb-4 p-3 border border-gray-200 rounded-lg flex flex-col md:flex-row justify-between items-start md:items-center gap-3 md:gap-0"
+      className="mb-4 p-3 border border-gray-200 rounded-sm flex flex-col md:flex-row flex-wrap justify-between items-start md:items-center gap-3 md:gap-5 md:justify-center"
     >
       {/* Left user */}
       <div className="flex items-center gap-2 w-full md:w-auto">
         <img
           className="h-8 w-8 rounded-full object-cover"
-          src={users[0].avatar || "/heroImage.png"}
+          src={users[0].avatar || "/avatar.png"}
           alt="User avatar"
         />
         <div className="text-sm">
@@ -176,7 +176,7 @@ const Page = () => {
       <div className="flex items-center gap-2 w-full md:w-auto">
         <img
           className="h-8 w-8 rounded-full object-cover"
-          src={users[1].avatar || "/heroImage.png"}
+          src={users[1].avatar || "/avatar.png"}
           alt="User avatar"
         />
         <div className="text-sm">
@@ -191,7 +191,7 @@ const Page = () => {
       <div className="flex items-center gap-2 w-full md:w-auto md:flex-row-reverse">
         <img
           className="h-8 w-8 rounded-full object-cover"
-          src={users[2].avatar || "/heroImage.png"}
+          src={users[2].avatar || "/avatar.png"}
           alt="User avatar"
         />
         <div className="text-sm md:text-right">
@@ -219,7 +219,7 @@ const Page = () => {
   }
 
   return (
-    <div className="w-full xl:w-6/9 lg:w-5/6 p-5 mx-auto mt-10">
+    <div className="xl:w-8/11 lg:w-10/12 px-5 my-10 mx-auto">
       <div className="flex flex-col md:flex-row justify-between items-center gap-4">
         <h1 className="text-lg md:text-xl text-[#1C4587] font-bold mb-4 md:mb-0 text-center md:text-start">
           Exchange Services & Goods
@@ -230,7 +230,7 @@ const Page = () => {
           className="text-blue-500 font-semibold cursor-pointer"
         >
           <Link href="/bonds/myBondPage">
-            <button className="cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white px-4 py-2 rounded-md font-medium">
+            <button className="cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white px-4 py-2 rounded-sm font-medium">
               My Bond →
             </button>
           </Link>
@@ -241,13 +241,8 @@ const Page = () => {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="shadow-[0px_19px_48px_0px_#CFC9DDB2] max-w-4xl mt-10 md:mt-14 mx-auto border-[#ABC4ED] border p-5 md:p-8 rounded-lg"
+        className="shadow-[0px_19px_48px_0px_#CFC9DDB2] max-w-4xl mt-10 md:mt-14 mx-auto border-[#ABC4ED] border p-5 md:p-8 rounded-sm"
       >
-        {/* Text */}
-        <p className="text-center font-bold text-[#1C4587] mb-6">
-          Swap services & goods effortlessly. Connect, trade, and finalize your exchange with ease!
-        </p>
-
         {/* Form */}
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -258,11 +253,11 @@ const Page = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="w-full"
             >
-              <label className="block text-sm text-[#1C4587] font-medium mb-1">Give</label>
-              <div className="border p-2 border-[#1C4587] rounded-lg">
+              <label className="block text-xs text-gray-700 font-medium mb-1">Give</label>
+              <div className="border p-1 border-[#1C4587] rounded-sm">
                 <select
                   {...register("give", { required: "Give is required" })}
-                  className="w-full outline-none border-[#1C4587] rounded-lg text-xs text-[#595D62]"
+                  className="w-full outline-none focus:ring-0 border-[#1C4587] rounded-sm text-[14px] text-[#595D62]"
                 >
                   <option value="Teaching Math">Teaching Math</option>
                   <option value="Firing Computer">Firing Computer</option>
@@ -270,7 +265,7 @@ const Page = () => {
                   <option value="Spend Time Together">Spend Time Together</option>
                 </select>
               </div>
-              {errors.give && <p className="text-red-500 text-sm mt-1">{errors.give.message}</p>}
+              {errors.give && <p className="text-red-500 text-xs mt-1">{errors.give.message}</p>}
             </motion.div>
 
             {/* Get */}
@@ -280,11 +275,11 @@ const Page = () => {
               transition={{ duration: 0.5, delay: 0.4 }}
               className="w-full"
             >
-              <label className="block text-sm text-[#1C4587] font-medium mb-1">Get</label>
-              <div className="border p-2 border-[#1C4587] rounded-lg">
+              <label className="block text-xs text-gray-700 font-medium mb-1">Get</label>
+              <div className="border p-1 border-[#1C4587] rounded-sm">
                 <select
                   {...register("get", { required: "Get is required" })}
-                  className="w-full outline-none rounded-lg text-[#595D62] text-xs"
+                  className="w-full outline-none focus:ring-0 rounded-sm text-[#595D62] text-[14px]"
                 >
                   <option value="Cooking Cake">Cooking Cake</option>
                   <option value="Firing Car Bodies">Firing Car Bodies</option>
@@ -292,7 +287,7 @@ const Page = () => {
                   <option value="Hoody">Hoody</option>
                 </select>
               </div>
-              {errors.get && <p className="text-red-500 text-sm mt-1">{errors.get.message}</p>}
+              {errors.get && <p className="text-red-500 text-xs mt-1">{errors.get.message}</p>}
             </motion.div>
           </div>
 
@@ -306,7 +301,7 @@ const Page = () => {
                 transition={{ duration: 0.5 }}
                 className="overflow-hidden mt-5"
               >
-                <div className="border p-4 border-gray-200 rounded-lg">
+                <div className="border p-4 border-gray-200 rounded-sm">
                   <h1 className="text-sm font-semibold text-[#1C4587] mb-4">Matching Bonds</h1>
 
                   {matchingBonds.length > 0 ? (
@@ -333,7 +328,7 @@ const Page = () => {
               whileTap={{ scale: 0.95 }}
               onClick={() => setToggle(!toggle)}
               type="button"
-              className="w-full md:w-2/5 bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white p-2 rounded-lg transition-all"
+              className="w-full md:w-2/6 text-sm bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white p-2 rounded-sm transition-all"
             >
               <AnimatePresence mode="wait">
                 {toggle ? (

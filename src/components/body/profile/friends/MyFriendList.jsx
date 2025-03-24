@@ -22,13 +22,13 @@ const MyFriendList = ({ searchTerm = "" }) => {
 
     return (
         <div className="grid grid-cols-1 relative sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 p-4">
-            <button className="absolute md:-right-36 md:-top-[74px] right-[35%] -top-40 font-medium bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white text-sm md:text-lg py-1.5 px-2 rounded-lg hover:opacity-90 transition-opacity">
+            <button className="absolute md:-right-36 md:-top-[66px] right-[35%] -top-40 font-medium bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white text-sm py-1.5 px-2 rounded-sm hover:opacity-90 transition-opacity">
                 + Add Friend
             </button>
 
             {/* Search result count */}
             {searchTerm && filteredFriends.length > 0 && (
-                <div className="text-[#1C4587] absolute -top-3 left-5 text-sm font-semibold text-center mb-4">
+                <div className="text-[#1C4587] absolute -top-3 left-5 text-xs font-semibold text-center mb-4">
                     {filteredFriends.length > 100 ? "100+ results" : `${filteredFriends.length} results`}
                 </div>
             )}
@@ -37,7 +37,7 @@ const MyFriendList = ({ searchTerm = "" }) => {
                 filteredFriends.map((friend) => (
                     <div key={friend.id} className="bg-white shadow-[0px_15px_45px_0px_#CFC9DDCC] rounded-lg border border-gray-300 p-5 flex flex-col items-center">
                         {/* Profile Image */}
-                        <div className="w-20 h-20 rounded-full border border-[#E6EEF8] overflow-hidden mb-3">
+                        <div className="w-18 h-18 rounded-full border border-[#E6EEF8] overflow-hidden mb-3">
                             <img
                                 src={
                                     friend.avatar ||
@@ -54,12 +54,12 @@ const MyFriendList = ({ searchTerm = "" }) => {
                         </div>
 
                         {/* Name */}
-                        <h3 className="text-base font-medium text-center mb-2">{friend.name}</h3>
+                        <h3 className="text-sm font-medium text-center mb-2">{friend.name}</h3>
 
                         {/* Roles */}
                         <div className="flex flex-wrap justify-center gap-1 mb-4">
                             {friend.role.map((role, idx) => (
-                                <span key={idx} className="bg-[#9A9A9A33] text-[#1C4587] text-xs px-2 py-1 rounded-md">
+                                <span key={idx} className="bg-[#9A9A9A33] text-[#1C4587] text-[10px] px-2 py-1 rounded-md">
                                     {role}
                                 </span>
                             ))}
@@ -68,16 +68,16 @@ const MyFriendList = ({ searchTerm = "" }) => {
                         {/* Action Buttons */}
                         <div className="w-full space-y-2">
                             <div className="flex gap-2 w-full">
-                                <button className="flex-1 border border-gray-300 text-gray-700 text-xs py-1.5 px-2 rounded hover:bg-gray-50 transition-colors">
+                                <button className="flex-1 border border-gray-300 text-gray-700 text-[10px] py-1 px-2 rounded hover:bg-gray-50 transition-colors">
                                     Unfriend
                                 </button>
-                                <Link href={`/friendRequest/${friend.id}`}>
-                                    <button className="flex-1 border cursor-pointer border-gray-300 text-gray-700 text-xs py-1.5 px-2 rounded hover:bg-gray-50 transition-colors">
+                                <Link href="#">
+                                    <button className="flex-1 border cursor-pointer border-gray-300 text-gray-700 text-[10px] py-1.5 px-2 rounded hover:bg-gray-50 transition-colors">
                                         View profile
                                     </button>
                                 </Link>
                             </div>
-                            <button className="w-full bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white text-xs py-1.5 px-2 rounded hover:opacity-90 transition-opacity">
+                            <button className="w-full bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white text-[10px] py-1 px-2 rounded hover:opacity-90 transition-opacity">
                                 Message
                             </button>
                         </div>

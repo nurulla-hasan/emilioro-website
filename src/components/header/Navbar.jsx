@@ -118,7 +118,7 @@ const Navbar = () => {
 
   return (
     <div className="bg-[#1C4587] sticky top-0 z-50">
-      <nav className="z-50 py-6 px-5 md:px-8 lg:px-0 lg:w-5/6 xl:w-7/9 mx-auto flex justify-evenly items-center relative">
+      <nav className="z-50 py-6 px-5 md:px-8 lg:px-0 xl:w-11/13 lg:w-10/12 mx-auto flex justify-evenly items-center relative">
         {/* Mobile nav */}
         <div className=" flex items-center justify-between w-full xl:w-auto">
           {/* Mobile Menu Button */}
@@ -153,7 +153,7 @@ const Navbar = () => {
                         className="xl:flex items-center space-x-3 cursor-pointer"
                         onClick={() => setIsMobileDropdownOpen(!isMobileDropdownOpen)}
                       >
-                        <img src={avatar.src || "/default-avatar.png"} alt="User Avatar" className="w-8 h-8 rounded-full" />
+                        <img src={ "/avatar.png"} alt="User Avatar" className="w-8 h-8 rounded-full" />
                         {/* <p className="text-sm font-semibold">{user.name}</p> */}
                       </div>
 
@@ -280,7 +280,7 @@ const Navbar = () => {
         {user ? (
           <div onClick={() => setIsDropdownOpen(!isDropdownOpen)} className="relative">
             <div className="hidden lg:flex items-center space-x-3 cursor-pointer">
-              <img src={avatar.src || "/default-avatar.png"} alt="User Avatar" className="w-10 h-10 rounded-full" />
+              <img src={"/avatar.png"} alt="User Avatar" className="w-10 h-10 rounded-full" />
               {/* <p className="text-sm font-semibold">{user.name}</p> */}
               <img src="/down.svg" alt="" />
             </div>

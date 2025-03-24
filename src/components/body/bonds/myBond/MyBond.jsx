@@ -69,7 +69,7 @@ const MyBond = () => {
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                                 onClick={() => setIsModalOpen(true)}
-                                className="cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white px-3 py-2 rounded-md font-medium text-xs"
+                                className="cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white px-3 py-2 rounded-sm font-medium text-xs"
                             >
                                 +Add New Bond
                             </motion.button>
@@ -77,8 +77,8 @@ const MyBond = () => {
 
                         <div className="flex flex-col gap-3 mt-6">
                             {bonds.map((bond) => (
-                                <div key={bond.id} className="flex items-center justify-between p-5 bg-[#EAF0FB] rounded-sm">
-                                    <h3 className="text-md">{bond.title}</h3>
+                                <div key={bond.id} className="flex items-center justify-between p-3 bg-[#EAF0FB] rounded-sm">
+                                    <h3 className="text-sm text-gray-700">{bond.title}</h3>
                                     <div className="flex gap-2">
                                         <Image
                                             width={18}
@@ -102,7 +102,7 @@ const MyBond = () => {
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                                 onClick={() => setIsModalOpen(true)}
-                                className="cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white px-3 py-2 rounded-md font-medium text-xs"
+                                className="cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white px-3 py-2 rounded-sm font-medium text-xs"
                             >
                                 +Add New Bond
                             </motion.button>
@@ -110,8 +110,8 @@ const MyBond = () => {
 
                         <div className="flex flex-col gap-3 mt-6">
                             {bonds.map((bond) => (
-                                <div key={bond.id} className="flex items-center justify-between p-5 bg-[#EAF0FB] rounded-sm">
-                                    <h3 className="text-md">{bond.title}</h3>
+                                <div key={bond.id} className="flex items-center justify-between p-3 bg-[#EAF0FB] rounded-sm">
+                                    <h3 className="text-sm text-gray-700">{bond.title}</h3>
                                     <div className="flex gap-2">
                                         <Image
                                             width={18}

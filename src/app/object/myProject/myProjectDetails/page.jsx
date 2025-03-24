@@ -9,7 +9,6 @@ import EditProjectModal from "@/components/body/object/modal/EditProjectModal"
 import AddUserModal from "@/components/body/object/modal/AddUserModal"
 import { useRouter, useSearchParams } from "next/navigation"
 import RemoveParticipantModal from "@/components/body/object/modal/RemoveParticipantModal"
-// import { useRouter } from "next/router"
 
 const MyProjectDetails = () => {
   return (
@@ -150,8 +149,26 @@ const ProjectContent = () => {
     reset()
   }
 
-
-
+  const participants = [
+    {
+      id: 1,
+      name: "Ahamad Musa",
+      role: "CEO",
+      image: "/avatar.png",
+    },
+    {
+      id: 2,
+      name: "Rahim Uddin",
+      role: "General Manager",
+      image: "/avatar.png",
+    },
+    {
+      id: 3,
+      name: "Karim Ali",
+      role: "Chief of Engineer",
+      image: "/avatar.png",
+    }
+  ];
 
   if (loading) {
     return <p className="text-center text-gray-500">Loading project...</p>
@@ -172,15 +189,15 @@ const ProjectContent = () => {
   const imageSrc = getImageSrc()
 
   return (
-    <div className="px-5 my-5">
-      <div className="max-w-3xl shadow-[0px_15px_45px_0px_#CFC9DD99] mx-auto p-5 rounded-lg bg-white">
-        <div className="relative h-[150px] md:h-52 w-full">
+    <div className="xl:w-8/11 lg:w-10/12 px-5 mx-auto h-[calc(100vh-90px)]">
+      <div className="max-w-4xl shadow-[0px_15px_45px_0px_#CFC9DD99] mx-auto p-5 rounded-sm bg-white">
+        <div className="relative h-[150px]  w-full">
           <Image
             src={imageSrc || "/placeholder.svg"}
             alt="Project Header"
             fill
             style={{ objectFit: "cover" }}
-            className="rounded-lg"
+            className="rounded-sm"
           />
         </div>
         <div>
@@ -188,7 +205,7 @@ const ProjectContent = () => {
             <h1 className="lg:text-lg text-sm font-bold text-[#1C4587]">{project.title}</h1>
             {/* Edit Button */}
             <button
-              className="flex gap-1 items-center cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white text-xs px-3 py-2 rounded-lg font-medium"
+              className="flex gap-1 items-center cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white text-xs px-3 py-2 rounded-sm font-medium"
               onClick={() => setIsOpen(true)}
             >
               <RiEdit2Line />
@@ -197,7 +214,7 @@ const ProjectContent = () => {
           </div>
         </div>
 
-        <div className="lg:h-[50vh] h-[42vh] overflow-auto hide-scrollbar">
+        <div className="lg:h-[50vh] h-[53vh] overflow-auto hide-scrollbar">
           <div className="flex justify-between items-center mt-2">
             <div className="flex gap-2 items-center">
               <img className="rounded-full w-[30px] h-[30px]" src={project.ownerImage || "/placeholder.svg"} alt="image" />
@@ -227,7 +244,7 @@ const ProjectContent = () => {
 
           {/* Participant Count */}
           <div className="flex items-center gap-2 mt-2">
-            <img src="/participants.svg" alt="" />
+            <img className="w-4" src="/participants.svg" alt="" />
             <span className="text-xs font-semibold text-gray-600">{project.participant} Participent</span>
           </div>
 
@@ -238,7 +255,7 @@ const ProjectContent = () => {
               <div className="flex justify-between items-center">
                 <h3 className="font-semibold mb-2">Producer</h3>
                 <motion.button
-                  className="px-2 text-xs bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white py-1 rounded-md font-medium"
+                  className="px-2 text-xs bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white py-1 rounded-sm font-medium"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => setIsAddProducerOpen(true)}
@@ -248,9 +265,9 @@ const ProjectContent = () => {
               </div>
 
               <div>
-                {[...Array(3)].map((_, i) => (
+                {participants.map((participant, i) => (
                   <motion.div
-                    key={i}
+                    key={participant.id}
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: i * 0.1 }}
@@ -258,25 +275,15 @@ const ProjectContent = () => {
                   >
                     <div className="flex justify-between items-center w-full">
                       <div className="flex gap-2 items-center">
-                        <img src={project.ownerImage || "/placeholder.svg"} alt="Producer" className="w-8 h-8 rounded-full" />
+                        <img src={participant.image} alt={participant.name} className="w-8 h-8 rounded-full" />
                         <div>
-                          <p className="font-medium text-sm text-gray-700">Ahamad musa</p>
-                          <p className="text-xs text-gray-500">
-                            {i === 0
-                              ? "CEO"
-                              : i === 1
-                                ? "General manager"
-                                : i === 2
-                                  ? "Chief of engineer"
-                                  : i === 3
-                                    ? "work administrator"
-                                    : "Artist, Engineer, musician"}
-                          </p>
+                          <p className="font-medium text-sm text-gray-700">{participant.name}</p>
+                          <p className="text-xs text-gray-500">{participant.role}</p>
                         </div>
                       </div>
                       <div>
                         <motion.button
-                          className="px-2 text-xs bg-white border border-red-500 text-red-500 py-1 rounded-md font-medium"
+                          className="px-2 text-xs bg-white border border-red-500 text-red-500 py-1 rounded-sm font-medium"
                           whileHover={{ scale: 1.02 }}
                           whileTap={{ scale: 0.98 }}
                           onClick={() => setRemoveParticipantModal(true)}
@@ -298,7 +305,7 @@ const ProjectContent = () => {
               <div className="flex justify-between items-center">
                 <h3 className="font-semibold mb-2">User</h3>
                 <motion.button
-                  className="px-2 text-xs bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white py-1 rounded-md font-medium"
+                  className="px-2 text-xs bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white py-1 rounded-sm font-medium"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => setIsAddUserOpen(true)}
@@ -307,9 +314,9 @@ const ProjectContent = () => {
                 </motion.button>
               </div>
               <div>
-                {[...Array(3)].map((_, i) => (
+                {participants.map((participant, i) => (
                   <motion.div
-                    key={i}
+                    key={participant.id}
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: i * 0.1 }}
@@ -317,25 +324,15 @@ const ProjectContent = () => {
                   >
                     <div className="flex justify-between items-center w-full">
                       <div className="flex gap-2 items-center">
-                        <img src={project.ownerImage || "/placeholder.svg"} alt="Producer" className="w-8 h-8 rounded-full" />
+                        <img src={participant.image} alt={participant.name} className="w-8 h-8 rounded-full" />
                         <div>
-                          <p className="font-medium text-sm text-gray-700">Ahamad musa</p>
-                          <p className="text-xs text-gray-500">
-                            {i === 0
-                              ? "CEO"
-                              : i === 1
-                                ? "General manager"
-                                : i === 2
-                                  ? "Chief of engineer"
-                                  : i === 3
-                                    ? "work administrator"
-                                    : "Artist, Engineer, musician"}
-                          </p>
+                          <p className="font-medium text-sm text-gray-700">{participant.name}</p>
+                          <p className="text-xs text-gray-500">{participant.role}</p>
                         </div>
                       </div>
                       <div>
                         <motion.button
-                          className="px-2 text-xs bg-white border border-red-500 text-red-500 py-1 rounded-md font-medium"
+                          className="px-2 text-xs bg-white border border-red-500 text-red-500 py-1 rounded-sm font-medium"
                           whileHover={{ scale: 1.02 }}
                           whileTap={{ scale: 0.98 }}
                           onClick={() => setRemoveParticipantModal(true)}
@@ -359,9 +356,9 @@ const ProjectContent = () => {
                 <h3 className="font-semibold ">Join Request</h3>
               </div>
               <div>
-                {[...Array(3)].map((_, i) => (
+                {participants.map((participant, i) => (
                   <motion.div
-                    key={i}
+                    key={participant.id}
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: i * 0.1 }}
@@ -369,32 +366,22 @@ const ProjectContent = () => {
                   >
                     <div className="flex justify-between items-center w-full">
                       <div className="flex gap-2 items-center">
-                        <img src={project.ownerImage || "/placeholder.svg"} alt="Producer" className="w-8 h-8 rounded-full" />
+                        <img src={participant.image} alt={participant.name} className="w-8 h-8 rounded-full" />
                         <div>
-                          <p className="font-medium text-sm text-gray-700">Ahamad musa</p>
-                          <p className="text-xs text-gray-500">
-                            {i === 0
-                              ? "CEO"
-                              : i === 1
-                                ? "General manager"
-                                : i === 2
-                                  ? "Chief of engineer"
-                                  : i === 3
-                                    ? "work administrator"
-                                    : "Artist, Engineer, musician"}
-                          </p>
+                          <p className="font-medium text-sm text-gray-700">{participant.name}</p>
+                          <p className="text-xs text-gray-500">{participant.role}</p>
                         </div>
                       </div>
                       <div className="flex gap-2 items-center">
                         <motion.button
-                          className="px-2 text-xs bg-white border border-red-500 text-red-500 py-1 rounded-md font-medium"
+                          className="px-2 text-xs cursor-pointer bg-white border border-red-500 text-red-500 py-1 rounded-sm font-medium"
                           whileHover={{ scale: 1.02 }}
                           whileTap={{ scale: 0.98 }}
                         >
                           Decline
                         </motion.button>
                         <motion.button
-                          className="px-2 text-xs bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white py-1 rounded-md font-medium"
+                          className="px-2 text-xs bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white py-1 rounded-sm font-medium cursor-pointer"
                           whileHover={{ scale: 1.02 }}
                           whileTap={{ scale: 0.98 }}
                         >
@@ -415,7 +402,7 @@ const ProjectContent = () => {
         {/* button */}
         <div className="flex justify-center mt-5">
           <motion.button
-            className="lg:w-1/3 text-sm bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white px-2 lg:px-0 py-2 rounded-md font-medium"
+            className="lg:w-1/3 text-sm bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white px-2 lg:px-0 py-2 rounded-sm font-medium"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             onClick={() => router.push(`/object/myProject/ecoFriendlyPackage?id=${project.id}`)}

@@ -1,5 +1,7 @@
 "use client"
 
+import Link from "next/link"
+
 const FriendRequestList = ({ searchTerm = "" }) => {
     const requests = [
         { id: 1, name: "MR. Sarwar", role: ["Artist", "Actor", "Teacher"], avatar: "/heroImage.png" },
@@ -30,7 +32,7 @@ const FriendRequestList = ({ searchTerm = "" }) => {
                 filteredRequests.map((request) => (
                     <div key={request.id} className="bg-white rounded-lg shadow-[0px_15px_45px_0px_#CFC9DDCC] border border-gray-300 p-5 flex flex-col items-center">
                         {/* Profile Image */}
-                        <div className="w-20 h-20 rounded-full border border-blue-100 overflow-hidden mb-3">
+                        <Link href={`/friendRequest/${request.id}`} className="w-18 h-18 rounded-full border border-blue-100 overflow-hidden mb-3">
                             <img
                                 src={
                                     request.avatar ||
@@ -43,15 +45,15 @@ const FriendRequestList = ({ searchTerm = "" }) => {
                                         "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-TRO7Y6FFBy3CX2g0WhRMEYz55Z5mut.png"
                                 }}
                             />
-                        </div>
+                        </Link>
 
                         {/* Name */}
-                        <h3 className="text-base font-medium text-center mb-2">{request.name}</h3>
+                        <h3 className="text-sm font-medium text-center mb-2">{request.name}</h3>
 
                         {/* Roles */}
                         <div className="flex flex-wrap justify-center gap-1 mb-4">
                             {request.role.map((role, idx) => (
-                                <span key={idx} className="bg-[#9A9A9A33] text-[#1C4587] text-xs px-2 py-1 rounded-md">
+                                <span key={idx} className="bg-[#9A9A9A33] text-[#1C4587] text-[10px] px-2 py-1 rounded-md">
                                     {role}
                                 </span>
                             ))}
@@ -59,10 +61,10 @@ const FriendRequestList = ({ searchTerm = "" }) => {
 
                         {/* Action Buttons */}
                         <div className="w-full flex gap-2">
-                            <button className="flex-1 border border-gray-300 text-gray-700 text-xs py-1.5 px-2 rounded hover:bg-gray-50 transition-colors">
+                            <button className="flex-1 border border-gray-300 text-gray-700 text-[10px] py-1 px-2 rounded hover:bg-gray-50 transition-colors">
                                 Decline
                             </button>
-                            <button className="flex-1 bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white text-xs py-1.5 px-2 rounded hover:opacity-90 transition-opacity">
+                            <button className="flex-1 bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white text-[10px] py-1 px-2 rounded hover:opacity-90 transition-opacity">
                                 Accept
                             </button>
                         </div>

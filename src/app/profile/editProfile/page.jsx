@@ -7,11 +7,11 @@ const ProfileSettings = () => {
   const [activeTab, setActiveTab] = useState("editProfile");
 
   return (
-    <div className="lg:w-5/6 xl:w-6/9 px-5 mt-20 mx-auto">
+    <div className="xl:w-8/11 lg:w-10/12 mx-auto px-5 pt-5">
       {/* Tab Buttons */}
       <div className="flex gap-5 justify-center items-center mx-auto">
         <button
-          className={`pb-1 font-semibold md:text-lg text-sm transition-all duration-300 ${
+          className={`pb-1 font-semibold md:text-md text-sm transition-all duration-300 ${
             activeTab === "editProfile"
               ? "text-[#1C4587] border-b-2 border-[#1C4587]"
               : "text-gray-500 hover:text-[#1C4587]"
@@ -21,7 +21,7 @@ const ProfileSettings = () => {
           Edit Profile
         </button>
         <button
-          className={`pb-1 font-semibold md:text-lg text-sm transition-all duration-300 ${
+          className={`pb-1 font-semibold md:text-md text-sm transition-all duration-300 ${
             activeTab === "changePassword"
               ? "text-[#1C4587] border-b-2 border-[#1C4587]"
               : "text-gray-500 hover:text-[#1C4587]"

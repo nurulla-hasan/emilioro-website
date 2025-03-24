@@ -83,7 +83,7 @@ const DonateUsPaymentModal = ({ isOpen, onClose, totalAmount = 155.0 }) => {
           exit={{ opacity: 0 }}
         >
           <motion.div
-            className="bg-white w-full max-w-lg rounded-lg shadow-lg overflow-hidden my-auto mx-4"
+            className="bg-white w-full max-w-xl rounded-lg shadow-lg overflow-hidden my-auto mx-4"
             initial={{ scale: 0.95, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.95, opacity: 0 }}
@@ -263,20 +263,20 @@ const DonateUsPaymentModal = ({ isOpen, onClose, totalAmount = 155.0 }) => {
           transition={{ duration: 0.3 }}
         >
           <motion.div
-            className="bg-white p-6 rounded-lg text-center shadow-lg w-[350px] mx-4"
+            className="bg-white p-6 rounded-sm text-center shadow-lg w-[350px] mx-4"
             initial={{ scale: 0.8 }}
             animate={{ scale: 1 }}
             exit={{ scale: 0.8 }}
           >
-            <h2 className="text-xl font-bold text-[#1C4587]">Payment Successful</h2>
-            <p className="text-gray-600 mt-2">Thank you for your generous support!</p>
+            <h2 className="text-sm font-bold text-gray-700">Payment Successful</h2>
+            <p className="text-[10px] text-gray-600 mt-2">Thank you for your generous support!</p>
             <Link href="/">
               <button
                 onClick={() => {
                   setIsSuccess(false)
                   onClose()
                 }}
-                className="mt-4 w-full bg-[#1C4587] text-white text-sm font-medium py-2 rounded hover:bg-opacity-90 transition"
+                className="mt-4 w-1/3 bg-[#1C4587] text-white text-[10px] font-medium py-2 rounded-sm hover:bg-opacity-90 transition outline-none focus:ring-0"
               >
                 Go Home
               </button>

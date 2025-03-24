@@ -24,54 +24,54 @@ const EditProjectModal = ({ isOpen, setIsOpen, onSubmit }) => {
                             initial="hidden"
                             animate="visible"
                             exit="exit"
-                            className="bg-white p-6 rounded-lg shadow-lg w-4/5 lg:max-w-md"
+                            className="bg-white p-4 rounded-sm shadow-lg w-4/5 lg:max-w-md"
                         >
                             {/* Header */}
-                            <div className="flex justify-between items-center mb-4">
-                                <Dialog.Title className="text-lg font-semibold">Edit Project</Dialog.Title>
+                            <div className="flex justify-between items-center mb-3">
+                                <Dialog.Title className="text-lg font-semibold text-gray-700">Edit Project</Dialog.Title>
                                 <button onClick={() => setIsOpen(false)} className="text-gray-500 hover:text-gray-700">
-                                    <AiOutlineClose size={20} />
+                                    <img className="w-5" src="/x.svg" alt="" />
                                 </button>
                             </div>
 
                             {/* Form */}
-                            <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
+                            <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-3">
                                 <div>
-                                    <label className="block text-sm font-medium">Add Product Name</label>
+                                    <label className="block text-xs mb-1 font-medium text-gray-700">Add Product Name</label>
                                     <input
                                         type="text"
                                         {...register("productName", { required: true })}
-                                        className="border-gray-300 w-full px-3 py-2 border rounded-lg text-xs focus:ring-2 focus:ring-blue-500"
+                                        className="border-gray-300 w-full px-2 py-1 border rounded-sm text-xs focus:ring-2 focus:ring-blue-500"
                                         placeholder="Type here..."
                                     />
                                 </div>
 
                                 <div>
-                                    <label className="block text-sm font-medium">Add Description</label>
+                                    <label className="block text-xs mb-1 font-medium text-gray-700">Add Description</label>
                                     <textarea
                                         {...register("description", { required: true })}
-                                        className="border-gray-300 w-full px-3 py-2 border rounded-lg text-xs focus:ring-2 focus:ring-blue-500"
+                                        className="border-gray-300 w-full px-2 py-1 border rounded-sm text-xs focus:ring-2 focus:ring-blue-500"
                                         placeholder="Type here..."
                                     />
                                 </div>
 
                                 <div>
-                                    <label className="block text-sm font-medium">Add Thumbnail Image</label>
+                                    <label className="block text-xs mb-1 font-medium text-gray-700">Add Thumbnail Image</label>
                                     <div className="relative">
-                                        <CiImageOn className="absolute top-2 left-2 text-gray-500" />
+                                        <CiImageOn className="absolute top-1.5 left-2 text-gray-500" />
                                         <input
                                             type="file"
                                             {...register("image")}
-                                            className="border-gray-300 cursor-pointer text-gray-500 pl-8 text-xs w-full px-3 py-2 border rounded-lg"
+                                            className="border-gray-300 cursor-pointer text-gray-500 pl-8 text-xs w-full px-2 py-1 border rounded-sm"
                                         />
                                     </div>
                                 </div>
 
                                 <div>
-                                    <label className="block text-sm font-medium">Join Control</label>
+                                    <label className="block text-xs mb-1 font-medium text-gray-700">Join Control</label>
                                     <select
                                         {...register("joinControl")}
-                                        className="border-gray-300 text-xs w-full px-3 py-2 border rounded-lg"
+                                        className="border-gray-300 text-xs w-full px-2 py-1 border rounded-sm"
                                     >
                                         <option value="Private">Private</option>
                                         <option value="Public">Public</option>
@@ -83,7 +83,7 @@ const EditProjectModal = ({ isOpen, setIsOpen, onSubmit }) => {
                                     whileHover={{ scale: 1.05 }}
                                     whileTap={{ scale: 0.95 }}
                                     type="submit"
-                                    className="bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white py-2 rounded-lg font-medium w-1/3"
+                                    className="bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white py-1.5 text-sm rounded-sm font-medium w-1/3"
                                 >
                                     Submit
                                 </motion.button>

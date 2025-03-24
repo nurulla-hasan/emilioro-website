@@ -65,11 +65,11 @@ const ChattingPage = () => {
     }
 
     return (
-        <div className="mx-auto p-4 md:px-6 lg:px-0 md:h-[calc(100vh-88px)] overflow-y-auto hide-scrollbar">
+        <div className="mx-auto p-4 md:px-6 lg:px-0 md:h-[calc(100vh-88px)]">
             <div className="flex flex-col lg:flex-row gap-5">
                 {/* Mobile Menu Toggle */}
                 <div className="lg:hidden flex justify-between items-center mb-4">
-                    <h1 className="text-xl font-bold text-[#1C4587]">We are chatting</h1>
+                    <h1 className="text-xl font-bold text-[#1C4587]">Real conversation between people</h1>
                     <button
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                         className="p-2 bg-[#1C4587] text-white rounded-md"
@@ -86,7 +86,7 @@ const ChattingPage = () => {
                             animate={isMobile ? { opacity: 1, height: "auto" } : { opacity: 1 }}
                             exit={isMobile ? { opacity: 0, height: 0 } : { opacity: 1 }}
                             transition={{ duration: 0.3 }}
-                            className={`${isMobile ? "w-full" : "w-full lg:w-48"} bg-[#f8f9fc] -my-5 p-4 rounded-lg shadow-md mb-5 lg:mb-0`}
+                            className={`${isMobile ? "w-full" : "w-full lg:w-57"} bg-[#f8f9fc] -my-5 p-4 rounded-lg shadow-md mb-5 lg:mb-0`}
                         >
                             <h2 className="text-lg font-semibold text-[#1C4587] mb-4">Menu</h2>
                             <ul className={`flex ${isMobile ? "flex-row overflow-x-auto hide-scrollbar" : "flex-col"} gap-3`}>
@@ -110,8 +110,8 @@ const ChattingPage = () => {
                 </AnimatePresence>
 
                 {/* Main Content Area */}
-                <div className="flex-1 xl:w-10/12 lg:w-10/12 px-5">
-                    <div className="md:h-[calc(100vh-88px)] overflow-y-auto hide-scrollbar xl:w-10/12 lg:w-10/12">
+                <div className="flex-1 px-5 pb-10 md:h-[calc(100vh-104px)] overflow-y-auto hide-scrollbar ">
+                    <div className="xl:w-10/12 lg:w-10/12">
                         {activeTab.id === 0 ? (
                             <>
                                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-5 gap-4">
