@@ -8,7 +8,7 @@ import { CiSearch } from "react-icons/ci"
 import { FaMusic, FaFire, FaComments, FaHeart, FaList, FaBars, FaTimes } from "react-icons/fa"
 import Favorite from "../favorite/page"
 import MyPlaylist from "./allPlaylist/myPlaylist/page"
-import { FaMicrophone } from "react-icons/fa";
+// import { FaMicrophone } from "react-icons/fa";
 
 const ChattingPage = () => {
     const menuItems = [
@@ -126,16 +126,16 @@ const ChattingPage = () => {
                                                 className="ml-2 outline-none text-sm text-[#07398a] w-full"
                                             />
                                         </div>
-                                        {/* <motion.button
+                                        <motion.button
                                             whileHover={{ scale: 1.05 }}
                                             whileTap={{ scale: 0.95 }}
                                             className="bg-gradient-to-b from-[#193f7c] to-[#2965c4] text-white px-5 py-1.5 rounded-sm text-sm font-semibold w-full md:w-auto"
                                         >
                                             + Upload New Audio
-                                        </motion.button> */}
+                                        </motion.button>
 
 
-                                            <FaMicrophone color="#1C4587" size={30}/>
+                                            {/* <FaMicrophone color="#1C4587" size={30}/> */}
 
                                     </div>
                                 </div>
