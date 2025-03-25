@@ -114,7 +114,7 @@ const JoinedProject = () => {
                     <option value="Completed">Completed</option>
                 </select>
             </motion.div>
-            <div className='mt-10 grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 items-center gap-5 rounded-lg'>
+            <div className='mt-13.5 md:mt-10 grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 items-center gap-5 rounded-lg'>
                 {filteredCards.map((card) => (
                     <motion.div key={card.id}
                         className='lg:w-full mx-auto flex flex-col gap-2 shadow-[0px_15px_45px_0px_#CFC9DD99]'

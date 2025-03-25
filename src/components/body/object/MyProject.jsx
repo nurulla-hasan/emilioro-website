@@ -101,7 +101,7 @@ const MyProject = () => {
     return (
         <>
             <motion.div
-                className='absolute -top-11 right-[40%] md:-top-[84px] md:right-0 border border-[#1C4587] px-1 rounded-sm bg-white'
+                className='absolute -top-11 right-[40%] md:-top-[71px] md:right-0 border border-[#1C4587] px-1 rounded-sm bg-white'
                 whileHover={{ scale: 1.05 }}
                 value={status}
                 onChange={(e) => setStatus(e.target.value)}
@@ -115,7 +115,7 @@ const MyProject = () => {
                     <option value="Completed">Completed</option>
                 </select>
             </motion.div>
-            <div className='mt-10 grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 items-center gap-5 rounded-lg'>
+            <div className='mt-13.5 md:mt-10 grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 items-center gap-5 rounded-lg'>
                 {filteredCards.map((card) => (
                     <motion.div
                         key={card.id}

@@ -1,7 +1,6 @@
 "use client"
 import { motion, AnimatePresence } from "framer-motion"
 import Image from "next/image"
-import { X } from "lucide-react"
 
 // Sample JSON data for producers and users
 const sampleData = {
@@ -37,7 +36,7 @@ const ObjectModal = ({ selectedCard, setSelectedCard }) => {
           animate={{ scale: 1, opacity: 1 }}
           exit={{ scale: 0.95, opacity: 0 }}
           transition={{ type: "spring", damping: 25 }}
-          className="bg-white lg:top-11 rounded-sm w-full h-[90vh] md:h-[85vh] max-w-xl overflow-scroll hide-scrollbar relative"
+          className="bg-white lg:top-11 rounded-sm w-full h-[90vh] md:h-[85vh] overflow-scroll hide-scrollbar max-w-xl  relative"
         >
           {/* Close Button */}
           <button

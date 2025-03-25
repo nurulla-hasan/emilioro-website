@@ -119,7 +119,9 @@ const ObjectPage = () => {
       </motion.div>
 
       {/* Modal---------------- */}
-      <ObjectModal setSelectedCard={setSelectedCard} selectedCard={selectedCard}></ObjectModal>
+      <ObjectModal setSelectedCard={setSelectedCard} selectedCard={selectedCard}>
+        
+      </ObjectModal>
 
       <CreateProjectModal setIsOpen={setIsOpen} isOpen={isOpen} />
     </div>

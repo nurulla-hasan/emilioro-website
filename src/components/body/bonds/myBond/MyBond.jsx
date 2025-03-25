@@ -38,7 +38,6 @@ const MyBond = () => {
         setIsEditModalOpen(false);
     };
 
-    // 🛠️ নতুন ফাংশন
     const onDeleteBond = (bond) => {
         setCurrentBond(bond);
         setIsDeleteModalOpen(true);

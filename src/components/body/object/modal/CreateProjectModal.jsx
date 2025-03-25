@@ -63,7 +63,7 @@ const CreateProjectModal = ({ isOpen, setIsOpen }) => {
 
     return (
         <div className="fixed inset-0 bg-black/30 bg-opacity-50 flex justify-center items-center z-50">
-            <div className="bg-white p-5 mt-10 rounded-sm w-[90%] h-[75vh] max-w-md lg:max-w-lg shadow-md relative overflow-auto hide-scrollbar">
+            <div className="bg-white p-5 mt-10 rounded-sm w-[90%] max-w-md lg:max-w-lg shadow-md relative overflow-auto hide-scrollbar">
                 {/* Close Button */}
                 <button onClick={() => setIsOpen(false)} className="absolute top-2 right-2 text-gray-500 hover:text-black cursor-pointer">
                     <img className="w-6 h-6" src="/x.svg" alt="" />

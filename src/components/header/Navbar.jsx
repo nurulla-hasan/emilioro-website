@@ -81,15 +81,6 @@ const Navbar = () => {
     },
   }
 
-  const buttonVariants = {
-    hidden: { opacity: 0, x: 20 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: { type: "spring", stiffness: 300, damping: 20 },
-    },
-  }
-
   const mobileMenuVariants = {
     hidden: { opacity: 0, y: "-100%" },
     visible: {
@@ -97,10 +88,10 @@ const Navbar = () => {
       y: 0,
       transition: {
         type: "spring",
-        stiffness: 300,
-        damping: 30,
+        stiffness: 100,
+        damping: 20,
         staggerChildren: 0.1,
-        delayChildren: 0.2,
+        delayChildren: 0.1,
       },
     },
     exit: {
@@ -108,9 +99,9 @@ const Navbar = () => {
       y: "-100%",
       transition: {
         type: "spring",
-        stiffness: 300,
-        damping: 30,
-        staggerChildren: 0.05,
+        stiffness: 100,
+        damping: 20,
+        staggerChildren: 0.01,
         staggerDirection: -1,
       },
     },
@@ -279,9 +270,8 @@ const Navbar = () => {
         {/* Desktop Buttons */}
         {user ? (
           <div onClick={() => setIsDropdownOpen(!isDropdownOpen)} className="relative">
-            <div className="hidden lg:flex items-center space-x-3 cursor-pointer">
+            <div className="hidden lg:flex items-center gap-2 cursor-pointer">
               <img src={"/avatar.png"} alt="User Avatar" className="w-10 h-10 rounded-full" />
-              {/* <p className="text-sm font-semibold">{user.name}</p> */}
               <img src="/down.svg" alt="" />
             </div>
 
@@ -319,7 +309,7 @@ const Navbar = () => {
           </div>
         ) : (
           <motion.div
-            className="hidden xl:flex space-x-4"
+            className="hidden xl:flex gap-3"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}

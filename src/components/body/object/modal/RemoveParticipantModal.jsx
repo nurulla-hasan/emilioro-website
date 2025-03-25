@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { IoClose } from "react-icons/io5";
 
 const RemoveParticipantModal = ({ isOpen, setRemoveParticipantModal, onRemove }) => {
   if (!isOpen) return null;

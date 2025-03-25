@@ -23,8 +23,8 @@ const AddBondModal = ({ isOpen, onClose, onSubmit, register, tags, setTags, remo
       >
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-xs font-semibold text-gray-700">Create new Bond</h2>
-          <button onClick={onClose} className="text-xl rounded-full bg-[#1C4587] text-white cursor-pointer p-1">
-            <IoClose />
+          <button onClick={onClose} className="cursor-pointer">
+            <img className="w-5" src="/x.svg" alt="" />
           </button>
         </div>
 
