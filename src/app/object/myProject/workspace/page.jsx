@@ -249,7 +249,7 @@ const EcoFriendlyPackage = () => {
   }
 
   return (
-    <div className="xl:w-8/12 lg:w-10/12 px-5 lg:px-0 mx-auto py-10">
+    <div className="xl:w-8/12 lg:w-10/12 px-5 lg:px-0 mx-auto py-5">
       {/* Banner Image */}
       <div className="w-full h-[200px] relative mb-4">
         <Image

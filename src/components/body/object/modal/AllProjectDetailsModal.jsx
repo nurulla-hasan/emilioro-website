@@ -20,8 +20,8 @@ const sampleData = {
   ],
 }
 
-const ObjectModal = ({ selectedCard, setSelectedCard }) => {
-  if (!selectedCard) return null
+const AllProjectDetailsModal = ({ selectedCardAllProject, setSelectedCardAllProject }) => {
+  if (!selectedCardAllProject) return null
 
   return (
     <AnimatePresence>
@@ -40,7 +40,7 @@ const ObjectModal = ({ selectedCard, setSelectedCard }) => {
         >
           {/* Close Button */}
           <button
-            onClick={() => setSelectedCard(null)}
+            onClick={() => setSelectedCardAllProject(null)}
             className="absolute right-4 top-4 z-10 cursor-pointer"
           >
             <img src="/x.svg" alt="" />
@@ -49,13 +49,13 @@ const ObjectModal = ({ selectedCard, setSelectedCard }) => {
           {/* Header Image */}
           <div className="relative h-48">
             <Image
-              src={selectedCard.image || "/placeholder.svg"}
+              src={selectedCardAllProject.image || "/placeholder.svg"}
               alt="Project Header"
               layout="fill"
               objectFit="cover"
             />
             <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-[#102b4bac]">
-              <h1 className="text-white text-xl font-semibold absolute bottom-4 left-4">{selectedCard.title}</h1>
+              <h1 className="text-white text-xl font-semibold absolute bottom-4 left-4">{selectedCardAllProject.title}</h1>
             </div>
           </div>
 
@@ -66,32 +66,32 @@ const ObjectModal = ({ selectedCard, setSelectedCard }) => {
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-3">
                   <img
-                    src={selectedCard.ownerImage || "/placeholder.svg"}
+                    src={selectedCardAllProject.ownerImage || "/placeholder.svg"}
                     className="h-8 w-8 rounded-full"
                     alt="Owner"
                   />
                   <div>
-                    <h3 className="text-sm font-semibold">{selectedCard.author}</h3>
-                    <p className="text-xs text-gray-500">{selectedCard.authorRole}</p>
+                    <h3 className="text-sm font-semibold">{selectedCardAllProject.author}</h3>
+                    <p className="text-xs text-gray-500">{selectedCardAllProject.authorRole}</p>
                   </div>
                 </div>
                 <div className="flex flex-col gap-2">
                   <div className="flex justify-end">
                     <span className="text-blue-800 bg-gray-300 rounded-sm text-end px-1 text-[10px]">
-                      {selectedCard.status[0]}
+                      {selectedCardAllProject.status[0]}
                     </span>
                   </div>
-                  <span className="text-gray-400 text-[10px]">{selectedCard.created}</span>
+                  <span className="text-gray-400 text-[10px]">{selectedCardAllProject.created}</span>
                 </div>
               </div>
 
               {/* Description */}
-              <p className="text-gray-600 text-xs mb-6">{selectedCard.description}</p>
+              <p className="text-gray-600 text-xs mb-6">{selectedCardAllProject.description}</p>
 
               {/* Participant Count */}
               <div className="flex items-center gap-2 mb-2">
                 <img className="w-4" src="/participants.svg" alt="Participants" />
-                <span className="text-xs text-gray-800 font-semibold">{selectedCard.participant} Participent</span>
+                <span className="text-xs text-gray-800 font-semibold">{selectedCardAllProject.participant} Participent</span>
               </div>
 
               {/* Participants Grid */}
@@ -166,5 +166,5 @@ const ObjectModal = ({ selectedCard, setSelectedCard }) => {
   )
 }
 
-export default ObjectModal
+export default AllProjectDetailsModal
 

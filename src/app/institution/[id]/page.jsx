@@ -161,7 +161,7 @@ const EcoFriendlyPackage = () => {
   return (
     <div className="xl:w-8/11 lg:w-10/12 px-5 my-5 mx-auto">
       {/* Banner Image */}
-      <div className="w-full h-[200px] relative mb-4">
+      <div className="w-full border rounded-sm border-gray-300 h-[200px] relative mb-4">
         <Image
           src={project.image || "/placeholder.svg"}
           alt={project.title}
@@ -228,7 +228,7 @@ const EcoFriendlyPackage = () => {
 
           {/* Files Section */}
           <div className="lg:col-span-6 space-y-6">
-            {/* Documents */}
+            {/* All Topics */}
             <div className="bg-white border rounded-b-sm border-gray-100">
               <div className="flex border-b border-gray-200 p-4 justify-between items-center mb-4">
                 <h2 className="text-sm text-[#1C4587] font-medium">All Topics</h2>

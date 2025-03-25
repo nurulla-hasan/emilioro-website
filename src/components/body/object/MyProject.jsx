@@ -158,7 +158,7 @@ const MyProject = () => {
                                     </div>
 
                                     <div className="flex gap-2 items-center">
-                                    <img className='w-4' src="/participants.svg" alt="" />
+                                        <img className='w-4' src="/participants.svg" alt="" />
                                         <div className="flex gap-1 items-center text-[#6F6F6F] text-xs">
                                             <p>{card.participant}</p>
                                             <p>Participents</p>
@@ -176,7 +176,7 @@ const MyProject = () => {
                                 </button>
 
                                 <button
-                                    onClick={() => router.push(`/object/myProject/ecoFriendlyPackage?id=${card.id}`)}
+                                    onClick={() => router.push(`/object/myProject/workspace?id=${card.id}`)}
                                     className="cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white text-xs px-4 py-2 rounded-sm font-medium"
                                 >
                                     Open Workspace

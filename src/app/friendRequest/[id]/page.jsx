@@ -4,11 +4,12 @@ import TiptapEditor from "@/components/body/profile/editor/TiptapEditor";
 import ReportModal from "@/components/body/profile/modal/ReportModal";
 import { useState } from "react";
 import { useParams } from "next/navigation";
+import Link from "next/link";
 const RequestProfile = () => {
     const [modal, setModal] = useState(false);
     const { id } = useParams();
 
-    
+
 
     const profileData = {
         profile: {
@@ -84,7 +85,7 @@ const RequestProfile = () => {
     const friend = profileData.friends.find(friend => friend.id === Number(id));
 
     return (
-        <div className="lg:w-8/11 px-5 my-10 mx-auto">
+        <div className="lg:w-8/11 px-5 my-5 mx-auto">
             {/* Cover Photo */}
             <div className="relative rounded-lg overflow-hidden">
                 <img
@@ -98,25 +99,68 @@ const RequestProfile = () => {
             </div>
 
             {/* Profile Picture */}
-            <div className="relative -mt-16 ml-8">
-                <div className="relative inline-block">
-                    <img
-                        src="https://s3-alpha-sig.figma.com/img/e5da/1998/39341e1805169627958a6a8800fe8932?Expires=1743379200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=hlkaQfj99rnLgSUfcVYR3D~fluNrVJl1xDB1YsvFgtAXLiGprph~TB5DRe3iet1bIR9xzDLuW~2A~cnrGSFWumMLKiYdkJZIvTtisQ8r2M9MlYOaslWzEYvu3ph3nLKxu8CsBqEcSGH~FK4QGKVZs1guaqeCz4WuobfDJNo4yj1oluyTFMazR9ZphjZMlqTuTel8-t42xugpGvcoYHvxVgsLMyH7BRLA61ZbWTVL2l7ZBlRVYORM4mI3RMbZl18xqSODtWLXH4QA1k1Rb9eyN5HQEndIQU0AmIfaU6Fcru-xhhB8Nl33EAphQ3Sz-jzX4SL1rg6i-TnjgXLgkA2JIA__"
-                        alt={profileData.profile.name}
-                        className="w-32 h-32 rounded-full border-4 border-white object-cover"
-                    />
-                    <button className="absolute bottom-1 right-1 bg-white rounded-full p-1.5 shadow-sm">
-                        <Camera size={16} className="text-gray-600" />
-                    </button>
+            <div className="flex justify-between relative -mt-10 md:-mt-10 px-5">
+                <div className="">
+                    <div className="relative inline-block ">
+                        <img
+                            src="/father.jpg"
+                            alt={profileData.profile.name}
+                            className="w-20 h-20  rounded-full border-4 border-white object-cover"
+                        />
+                        <div className="text-center text-sm font-semibold">
+                            <h1>Father</h1>
+                        </div>
+                    </div>
+                </div>
+                <div className="-mt-8">
+                    <div className="relative inline-block">
+                        <img
+                            src="https://s3-alpha-sig.figma.com/img/e5da/1998/39341e1805169627958a6a8800fe8932?Expires=1743379200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=hlkaQfj99rnLgSUfcVYR3D~fluNrVJl1xDB1YsvFgtAXLiGprph~TB5DRe3iet1bIR9xzDLuW~2A~cnrGSFWumMLKiYdkJZIvTtisQ8r2M9MlYOaslWzEYvu3ph3nLKxu8CsBqEcSGH~FK4QGKVZs1guaqeCz4WuobfDJNo4yj1oluyTFMazR9ZphjZMlqTuTel8-t42xugpGvcoYHvxVgsLMyH7BRLA61ZbWTVL2l7ZBlRVYORM4mI3RMbZl18xqSODtWLXH4QA1k1Rb9eyN5HQEndIQU0AmIfaU6Fcru-xhhB8Nl33EAphQ3Sz-jzX4SL1rg6i-TnjgXLgkA2JIA__"
+                            alt={profileData.profile.name}
+                            className="w-32 h-32 rounded-full border-4 border-white object-cover"
+                        />
+                        <button className="absolute bottom-2 right-2 bg-white rounded-full p-1.5 shadow-sm">
+                            <Camera size={16} className="text-gray-600" />
+                        </button>
+                    </div>
+                </div>
+                <div className="">
+                    <div className="relative inline-block ">
+                        <img
+                            src="/mother.jpg"
+                            alt={profileData.profile.name}
+                            className="w-20 h-20 rounded-full border-4 border-white object-cover"
+                        />
+                        <div className="text-center text-sm font-semibold">
+                            <h1>Mother</h1>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             {/* Profile Info */}
-            <div className="mt-4">
-                <div className="flex flex-col md:flex-row gap-4 justify-between items-start">
-                    <div>
-                        <h1 className="text-2xl font-bold text-[#1C4587]">{friend.name}</h1>
-                        <div className="flex gap-2 mt-2">
+            <div className="mt-4 ">
+                <div className="flex flex-col gap-3 w-full items-center justify-center text-center">
+                    <div className="relative">
+                        <div>
+                            <h1 className="text-2xl font-bold text-[#1C4587]">{profileData.profile.name}</h1>
+
+                            <div className="flex gap-3 items-center justify-center mt-2">
+                                <button className="border border-[#1C4587] text-[#1C4587] gap-1 flex items-center bg-white text-xs px-2 py-0.5 rounded-sm"> Reject
+                                </button>
+                                <button className="bg-gradient-to-b from-[#1C4587] to-[#3279EA] gap-1 flex items-center text-white text-xs px-2 py-[3px] rounded-sm">
+                                    Accept
+                                </button>
+                                <img
+                                    onClick={() => setModal(true)}
+                                    className="w-5 h-5 cursor-pointer"
+                                    src="/requestMenu.svg"
+                                    alt=""
+                                />
+                            </div>
+                        </div>
+
+                        <div className="flex gap-2 mt-4">
                             {profileData.profile.tags.map((tag, index) => (
                                 <span key={index} className="bg-blue-50 text-[#1C4587] text-xs px-3 py-1 rounded-md">
                                     {tag}
@@ -124,25 +168,25 @@ const RequestProfile = () => {
                             ))}
                         </div>
                     </div>
-                    <div className="flex gap-5 items-center">
-                        <button className=" border-[#1C4587] border text-[#1C4587] gap-1 flex items-center bg-white text-sm font-semibold px-4 py-[6px] rounded-lg">
-                            <img src="/edit.png" alt="" /> Reject
-                        </button>
-                        <button className="bg-gradient-to-b from-[#1C4587] to-[#3279EA] gap-1 flex items-center text-white text-sm font-semibold px-4 py-2 rounded-lg">
-                            <img src="/edit.png" alt="" /> Accept
-                        </button>
-
-                        <img onClick={() => setModal(true)} className="w-10 h-10" src="/requestMenu.svg" alt="" />
-                    </div>
                 </div>
 
-                <div className="mt-4">
-                    <p className="text-lg text-gray-800">{profileData.profile.followers}k Followers</p>
-                    <p className="text-md text-gray-500 w-2/3 mt-2">{profileData.profile.bio}</p>
+                <div className="mt-4 flex flex-col justify-center items-center text-center">
+                    <p className="text-gray-800 text-sm">{profileData.profile.followers}k Followers</p>
+                </div>
+
+                <div className="p-4">
+                    <div className="hidden">
+                        {/* Text Editor Toolbar */}
+                        <TiptapEditor />
+                    </div>
+                    <p className="text-xs text-gray-700 text-center">
+                        I still remember the excitement and nervousness bubbling inside me as I stepped off the plane at Kansai International Airport. It was my first-ever solo trip, and Japan had always been a dream destination. With my backpack strapped on, I took a deep breath, ready to embrace the adventure ahead. The first challenge came almost immediately—navigating the train system. I had researched it a hundred times before coming, but standing in front of a ticket machine with Japanese characters flashing before my eyes was another story. After fumbling for a few minutes, a kind elderly man noticed my struggle and helped me purchase the right ticket. His warm smile and patient guidance reassured me that I was in good hands. On my second day in Kyoto, I visited the iconic Fushimi Inari Shrine. As I walked through the thousands of vermillion torii gates, I felt an overwhelming sense of peace. The further I climbed, the quieter it became. I stopped at a secluded spot, sat on a stone bench, and watched the sunlight filter through the trees.
+                    </p>
                 </div>
             </div>
 
             {/* Social Links */}
+
             <div className="mt-8">
                 <div className="flex justify-between items-center mb-4">
                     <h2 className="xl:text-2xl text-xl font-semibold text-[#1C4587]">Social Links
@@ -205,7 +249,7 @@ const RequestProfile = () => {
                                             "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-wFgfsFe9yFppBiQ9HxG5BtxnZXMP61.png"
                                         }
                                         alt={friend.name}
-                                        className=" object-cover w-16 h-16"
+                                        className=" object-cover w-12 h-12"
                                         onError={(e) => {
                                             e.currentTarget.src =
                                                 "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-wFgfsFe9yFppBiQ9HxG5BtxnZXMP61.png"
@@ -219,48 +263,7 @@ const RequestProfile = () => {
                     </div>
                 </div>
 
-                {/* Life Story Section */}
-                <div className="mt-12">
-                    <div className="flex justify-between items-center mb-6">
-                        <h2 className="xl:text-2xl text-xl font-semibold text-[#1C4587]">Your Life story</h2>
-                    </div>
-
-                    <div className="flex flex-col md:flex-row gap-6">
-                        {/* Life Events Column */}
-                        <div className="flex-1/2 bg-white p-4 rounded-lg shadow-[0px_19px_48px_1px_#CFC9DDB2]">
-                            <h3 className="text-lg font-semibold mb-3 text-[#1C4587]">Your Life event</h3>
-                            <div className=" flex flex-col gap-3">
-                                {profileData.life_story.events.map((event, index) => (
-                                    <div key={index} className="flex justify-between items-center bg-[#D5E2F6] p-3 rounded-lg">
-                                        <div>
-                                            <p className="text-sm font-medium">{event.title}</p>
-                                            <div className="flex items-center text-sm text-gray-500 mt-1">
-                                                <Calendar size={16} className="mr-1" />
-                                                {event.date}
-                                            </div>
-                                        </div>
-                                        <div className="flex items-center gap-2">
-                                            <button onClick={() => setIsDeleteModalOpen(true)} className="text-red-500">
-                                                <img src="/Delete.svg" alt="" />
-                                            </button>
-                                            <button onClick={() => setIsEditEventModalOpen(true)} className="text-gray-400">
-                                                <img src="/edit.svg" alt="" />
-                                            </button>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-
-                        {/* Life Story Text Column */}
-                        <div className="md:w-3/5 rounded-lg shadow-[0px_19px_48px_1px_#CFC9DDB2] p-4">
-                            <div>
-                                {/* Text Editor Toolbar */}
-                                <TiptapEditor />
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
             </div>
 
             {/* Relatives & Relationships */}
@@ -276,7 +279,7 @@ const RequestProfile = () => {
                         {/* Left column - Relatives */}
                         <div className="space-y-3 shadow-[0px_19px_48px_1px_#CFC9DDB2] p-4 rounded-lg">
                             {profileData.relatives.map((relative, index) => (
-                                <div key={index} className="flex justify-between items-center bg-[#D5E2F6] p-3 rounded-lg">
+                                <div key={index} className="flex justify-between items-center bg-[#D5E2F6] p-2 rounded-lg">
                                     <div className="flex items-center gap-3">
                                         <img
                                             src={
@@ -284,7 +287,7 @@ const RequestProfile = () => {
                                                 "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-yagAwDAq3jXuqR21XdsgROK2UgOfGi.png"
                                             }
                                             alt={relative.name}
-                                            className="w-10 h-10 rounded-full object-cover"
+                                            className="w-8 h-8 rounded-full object-cover"
                                             onError={(e) => {
                                                 e.currentTarget.src =
                                                     "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-yagAwDAq3jXuqR21XdsgROK2UgOfGi.png"
@@ -310,7 +313,7 @@ const RequestProfile = () => {
                         {/* Right column - Extended Relatives */}
                         <div className="space-y-3 shadow-[0px_19px_48px_1px_#CFC9DDB2] p-4 rounded-lg">
                             {profileData.extended_relatives.map((relative, index) => (
-                                <div key={index} className="flex justify-between items-center bg-[#D5E2F6] p-3 rounded-lg">
+                                <div key={index} className="flex justify-between items-center bg-[#D5E2F6] p-2 rounded-lg">
                                     <div className="flex items-center gap-3">
                                         <img
                                             src={
@@ -318,7 +321,7 @@ const RequestProfile = () => {
                                                 "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-yagAwDAq3jXuqR21XdsgROK2UgOfGi.png"
                                             }
                                             alt={relative.name}
-                                            className="w-10 h-10 rounded-full object-cover"
+                                            className="w-8 h-8 rounded-full object-cover"
                                             onError={(e) => {
                                                 e.currentTarget.src =
                                                     "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-yagAwDAq3jXuqR21XdsgROK2UgOfGi.png"
@@ -346,7 +349,7 @@ const RequestProfile = () => {
 
             <ReportModal isOpen={modal} onClose={() => setModal(false)} />
         </div>
-        
+
     );
 };
 

@@ -5,12 +5,12 @@ import JoinedProject from "@/components/body/object/JoinedProject"
 import { motion, AnimatePresence } from "framer-motion"
 import { useState } from "react"
 import { CiSearch } from "react-icons/ci"
-import ObjectModal from "@/components/body/object/modal/ObjectModal"
 import CreateProjectModal from "@/components/body/object/modal/CreateProjectModal"
+import AllProjectDetailsModal from "@/components/body/object/modal/AllProjectDetailsModal"
 
 const ObjectPage = () => {
   const [activeTab, setActiveTab] = useState("all")
-  const [selectedCard, setSelectedCard] = useState(null)
+  const [selectedCardAllProject, setSelectedCardAllProject] = useState(null)
   const [isOpen, setIsOpen] = useState(false)
   const pageVariants = {
     initial: { opacity: 0, y: 20 },
@@ -85,11 +85,10 @@ const ObjectPage = () => {
               ].map((tab) => (
                 <motion.button
                   key={tab.id}
-                  className={`px-4 py-2 text-[10px] font-medium transition-all border rounded-sm outline-none focus:ring-0 ${
-                    activeTab === tab.id
-                      ? "bg-[#1C4587] border border-[#1C4587] text-white"
-                      : "border-transparent text-gray-700"
-                  }`}
+                  className={`px-4 py-2 text-[10px] font-medium transition-all border rounded-sm outline-none focus:ring-0 ${activeTab === tab.id
+                    ? "bg-[#1C4587] border border-[#1C4587] text-white"
+                    : "border-transparent text-gray-700"
+                    }`}
                   onClick={() => setActiveTab(tab.id)}
                   whileTap={{ scale: 0.9 }}
                 >
@@ -111,38 +110,43 @@ const ObjectPage = () => {
             transition={{ duration: 0.5 }}
             className="mt-4"
           >
-            {activeTab === "all" && <AllProjects setSelectedCard={setSelectedCard} />}
-            {activeTab === "my" && <MyProjects />}
-            {activeTab === "joined" && <JoinedProjects />}
+            {activeTab === "all" && <AllProjects setSelectedCardAllProject={setSelectedCardAllProject} />}
+            {activeTab === "my" && <MyProjects/>}
+            {activeTab === "joined" && <JoinedProjects/>}
           </motion.div>
         </AnimatePresence>
       </motion.div>
 
       {/* Modal---------------- */}
-      <ObjectModal setSelectedCard={setSelectedCard} selectedCard={selectedCard}>
-        
-      </ObjectModal>
+      <AllProjectDetailsModal
+        setSelectedCardAllProject={setSelectedCardAllProject}
+        selectedCardAllProject={selectedCardAllProject}>
+      </AllProjectDetailsModal>
 
-      <CreateProjectModal setIsOpen={setIsOpen} isOpen={isOpen} />
+      <CreateProjectModal
+        setIsOpen={setIsOpen}
+        isOpen={isOpen} />
+
+
     </div>
   )
 }
 
-const AllProjects = ({ setSelectedCard }) => (
+const AllProjects = ({ setSelectedCardAllProject }) => (
   <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
-    <AllProject setSelectedCard={setSelectedCard} />
+    <AllProject setSelectedCardAllProject={setSelectedCardAllProject} />
   </motion.div>
 )
 
 const MyProjects = () => (
   <motion.div className="relative" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
-    <MyProject />
+    <MyProject/>
   </motion.div>
 )
 
 const JoinedProjects = () => (
   <motion.div className="relative" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
-    <JoinedProject />
+    <JoinedProject/>
   </motion.div>
 )
 

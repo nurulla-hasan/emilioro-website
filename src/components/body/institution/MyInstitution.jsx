@@ -1,9 +1,9 @@
-import { RiTeamLine } from "react-icons/ri";
+
 import { useState } from "react";
 import { motion } from 'framer-motion';
 import EditInstituteModal from "./modal/EditInstituteModal";
 
-const AllInstitution = () => {
+const AllInstitution = ({ setSelectedCardUserProject }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [status, setStatus] = useState("Created");
 
@@ -107,8 +107,9 @@ const AllInstitution = () => {
                 {
                     filteredCards.map((card) => (
                         <div
+                            onClick={() => setSelectedCardUserProject(card)}
                             key={card.id}
-                            className="lg:w-full mx-auto flex flex-col gap-2 shadow-[0px_15px_45px_0px_#CFC9DD99] bg-[#FFFFFF]"
+                            className="lg:w-full cursor-pointer mx-auto flex flex-col gap-2 shadow-[0px_15px_45px_0px_#CFC9DD99] bg-[#FFFFFF]"
                         >
                             <div>
                                 <img src={card.image || "/placeholder.svg"} alt="image" className="w-full" />
@@ -116,15 +117,11 @@ const AllInstitution = () => {
 
                             <div className="flex flex-col gap-2 p-3 rounded-b-sm">
                                 <div className="flex justify-between items-center">
-                                    <div className="text-sm text-[#1C4587] font-semibold mb-1">Institution name :</div>
+                                    <div className="text-sm text-[#1C4587] font-semibold">Institution name :</div>
                                     <div>
-                                        <div className="flex items-center gap-1">
-                                            <div className="flex items-center gap-1">
-                                                <p className="bg-[#9A9A9A33] rounded-xs px-1 py-[1] text-[#1C4587] text-[9px] font-normal">
-                                                    {card.institutionName}
-                                                </p>
-                                            </div>
-                                        </div>
+                                        <p className=" text-[#1C4587] text-sm font-semibold">
+                                            {card.institutionName}
+                                        </p>
                                     </div>
                                 </div>
 

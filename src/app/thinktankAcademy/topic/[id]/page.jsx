@@ -93,7 +93,7 @@ const Page = () => {
     }
 
     return (
-        <div className="mx-auto xl:w-6/9 lg:w-5/6 py-10 px-5">
+        <div className="xl:w-8/11 lg:w-10/12 px-5 mt-3 mx-auto">
             <div className="bg-white shadow-[0px_10px_17px_2px_#CFC9DDB2] rounded-md overflow-hidden border-x border-b border-gray-300">
                 {/* Header */}
                 <div className="p-4 border-b border-blue-200">
@@ -101,7 +101,7 @@ const Page = () => {
                 </div>
 
                 {/* Comments Section */}
-                <div className="bg-[#EAF0FB] md:h-[70vh] overflow-scroll hide-scrollbar p-6">
+                <div className="bg-[#EAF0FB] md:h-[75vh] h-[64vh] overflow-scroll hide-scrollbar p-6">
                     <h3 className="text-center text-gray-600 text-sm mb-4">Today</h3>
 
                     <div className="space-y-4 ">

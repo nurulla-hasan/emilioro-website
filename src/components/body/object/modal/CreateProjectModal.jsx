@@ -205,12 +205,14 @@ const CreateProjectModal = ({ isOpen, setIsOpen }) => {
                     </div>
 
                     {/* Join Control */}
-                    <div>
+                    <div className="">
                         <label className="block text-xs font-medium mb-1">Join Control</label>
-                        <select {...register("joinControl")} className="outline-none w-full border px-2 py-1.5 rounded-sm text-xs border-gray-300">
-                            <option value="Private">Private</option>
-                            <option value="Public">Public</option>
-                        </select>
+                        <div className="border px-2 py-0.5 rounded-sm border-gray-300">
+                            <select {...register("joinControl")} className="outline-none w-full text-xs ">
+                                <option value="Private">Private</option>
+                                <option value="Public">Public</option>
+                            </select>
+                        </div>
                     </div>
 
                     {/* Submit Button */}

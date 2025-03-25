@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 
 
-const AllProject = ({ setSelectedCard }) => {
+const AllProject = ({ setSelectedCardAllProject }) => {
     const data = {
         cards: [
             {
@@ -95,7 +95,7 @@ const AllProject = ({ setSelectedCard }) => {
         <div className='mt-10 grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 items-center gap-5 rounded-lg'>
             {data.cards.map((card) => (
                 <motion.div
-                    onClick={() => setSelectedCard(card)}
+                    onClick={() => setSelectedCardAllProject(card)}
                     key={card.id}
                     className="cursor-pointer lg:w-full mx-auto flex flex-col gap-2 shadow-[0px_15px_45px_0px_#CFC9DD99]"
                     whileHover={{ scale: 1.02 }}
