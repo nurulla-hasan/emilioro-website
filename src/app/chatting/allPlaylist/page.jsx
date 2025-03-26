@@ -1,5 +1,6 @@
 "use client"
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { CiSearch } from "react-icons/ci";
 import { HiOutlineMenuAlt2 } from 'react-icons/hi';
 import { IoMdShare } from 'react-icons/io';
@@ -77,16 +78,16 @@ const AllPlaylist = () => {
     ]
 
     return (
-        <div className='mx-auto lg:my-10 mt-10 xl:w-8/11 lg:w-10/12 px-5'>
-            <div className=" lg:px-5 mx-auto flex flex-col lg:flex-row gap-5 justify-between items-center">
-                <h1 className="text-xl lg:text-3xl text-[#1C4587] font-bold">All Playlist</h1>
+        <div className='my-5 px-5 md:px-8'>
+            <div className=" mx-auto flex flex-col lg:flex-row gap-5 justify-between items-center">
+                <h1 className="text-xl text-[#1C4587] font-bold">All Playlist</h1>
                 <div className='flex gap-5 items-center justify-center'>
-                    <div className="relative lg:w-[250px] w-[150px] border border-[#1C4587] rounded-lg flex items-center px-2">
+                    <div className="relative lg:w-[250px] w-[150px] border border-[#1C4587] rounded-sm flex items-center px-2">
                         <CiSearch className='cursor-pointer' color='#1C4587' size={15} />
                         <input
                             type="text"
                             placeholder="Search institute"
-                            className="px-2 py-1 lg:w-full w-36 rounded-full lg:py-2 border-none outline-none text-[#07398a]"
+                            className="px-2 py-1 text-sm lg:w-full w-36 rounded-full lg:py-2 border-none outline-none text-[#07398a]"
                         />
                     </div>
                     <motion.div
@@ -94,7 +95,7 @@ const AllPlaylist = () => {
                         whileTap={{ scale: 0.99 }}
                         className="text-blue-500 font-semibold cursor-pointer"
                     >
-                        <button className="cursor-pointer bg-gradient-to-b from-[#193f7c] to-[#2965c4] text-white px-5 lg:py-[10px] py-[9px] rounded-lg font-semibold text-xs lg:text-[15px]">
+                        <button className="cursor-pointer bg-gradient-to-b from-[#193f7c] to-[#2965c4] text-white px-5 lg:py-[10px] py-[9px] rounded-sm font-semibold text-xs lg:text-[13px]">
                             +Upload New Audio
                         </button>
                     </motion.div>
@@ -102,7 +103,7 @@ const AllPlaylist = () => {
             </div>
 
             {/* Cards */}
-            <div className="mx-auto my-16 lg:px-5 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 lg:justify-between justify-items-center items-center">
+            <div className="mx-auto mt-5 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10 lg:justify-between justify-items-center items-center">
                 {conversations.map((conversation, index) => (
                     <div key={conversation.id} className='flex flex-col gap-2'>
                         <div>
@@ -138,11 +139,12 @@ const AllPlaylist = () => {
                             </div>
 
                             <div className='flex justify-between items-center'>
-                                <button className="cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white px-6 py-1 rounded-lg font-medium">
-                                    View
-                                </button>
-
-                                <button className='flex gap-2 px-3 py-1 items-center bg-white  rounded-lg font-semibold border-2 border-[#1C4587] to-[#3279EA] text-[#1C4587]'>
+                                <Link href={`/chatting/allPlaylist/myPlaylist/${conversation.id}`}>
+                                    <button className="cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white px-6 py-[6px] rounded-sm text-xs font-medium">
+                                        View
+                                    </button>
+                                </Link>
+                                <button className='flex gap-2 px-3 text-xs py-[4.5px] items-center bg-white  rounded-sm font-semibold border-2 border-[#1C4587] to-[#3279EA] text-[#1C4587]'>
                                     < IoMdShare />
                                     <span>Share</span>
                                 </button>

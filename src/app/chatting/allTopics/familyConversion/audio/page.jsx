@@ -114,27 +114,27 @@ const AllAudio = () => {
   }
 
   return (
-    <div className="px-5 mx-auto my-20 w-full lg:w-4/6">
+    <div className="my-5 px-5 md:px-8">
       {/* Header */}
-      <div className="lg:px-5 mx-auto flex flex-col lg:flex-row gap-5 justify-between items-center mb-8">
-        <h1 className="text-xl lg:text-3xl text-[#1C4587] font-bold">Family Conversation</h1>
+      <div className=" mx-auto flex flex-col lg:flex-row gap-5 justify-between items-center">
+        <h1 className="text-xl text-[#1C4587] font-bold">Family Conversation</h1>
         <div className="flex gap-5 items-center justify-center">
-          <div className="relative lg:w-[250px] w-[150px] border border-[#1C4587] rounded-lg flex items-center px-2">
+          <div className="relative lg:w-[200px] w-[150px] border border-[#1C4587] rounded-sm flex items-center px-2">
             <CiSearch className="cursor-pointer" color="#1C4587" size={15} />
             <input
               type="text"
               placeholder="Search Audio"
-              className="px-2 py-1 lg:w-full w-36 rounded-full lg:py-2 border-none outline-none text-[#07398a]"
+              className="px-2 py-0.5 lg:w-full w-36 rounded-full lg:py-1 text-sm border-none outline-none text-[#07398a]"
             />
           </div>
         </div>
       </div>
 
       {/* Audio List */}
-      <div className="space-y-4">
+      <div className="flex flex-col gap-4 mt-5">
         {conversations.map((audio) => (
-          <div key={audio.id} className="bg-white rounded-lg shadow-lg overflow-hidden">
-            <div className="flex flex-col md:flex-row p-4 gap-4">
+          <div key={audio.id} className="bg-white rounded-sm shadow-lg overflow-hidden">
+            <div className=" relative flex flex-col md:flex-row items-center p-3 gap-4">
               {/* Thumbnail with Heart - Full width on mobile, fixed width on desktop */}
               <div className="relative w-full md:w-[220px] h-[180px] md:h-[140px]">
                 <Image
@@ -142,7 +142,7 @@ const AllAudio = () => {
                   alt={audio.title}
                   width={220}
                   height={130}
-                  className="rounded-lg object-cover w-full h-full"
+                  className="rounded-sm object-cover w-full h-full"
                 />
                 <button className="absolute top-2 left-2 text-white">
                   <CiHeart size={24} />
@@ -156,7 +156,7 @@ const AllAudio = () => {
                     <h2 className="text-md font-semibold text-[#1C4587]">{audio.title}</h2>
                     <p className="text-gray-600 text-xs mt-1">{audio.description}</p>
                   </div>
-                  <div className="flex items-center gap-2 text-gray-500 text-sm">
+                  <div className="flex items-center gap-2 text-gray-500 text-xs">
                     <AiFillEye size={16} />
                     <span>{audio.views}</span>
                     <AiFillStar size={16} className="text-yellow-500" />
@@ -165,12 +165,12 @@ const AllAudio = () => {
                 </div>
 
                 {/* Audio Player */}
-                <div className="mt-4 flex items-center gap-3">
+                <div className="mt-2 flex items-center gap-3">
                   <button
                     onClick={() => togglePlay(audio.id)}
-                    className="bg-[#1C4587] text-white rounded-full w-10 h-10 flex items-center justify-center flex-shrink-0"
+                    className="bg-[#1C4587] text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0"
                   >
-                    {playing === audio.id ? <FaPause size={14} /> : <FaPlay size={14} />}
+                    {playing === audio.id ? <FaPause size={12} /> : <FaPlay size={12} />}
                   </button>
 
                   {/* WaveSurfer Container */}
@@ -178,14 +178,14 @@ const AllAudio = () => {
 
                   <div className="flex items-center gap-1 text-gray-500 whitespace-nowrap">
                     <IoTimeOutline size={16} />
-                    <span className="text-sm">{audio.duration}</span>
+                    <span className="text-xs">{audio.duration}</span>
                   </div>
                 </div>
 
                 {/* Tags */}
                 <div className="mt-3 flex flex-wrap gap-2">
                   {audio.tags.map((tag, index) => (
-                    <span key={index} className="bg-[#1C4587] text-white text-xs px-3 py-1 rounded-md">
+                    <span key={index} className="bg-[#1C4587] text-white text-[10px] px-3 py-1 rounded-sm">
                       {tag}
                     </span>
                   ))}
@@ -193,9 +193,9 @@ const AllAudio = () => {
               </div>
 
               {/* Delete Button - Repositioned for mobile */}
-              <div className="md:ml-4 mt-3 md:mt-0 flex md:items-start">
-                <button className="border border-blue-900 text-blue-900 px-3 py-1 rounded-md flex items-center gap-1 text-sm hover:bg-red-50 transition-colors">
-                  <FaTrashAlt color="#f21d1d" size={14} />
+              <div className="flex md:items-start relative right-0 bottom-15">
+                <button className="border border-blue-900 text-blue-900 px-2 py-1 rounded-sm flex items-center gap-1 text-xs hover:bg-red-50 transition-colors">
+                  <img src="/delete.svg" alt="" />
                   <span>Delete</span>
                 </button>
               </div>

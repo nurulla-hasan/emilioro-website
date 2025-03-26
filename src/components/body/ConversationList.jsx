@@ -37,7 +37,7 @@ const ConversationList = () => {
 
     return (
 
-        <div className="mt-5">
+        <div className="mt-10">
 
             <div className="flex items-center justify-between mx-auto">
 
@@ -48,13 +48,13 @@ const ConversationList = () => {
             </div>
 
 
-            <div className="mt-5 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 items-center gap-8 lg:gap-5 mx-auto rounded-lg ">
+            <div className="mt-2 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 items-center gap-8 lg:gap-5 mx-auto rounded-lg ">
                 {conversations.map((conversation, index) => (
                     <div key={conversation.id} className='flex flex-col gap-2'>
                         <div>
                             <img
                                 src={conversation.image}
-                                 className='rounded-md'
+                                className='rounded-md'
                                 alt='image'
                             >
                             </img>
@@ -84,11 +84,12 @@ const ConversationList = () => {
                             </div>
 
                             <div className='flex justify-between items-center'>
-                                <button className="cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white px-6 py-1 rounded-lg font-medium">
-                                    View
-                                </button>
-
-                                <button className='flex gap-2 px-3 py-1 items-center bg-white  rounded-lg font-semibold border-2 border-[#1C4587] to-[#3279EA] text-[#1C4587]'>
+                                <Link href={`/chatting/allPlaylist/myPlaylist/${conversation.id}`}>
+                                    <button className="cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white px-6 py-[6px] rounded-sm text-xs font-medium">
+                                        View
+                                    </button>
+                                </Link>
+                                <button className='flex gap-2 px-3 text-xs py-[4.5px] items-center bg-white  rounded-sm font-semibold border-2 border-[#1C4587] to-[#3279EA] text-[#1C4587]'>
                                     < IoMdShare />
                                     <span>Share</span>
                                 </button>

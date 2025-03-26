@@ -73,9 +73,9 @@ const data = [
 
 const MostPlayedSection = () => {
     return (
-        <div className="relative">
-            <div className="flex items-center justify-center lg:justify-start mx-auto">
-                <h1 className="text-xl my-5 font-semibold text-blue-900">Most played in this week</h1>
+        <div className="relative ">
+            <div className="flex items-center justify-center lg:justify-start mx-auto my-5">
+                <h1 className="text-xl font-bold text-blue-900 ">Most played in this week</h1>
             </div>
 
             <Swiper
@@ -97,7 +97,7 @@ const MostPlayedSection = () => {
             >
                 {data.map((item) => (
                     <SwiperSlide key={item.id}>
-                        <div className="relative flex-shrink-0 mx-auto lg:px-0 md:px-0 px-5 rounded-lg group">
+                        <div className="relative flex-shrink-0 mx-auto lg:px-0 md:px-0 px-5 rounded-sm group">
                             {/* Image Container */}
                             <div className="relative h-40 overflow-hidden rounded-xl">
                                 <img
@@ -158,10 +158,10 @@ const MostPlayedSection = () => {
             </Swiper>
 
             {/* Custom Navigation Buttons */}
-            <div className="swiper-button-prev-custom absolute left-2 z-10 top-[55%] transform -translate-y-1/2 w-7 h-7 flex items-center justify-center rounded-full bg-white shadow-md cursor-pointer">
+            <div className="swiper-button-prev-custom absolute left-2 z-10 top-[52%] transform -translate-y-1/2 w-7 h-7 flex items-center justify-center rounded-full bg-white shadow-md cursor-pointer">
                 <IoChevronBack size={20} />
             </div>
-            <div className="swiper-button-next-custom absolute right-2 z-10 top-[55%] transform -translate-y-1/2 w-7 h-7 flex items-center justify-center rounded-full bg-white shadow-md cursor-pointer">
+            <div className="swiper-button-next-custom absolute right-2 z-10 top-[52%] transform -translate-y-1/2 w-7 h-7 flex items-center justify-center rounded-full bg-white shadow-md cursor-pointer">
                 <IoChevronForward size={20} />
             </div>
         </div>

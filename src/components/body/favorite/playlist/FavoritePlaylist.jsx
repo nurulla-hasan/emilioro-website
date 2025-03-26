@@ -50,13 +50,13 @@ const FavoritePlaylist = () => {
     return (
         <div className=''>
             {/* Cards */}
-            <div className=" mx-auto xl:my-5 grid xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-5 lg:justify-between justify-items-center items-center lg:px-0 px-5">
+            <div className=" mx-auto xl:my-5 grid xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-10 lg:justify-between justify-items-center items-center lg:px-0 px-5">
                 {conversations.map((conversation, index) => (
                     <div key={conversation.id} className='flex flex-col gap-2'>
                         <div>
                             <img
                                 src={conversation.image}
-                                className='rounded-md'
+                                className='rounded-sm h-[180px] w-[334px]'
                                 alt='image'
                             >
                             </img>
@@ -87,16 +87,16 @@ const FavoritePlaylist = () => {
 
                             <div className='flex justify-between items-center'>
                                 <Link href={`/chatting/allPlaylist/myPlaylist/${conversation.id}`}>
-                                    <button className="cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white px-6 py-[6px] rounded-lg font-medium">
+                                    <button className="cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white px-6 py-[6px] rounded-sm text-xs font-medium">
                                         View
                                     </button>
                                 </Link>
 
-                                <button className='flex gap-2 px-3 py-1 items-center bg-white  rounded-lg font-semibold border-2 border-[#1C4587] to-[#3279EA] text-[#1C4587]'>
+                                <button className='flex gap-2 px-3 text-xs py-[4.5px] items-center bg-white  rounded-sm font-semibold border-2 border-[#1C4587] to-[#3279EA] text-[#1C4587]'>
                                     < AiOutlineEdit />
                                     <span>Edit</span>
                                 </button>
-                                <button className='flex gap-2 px-3 py-1 items-center bg-white  rounded-lg font-semibold border-2 border-[#1C4587] to-[#3279EA] text-[#1C4587]'>
+                                <button className='flex gap-2 px-3 text-xs py-[4.5px] items-center bg-white  rounded-sm font-semibold border-2 border-[#1C4587] to-[#3279EA] text-[#1C4587]'>
                                     < IoMdShare />
                                     <span>Share</span>
                                 </button>

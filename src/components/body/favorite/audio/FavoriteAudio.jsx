@@ -84,16 +84,16 @@ const FavoriteAudio = () => {
     ];
 
     return (
-        <div>
+        <div className="">
             <div className=" mb-5 flex flex-col gap-8 justify-between ">
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 overflow-scroll hide-scrollbar">
                     {data.map((item) => (
                         <div
                             key={item.id}
-                            className="relative flex-shrink-0 mx-auto w-full lg:px-0 px-5 rounded-lg group"
+                            className="relative flex-shrink-0 mx-auto w-full lg:px-0 px-5 rounded-sm group"
                         >
                             {/* Image Container */}
-                            <div className="relative h-40 overflow-hidden rounded-xl">
+                            <div className="relative h-40 overflow-hidden rounded-sm">
                                 <img
                                     src={item.image}
                                     alt={item.title}

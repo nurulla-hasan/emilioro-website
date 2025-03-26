@@ -8,9 +8,9 @@ const Favorite = () => {
 
     return (
         <>
-            <div className="">
+            <div className="my-5 px-12 md:px-8">
                 <div className="flex justify-between items-center gap-4">
-                    <h2 className="text-xl font-semibold text-[#1C4587]">My Favorite</h2>
+                    <h2 className="text-xl font-bold text-[#1C4587]">My Favorite</h2>
 
                     {/* Dropdown */}
                     <select
@@ -26,7 +26,7 @@ const Favorite = () => {
             </div>
 
             {/* Dynamic Component Rendering */}
-            <div className="mt-4">
+            <div className="my-5 md:px-8">
                 {selectedOption === "Audio" ? <AudioComponent /> : <PlaylistComponent />}
             </div>
         </>
