@@ -1,6 +1,6 @@
 "use client"
 import { useState } from "react"
-import { Plus, Camera, Calendar } from "lucide-react"
+import { Plus, Camera } from "lucide-react"
 import TiptapEditor from "@/components/body/profile/editor/TiptapEditor";
 import Link from "next/link";
 import SocialAccountModal from "../../components/body/profile/modal/SocialAccountModal";
@@ -8,6 +8,7 @@ import AddEventModal from "../../components/body/profile/modal/AddEventModal";
 import EditEventModal from "../../components/body/profile/modal/EditEventModal";
 import DeleteConfirmationModal from "../../components/body/profile/modal/DeleteConfirmationModal";
 import AddRelativesModal from "../../components/body/profile/modal/AddRelativesModal";
+import ReportModal from "@/components/body/profile/modal/ReportModal";
 
 const ProfilePage = () => {
     const [isSocialAccountModalOpen, setIsSocialAccountModalOpen] = useState(false);
@@ -15,12 +16,13 @@ const ProfilePage = () => {
     const [isEditEventModalOpen, setIsEditEventModalOpen] = useState(false);
     const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
     const [addRelativesModal, setAddRelativesModal] = useState(false);
+    const [modal, setModal] = useState(false);
 
     const profileData = {
         profile: {
             name: "Mr. Jhon",
             username: "jhon_doe",
-            bio: "I still remember the excitement and nervousness bubbling inside me as I stepped off the plane at Kansai International Airport. It was my first-ever solo trip, and Japan had always been a dream destination. With my backpack strapped on, I took a deep breath, ready to embrace the adventure ahead. The first challenge came almost immediately—navigating the train system. I had researched it a hundred times before coming, but standing in front of a ticket machine with Japanese characters flashing before my eyes was another story. After fumbling for a few minutes, a kind elderly man noticed my struggle and helped me purchase the right ticket. His warm smile and patient guidance reassured me that I was in good hands. On my second day in Kyoto, I visited the iconic Fushimi Inari Shrine. As I walked through the thousands of vermillion torii gates, I felt an overwhelming sense of peace. The further I climbed, the quieter it became. I stopped at a secluded spot, sat on a stone bench, and watched the sunlight filter through the trees. 🧡",
+            bio: "I still remember the excitement and nervousness bubbling inside me as I stepped off the plane at Kansai International Airport. It was my first-ever solo trip, and Japan had always been a dream destination. With my backpack strapped on, I took a deep breath, ready to embrace the adventure ahead. ❤️",
             followers: 8.1,
             profile_picture: "/heroImage.png",
             cover_photo:
@@ -47,32 +49,6 @@ const ProfilePage = () => {
             { id: 7, name: "MR. Nahid", role: "Scientist", avatar: "/heroImage.png" },
             { id: 8, name: "Ahmad Mus", role: "Emam", avatar: "/heroImage.png" },
         ],
-        life_story: {
-            events: [
-                {
-                    title: "The Day I Graduated High School",
-                    date: "2 June 2015",
-                },
-                {
-                    title: "The Day I Graduated High School",
-                    date: "2 June 2015",
-                },
-                {
-                    title: "The Day I Graduated High School",
-                    date: "2 June 2015",
-                },
-                {
-                    title: "The Day I Graduated High School",
-                    date: "2 June 2015",
-                },
-                {
-                    title: "The Day I Graduated High School",
-                    date: "2 June 2015",
-                },
-            ],
-            story_text:
-                "I still remember the excitement and nervousness bubbling inside me as I stepped off the plane at Kansai International Airport. It was my first-ever solo trip, and Japan had always been a dream destination. With my backpack strapped on, I took a deep breath, ready to embrace the once-in-a-lifetime adventure...",
-        },
         relatives: [
             { name: "MR. Sarwar", relation: "Father", avatar: "/heroImage.png" },
             { name: "Mrs. Nahid", relation: "Grandma", avatar: "/heroImage.png" },
@@ -88,7 +64,7 @@ const ProfilePage = () => {
     }
 
     return (
-        <div className="xl:w-8/11 lg:w-10/12 px-5 my-10 mx-auto">
+        <div className="xl:w-8/11 lg:w-10/12 px-5 my-5 mx-auto">
             {/* Cover Photo */}
             <div className="relative rounded-lg overflow-hidden">
                 <img
@@ -111,7 +87,7 @@ const ProfilePage = () => {
                             className="w-20 h-20  rounded-full border-4 border-white object-cover"
                         />
                         <div className="text-center text-sm font-semibold">
-                            <h1>Father</h1>
+                            <h1 className="text-[#1C4587]">Father</h1>
                         </div>
                     </div>
                 </div>
@@ -135,7 +111,7 @@ const ProfilePage = () => {
                             className="w-20 h-20 rounded-full border-4 border-white object-cover"
                         />
                         <div className="text-center text-sm font-semibold">
-                            <h1>Mother</h1>
+                            <h1 className="text-[#1C4587]">Mother</h1>
                         </div>
                     </div>
                 </div>
@@ -147,9 +123,45 @@ const ProfilePage = () => {
                     <div className="relative">
                         <h1 className="text-2xl font-bold text-[#1C4587]">{profileData.profile.name}</h1>
 
+                        {/* only for profile owner */}
                         <Link className="absolute top-2 right-7" href="/profile/editProfile">
                             <img src="/edit.svg" alt="" />
                         </Link>
+                        {/* ------------------- */}
+
+
+                        {/* if request A friend */}
+                        <div className="hidden">
+                            <div className="flex gap-3 items-center justify-center mt-2">
+                                <button className="border border-[#1C4587] text-[#1C4587] gap-1 flex items-center bg-white text-xs px-2 py-0.5 rounded-sm"> Reject
+                                </button>
+                                <button className="bg-gradient-to-b from-[#1C4587] to-[#3279EA] gap-1 flex items-center text-white text-xs px-2 py-[3px] rounded-sm">
+                                    Accept
+                                </button>
+                                <img
+                                    onClick={() => setModal(true)}
+                                    className="w-5 h-5 cursor-pointer"
+                                    src="/requestMenu.svg"
+                                    alt=""
+                                />
+                            </div>
+                        </div>
+                        {/* --------------- */}
+
+
+                        {/* only for not friend profile view */}
+                        <div className="hidden">
+                            <div className="flex gap-3 items-center justify-center mt-2">
+                                <button className="border border-[#1C4587] text-[#1C4587] gap-1 flex items-center bg-white text-xs px-2 py-0.5 rounded-sm"> Follow
+                                </button>
+                                <button className="bg-gradient-to-b from-[#1C4587] to-[#3279EA] gap-1 flex items-center text-white text-xs px-2 py-[3px] rounded-sm">
+                                    Add Friend
+                                </button>
+                            </div>
+                        </div>
+                        {/* --------------- */}
+
+
                         <div className="flex gap-2 mt-2">
                             {profileData.profile.tags.map((tag, index) => (
                                 <span key={index} className="bg-blue-50 text-[#1C4587] text-xs px-3 py-1 rounded-md">
@@ -162,13 +174,21 @@ const ProfilePage = () => {
 
                 <div className="mt-4 flex flex-col justify-center items-center text-center">
                     <p className="text-gray-800 text-sm">{profileData.profile.followers}k Followers</p>
-                    {/* <p className="text-md text-gray-500 text-xs w- mt-2">{profileData.profile.bio}</p> */}
                 </div>
 
-                <div className="rounded-lg shadow-[0px_19px_48px_1px_#CFC9DDB2] p-4 mt-6">
+                <div className="mt-6">
                     <div>
-                        {/* Text Editor Toolbar */}
-                        <TiptapEditor />
+                        {/* Only for profile owner */}
+                        <div className="shadow-md rounded-sm">
+                            <TiptapEditor bio={profileData.profile.bio} />
+                        </div>
+
+                        {/* for others profile */}
+                        <div className="hidden">
+                            <p className="text-md text-gray-500 text-sm w-4/5 text-center mx-auto mt-2">{profileData.profile.bio}
+                            </p>
+                        </div>
+                        {/* ------------- */}
                     </div>
                 </div>
             </div>
@@ -321,7 +341,7 @@ const ProfilePage = () => {
                         {/* Left column - Relatives */}
                         <div className="space-y-3 shadow-[0px_19px_48px_1px_#CFC9DDB2] p-4 rounded-lg">
                             {profileData.relatives.map((relative, index) => (
-                                <div key={index} className="flex justify-between items-center bg-[#D5E2F6] p-3 rounded-lg">
+                                <div key={index} className="flex justify-between items-center bg-[#D5E2F6] p-2 rounded-lg">
                                     <div className="flex items-center gap-3">
                                         <img
                                             src={
@@ -355,7 +375,7 @@ const ProfilePage = () => {
                         {/* Right column - Extended Relatives */}
                         <div className="space-y-3 shadow-[0px_19px_48px_1px_#CFC9DDB2] p-4 rounded-lg">
                             {profileData.extended_relatives.map((relative, index) => (
-                                <div key={index} className="flex justify-between items-center bg-[#D5E2F6] p-3 rounded-lg">
+                                <div key={index} className="flex justify-between items-center bg-[#D5E2F6] p-2 rounded-lg">
                                     <div className="flex items-center gap-3">
                                         <img
                                             src={
@@ -410,6 +430,8 @@ const ProfilePage = () => {
 
             {/* Add Relative Modal */}
             <AddRelativesModal isOpen={addRelativesModal} onClose={() => setAddRelativesModal(false)} />
+
+            <ReportModal isOpen={modal} onClose={() => setModal(false)} />
         </div>
     )
 }

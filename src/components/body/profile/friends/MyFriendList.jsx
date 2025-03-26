@@ -4,15 +4,15 @@ import Link from "next/link"
 
 const MyFriendList = ({ searchTerm = "" }) => {
     const friends = [
-        { id: 1, name: "MR. Sarwar", role: ["Artist", "Actor", "Teacher"], avatar: "/heroImage.png" },
-        { id: 2, name: "MR. Fahad", role: ["Artist", "Actor", "Teacher"], avatar: "/heroImage.png" },
-        { id: 3, name: "Ahmad musa", role: ["Artist", "Actor", "Teacher"], avatar: "/heroImage.png" },
-        { id: 4, name: "MR. TA Emon", role: ["Artist", "Actor", "Teacher"], avatar: "/heroImage.png" },
-        { id: 5, name: "MR. Mehedi", role: ["Artist", "Actor", "Teacher"], avatar: "/heroImage.png" },
-        { id: 6, name: "MR. Dindinia", role: ["Artist", "Actor", "Teacher"], avatar: "/heroImage.png" },
-        { id: 7, name: "MR. Nahid", role: ["Artist", "Actor", "Teacher"], avatar: "/heroImage.png" },
-        { id: 8, name: "MR. Fahad", role: ["Artist", "Actor", "Teacher"], avatar: "/heroImage.png" },
-        { id: 9, name: "MR. Sarwar", role: ["Artist", "Actor", "Teacher"], avatar: "/heroImage.png" },
+        { id: 1, name: "MR. Sarwar", role: ["Artist", "Actor", "Teacher"], avatar: "/avatar.png" },
+        { id: 2, name: "MR. Fahad", role: ["Artist", "Actor", "Teacher"], avatar: "/avatar.png" },
+        { id: 3, name: "Ahmad musa", role: ["Artist", "Actor", "Teacher"], avatar: "/avatar.png" },
+        { id: 4, name: "MR. TA Emon", role: ["Artist", "Actor", "Teacher"], avatar: "/avatar.png" },
+        { id: 5, name: "MR. Mehedi", role: ["Artist", "Actor", "Teacher"], avatar: "/avatar.png" },
+        { id: 6, name: "MR. Dindinia", role: ["Artist", "Actor", "Teacher"], avatar: "/avatar.png" },
+        { id: 7, name: "MR. Nahid", role: ["Artist", "Actor", "Teacher"], avatar: "/avatar.png" },
+        { id: 8, name: "MR. Fahad", role: ["Artist", "Actor", "Teacher"], avatar: "/avatar.png" },
+        { id: 9, name: "MR. Sarwar", role: ["Artist", "Actor", "Teacher"], avatar: "/avatar.png" },
     ]
 
     // Filter friends based on search term

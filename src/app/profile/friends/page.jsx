@@ -11,7 +11,7 @@ const Friends = () => {
 
     return (
         <div className="xl:w-8/11 lg:w-10/12 px-5 my-10 mx-auto">
-            <div className="w-full my-20">
+            <div className="w-full">
                 {/* Tabs */}
                 <div className="flex flex-col md:flex-row gap-5 justify-between items-center mb-8">
                     <div className="flex gap-8 *:text-sm *:font-semibold">

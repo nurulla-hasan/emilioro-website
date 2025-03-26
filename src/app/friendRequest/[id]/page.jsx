@@ -82,7 +82,7 @@ const RequestProfile = () => {
         ],
     }
 
-    const friend = profileData.friends.find(friend => friend.id === Number(id));
+    // const friend = profileData.friends.find(friend => friend.id === Number(id));
 
     return (
         <div className="lg:w-8/11 px-5 my-5 mx-auto">

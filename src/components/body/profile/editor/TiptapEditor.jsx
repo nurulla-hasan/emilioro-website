@@ -18,8 +18,8 @@ import {
   ChevronDown,
 } from "lucide-react"
 
-const TiptapEditor = () => {
-  const initialContent = "I still remember the excitement and nervousness bubbling inside me as I stepped off the plane at Kansai International Airport. It was my first-ever solo trip, and Japan had always been a dream destination. With my backpack strapped on, I took a deep breath, ready to embrace the adventure ahead. The first challenge came almost immediately—navigating the train system. I had researched it a hundred times before coming, but standing in front of a ticket machine with Japanese characters flashing before my eyes was another story. After fumbling for a few minutes, a kind elderly man noticed my struggle and helped me purchase the right ticket. His warm smile and patient guidance reassured me that I was in good hands. On my second day in Kyoto, I visited the iconic Fushimi Inari Shrine. As I walked through the thousands of vermillion torii gates, I felt an overwhelming sense of peace. The further I climbed, the quieter it became. I stopped at a secluded spot, sat on a stone bench, and watched the sunlight filter through the trees.";
+const TiptapEditor = ({ bio }) => {
+  const initialContent = bio;
 
   const [fontSize, setFontSize] = useState("12")
   const [showFontSizes, setShowFontSizes] = useState(false)
@@ -60,7 +60,7 @@ const TiptapEditor = () => {
         {/* Font Size Dropdown */}
         <div className="relative">
           <button
-            className="flex items-center gap-1 p-1.5 rounded hover:bg-gray-100 border border-gray-200 min-w-[60px]"
+            className="flex items-center gap-1 p-1.5 rounded hover:bg-gray-100 border border-gray-200"
             onClick={() => setShowFontSizes(!showFontSizes)}
           >
             <span className="text-sm">{fontSize}</span>
@@ -151,7 +151,7 @@ const TiptapEditor = () => {
 
       {/* Button */}
       <div className="flex justify-center mt-4">
-        <button className="bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white text-sm px-4 py-2 rounded-md hover:opacity-90 transition-opacity">
+        <button className="bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white text-sm px-4 py-2 rounded-sm hover:opacity-90 transition-opacity">
           Generate with AI
         </button>
       </div>
