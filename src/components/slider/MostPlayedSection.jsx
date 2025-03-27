@@ -1,9 +1,8 @@
 "use client";
 import photo from "../../../public/mostPlayed.png";
-import { FaCirclePlay } from "react-icons/fa6";
 import { CiMenuKebab } from "react-icons/ci";
 import { LuEye } from "react-icons/lu";
-import { FaPlay, FaRegStar } from "react-icons/fa";
+import { FaPlay, FaPause, FaRegStar } from "react-icons/fa";
 import { IoTimeOutline } from "react-icons/io5";
 import { CiHeart } from "react-icons/ci";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -12,66 +11,92 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { IoChevronBack, IoChevronForward } from "react-icons/io5";
+import { useState } from "react";
 
-// Example JSON data
-const data = [
-    {
-        id: 1,
-        title: "Family Conversation",
-        plays: "3.5k",
-        rating: "5",
-        tags: ["Family", "Travel"],
-        duration: "02:20min",
-        image: photo,
-    },
-    {
-        id: 2,
-        title: "Family Conversation",
-        plays: "3.5k",
-        rating: "5",
-        tags: ["Family", "Travel"],
-        duration: "02:20min",
-        image: photo,
-    },
-    {
-        id: 3,
-        title: "Family Conversation",
-        plays: "3.5k",
-        rating: "5",
-        tags: ["Family", "Travel"],
-        duration: "02:20min",
-        image: photo,
-    },
-    {
-        id: 4,
-        title: "Family Conversation",
-        plays: "3.5k",
-        rating: "5",
-        tags: ["Family", "Travel"],
-        duration: "02:20min",
-        image: photo,
-    },
-    {
-        id: 5,
-        title: "Family Conversation",
-        plays: "3.5k",
-        rating: "5",
-        tags: ["Family", "Travel"],
-        duration: "02:20min",
-        image: photo,
-    },
-    {
-        id: 6,
-        title: "Family Conversation",
-        plays: "3.5k",
-        rating: "5",
-        tags: ["Family", "Travel"],
-        duration: "02:20min",
-        image: photo,
-    },
-];
 
 const MostPlayedSection = () => {
+
+    const [currentAudio, setCurrentAudio] = useState(null);
+    const [isPlaying, setIsPlaying] = useState(false); // To track the play/pause state
+
+    // Play or pause the audio
+    const handlePlayPause = (audioUrl) => {
+        if (currentAudio && !currentAudio.paused) {
+            // If audio is playing, pause it
+            currentAudio.pause();
+            setIsPlaying(false);
+        } else {
+            // If no audio is playing or it's paused, play the audio
+            const audio = new Audio(audioUrl);
+            setCurrentAudio(audio);
+            audio.play();
+            setIsPlaying(true);
+        }
+    };
+
+    const data = [
+        {
+            id: 1,
+            title: "Family Conversation",
+            plays: "3.5k",
+            rating: "5",
+            tags: ["Family", "Travel"],
+            audioUrl: "/audio.mp3",
+            duration: "02:20min",
+            image: photo,
+        },
+        {
+            id: 2,
+            title: "Family Conversation",
+            plays: "3.5k",
+            rating: "5",
+            tags: ["Family", "Travel"],
+            audioUrl: "/audio.mp3",
+            duration: "02:20min",
+            image: photo,
+        },
+        {
+            id: 3,
+            title: "Family Conversation",
+            plays: "3.5k",
+            rating: "5",
+            tags: ["Family", "Travel"],
+            audioUrl: "/audio.mp3",
+            duration: "02:20min",
+            image: photo,
+        },
+        {
+            id: 4,
+            title: "Family Conversation",
+            plays: "3.5k",
+            rating: "5",
+            tags: ["Family", "Travel"],
+            audioUrl: "/audio.mp3",
+            duration: "02:20min",
+            image: photo,
+        },
+        {
+            id: 5,
+            title: "Family Conversation",
+            plays: "3.5k",
+            rating: "5",
+            tags: ["Family", "Travel"],
+            audioUrl: "/audio.mp3",
+            duration: "02:20min",
+            image: photo,
+        },
+        {
+            id: 6,
+            title: "Family Conversation",
+            plays: "3.5k",
+            rating: "5",
+            tags: ["Family", "Travel"],
+            audioUrl: "/audio.mp3",
+            duration: "02:20min",
+            image: photo,
+        },
+    ];
+
     return (
         <div className="relative ">
             <div className="flex items-center justify-center lg:justify-start mx-auto my-5">
@@ -110,10 +135,12 @@ const MostPlayedSection = () => {
                                     <CiHeart size={20} />
                                 </div>
 
-                                {/* Play Icon (Hidden before hover) */}
+                                {/* Play/Pause Button */}
                                 <button
-                                    className="bg-[#1C4587] text-white rounded-full w-10 h-10 flex items-center justify-center flex-shrink-0 absolute bottom-2 left-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer">
-                                    <FaPlay size={14} />
+                                    className="bg-[#1C4587] text-white rounded-full w-10 h-10 flex items-center justify-center flex-shrink-0 absolute bottom-2 left-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer"
+                                    onClick={() => handlePlayPause(item.audioUrl)}
+                                >
+                                    {isPlaying ? <FaPause size={14} /> : <FaPlay size={14} />}
                                 </button>
 
                                 {/* Menu Icon (Hidden before hover) */}
