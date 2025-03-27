@@ -255,8 +255,7 @@ const ProjectContent = () => {
               <div className="flex justify-between items-center">
                 <h3 className="font-semibold mb-2">Producer</h3>
                 <motion.button
-                  className="px-2 text-xs bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white py-1 rounded-sm font-medium"
-                  whileHover={{ scale: 1.02 }}
+                  className="px-2 cursor-pointer text-xs bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white py-1 rounded-sm font-medium"
                   whileTap={{ scale: 0.98 }}
                   onClick={() => setIsAddProducerOpen(true)}
                 >
@@ -305,8 +304,7 @@ const ProjectContent = () => {
               <div className="flex justify-between items-center">
                 <h3 className="font-semibold mb-2">User</h3>
                 <motion.button
-                  className="px-2 text-xs bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white py-1 rounded-sm font-medium"
-                  whileHover={{ scale: 1.02 }}
+                  className="px-2 cursor-pointer text-xs bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white py-1 rounded-sm font-medium"
                   whileTap={{ scale: 0.98 }}
                   onClick={() => setIsAddUserOpen(true)}
                 >
@@ -402,10 +400,9 @@ const ProjectContent = () => {
         {/* button */}
         <div className="flex justify-center mt-5">
           <motion.button
-            className="lg:w-1/3 text-sm bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white px-2 lg:px-0 py-2 rounded-sm font-medium"
-            whileHover={{ scale: 1.02 }}
+            className="lg:w-1/3 cursor-pointer text-sm bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white px-2 lg:px-0 py-2 rounded-sm font-medium"
             whileTap={{ scale: 0.98 }}
-            onClick={() => router.push(`/object/myProject/ecoFriendlyPackage?id=${project.id}`)}
+            onClick={() => router.push(`/object/myProject/workspace?id=${project.id}`)}
           >
             Open Workspace
           </motion.button>

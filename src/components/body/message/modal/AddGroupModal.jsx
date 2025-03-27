@@ -47,7 +47,7 @@ const AddGroupModal = ({ isOpen, onClose }) => {
                             animate="visible"
                             exit="exit"
                             variants={modalVariants}
-                            className="bg-white h-[70vh] rounded-lg lg:w-[400px] overflow-hidden"
+                            className="bg-white rounded-sm lg:w-[400px] overflow-hidden"
                         >
                             {/* Header */}
                             <div className="bg-[#1C4587]">
@@ -57,7 +57,7 @@ const AddGroupModal = ({ isOpen, onClose }) => {
                                         onClick={onClose}
                                         className="absolute right-4 top-1/2 -translate-y-1/2 hover:opacity-80 transition-opacity"
                                     >
-                                        <X className="w-5 h-5" />
+                                        <img className="w-6" src="/x.svg" alt="" />
                                     </button>
                                 </div>
 
@@ -81,7 +81,7 @@ const AddGroupModal = ({ isOpen, onClose }) => {
                                     placeholder="Add Group name"
                                     value={groupName}
                                     onChange={(e) => setGroupName(e.target.value)}
-                                    className="w-full text-sm px-4 py-2.5 border border-gray-200 rounded-md text-center focus:outline-none focus:border-[#1C4587] transition-colors"
+                                    className="w-full text-sm px-4 py-2.5 border border-gray-200 rounded-sm text-center focus:outline-none focus:border-[#1C4587] transition-colors"
                                 />
 
                                 {/* Next Button */}
@@ -91,7 +91,7 @@ const AddGroupModal = ({ isOpen, onClose }) => {
                                         whileTap={{ scale: 0.98 }}
                                         onClick={() => handleNext(groupName)}
                                         disabled={!groupName.trim()}
-                                        className={`w-2/3 mx-auto mt-6 py-1 rounded-md text-white font-medium transition-colors ${
+                                        className={`w-2/3 mx-auto mt-6 py-1 rounded-sm text-white font-medium transition-colors ${
                                             groupName.trim()
                                                 ? 'bg-[#1C4587] hover:bg-[#15366b]'
                                                 : 'bg-gray-300 cursor-not-allowed'

@@ -30,7 +30,7 @@ const CreateInstituteModal = ({ isOpen, setIsOpen }) => {
           <img className="w-6 h-6" src="/x.svg" alt="" />
         </button>
 
-        <h2 className="text-base font-semibold mb-3">Join New Institute</h2>
+        <h2 className="text-base font-semibold mb-3">Add New Institution</h2>
 
         {/* Form */}
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-3">

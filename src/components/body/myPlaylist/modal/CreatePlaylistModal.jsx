@@ -1,112 +1,121 @@
-"use client";
-import { useForm } from "react-hook-form";
-import { motion } from "framer-motion";
-import { IoMdClose } from "react-icons/io";
-import { CiSearch } from "react-icons/ci";
-import { LuImagePlus } from "react-icons/lu";
+"use client"
+import { useForm } from "react-hook-form"
+import { motion } from "framer-motion"
+import { Search } from "lucide-react"
 
 const CreatePlaylistModal = ({ isOpen, setIsOpen }) => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm({
+    defaultValues: {
+      playlistName: "",
+      description: "",
+      tag: "",
+      coverImage: "",
+      audioSearch: "",
+    },
+  })
 
   const onSubmit = (data) => {
-    console.log("Playlist Data:", data);
-    setIsOpen(false);
-  };
+    console.log("Playlist Data:", data)
+    setIsOpen(false)
+    reset()
+  }
 
-  if (!isOpen) return null; // Modal hide korbe jodi open na thake
+  if (!isOpen) return null
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black/30 backdrop-blur-sm">
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        exit={{ opacity: 0, scale: 0.9 }}
-        className="bg-white p-6 rounded-xl w-[90%] max-w-md shadow-lg"
-      >
-        {/* Header */}
-        <div className="flex justify-between items-center">
-          <h2 className="text-lg font-semibold text-gray-900">Add new playlist</h2>
-          <IoMdClose
-            size={25}
-            className="text-white bg-[#1C4587] p-1 rounded-lg cursor-pointer text-xl"
-            onClick={() => setIsOpen(false)}
-          />
-        </div>
+    <div className="fixed inset-0 bg-black/30 bg-opacity-50 flex justify-center items-center z-50">
+      <div className="bg-white p-5 mt-10 rounded-sm w-[90%] max-w-md lg:max-w-lg shadow-md relative overflow-auto hide-scrollbar">
+        {/* Close Button */}
+        <button
+          onClick={() => setIsOpen(false)}
+          className="absolute top-2 right-2 text-gray-500 hover:text-black cursor-pointer"
+        >
+          <img className="w-6 h-6" src="/x.svg" alt="" />
+        </button>
+
+        <h2 className="text-base font-semibold mb-3">Add new playlist</h2>
 
         {/* Form */}
-        <form onSubmit={handleSubmit(onSubmit)} className="mt-4 space-y-4">
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-3">
+          {/* Playlist Name */}
           <div>
-            <label className="text-black text-sm font-medium">Playlist name</label>
+            <label className="block text-xs font-medium mb-1">Playlist name</label>
             <input
+              {...register("playlistName", { required: true })}
               type="text"
-              {...register("playlistName")}
               placeholder="Type here...."
-              className="w-full border border-gray-300 rounded-lg px-3 py-2 text-gray-900 focus:ring-2 focus:ring-blue-500 outline-none"
+              className="outline-none border-gray-300 w-full border px-2 py-1.5 rounded-sm text-xs"
             />
           </div>
 
+          {/* Description */}
           <div>
-            <label className="text-black text-sm font-medium">Description</label>
-            <input
-              type="text"
-              {...register("description")}
+            <label className="block text-xs font-medium mb-1">Description</label>
+            <textarea
+              {...register("description", { required: true })}
               placeholder="Type here...."
-              className="w-full border border-gray-300 rounded-lg px-3 py-2 text-gray-900 focus:ring-2 focus:ring-blue-500 outline-none"
+              className="outline-none border-gray-300 w-full border px-2 py-1.5 rounded-sm text-xs"
             />
           </div>
 
+          {/* Tag */}
           <div>
-            <label className="text-black text-sm font-medium">Tag</label>
+            <label className="block text-xs font-medium mb-1">Tag</label>
             <input
-              type="text"
               {...register("tag")}
+              type="text"
               placeholder="Type here...."
-              className="w-full border border-gray-300 rounded-lg px-3 py-2 text-gray-900 focus:ring-2 focus:ring-blue-500 outline-none"
+              className="outline-none border-gray-300 w-full border px-2 py-1.5 rounded-sm text-xs"
             />
           </div>
 
-          {/* Cover Image Upload */}
-          <div>
-            <label className="text-black text-sm font-medium">Cover image</label>
-            <div className="w-full border border-gray-300 rounded-lg flex items-center px-3 py-2 cursor-pointer">
-              <LuImagePlus className="text-gray-600" />
-              <span className="text-gray-500 ml-2">Image</span>
-            </div>
+          {/* Cover Image */}
+          <div className="relative">
+            <label className="block text-xs font-medium mb-1">Cover image</label>
+            <img className="w-3 h-3 absolute top-7 left-2 text-gray-500" src="/image.svg" alt="" />
+            <input
+              type="file"
+              {...register("coverImage")}
+              className="outline-none border-gray-300 cursor-pointer text-gray-500 pl-7 text-xs w-full px-2 py-1.5 border rounded-sm"
+            />
           </div>
 
           {/* Audio Search */}
           <div>
-            <label className="text-black text-sm font-medium">Add audio</label>
-            <div className="w-full border border-gray-300 rounded-lg flex items-center px-3 py-2">
-              <CiSearch className="text-gray-600" />
+            <label className="block text-xs font-medium mb-1">Add audio</label>
+            <div className="relative">
+              <Search className="absolute left-2 top-1/2 transform -translate-y-1/2 text-gray-400" size={14} />
               <input
+                {...register("audioSearch")}
                 type="text"
                 placeholder="Search To select audio"
-                className="flex-1 px-2 py-1 text-gray-900 outline-none"
+                className="outline-none border-gray-300 w-full pl-7 pr-2 py-1.5 border rounded-sm text-xs"
               />
             </div>
           </div>
 
           {/* Buttons */}
-          <div className="flex gap-8 mt-4">
+          <div className="flex gap-3 pt-2">
             <button
               type="button"
               onClick={() => setIsOpen(false)}
-              className="px-6 py-2 border w-full border-[#1C4587] text-[#1C4587] rounded-lg font-semibold hover:bg-blue-50 transition"
+              className="px-4 py-1.5 border border-[#1C4587] text-[#1C4587] rounded-sm font-medium text-xs w-full outline-none focus:ring-0"
             >
               Cancel
             </button>
-            <button
+            <motion.button
               type="submit"
-              className="px-6 py-2 w-full bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white rounded-lg font-semibold transition"
+              whileTap={{ scale: 0.97 }}
+              className="w-full cursor-pointer bg-gradient-to-b from-[#193f7c] to-[#2965c4] text-white py-1.5 rounded-sm font-medium text-xs outline-none focus:ring-0"
             >
               Publish
-            </button>
+            </motion.button>
           </div>
         </form>
-      </motion.div>
+      </div>
     </div>
-  );
-};
+  )
+}
 
-export default CreatePlaylistModal;
+export default CreatePlaylistModal
+

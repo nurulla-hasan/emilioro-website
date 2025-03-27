@@ -44,7 +44,9 @@ const AddBondModal = ({ isOpen, onClose, onSubmit, register, tags, setTags, remo
                 className="border border-gray-300 w-full px-2 py-1 rounded-sm text-[10px] flex items-center justify-between"
               >
                 {tag}
-                <IoClose className="ml-1 text-red-500 cursor-pointer" onClick={() => removeTag(tag)} />
+                <div className="ml-1 text-red-500 border w-3 cursor-pointer" onClick={() => removeTag(tag)}>
+                
+                </div>
               </div>
             ))}
           </div>

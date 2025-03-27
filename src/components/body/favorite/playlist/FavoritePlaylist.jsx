@@ -50,13 +50,13 @@ const FavoritePlaylist = () => {
     return (
         <div className=''>
             {/* Cards */}
-            <div className=" mx-auto xl:my-5 grid xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-10 lg:justify-between justify-items-center items-center lg:px-0 px-5">
+            <div className="mx-auto xl:my-5 grid xl:grid-cols-4 lg:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-10 lg:justify-between justify-items-center items-center ">
                 {conversations.map((conversation, index) => (
                     <div key={conversation.id} className='flex flex-col gap-2'>
                         <div>
                             <img
                                 src={conversation.image}
-                                className='rounded-sm h-[180px] w-[334px]'
+                                className='rounded-sm h-[180px] w-[350px]'
                                 alt='image'
                             >
                             </img>

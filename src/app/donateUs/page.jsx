@@ -90,7 +90,7 @@ const DonateUs = () => {
                     <motion.img variants={waveAnimation} className="" src={wave2.src} alt="Wave 3" />
                     <motion.img variants={waveAnimation} className="" src={wave2.src} alt="Wave 3" />
                 </motion.div>
-                <div className="lg:mt-[150px] mt-[90px]">
+                <div className="lg:mt-[230px] mt-[90px]">
                     <DonateUsFooter />
                 </div>
 

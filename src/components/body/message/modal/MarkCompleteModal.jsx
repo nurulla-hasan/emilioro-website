@@ -45,7 +45,7 @@ const MarkCompleteModal = ({ isOpen, onClose }) => {
                     exit={{ opacity: 0, scale: 0.9 }}
                     transition={{ duration: 0.3 }}
                     onClick={(e) => e.stopPropagation()}
-                    className="bg-white relative rounded-lg shadow-lg w-full max-w-md md:max-w-lg lg:max-w-xl overflow-hidden"
+                    className="bg-white relative top-10 rounded-sm shadow-lg w-full max-w-md md:max-w-lg lg:max-w-xl overflow-hidden"
                 >
                     {/* Header Image */}
                     <div className="relative h-40 sm:h-48 md:h-56 bg-blue-50">
@@ -66,7 +66,7 @@ const MarkCompleteModal = ({ isOpen, onClose }) => {
                     {/* Modal Content */}
                     <div className="p-4 sm:p-6">
                         {/* Title */}
-                        <h2 className="text-base sm:text-lg font-bold text-[#1C4587] mb-4">{bond.title}</h2>
+                        <h2 className="text-sm sm:text-lg font-semibold text-[#1C4587] mb-4">{bond.title}</h2>
 
                         {/* Owner Section */}
                         <div className="flex justify-between items-start sm:items-center mb-1">
@@ -80,28 +80,28 @@ const MarkCompleteModal = ({ isOpen, onClose }) => {
                                     />
                                 </div>
                                 <div>
-                                    <h3 className="text-sm font-semibold">{bond.owner.name}</h3>
-                                    <p className="text-xs text-gray-500">{bond.owner.role}</p>
+                                    <h3 className="text-xs font-medium">{bond.owner.name}</h3>
+                                    <p className="text-[10px] text-gray-500">{bond.owner.role}</p>
                                 </div>
                             </div>
                             <div>
-                                <p className="px-3 py-1 text-xs font-medium text-blue-700 bg-blue-100 rounded-full">{bond.status}</p>
+                                <p className="px-2 py-0.5 text-[10px] font-medium text-blue-700 bg-blue-100 rounded-sm">{bond.status}</p>
                             </div>
                         </div>
 
                         {/* Created */}
-                        <p className="text-xs text-right text-gray-500 mb-4">Created: {bond.createdAt}</p>
+                        <p className="text-[10px] text-right text-gray-500 mb-4">Created: {bond.createdAt}</p>
 
                         {/* Participants Section */}
-                        <div className="mb-6">
-                            <h3 className="font-semibold text-sm mb-3 flex items-center gap-2">
-                                <img src="/participants.svg" alt="" />0{bond.participants.length} Participants
+                        <div className="mb-4">
+                            <h3 className="font-medium text-xs mb-2 flex items-center gap-2">
+                                <img src="/participants.svg" alt="" className="w-4 h-4" />0{bond.participants.length} Participants
                             </h3>
-                            <div className="space-y-4">
+                            <div className="space-y-3">
                                 {bond.participants.map((participant, index) => (
-                                    <div key={index} className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
-                                        <div className="flex items-center gap-2 sm:gap-3">
-                                            <div className="relative w-8 h-8 rounded-full overflow-hidden">
+                                    <div key={index} className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3">
+                                        <div className="flex items-center gap-2">
+                                            <div className="relative w-6 h-6 rounded-full overflow-hidden">
                                                 <Image
                                                     src={participant.avatar || "/placeholder.svg"}
                                                     alt="Participant Avatar"
@@ -110,11 +110,11 @@ const MarkCompleteModal = ({ isOpen, onClose }) => {
                                                 />
                                             </div>
                                             <div>
-                                                <h4 className="text-sm font-medium">{participant.name}</h4>
-                                                <p className="text-xs text-gray-500">{participant.role}</p>
+                                                <h4 className="text-xs font-medium">{participant.name}</h4>
+                                                <p className="text-[10px] text-gray-500">{participant.role}</p>
                                             </div>
                                         </div>
-                                        <p className="text-xs text-gray-600 mt-1 sm:mt-0 sm:ml-auto">
+                                        <p className="text-[10px] text-gray-600 mt-1 sm:mt-0 sm:ml-auto">
                                             ({participant.activities.join(" - ")})
                                         </p>
                                     </div>
@@ -124,7 +124,10 @@ const MarkCompleteModal = ({ isOpen, onClose }) => {
 
                         {/* Mark as Complete Button */}
                         <div className="flex justify-center">
-                            <button onClick={() => setShowRatingModal(true)} className="w-full bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white py-2.5 sm:py-3 rounded-lg font-semibold text-sm shadow-md">
+                            <button 
+                                onClick={() => setShowRatingModal(true)} 
+                                className="w-full bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white py-1.5 rounded-sm font-medium text-xs shadow-md"
+                            >
                                 Mark as Complete
                             </button>
                         </div>
@@ -138,4 +141,3 @@ const MarkCompleteModal = ({ isOpen, onClose }) => {
 }
 
 export default MarkCompleteModal
-

@@ -125,7 +125,7 @@ const AllProjectDetailsModal = ({ selectedCardAllProject, setSelectedCardAllProj
                 {/* User Column */}
                 <div>
                   <h3 className="font-semibold mb-2 md:text-end">User</h3>
-                  <div className="space-y-4">
+                  <div className="flex flex-col gap-3 items-end">
                     {sampleData.users.map((user, i) => (
                       <motion.div
                         key={user.id}
@@ -134,11 +134,12 @@ const AllProjectDetailsModal = ({ selectedCardAllProject, setSelectedCardAllProj
                         transition={{ delay: i * 0.1 }}
                         className="flex items-center gap-3"
                       >
-                        <img src={user.avatar || "/placeholder.svg"} alt={user.name} className="rounded-full w-8 h-8" />
+                        
                         <div>
-                          <p className="font-medium text-sm text-gray-700">{user.name}</p>
-                          <p className="text-xs text-gray-500">{user.role}</p>
+                          <p className="font-medium text-sm text-gray-700 text-end">{user.name}</p>
+                          <p className="text-xs text-gray-500 text-end">{user.role}</p>
                         </div>
+                        <img src={user.avatar || "/placeholder.svg"} alt={user.name} className="rounded-full w-8 h-8" />
                       </motion.div>
                     ))}
                   </div>

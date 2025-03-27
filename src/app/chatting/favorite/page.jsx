@@ -8,19 +8,21 @@ const Favorite = () => {
 
     return (
         <>
-            <div className="my-5 px-12 md:px-8">
+            <div className="my-5 px-5 md:px-8">
                 <div className="flex justify-between items-center gap-4">
                     <h2 className="text-xl font-bold text-[#1C4587]">My Favorite</h2>
 
                     {/* Dropdown */}
-                    <select
-                        className=" border border-[#1e4a9b] outline-none text-gray-700 px-3 py-1 rounded-sm bg-white text-sm"
-                        value={selectedOption}
-                        onChange={(e) => setSelectedOption(e.target.value)}
-                    >
-                        <option value="Audio">Audio</option>
-                        <option value="Playlist">Playlist</option>
-                    </select>
+                    <div className=" border border-[#1e4a9b] rounded-sm">
+                        <select
+                            className="outline-none text-gray-700 px-3 py-1 text-sm"
+                            value={selectedOption}
+                            onChange={(e) => setSelectedOption(e.target.value)}
+                        >
+                            <option value="Audio">Audio</option>
+                            <option value="Playlist">Playlist</option>
+                        </select>
+                    </div>
                 </div>
 
             </div>

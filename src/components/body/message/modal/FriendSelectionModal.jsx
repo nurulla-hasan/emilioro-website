@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { X, Search } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import avatar from '../../../../../public/heroImage.png'
+import avatar from '../../../../../public/avatar.png'
 
 const friends = [
     { id: 1, name: "Ahamad Musa", avatar: avatar },
@@ -32,16 +32,16 @@ const FriendSelectionModal = ({ isOpen, onClose }) => {
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.95 }}
                     transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                    className="bg-white w-4/5 lg:w-[600px] mt-12 h-[80vh] lg:h-[88vh] rounded-lg overflow-scroll hide-scrollbar"
+                    className="bg-white w-4/5 lg:w-[600px] mt-12 h-[80vh] lg:h-[88vh] rounded-sm overflow-scroll hide-scrollbar"
                 >
                     {/* Header */}
-                    <div className="bg-[#1C4587] text-white py-4 relative rounded-md">
+                    <div className="bg-[#1C4587] text-white py-4 relative rounded-sm">
                         <h2 className="text-center text-lg font-medium">New group chat</h2>
                         <button
                             onClick={onClose}
-                            className="absolute left-4 top-1/2 -translate-y-1/2 hover:opacity-80 transition-opacity"
+                            className="absolute right-4 top-1/2 -translate-y-1/2 hover:opacity-80 transition-opacity"
                         >
-                            <X className="w-5 h-5" />
+                            <img className="w-6" src="/x.svg" alt="" />
                         </button>
                     </div>
 
@@ -51,7 +51,7 @@ const FriendSelectionModal = ({ isOpen, onClose }) => {
                             <input
                                 type="text"
                                 placeholder="Search Friend"
-                                className="w-full text-sm px-4 py-2.5 border border-blue-900 rounded-md pl-10 focus:outline-none focus:border-[#1C4587] transition-colors"
+                                className="w-full text-sm px-4 py-2.5 border border-blue-900 rounded-sm pl-10 focus:outline-none focus:border-[#1C4587] transition-colors"
                             />
                             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
                         </div>
@@ -79,7 +79,7 @@ const FriendSelectionModal = ({ isOpen, onClose }) => {
                             {friends.map((friend) => (
                                 <div
                                     key={friend.id}
-                                    className={`flex shadow-md items-center justify-between p-3 rounded-md  ${
+                                    className={`flex shadow-md items-center justify-between p-3 rounded-sm  ${
                                         selectedFriends.includes(friend.id)
                                             ? " "
                                             : "bg-gray-100"
@@ -104,7 +104,7 @@ const FriendSelectionModal = ({ isOpen, onClose }) => {
                     {/* Done Button */}
                     <div className="p-4 text-center">
                         <button
-                            className={`w-1/2 py-1 rounded-md text-white font-medium ${
+                            className={`w-1/2 py-1 rounded-sm text-white font-medium ${
                                 selectedFriends.length > 0 ? "bg-[#1C4587] hover:bg-[#15366b]" : "bg-gray-300 cursor-not-allowed"
                             }`}
                             disabled={selectedFriends.length === 0}

@@ -116,17 +116,15 @@ const AllAudio = () => {
   return (
     <div className="my-5 px-5 md:px-8">
       {/* Header */}
-      <div className=" mx-auto flex flex-col lg:flex-row gap-5 justify-between items-center">
+      <div className=" mx-auto flex flex-col lg:flex-row gap-2 justify-between items-center">
         <h1 className="text-xl text-[#1C4587] font-bold">Family Conversation</h1>
-        <div className="flex gap-5 items-center justify-center">
-          <div className="relative lg:w-[200px] w-[150px] border border-[#1C4587] rounded-sm flex items-center px-2">
-            <CiSearch className="cursor-pointer" color="#1C4587" size={15} />
-            <input
-              type="text"
-              placeholder="Search Audio"
-              className="px-2 py-0.5 lg:w-full w-36 rounded-full lg:py-1 text-sm border-none outline-none text-[#07398a]"
-            />
-          </div>
+        <div className="relative border border-[#1C4587] rounded-sm flex items-center px-2">
+          <CiSearch className="cursor-pointer " color="#1C4587" size={15} />
+          <input
+            type="text"
+            placeholder="Search Audio"
+            className="px-2 py-0.5 lg:w-full w-36 rounded-full lg:py-1 text-sm border-none outline-none text-[#07398a]"
+          />
         </div>
       </div>
 
@@ -193,8 +191,8 @@ const AllAudio = () => {
               </div>
 
               {/* Delete Button - Repositioned for mobile */}
-              <div className="flex md:items-start relative right-0 bottom-15">
-                <button className="border border-blue-900 text-blue-900 px-2 py-1 rounded-sm flex items-center gap-1 text-xs hover:bg-red-50 transition-colors">
+              <div className="flex md:items-start absolute md:relative bottom-3 right-3 md:left-0 md:right-0 md:bottom-15">
+                <button className="border border-blue-900 text-blue-900 px-2 md:py-1 py-0.5 rounded-sm flex items-center gap-1 text-xs hover:bg-red-50 transition-colors">
                   <img src="/delete.svg" alt="" />
                   <span>Delete</span>
                 </button>

@@ -93,10 +93,10 @@ const DonateUsPaymentModal = ({ isOpen, onClose, totalAmount = 155.0 }) => {
               {/* Close Button */}
               <button
                 onClick={onClose}
-                className="absolute top-6 right-6 bg-[#1C4587] p-1 rounded-sm text-white hover:text-gray-700"
+                className="absolute top-4 right-4"
                 aria-label="Close"
               >
-                <X size={20} />
+                <img src="/x.svg" alt="" />
               </button>
 
               {/* Title */}
@@ -276,7 +276,7 @@ const DonateUsPaymentModal = ({ isOpen, onClose, totalAmount = 155.0 }) => {
                   setIsSuccess(false)
                   onClose()
                 }}
-                className="mt-4 w-1/3 bg-[#1C4587] text-white text-[10px] font-medium py-2 rounded-sm hover:bg-opacity-90 transition outline-none focus:ring-0"
+                className="mt-4 w-1/3 bg-[#1C4587] text-white text-[10px] font-medium py-2 rounded-sm hover:bg-opacity-90 transition outline-none"
               >
                 Go Home
               </button>

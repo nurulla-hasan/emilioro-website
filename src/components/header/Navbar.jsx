@@ -12,7 +12,6 @@ import SuccessModal from "../authentication/success/SuccessModal"
 import ResetPasswordModal from "../authentication/resetPass/ResetPasswordModal"
 import { useDispatch, useSelector } from "react-redux"
 import { logout, setIsSignUpOpen } from "@/store/mainSlice"
-import avatar from "../../../public/heroImage.png"
 import { CgProfile } from "react-icons/cg"
 import { FaRegHeart } from "react-icons/fa6"
 import { TbLogin } from "react-icons/tb";
@@ -162,7 +161,7 @@ const Navbar = () => {
                               <CgProfile size={20} color="#1C4587" className="text-blue-600" /> Profile
                             </button>
                           </Link>
-                          <Link href="/favorite">
+                          <Link href="/chatting/favorite">
                             <button className="flex items-center gap-2 w-full px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-100">
                               <FaRegHeart size={20} color="#1C4587" className="text-gray-700" /> Favorite
                             </button>
@@ -288,7 +287,7 @@ const Navbar = () => {
                     <CgProfile size={20} color="#1C4587" className="text-blue-600" /> Profile
                   </button>
                 </Link>
-                <Link href="/favorite">
+                <Link href="/chatting/favorite">
                   <button className="flex items-center gap-2 w-full px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-100">
                     <FaRegHeart size={20} color="#1C4587" className="text-gray-700" /> Favorite
                   </button>
@@ -363,7 +362,7 @@ const Navbar = () => {
         {/* Reset Modal */}
         <ResetPasswordModal
           isOpen={isResetModalOpen}
-          onClose={() => setIsResetModalOpen(false)}
+          onClose={() => setIsResetPasswordModalOpen(false)}
           setIsSuccessModalOpen={setIsSuccessModalOpen}
         />
         {/* Success Modal */}

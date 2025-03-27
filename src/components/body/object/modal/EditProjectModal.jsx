@@ -41,7 +41,7 @@ const EditProjectModal = ({ isOpen, setIsOpen, onSubmit }) => {
                                     <input
                                         type="text"
                                         {...register("productName", { required: true })}
-                                        className="border-gray-300 w-full px-2 py-1 border rounded-sm text-xs focus:ring-2 focus:ring-blue-500"
+                                        className="border-gray-300 outline-none w-full px-2 py-1 border rounded-sm text-xs"
                                         placeholder="Type here..."
                                     />
                                 </div>
@@ -50,7 +50,7 @@ const EditProjectModal = ({ isOpen, setIsOpen, onSubmit }) => {
                                     <label className="block text-xs mb-1 font-medium text-gray-700">Add Description</label>
                                     <textarea
                                         {...register("description", { required: true })}
-                                        className="border-gray-300 w-full px-2 py-1 border rounded-sm text-xs focus:ring-2 focus:ring-blue-500"
+                                        className="border-gray-300 w-full px-2 py-1 border rounded-sm text-xs outline-none"
                                         placeholder="Type here..."
                                     />
                                 </div>
@@ -62,7 +62,7 @@ const EditProjectModal = ({ isOpen, setIsOpen, onSubmit }) => {
                                         <input
                                             type="file"
                                             {...register("image")}
-                                            className="border-gray-300 cursor-pointer text-gray-500 pl-8 text-xs w-full px-2 py-1 border rounded-sm"
+                                            className="border-gray-300 outline-none cursor-pointer text-gray-500 pl-8 text-xs w-full px-2 py-1 border rounded-sm"
                                         />
                                     </div>
                                 </div>
@@ -71,7 +71,7 @@ const EditProjectModal = ({ isOpen, setIsOpen, onSubmit }) => {
                                     <label className="block text-xs mb-1 font-medium text-gray-700">Join Control</label>
                                     <select
                                         {...register("joinControl")}
-                                        className="border-gray-300 text-xs w-full px-2 py-1 border rounded-sm"
+                                        className="border-gray-300 outline-none text-xs w-full px-2 py-1 border rounded-sm"
                                     >
                                         <option value="Private">Private</option>
                                         <option value="Public">Public</option>
@@ -80,10 +80,9 @@ const EditProjectModal = ({ isOpen, setIsOpen, onSubmit }) => {
 
                                 {/* Submit Button with Animation */}
                                 <motion.button
-                                    whileHover={{ scale: 1.05 }}
                                     whileTap={{ scale: 0.95 }}
                                     type="submit"
-                                    className="bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white py-1.5 text-sm rounded-sm font-medium w-1/3"
+                                    className="bg-gradient-to-b from-[#1C4587] to-[#3175e2] text-white py-1.5 text-xs rounded-sm font-medium w-1/3"
                                 >
                                     Submit
                                 </motion.button>

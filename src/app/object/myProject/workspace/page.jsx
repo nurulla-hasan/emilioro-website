@@ -257,7 +257,7 @@ const EcoFriendlyPackage = () => {
           alt={project.title}
           layout="fill"
           objectFit="cover"
-          className="rounded-lg"
+          className="rounded-sm"
         />
       </div>
 
@@ -270,7 +270,7 @@ const EcoFriendlyPackage = () => {
               onClick={() => router.push(`/object/myProject/myProjectDetails?id=${project.id}`)}
               src="/filter.svg"
               alt=""
-              className="cursor-pointer"
+              className="cursor-pointer w-4"
             />
           </div>
         </div>
@@ -290,29 +290,29 @@ const EcoFriendlyPackage = () => {
             </div>
           </div>
 
-          <div className="border border-gray-400 rounded-md px-4">
+          <div className="border border-gray-400 rounded-sm px-2">
             <select className="text-xs text-gray-600 outline-none focus:ring-0 focus:border-transparent">
               <option value="public">Public</option>
               <option value="private">Private</option>
             </select>
           </div>
         </div>
-        <p className="text-end text-xs mt-2 text-gray-500">created {project.created}</p>
+        <p className="text-end text-xs mt-2 text-gray-500">Created : {project.created}</p>
       </div>
 
       <p className="text-[10px] text-gray-500">{project.description}</p>
 
-      <div className="shadow-md px-2 mt-6 border border-gray-200 rounded-lg">
+      <div className="shadow-md px-2 mt-6 border border-gray-200 rounded-sm">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
           {/* Producer Section */}
-          <div className="lg:col-span-3 bg-white rounded-lg">
+          <div className="lg:col-span-3 bg-white rounded-sm">
             <div className="p-4">
               <h2 className="text-[#1C4587] font-medium mb-3">Producer</h2>
               <div className="relative">
                 <input
                   type="text"
                   placeholder="Search"
-                  className="w-full pl-8 pr-4 py-1 border border-[#95B5E9] rounded-md text-sm outline-none"
+                  className="w-full pl-8 pr-4 py-1 border border-[#95B5E9] rounded-sm text-sm outline-none"
                 />
                 <Search className="absolute left-2.5 top-[7] h-4 w-4 text-gray-400" />
               </div>
@@ -359,7 +359,7 @@ const EcoFriendlyPackage = () => {
                   />
                   <button
                     onClick={() => documentFileRef.current.click()}
-                    className="text-[#1C4587] text-xs px-4 py-1 border rounded-md flex items-center gap-2"
+                    className="text-[#1C4587] text-xs px-4 py-1 border rounded-sm flex items-center gap-2"
                   >
                     <Upload className="h-3 w-3" />
                     Upload file
@@ -368,7 +368,7 @@ const EcoFriendlyPackage = () => {
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                   {/* Display existing documents */}
                   {documents.map((doc) => (
-                    <div key={doc.id} className="flex flex-col items-center border border-gray-300 rounded-md p-1">
+                    <div key={doc.id} className="flex flex-col items-center border border-gray-300 rounded-sm p-1">
                       <div className="w-16 flex items-center justify-center mb-2">
                         <img src="/document.svg" alt="" />
                       </div>
@@ -379,7 +379,7 @@ const EcoFriendlyPackage = () => {
 
                   {/* Display uploaded documents */}
                   {uploadedFiles.map((doc) => (
-                    <div key={doc.id} className="flex flex-col items-center border border-gray-300 rounded-md p-1">
+                    <div key={doc.id} className="flex flex-col items-center border border-gray-300 rounded-sm p-1">
                       <div className="w-16 flex items-center justify-center mb-2">
                         <img src="/document.svg" alt="" />
                       </div>
@@ -404,7 +404,7 @@ const EcoFriendlyPackage = () => {
                   />
                   <button
                     onClick={() => imageFileRef.current.click()}
-                    className="text-[#1C4587] text-xs px-4 py-1 border rounded-md flex items-center gap-2"
+                    className="text-[#1C4587] text-xs px-4 py-1 border rounded-sm flex items-center gap-2"
                   >
                     <Upload className="h-3 w-3" />
                     Upload file
@@ -413,14 +413,14 @@ const EcoFriendlyPackage = () => {
                 <div className="grid grid-cols-3 justify-center items-center gap-4">
                   {/* Display existing images */}
                   {images.map((img) => (
-                    <div key={img.id} className="rounded-md">
+                    <div key={img.id} className="rounded-sm">
                       <Image
                         src={img.src || "/placeholder.svg"}
                         alt="Project image"
                         width={300}
                         height={300}
                         objectFit="cover"
-                        className="rounded-md"
+                        className="rounded-sm"
                       />
                       <div className="text-[10px] p-1">
                         <p>Project Document</p>
@@ -431,14 +431,14 @@ const EcoFriendlyPackage = () => {
 
                   {/* Display uploaded images */}
                   {uploadedImages.map((img) => (
-                    <div key={img.id} className="rounded-md">
+                    <div key={img.id} className="rounded-sm">
                       <Image
                         src={img.src || "/placeholder.svg"}
                         alt="Project image"
                         width={300}
                         height={300}
                         objectFit="cover"
-                        className="rounded-md"
+                        className="rounded-sm"
                       />
                       <div className="text-[10px] p-1">
                         <p>{img.name}</p>
@@ -452,14 +452,14 @@ const EcoFriendlyPackage = () => {
           </div>
 
           {/* Users Section */}
-          <div className="lg:col-span-3 bg-white rounded-lg">
+          <div className="lg:col-span-3 bg-white rounded-sm">
             <div className="p-4">
               <h2 className="text-[#1C4587] font-medium mb-3">Users</h2>
               <div className="relative">
                 <input
                   type="text"
                   placeholder="Search"
-                  className="w-full pl-8 pr-4 py-1 border border-[#95B5E9] rounded-md text-sm outline-none"
+                  className="w-full pl-8 pr-4 py-1 border border-[#95B5E9] rounded-sm text-sm outline-none"
                 />
                 <Search className="absolute left-2.5 top-[7] h-4 w-4 text-gray-400" />
               </div>
@@ -489,7 +489,7 @@ const EcoFriendlyPackage = () => {
         {/* Project Discussion */}
         <div className="mt-6 border-t border-gray-200 mb-10">
           <h2 className="text-[#1C4587] font-semibold ml-8 my-4">Project Discussion</h2>
-          <div className="bg-[#EAF0FB] rounded-md p-4">
+          <div className="bg-[#EAF0FB] rounded-sm p-4">
             <div className="mb-4">
               <p className="text-center font-semibold text-sm text-gray-500 mb-10">Today</p>
               <div className="space-y-6">
@@ -516,7 +516,7 @@ const EcoFriendlyPackage = () => {
                         <span className="text-[10px] text-gray-500 ml-2">{msg.role}</span>
                       </div>
                     )}
-                    <div className={`max-w-[70%] ${msg.isRight ? "bg-white" : "bg-white"} p-3 rounded-lg shadow-sm`}>
+                    <div className={`max-w-[70%] ${msg.isRight ? "bg-white" : "bg-white"} p-3 rounded-sm shadow-sm`}>
                       <p className="text-sm">{msg.text}</p>
                       <p className="text-right text-xs text-gray-400 mt-1">{msg.time}</p>
                     </div>
@@ -541,7 +541,7 @@ const EcoFriendlyPackage = () => {
                 {/* Display uploaded message files */}
                 {uploadedMessageFiles.length > 0 && (
                   <div className="flex justify-end">
-                    <div className="max-w-[70%] bg-white p-3 rounded-lg shadow-sm">
+                    <div className="max-w-[70%] bg-white p-3 rounded-sm shadow-sm">
                       <div className="flex items-center gap-2">
                         <img src="/document.svg" alt="" className="w-6 h-6" />
                         <span className="text-sm">{uploadedMessageFiles[0].name}</span>
@@ -558,7 +558,7 @@ const EcoFriendlyPackage = () => {
               className="mt-20 lg:w-2/4 mx-auto flex flex-col lg:flex-row gap-2 items-center"
             >
               {/* Input Field */}
-              <div className="flex items-center flex-1 px-4 py-2 border border-[#80A7E5] rounded-md text-sm focus-within:ring-1 focus-within:ring-[#1C4587] bg-white">
+              <div className="flex items-center flex-1 px-4 py-2 border border-[#80A7E5] rounded-sm text-sm focus-within:ring-1 focus-within:ring-[#1C4587] bg-white">
                 <input
                   type="text"
                   {...register("message")}
@@ -588,7 +588,7 @@ const EcoFriendlyPackage = () => {
               <button
                 type="button"
                 onClick={() => messageFileRef.current.click()}
-                className="px-4 py-[6] border rounded-md text-[#1C4587] bg-white text-sm font-medium"
+                className="px-4 py-[6] border rounded-sm text-[#1C4587] bg-white text-sm font-medium"
               >
                 Upload file
               </button>

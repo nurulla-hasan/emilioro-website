@@ -1,8 +1,7 @@
 "use client"
-import ChattingLayout from '@/components/body/chatting/ChattingLayout';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { CiSearch } from "react-icons/ci";
+import { CiSearch } from 'react-icons/ci';
 
 
 const AllTopics = () => {
@@ -86,23 +85,22 @@ const AllTopics = () => {
 
         <>
             <div className='my-5 px-5 md:px-8'>
-                <div className=" flex flex-col lg:flex-row gap-5 justify-between items-center">
+                <div className=" md:flex flex-row gap-5 justify-between items-center">
                     <h1 className="text-xl text-[#1C4587] font-bold">Trending topics</h1>
-                    <div className='flex gap-5 items-center justify-center'>
-                        <div className="relative lg:w-[250px] w-[150px] border border-[#1C4587] rounded-sm flex items-center px-2">
-                            <CiSearch className='cursor-pointer' color='#1C4587' size={15} />
+                    <div className='flex gap-5 items-center justify-center mt-5'>
+                        <div className="relative border border-[#1C4587] w-[45%] rounded-sm px-2 flex items-center">
+                            <CiSearch className='absolute cursor-pointer ' color='#1C4587' size={16} />
                             <input
                                 type="text"
                                 placeholder="Search institute"
-                                className="px-2 py-1 lg:w-full w-36 rounded-full lg:py-1.5 border-none outline-none text-[#07398a]"
+                                className="px-2 ml-3 text-sm py-1 lg:w-full rounded-full lg:py-1.5 border-none outline-none text-[#07398a]"
                             />
                         </div>
                         <motion.div
-                            whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.99 }}
-                            className="text-blue-500 font-semibold cursor-pointer"
+                            className="text-blue-500 font-semibold cursor-pointer flex-1 w-[45%]"
                         >
-                            <button className="cursor-pointer bg-gradient-to-b from-[#193f7c] to-[#2965c4] text-white px-5 lg:py-[10px] py-[9px] rounded-sm font-semibold text-xs lg:text-[12px]">
+                            <button className="w-full cursor-pointer bg-gradient-to-b from-[#193f7c] to-[#2965c4] text-white px-5 py-[8px] md:py-[9px] rounded-sm font-semibold text-xs lg:text-[12px]">
                                 +Upload New Audio
                             </button>
                         </motion.div>
@@ -136,7 +134,7 @@ const AllTopics = () => {
                                 </div>
                                 {/* Button */}
                                 <Link href="/chatting/allTopics/familyConversion/audio">
-                                    <button className="border mt-8 border-white px-3 py-1 rounded-md hover:bg-white hover:text-[#1C4587] text-xs bg-gradient-to-b from-[#1C4587] to-[#3279EA] transition">
+                                    <button className="border mt-8 border-white px-3 py-1 rounded-sm hover:bg-white hover:text-[#1C4587] text-xs bg-gradient-to-b from-[#1C4587] to-[#3279EA] transition">
                                         Listen Now
                                     </button>
                                 </Link>

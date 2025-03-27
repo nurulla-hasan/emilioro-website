@@ -128,7 +128,7 @@ const EcoFriendlyPackage = () => {
 
   const handleClick = (index, categoryId) => {
     setSelected(index)
-    router.push(`/thinktankAcademy/topic/${categoryId}`)
+    router.push(`/comments/topic/${categoryId}`)
   }
 
   const [selectedVote, setSelectedVote] = useState("")
@@ -179,7 +179,7 @@ const EcoFriendlyPackage = () => {
             <img
               src="/filter.svg"
               alt="Filter Icon"
-              className="w-5 h-5 border border-[#1C4587] inline-block rounded-sm"
+              className="w-4 h-4 border border-[#1C4587] inline-block rounded-sm cursor-pointer"
             />
           </div>
         </div>
@@ -302,27 +302,49 @@ const EcoFriendlyPackage = () => {
         </div>
 
         {/* Mediators */}
-        <div className="mt-6 border-t border-gray-200 mb-10 shadow-[0px_5px_17px_2px_rgba(1,_75,_250,_0.20)] rounded-sm">
-          <h2 className="text-sm text-[#1C4587] font-semibold ml-8 my-4">Mediators</h2>
-          <div className="bg-white p-4 rounded-sm">
-            <div className="flex gap-4 items-center justify-evenly">
-              {projects.map((person, index) => (
-                <div key={index} className="flex flex-col items-center  text-center">
-                  <img
-                    src={avatar.src || "/placeholder.svg"}
-                    alt={person.author}
-                    className="w-10 h-10 rounded-full border-2 border-blue-400"
-                  />
-                  <p className="text-xs font-semibold mt-2">{person.author}</p>
-                  <p className="text-[10px] text-gray-500">{person.authorRole[0]}</p>
-                </div>
-              ))}
+        <div className="mt-6 mb-10 shadow-[0px_19px_48px_0px_#CFC9DDB2] rounded-sm p-6">
+          <h2 className="text-sm text-[#1C4587] font-semibold">Mediators</h2>
+
+          <div className="flex flex-col gap-5 mt-5">
+            <div className="bg-white rounded-sm">
+              <h1 className="text-xs text-gray-700 font-semibold mb-2">Group 1</h1>
+              <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
+                {users.map((person, index) => (
+                  <div key={index} className="flex flex-col items-center text-center">
+                    <img
+                      src={person.avatar || "/placeholder.svg"}
+                      alt={person.author}
+                      className="w-10 h-10 rounded-full border-2 border-blue-400"
+                    />
+                    <p className="text-[10px] font-normal mt-1">{person.name}</p>
+                    <p className="text-[9px] text-gray-500">{person.role}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="bg-white mt-2 rounded-sm">
+              <h1 className="text-xs text-gray-700 font-semibold mb-2">Group 2</h1>
+              <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 ">
+                {users.map((person, index) => (
+                  <div key={index} className="flex flex-col items-center  text-center">
+                    <img
+                      src={person.avatar || "/placeholder.svg"}
+                      alt={person.author}
+                      className="w-10 h-10 rounded-full border-2 border-blue-400"
+                    />
+                    <p className="text-[10px] font-normal mt-1">{person.name}</p>
+                    <p className="text-[9px] text-gray-500">{person.role}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
+
         </div>
 
         {/* vote section  */}
-        <div className="flex flex-col lg:flex-row justify-between shadow-[0px_5px_17px_2px_rgba(1,_75,_250,_0.20)] rounded-sm p-2">
+        <div className="flex flex-col lg:flex-row justify-between shadow-[0px_19px_48px_0px_#CFC9DDB2] rounded-sm
+        p-2">
           {/* Main Voting Area */}
           <div className="bg-white p-6 rounded-sm">
             <h2 className="text-lg font-semibold text-[#1C4587]">Vote for the Group Name</h2>

@@ -13,7 +13,7 @@ const EditBondModal = ({ isOpen, onClose, currentBond, handleEditConfirm }) => {
       exit={{ opacity: 0 }}
     >
       <motion.div
-        className="bg-white w-1/4 max-w-lg rounded-sm shadow-lg overflow-hidden my-auto mx-4"
+        className="bg-white xl:w-1/4 w-10/12 rounded-sm shadow-lg overflow-hidden my-auto mx-4"
         initial={{ scale: 0.95, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.95, opacity: 0 }}
@@ -23,10 +23,10 @@ const EditBondModal = ({ isOpen, onClose, currentBond, handleEditConfirm }) => {
           {/* Close Button */}
           <button
             onClick={onClose}
-            className="absolute top-6 right-6 bg-[#1C4587] rounded-full text-white hover:text-gray-700"
+            className="absolute top-3 right-3 bg-[#1C4587] rounded-full text-white hover:text-gray-700"
             aria-label="Close"
           >
-            <img src="/x.svg" alt="Close" />
+            <img className="w-" src="/x.svg" alt="Close" />
           </button>
 
           {/* Title */}

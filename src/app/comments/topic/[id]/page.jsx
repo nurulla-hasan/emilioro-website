@@ -101,7 +101,7 @@ const Page = () => {
                 </div>
 
                 {/* Comments Section */}
-                <div className="bg-[#EAF0FB] md:h-[75vh] h-[64vh] overflow-scroll hide-scrollbar p-6">
+                <div className="bg-[#EAF0FB] md:h-[70vh] h-[64vh] overflow-scroll hide-scrollbar p-6">
                     <h3 className="text-center text-gray-600 text-sm mb-4">Today</h3>
 
                     <div className="space-y-4 ">

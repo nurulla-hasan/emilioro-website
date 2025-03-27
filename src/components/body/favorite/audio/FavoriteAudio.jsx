@@ -2,7 +2,7 @@
 import { FaCirclePlay } from "react-icons/fa6";
 import { CiMenuKebab } from "react-icons/ci";
 import { LuEye } from "react-icons/lu";
-import { FaRegStar } from "react-icons/fa";
+import { FaPlay, FaRegStar } from "react-icons/fa";
 import { IoTimeOutline } from "react-icons/io5";
 import { CiHeart } from "react-icons/ci";
 import AudioPlayer from "./AudioPlayer";
@@ -85,15 +85,15 @@ const FavoriteAudio = () => {
 
     return (
         <div className="">
-            <div className=" mb-5 flex flex-col gap-8 justify-between ">
+            <div className="mb-5 flex flex-col gap-8 justify-between ">
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 overflow-scroll hide-scrollbar">
                     {data.map((item) => (
                         <div
                             key={item.id}
-                            className="relative flex-shrink-0 mx-auto w-full lg:px-0 px-5 rounded-sm group"
+                            className="relative flex-shrink-0 mx-auto w-full lg:px-0 px-5 group"
                         >
                             {/* Image Container */}
-                            <div className="relative h-40 overflow-hidden rounded-sm">
+                            <div className="relative h-40 overflow-hidden rounded-xl">
                                 <img
                                     src={item.image}
                                     alt={item.title}
@@ -105,9 +105,10 @@ const FavoriteAudio = () => {
                                 </div>
 
                                 {/* Play Icon (Hidden before hover) */}
-                                <div className="absolute bottom-2 left-2 rounded-full text-[#1C4587] opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer">
-                                    <FaCirclePlay size={50} />
-                                </div>
+                                <button
+                                    className="bg-[#1C4587] text-white rounded-full w-10 h-10 flex items-center justify-center flex-shrink-0 absolute bottom-2 left-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer">
+                                    <FaPlay size={14} />
+                                </button>
 
                                 {/* Menu Icon (Hidden before hover) */}
                                 <div className="absolute top-0 right-2 p-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 rotate-90 cursor-pointer">

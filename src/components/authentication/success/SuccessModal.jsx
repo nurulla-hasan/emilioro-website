@@ -1,11 +1,11 @@
-"use client";
+"use client"
 
-import { motion, AnimatePresence } from "framer-motion";
-import { X } from "lucide-react";
-import { useRouter } from "next/navigation";
+import { motion, AnimatePresence } from "framer-motion"
+import { X } from "lucide-react"
+import { useRouter } from "next/navigation"
 
 const SuccessModal = ({ isOpen, onClose, setIsLoginModalOpen }) => {
-  const router = useRouter();
+  const router = useRouter()
 
   return (
     <AnimatePresence>
@@ -17,7 +17,7 @@ const SuccessModal = ({ isOpen, onClose, setIsLoginModalOpen }) => {
           exit={{ opacity: 0 }}
         >
           <motion.div
-            className="bg-white w-full max-w-3xl rounded-lg shadow-xl flex flex-col md:flex-row relative overflow-hidden"
+            className="bg-white w-full max-w-4xl rounded-sm shadow-xl flex flex-col md:flex-row relative overflow-hidden"
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
@@ -33,20 +33,20 @@ const SuccessModal = ({ isOpen, onClose, setIsLoginModalOpen }) => {
 
             {/* Left Section - Message */}
             <div className="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-center items-center text-center">
-              <h2 className="text-green-600 text-xl font-bold mb-4">Success!</h2>
-              <p className="text-gray-700 text-sm">
-                Your password has been updated successfully.
-              </p>
+              <h2 className="text-green-600 text-lg font-semibold mb-2">Success!</h2>
+              <p className="text-gray-700 text-xs">Your password has been updated successfully.</p>
             </div>
 
             {/* Right Section - Login Button */}
-            <div className="w-full md:w-1/2 bg-[#E3F2FD] p-8 md:p-12 flex flex-col justify-center items-center text-center">
+            <div className="w-full md:w-1/2 bg-[#C0D3F2] p-8 md:p-12 flex flex-col justify-center items-center text-center">
+              <h2 className="text-[#1C4587] text-lg font-semibold mb-2">Ready to go!</h2>
+              <p className="text-[#1C4587] text-xs mb-4">You can now log in with your new password.</p>
               <button
                 onClick={() => {
-                  onClose();
+                  onClose()
                   setIsLoginModalOpen(true)
                 }}
-                className="w-full bg-gradient-to-b from-[#1C4587] to-[#3279EA] hover:from-[#15366b] hover:to-[#2861c4] text-white py-3 rounded-md text-sm font-medium transition-colors"
+                className="w-full bg-gradient-to-b from-[#1C4587] to-[#3279EA] hover:from-[#15366b] hover:to-[#2861c4] text-white py-1.5 rounded-sm text-xs font-medium transition-colors"
               >
                 Continue to Login
               </button>
@@ -55,7 +55,8 @@ const SuccessModal = ({ isOpen, onClose, setIsLoginModalOpen }) => {
         </motion.div>
       )}
     </AnimatePresence>
-  );
-};
+  )
+}
 
-export default SuccessModal;
+export default SuccessModal
+

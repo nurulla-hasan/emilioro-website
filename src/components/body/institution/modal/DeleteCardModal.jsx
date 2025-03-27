@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 
-const DeleteBondModal = ({ isOpen, onClose, handleDeleteConfirm }) => {
+const DeleteCardModal = ({ isOpen, onClose, handleDeleteConfirm }) => {
   if (!isOpen) return null
 
   return (
@@ -46,5 +46,5 @@ const DeleteBondModal = ({ isOpen, onClose, handleDeleteConfirm }) => {
   )
 }
 
-export default DeleteBondModal
+export default DeleteCardModal
 

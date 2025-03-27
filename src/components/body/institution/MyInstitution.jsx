@@ -2,10 +2,22 @@
 import { useState } from "react";
 import { motion } from 'framer-motion';
 import EditInstituteModal from "./modal/EditInstituteModal";
+import DeleteCardModal from "./modal/DeleteCardModal";
 
 const AllInstitution = ({ setSelectedCardUserProject }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [status, setStatus] = useState("Created");
+    const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+
+    const handleDeleteConfirm = () => {
+        console.log("Crad deleted: ");
+        setIsDeleteModalOpen(false);
+    };
+
+    const onDeleteBond = (card) => {
+        setIsDeleteModalOpen(true);
+    };
+
 
     const data = {
         cards: [
@@ -107,11 +119,13 @@ const AllInstitution = ({ setSelectedCardUserProject }) => {
                 {
                     filteredCards.map((card) => (
                         <div
-                            onClick={() => setSelectedCardUserProject(card)}
+
                             key={card.id}
-                            className="lg:w-full cursor-pointer mx-auto flex flex-col gap-2 shadow-[0px_15px_45px_0px_#CFC9DD99] bg-[#FFFFFF]"
+                            className="lg:w-full mx-auto flex flex-col gap-2 shadow-[0px_15px_45px_0px_#CFC9DD99] bg-[#FFFFFF]"
                         >
-                            <div>
+                            <div
+                                className="cursor-pointer"
+                                onClick={() => setSelectedCardUserProject(card)}>
                                 <img src={card.image || "/placeholder.svg"} alt="image" className="w-full" />
                             </div>
 
@@ -150,7 +164,9 @@ const AllInstitution = ({ setSelectedCardUserProject }) => {
                                     </div>
                                 </div>
                                 <div className="flex justify-between items-center mt-4">
-                                    <button className="px-4 py-2 items-center cursor-pointer bg-white rounded-sm font-medium border border-[#1C4587] text-[#1C4587] text-xs outline-none focus:ring-0">
+                                    <button
+                                        onClick={() => onDeleteBond(card)}
+                                        className="px-4 py-2 items-center cursor-pointer bg-white rounded-sm font-medium border border-[#1C4587] text-[#1C4587] text-xs outline-none focus:ring-0">
                                         Delete
                                     </button>
 
@@ -165,7 +181,14 @@ const AllInstitution = ({ setSelectedCardUserProject }) => {
                         </div>
                     ))
                 }
-                <EditInstituteModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+                <EditInstituteModal
+                    isOpen={isModalOpen}
+                    onClose={() => setIsModalOpen(false)} />
+                <DeleteCardModal
+                    isOpen={isDeleteModalOpen}
+                    onClose={() => setIsDeleteModalOpen(false)}
+                    handleDeleteConfirm={handleDeleteConfirm}
+                />
             </div>
         </div>
     );

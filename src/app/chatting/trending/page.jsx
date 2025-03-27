@@ -3,7 +3,7 @@ import React from 'react';
 
 const Trending = () => {
     return (
-        <div className='my-5 md:px-8'>
+        <div className='my-5 px-5 md:px-8'>
             <TrendingTopics/>
         </div>
     );

@@ -256,7 +256,7 @@ const ChatInterface = () => {
         <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
           <button
             onClick={() => setIsModalOpen(true)}
-            className="cursor-pointer text-xs md:text-sm bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white px-4 py-2 rounded-md md:font-medium"
+            className="cursor-pointer text-xs md:text-sm bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white px-4 py-1 rounded-sm md:font-medium"
           >
             +Add Group
           </button>
@@ -523,7 +523,7 @@ const ChatInterface = () => {
             <div className="text-center mt-auto pt-4">
               <button
                 onClick={() => setIsMarkModalOpen(true)}
-                className="text-white font-medium rounded-lg px-3 py-2 text-sm bg-gradient-to-b from-[#1C4587] to-[#3279EA]"
+                className="text-white font-medium rounded-sm px-3 py-1 text-sm bg-gradient-to-b from-[#1C4587] to-[#3279EA]"
               >
                 Mark as complete
               </button>
@@ -535,7 +535,6 @@ const ChatInterface = () => {
       {/* Modals */}
       <AddGroupModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       <MarkCompleteModal isOpen={isMarkModalOpen} onClose={() => setIsMarkModalOpen(false)} />
-
       {showDetails && <ChatDetailsModal chat={selectedChat} onClose={() => setShowDetails(false)} />}
     </div>
   )

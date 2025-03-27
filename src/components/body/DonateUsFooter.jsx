@@ -8,11 +8,13 @@ const DonateUsFooter = () => {
                 {/* Logo and Description */}
                 <div className="space-y-4 relative">
                     <div className="flex justify-center lg:justify-start gap-3 items-center">
-                        <div className="border-[#FFFFFF] font-bold text-lg flex justify-center items-center gap-2 border-2 rounded-full p-2">
-                            <div className="w-[11px] h-[11px] rounded-full bg-[#22B14C]"></div>
-                            <div className="w-10 h-[10px] rounded-full bg-[#FFF200]"></div>
-                            <div className="w-[11px] h-[11px] rounded-full bg-[#ED1C24]"></div>
-                        </div>
+                        <Link href="/">
+                            <div className="md:h-7 lg:h-8 border-[#FFFFFF] font-bold text-lg flex justify-center items-center gap-2 border-2 rounded-[100%] p-2">
+                                <div className="lg:w-2 w-2 lg:h-2 h-2 rounded-full bg-[#22B14C]"></div>
+                                <div className="lg:w-12 w-8  h-2 rounded-full bg-[#FFF200]"></div>
+                                <div className="lg:w-2 w-2 lg:h-2 h-2 rounded-full bg-[#ED1C24]"></div>
+                            </div>
+                        </Link>
                         <h2 className="text-xl font-bold">Bankybondy</h2>
                     </div>
                     <p className="text-xs text-gray-200 lg:absolute lg:top-8 lg:left-36">We are chatting</p>

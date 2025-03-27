@@ -53,11 +53,11 @@ const MyPlaylist = () => {
 
     ]
     return (
-        <div className=" my-5 md:px-8">
+        <div className="px-5 my-5 md:px-8">
 
             <div className=" mx-auto flex flex-col md:flex-row gap-5 justify-between items-center">
-                <h1 className="w-full text-xl text-[#1C4587] md:text-left text-center font-bold">My Playlists</h1>
-                <div className='flex gap-5 w-full items-center justify-center md:justify-end'>
+                <h1 className="w-full text-xl text-[#1C4587] text-left font-bold">My Playlists</h1>
+                <div className='flex w-full items-center gap-5 justify-between md:justify-end'>
                     <motion.div
                         className=' border border-[#1e4a9b] px-3 py-[3px] rounded-sm bg-white'
                         whileHover={{ scale: 1.05 }}
@@ -72,7 +72,7 @@ const MyPlaylist = () => {
                         whileTap={{ scale: 0.99 }}
                         className="text-blue-500 font-semibold cursor-pointer"
                     >
-                        <button onClick={() => setIsCreatePlaylistModalOpen(true)} className="cursor-pointer bg-gradient-to-b from-[#193f7c] to-[#2965c4] text-white px-5 py-3 lg:py-2 rounded-sm font-medium text-xs lg:text-[12px]">
+                        <button onClick={() => setIsCreatePlaylistModalOpen(true)} className="cursor-pointer bg-gradient-to-b from-[#193f7c] to-[#2965c4] text-white px-5 md:py-2 py-[9px] rounded-sm font-medium text-xs lg:text-[12px]">
                             +Create new playlist
                         </button>
                     </motion.div>
@@ -86,7 +86,7 @@ const MyPlaylist = () => {
                         <div>
                             <img
                                 src={conversation.image}
-                                className='rounded-sm h-[180px] w-[334px]'
+                                className='rounded-sm h-[180px] w-[350px]'
                                 alt='image'
                             >
                             </img>
