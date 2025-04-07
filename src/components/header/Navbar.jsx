@@ -317,7 +317,7 @@ const Navbar = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setIsLoginModalOpen(true)}
-              className="text-white text-sm font-medium border border-white px-6 py-[6px] rounded-md transition cursor-pointer"
+              className="text-white text-sm font-medium border border-white px-6 py-[6px] rounded-full transition cursor-pointer"
             >
               Login
             </motion.button>
@@ -326,7 +326,7 @@ const Navbar = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => dispatch(setIsSignUpOpen(true))}
-              className="text-sm font-medium bg-gradient-to-b from-[#13418b] to-[#2671eb] border text-white px-6 py-[6px] rounded-md cursor-pointer"
+              className="text-sm font-medium bg-gradient-to-b from-[#13418b] to-[#2671eb] border text-white px-6 py-[6px] rounded-full cursor-pointer"
             >
               Sign Up
             </motion.button>

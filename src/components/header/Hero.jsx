@@ -86,7 +86,7 @@ const Hero = () => {
                   <motion.button
                     variants={scaleIn}
                     whileTap={{ scale: 0.95 }}
-                    className="mt-8 px-8 md:px-10 py-2 lg:py-3 border border-white rounded-md text-white hover:bg-white bg-gradient-to-b from-[#1C4587] to-[#3279EA] transition text-md font-semibold"
+                    className="mt-8 px-8 md:px-10 py-2 lg:py-3 border border-white rounded-full text-white hover:bg-white bg-gradient-to-b from-[#1C4587] to-[#3279EA] transition text-md font-semibold"
                   >
                     Explore Now
                   </motion.button>
@@ -98,7 +98,7 @@ const Hero = () => {
                     variants={scaleIn}
                     whileTap={{ scale: 0.95 }}
                     onClick={() => dispatch(setIsSignUpOpen(true))}
-                    className="mt-8 px-8 md:px-10 py-2 lg:py-3 border border-white rounded-md text-white hover:bg-white bg-gradient-to-b from-[#1C4587] to-[#3279EA] transition text-sm font-semibold"
+                    className="mt-8 px-8 md:px-10 py-2 lg:py-3 border border-white rounded-full text-white hover:bg-white bg-gradient-to-b from-[#1C4587] to-[#3279EA] transition text-sm font-semibold"
                   >
                     Sign Up for free
                   </motion.button>
