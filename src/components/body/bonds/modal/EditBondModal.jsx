@@ -26,7 +26,7 @@ const EditBondModal = ({ isOpen, onClose, currentBond, handleEditConfirm }) => {
             className="absolute top-3 right-3 bg-[#1C4587] rounded-full text-white hover:text-gray-700"
             aria-label="Close"
           >
-            <img className="w-" src="/x.svg" alt="Close" />
+            <img className="w-5" src="/x.svg" alt="Close" />
           </button>
 
           {/* Title */}

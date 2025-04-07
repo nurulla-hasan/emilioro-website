@@ -17,7 +17,7 @@ export default function AddRelativesModal({ isOpen, onClose }) {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -20 }}
-        className="bg-white p-6 rounded-lg shadow-lg w-96 relative"
+        className="bg-white p-4 rounded-sm shadow-lg w-96 relative"
       >
         {/* Close Button */}
         <button onClick={onClose} className="absolute top-3 right-3 text-white bg-[#1C4587] p-1 rounded-full">
@@ -32,7 +32,7 @@ export default function AddRelativesModal({ isOpen, onClose }) {
           <div>
             <label className="block font-semibold text-sm mb-2">Add New relatives</label>
             <input
-              className="w-full border border-gray-300 text-sm outline-none p-2 rounded-md"
+              className="w-full border border-gray-300 text-xs outline-none p-1.5 rounded-sm"
               placeholder="🔍 Search To select relatives"
             />
           </div>
@@ -42,7 +42,7 @@ export default function AddRelativesModal({ isOpen, onClose }) {
             <div className="w-1/2">
               <label className="block font-semibold text-sm mb-2">Choose Family Side</label>
               <select
-                className="w-full border border-gray-300 text-sm outline-none p-2 rounded-md"
+                className="w-full border border-gray-300 text-xs outline-none p-1.5 rounded-sm"
                 value={selectedFamilySide}
                 onChange={(e) => setSelectedFamilySide(e.target.value)}
               >
@@ -54,7 +54,7 @@ export default function AddRelativesModal({ isOpen, onClose }) {
             <div className="w-1/2">
               <label className="block font-semibold text-sm mb-2">Relationship Type</label>
               <select
-                className="w-full border border-gray-300 text-sm outline-none p-2 rounded-md"
+                className="w-full border border-gray-300 text-xs outline-none p-1.5 rounded-sm"
                 value={selectedRelationship}
                 onChange={(e) => setSelectedRelationship(e.target.value)}
               >
@@ -67,10 +67,9 @@ export default function AddRelativesModal({ isOpen, onClose }) {
 
           {/* Submit Button */}
           <motion.button
-            whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             type="submit"
-            className="w-full bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white py-2 rounded-lg font-semibold"
+            className="w-full bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white py-1 rounded-sm font-medium text-sm"
           >
             Submit
           </motion.button>

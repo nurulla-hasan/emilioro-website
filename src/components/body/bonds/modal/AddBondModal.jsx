@@ -1,10 +1,51 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { IoClose } from "react-icons/io5"
+import { useState, useEffect } from "react"
 
 const AddBondModal = ({ isOpen, onClose, onSubmit, register, tags, setTags, removeTag }) => {
+  const [canSubmit, setCanSubmit] = useState(false)
+
+  // Check if form can be submitted whenever tags change
+  useEffect(() => {
+    // Allow submission if there's at least one tag
+    setCanSubmit(tags.length > 0)
+  }, [tags])
+
   if (!isOpen) return null
+
+  // Modified submit handler
+  const handleSubmit = (e) => {
+    e.preventDefault()
+
+    // Get the input value
+    const input = document.querySelector("input[placeholder='Type here']")
+    const inputValue = input.value.trim()
+
+    // If there's text in the input, add it as a tag first
+    if (inputValue && !tags.includes(inputValue)) {
+      const newTags = [...tags, inputValue]
+      setTags(newTags)
+      input.value = ""
+
+      // Submit with the updated tags
+      onSubmit(e, newTags)
+    } else if (canSubmit) {
+      // If no input text but we have tags, submit with existing tags
+      onSubmit(e, tags)
+    }
+  }
+
+  // Handle adding a tag
+  const handleAddTag = () => {
+    const input = document.querySelector("input[placeholder='Type here']")
+    const tagValue = input.value.trim()
+
+    if (tagValue && !tags.includes(tagValue)) {
+      setTags([...tags, tagValue])
+      input.value = ""
+    }
+  }
 
   return (
     <motion.div
@@ -28,13 +69,14 @@ const AddBondModal = ({ isOpen, onClose, onSubmit, register, tags, setTags, remo
           </button>
         </div>
 
-        <form onSubmit={onSubmit}>
+        <form onSubmit={handleSubmit}>
           <h2 className="text-xs font-semibold text-gray-700 mb-2">What do you offer</h2>
           <input
-            {...register("offer", { required: true })}
+            {...register("offer", { required: false })} // Changed required to false
             placeholder="Type here"
             className="w-full p-2 border border-gray-300 rounded-sm mb-3 text-[10px] outline-none focus:ring-0"
           />
+
 
           {/* Display Tags */}
           <div className="flex flex-col gap-2 mb-3">
@@ -44,9 +86,12 @@ const AddBondModal = ({ isOpen, onClose, onSubmit, register, tags, setTags, remo
                 className="border border-gray-300 w-full px-2 py-1 rounded-sm text-[10px] flex items-center justify-between"
               >
                 {tag}
-                <div className="ml-1 text-red-500 border w-3 cursor-pointer" onClick={() => removeTag(tag)}>
-                
-                </div>
+                <button
+                  type="button"
+                  className="ml-1 text-red-500 border w-4 flex items-center justify-center cursor-pointer"
+                  onClick={() => removeTag(tag)}
+                >
+                </button>
               </div>
             ))}
           </div>
@@ -54,15 +99,8 @@ const AddBondModal = ({ isOpen, onClose, onSubmit, register, tags, setTags, remo
           {/* Add More Button */}
           <button
             type="button"
-            onClick={() => {
-              const input = document.querySelector("input[placeholder='Type here']")
-              const tagValue = input.value.trim()
-              if (tagValue && !tags.includes(tagValue)) {
-                setTags([...tags, tagValue])
-                input.value = ""
-              }
-            }}
-            className="border w-full border-gray-300 text-gray-500 px-3 py-1 rounded-sm text-[10px] mb-3 outline-none focus:ring-0"
+            onClick={handleAddTag}
+            className="border cursor-pointer w-full border-gray-300 text-gray-500 px-3 py-1 rounded-sm text-[10px] mb-3 outline-none focus:ring-0"
           >
             + Add more
           </button>
@@ -70,7 +108,11 @@ const AddBondModal = ({ isOpen, onClose, onSubmit, register, tags, setTags, remo
           {/* Submit Button */}
           <button
             type="submit"
-            className="w-full bg-gradient-to-b from-[#164083] to-[#1f5fc8] text-white p-2 rounded-sm text-[10px] outline-none focus:ring-0"
+            disabled={!canSubmit}
+            className={`w-full cursor-pointer ${canSubmit
+                ? "bg-gradient-to-b from-[#164083] to-[#1f5fc8] text-white"
+                : "bg-gray-300 text-gray-500"
+              } p-2 rounded-sm text-[10px] outline-none focus:ring-0`}
           >
             Submit
           </button>

@@ -308,7 +308,7 @@ const EcoFriendlyPackage = () => {
           <div className="flex flex-col gap-5 mt-5">
             <div className="bg-white rounded-sm">
               <h1 className="text-xs text-gray-700 font-semibold mb-2">Group 1</h1>
-              <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
+              <div className="flex flex-wrap justify-center grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-5">
                 {users.map((person, index) => (
                   <div key={index} className="flex flex-col items-center text-center">
                     <img
@@ -324,7 +324,7 @@ const EcoFriendlyPackage = () => {
             </div>
             <div className="bg-white mt-2 rounded-sm">
               <h1 className="text-xs text-gray-700 font-semibold mb-2">Group 2</h1>
-              <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 ">
+              <div className="flex flex-wrap justify-center grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-5">
                 {users.map((person, index) => (
                   <div key={index} className="flex flex-col items-center  text-center">
                     <img

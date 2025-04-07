@@ -50,9 +50,9 @@ const MyBondPage = () => {
                     <select
                         value={selectedOption}
                         onChange={(e) => setSelectedOption(e.target.value)}
-                        className="border-none outline-0 cursor-pointer text-[#595D62] bg-white font-normal border border-[#1C4587] rounded-sm text-sm"
+                        className="border-none outline-0 cursor-pointer text-[#595D62] bg-white font-normal border border-[#1C4587] rounded-sm text-xs"
                     >
-                        <option value="My Bond">My Bond</option>
+                        <option value="My Bond">My Bonds</option>
                         <option value="Bond Request">Bond Request</option>
                         <option value="Ongoing Bond">Ongoing Bond</option>
                         <option value="Completed Bond">Completed Bond</option>

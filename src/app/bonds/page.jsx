@@ -231,7 +231,7 @@ const Page = () => {
         >
           <Link href="/bonds/myBondPage">
             <button className="cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white px-4 py-2 rounded-sm font-medium">
-              My Bond →
+              My Bonds →
             </button>
           </Link>
         </motion.div>
