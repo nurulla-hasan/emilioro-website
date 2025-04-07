@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { FaMusic, FaFire, FaComments, FaHeart, FaList, FaBars, FaTimes } from "react-icons/fa"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import AudioPlayer from "@/components/body/favorite/audio/AudioPlayer"
 
 const ChattingLayout = ({ children }) => {
     const menuItems = [
@@ -62,7 +63,7 @@ const ChattingLayout = ({ children }) => {
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                         className="p-2 bg-[#1C4587] text-white rounded-sm"
                     >
-                        {isMobileMenuOpen ? <FaTimes size={10}/> : <FaBars size={10}/>}
+                        {isMobileMenuOpen ? <FaTimes size={10} /> : <FaBars size={10} />}
                     </button>
                 </div>
 
@@ -130,7 +131,12 @@ const ChattingLayout = ({ children }) => {
             </div>
 
             {/* Main Content Area */}
-            <div className="h-[calc(100vh-88px)] overflow-scroll hide-scrollbar xl:w-[72%]">{children}</div>
+            <div className="h-[calc(100vh-175px)] overflow-scroll hide-scrollbar xl:w-[72%]">{children}</div>
+            <div className="fixed  bottom-0 left-0 w-full backdrop-blur-2xl border-t border-gray-300 z-50">
+                <div className="flex justify-center items-center xl:w-8/11 lg:w-10/12 p-2 mx-auto w-full">
+                    <AudioPlayer />
+                </div>
+            </div>
         </div>
     )
 }

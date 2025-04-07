@@ -19,7 +19,7 @@ const AudioPlayer = () => {
   }
 
   return (
-    <div className="flex flex-col sm:flex-row items-center gap-3 w-full bg-white p-3 rounded-lg shadow-sm">
+    <div className="flex flex-col sm:flex-row items-center gap-3 w-full bg-white p-2 rounded-lg shadow-sm">
       {/* Thumbnail and Info */}
       <div className="flex items-center gap-3 w-full sm:w-auto justify-between sm:justify-start">
         <div className="flex items-center gap-3">

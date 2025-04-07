@@ -27,7 +27,7 @@ const InstitutionPage = () => {
                     transition={{ delay: 0.2 }}
                 >
                     <motion.h1 className="text-xl text-[#1C4587] font-bold" whileHover={{ scale: 1.05 }}>
-                        Institution
+                    Be part of it
                     </motion.h1>
                     <div className="flex gap-5 items-center justify-center">
                         <motion.div className="relative lg:w-[250] w-[150] text-gray-700 border border-[#1C4587] rounded-sm flex items-center px-2">

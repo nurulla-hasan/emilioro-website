@@ -27,11 +27,7 @@ export default function RootLayout({ children }) {
           <Navbar />
           <div className="">{children}</div>
 
-          <div className="fixed hidden bottom-0 left-0 w-full backdrop-blur-2xl border-t border-gray-300 z-50">
-            <div className="flex justify-center items-center xl:w-8/11 lg:w-10/12 p-2 mx-auto w-full">
-              <AudioPlayer />
-            </div>
-          </div>
+          
 
         </Providers>
       </body>

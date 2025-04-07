@@ -6,6 +6,7 @@ import MostPlayedSection from "@/components/slider/MostPlayedSection"
 import TrendingTopics from "@/components/body/TrendingTopics"
 import ConversationList from "@/components/body/ConversationList"
 import { FaMicrophone, FaStop } from "react-icons/fa"
+import AudioPlayer from "@/components/body/favorite/audio/AudioPlayer"
 
 const ChattingPage = () => {
   const [isRecording, setIsRecording] = useState(false)
@@ -30,7 +31,7 @@ const ChattingPage = () => {
         mediaRecorder.onstop = () => {
           const audioBlob = new Blob(audioChunksRef.current, { type: "audio/wav" });
           const url = URL.createObjectURL(audioBlob);
-          
+
           setAudioList(prevList => [...prevList, { id: Date.now(), url }]); // 🔹 নতুন অডিও state-এ যোগ হবে
         };
 
@@ -49,7 +50,7 @@ const ChattingPage = () => {
     <div className="my-5 px-5 md:px-8">
       <div>
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-5 gap-4">
-          <h1 className="text-xl md:text-2xl font-bold text-[#1C4587] ">We are chatting</h1>
+          <h1 className="text-xl md:text-2xl font-bold text-[#1C4587] ">Real conversation between people</h1>
           <div className="flex flex-col md:flex-row items-start md:items-center gap-4 w-full md:w-auto">
             <div className="relative flex items-center border border-[#1C4587] rounded-sm px-3 py-1.5 w-full md:w-auto">
               <CiSearch className="text-[#1C4587]" size={16} />
@@ -97,8 +98,9 @@ const ChattingPage = () => {
         </div>
         <ConversationList />
 
-        
+
       </div>
+      
     </div>
   );
 };
