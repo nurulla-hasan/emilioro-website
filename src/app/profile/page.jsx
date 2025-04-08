@@ -282,7 +282,7 @@ const ProfilePage = () => {
           <h2 className="text-xl lg:text-2xl font-semibold text-[#1C4587]">Social Links</h2>
           <button
             onClick={() => setIsSocialAccountModalOpen(true)}
-            className="bg-gradient-to-b from-[#1C4587] to-[#2570e9] gap-1 flex items-center text-white text-sm px-4 py-1.5 rounded-sm"
+            className="bg-gradient-to-b from-[#1C4587] to-[#2570e9] cursor-pointer gap-1 flex items-center text-white text-sm px-4 py-1.5 rounded-sm"
           >
             + Add Social account
           </button>
@@ -296,7 +296,7 @@ const ProfilePage = () => {
                 </div>
                 {socialLink.url}
               </a>
-              <div className="flex gap-2">
+              <div className="flex gap-2 *:cursor-pointer">
                 <button onClick={() => setIsDeleteModalOpen(true)} className="text-red-500">
                   <img src="/delete.svg" alt="" />
                 </button>
@@ -352,9 +352,12 @@ const ProfilePage = () => {
           {/* Header */}
           <div className="flex flex-col gap-2 md:flex-row justify-between items-center mb-6">
             <h2 className="xl:text-2xl text-lg font-semibold text-[#1C4587]">Relatives & Relationships</h2>
+
+
+
             <button
               onClick={() => setAddRelativesModal(true)}
-              className="bg-gradient-to-b from-[#1C4587] to-[#3279EA]  text-white text-sm px-3 py-1.5 rounded-sm flex items-center"
+              className="bg-gradient-to-b cursor-pointer from-[#1C4587] to-[#3279EA]  text-white text-sm px-3 py-1.5 rounded-sm flex items-center"
             >
               <Plus size={14} className="mr-1" /> Add New relatives
             </button>
@@ -385,7 +388,7 @@ const ProfilePage = () => {
                       <p className="text-xs text-gray-500">{relative.relation}</p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-2 *:cursor-pointer">
                     <button className="text-[#1C4587] flex items-center text-xs gap-1">
                       <img src="/messenger.svg" alt="" /> Chat now
                     </button>

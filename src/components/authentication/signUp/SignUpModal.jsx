@@ -134,7 +134,7 @@ const SignUpModal = ({ isOpen, onClose, setIsLoginModalOpen }) => {
                     />
                     <input
                       type="text"
-                      placeholder="Profession (e.g. electrician)"
+                      placeholder="Profession"
                       value={skilledPeople[index].profession}
                       onChange={(e) => handleSkilledChange(index, "profession", e.target.value)}
                       className="px-2 py-1 text-xs rounded-sm bg-white border border-gray-300 focus:outline-none focus:border-[#1C4587]"

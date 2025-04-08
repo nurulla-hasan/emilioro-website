@@ -1,17 +1,35 @@
 "use client"
-
 import { useParams, useRouter } from "next/navigation"
 import { motion } from "framer-motion"
-import { Suspense, useState } from "react"
+import { Suspense, useState, useEffect } from "react"
 import Image from "next/image"
-import { Search } from "lucide-react"
-import avatar from "../../../../public/heroImage.png"
+
+// Import necessary icons
+import {
+  Search,
+  Heart,
+  MessageSquare,
+  Share2,
+  Paperclip,
+  ImageIcon,
+  LinkIcon,
+  Globe,
+  Lock,
+  Facebook,
+  Instagram,
+  Users,
+  Filter,
+  ArrowUp,
+  ArrowDown,
+} from "lucide-react"
+
+// Import modals
 import DetailsCreateGroupModal from "@/components/body/institution/modal/DetailsCreateGroupModal"
 import CreateTopicModal from "@/components/body/institution/modal/CreateTopicModal"
 import EditTopicModal from "@/components/body/institution/modal/EditTopicModal"
 import DeleteTopicModal from "@/components/body/institution/modal/DeleteTopicModal"
 
-// Additional data for the interface
+// Store all data in variables for better organization
 const producers = [
   { id: 1, name: "Ahamad musa", role: "CEO", online: true, avatar: "/avatar.png" },
   { id: 2, name: "Ahamad musa", role: "General manager", online: true, avatar: "/avatar.png" },
@@ -28,11 +46,88 @@ const users = [
   { id: 5, name: "Ahamad musa", role: "Artist, Engineer, musician", online: false, avatar: "/avatar.png" },
 ]
 
-const categories = [
-  { id: 1, name: "Sustainable Development & Climate Action" },
-  { id: 2, name: "Technology & Innovation" },
-  { id: 3, name: "Health & Well-being" },
-  { id: 4, name: "Education & Research" },
+const mediators = [
+  { id: 1, name: "MR. Sarwar", role: "Mediator", avatar: "/avatar.png", groupName: "Innovators Hub" },
+  { id: 2, name: "MR. Golap", role: "Mediator", avatar: "/avatar.png", groupName: "Change makers" },
+  { id: 3, name: "MS. Fatima", role: "Mediator", avatar: "/avatar.png", groupName: "Pioneers" },
+  { id: 4, name: "MR. Ahmed", role: "Mediator", avatar: "/avatar.png", groupName: "Visionaries" },
+  { id: 5, name: "MS. Sarah", role: "Mediator", avatar: "/avatar.png", groupName: "Trailblazers" },
+]
+
+// Updated conversations (formerly topics)
+const initialConversations = [
+  {
+    id: 1,
+    name: "Sustainable Development & Climate Action",
+    isPublic: true,
+    members: 12,
+    posts: [
+      {
+        id: 101,
+        author: "MR. Sarwar",
+        role: "CEO",
+        avatar: "/avatar.png",
+        content:
+          "Just shared a new research paper on sustainable packaging materials. Check it out in the resources section!",
+        date: "22 May 2025",
+        time: "10:30 AM",
+        likes: 12,
+        likedBy: [2, 3, 4],
+        comments: 5,
+        attachments: [],
+      },
+      {
+        id: 102,
+        author: "Ahmad Musa",
+        role: "General Manager",
+        avatar: "/avatar.png",
+        content:
+          "Our team has made significant progress on the biodegradable packaging prototype. Looking forward to presenting it next week.",
+        date: "21 May 2025",
+        time: "2:45 PM",
+        likes: 8,
+        likedBy: [1, 5],
+        comments: 3,
+        attachments: [],
+      },
+    ],
+  },
+  {
+    id: 2,
+    name: "Technology & Innovation",
+    isPublic: true,
+    members: 8,
+    posts: [
+      {
+        id: 201,
+        author: "Fatima Khan",
+        role: "Research Lead",
+        avatar: "/avatar.png",
+        content:
+          "Important announcement: We'll be hosting a workshop on circular economy principles next Thursday. All team members are encouraged to attend.",
+        date: "20 May 2025",
+        time: "9:15 AM",
+        likes: 15,
+        likedBy: [1, 2, 3],
+        comments: 7,
+        attachments: [],
+      },
+    ],
+  },
+  {
+    id: 3,
+    name: "Health & Well-being",
+    isPublic: false,
+    members: 5,
+    posts: [],
+  },
+  {
+    id: 4,
+    name: "Education & Research",
+    isPublic: true,
+    members: 10,
+    posts: [],
+  },
 ]
 
 // Project data from props
@@ -48,6 +143,10 @@ const projects = [
     image: "/institute (1).png",
     participant: "10",
     created: "22 may 2025",
+    socialLinks: {
+      facebook: "https://facebook.com/eco-friendly-packaging",
+      instagram: "https://instagram.com/eco_friendly_packaging",
+    },
   },
   {
     id: "2",
@@ -59,6 +158,10 @@ const projects = [
     image: "/institute (2).png",
     participant: "10",
     created: "22 may 2023",
+    socialLinks: {
+      facebook: "https://facebook.com/recyclable-materials",
+      instagram: "https://instagram.com/recyclable_materials",
+    },
   },
   {
     id: "3",
@@ -70,6 +173,10 @@ const projects = [
     image: "/institute (3).png",
     participant: "10",
     created: "22 may 2023",
+    socialLinks: {
+      facebook: "https://facebook.com/minimalist-design",
+      instagram: "https://instagram.com/minimalist_design",
+    },
   },
   {
     id: "4",
@@ -81,6 +188,10 @@ const projects = [
     image: "/institute (1).png",
     participant: "10",
     created: "22 may 2023",
+    socialLinks: {
+      facebook: "https://facebook.com/minimalist-design-2",
+      instagram: "https://instagram.com/minimalist_design_2",
+    },
   },
   {
     id: "5",
@@ -92,72 +203,285 @@ const projects = [
     image: "/institute (2).png",
     participant: "10",
     created: "22 may 2023",
+    socialLinks: {
+      facebook: "https://facebook.com/minimalist-design-3",
+      instagram: "https://instagram.com/minimalist_design_3",
+    },
   },
 ]
 
-const EcoFriendlyPackage = () => {
+const InstitutionDetails = () => {
   const router = useRouter()
   const { id } = useParams()
-
-  const [selected, setSelected] = useState(null)
-  const [createGroupModal, setCreateGroupModal] = useState(false)
-  const [isTopicModalOpen, setIsTopicModalOpen] = useState(false)
-  const [isEditTopicModal, setIsEditTopicModal] = useState(false)
-  const [isDeleteTopicModal, setIsDeleteTopicModal] = useState(false);
-  const [currentCategory, setCurrentCategory] = useState(null)
-
-  // Edit Topic 
-
-  const handleEdit = (category) => {
-    setCurrentCategory(category)
-    setIsEditTopicModal(true)
-  }
-
-  // delete topic 
-  const handleDeleteConfirm = () => {
-    setIsDeleteTopicModal(false);
-  };
-  const onDeleteBond = () => {
-    setIsDeleteTopicModal(true);
-  };
-
-
 
   // Find the current project
   const project = projects.find((p) => p.id === id) || projects[0]
 
-  const handleClick = (index, categoryId) => {
-    setSelected(index)
-    router.push(`/comments/topic/${categoryId}`)
+  // State for UI controls
+  const [selectedConversation, setSelectedConversation] = useState(null)
+  const [createGroupModal, setCreateGroupModal] = useState(false)
+  const [isTopicModalOpen, setIsTopicModalOpen] = useState(false)
+  const [isEditTopicModal, setIsEditTopicModal] = useState(false)
+  const [isDeleteTopicModal, setIsDeleteTopicModal] = useState(false)
+  const [currentCategory, setCurrentCategory] = useState(null)
+  const [searchTerm, setSearchTerm] = useState("")
+  const [showInitialVoting, setShowInitialVoting] = useState(true)
+  const [votedFor, setVotedFor] = useState(null)
+  const [currentUserId] = useState(1) // Simulating current user ID
+  const [sortOrder, setSortOrder] = useState("desc") // "asc" or "desc"
+
+  // State for post input and dynamic posts
+  const [newPost, setNewPost] = useState("")
+  const [selectedFile, setSelectedFile] = useState(null)
+  const [selectedImage, setSelectedImage] = useState(null)
+  const [filePreview, setFilePreview] = useState(null)
+  const [imagePreview, setImagePreview] = useState(null)
+  const [conversationsData, setConversationsData] = useState(initialConversations)
+
+  // Set first conversation as selected by default
+  useEffect(() => {
+    if (conversationsData.length > 0 && !selectedConversation) {
+      setSelectedConversation(conversationsData[0])
+    }
+  }, [conversationsData, selectedConversation])
+
+  // Filter conversations based on search term
+  const filteredConversations = conversationsData.filter((conversation) =>
+    conversation.name.toLowerCase().includes(searchTerm.toLowerCase()),
+  )
+
+  // Sort posts by likes
+  const sortPosts = (posts) => {
+    if (!posts) return []
+    return [...posts].sort((a, b) => {
+      if (sortOrder === "asc") {
+        return a.likes - b.likes
+      } else {
+        return b.likes - a.likes
+      }
+    })
   }
 
-  const [selectedVote, setSelectedVote] = useState("")
-  const [voted, setVoted] = useState(false)
-  // Initial vote data
-  const [votes, setVotes] = useState({
-    "Innovators Hub": 5,
-    "Change makers": 3,
-    Pioneers: 2,
-  })
-  const totalVotes = Object.values(votes).reduce((a, b) => a + b, 0)
+  // Edit Topic
+  const handleEdit = (conversation) => {
+    setCurrentCategory(conversation)
+    setIsEditTopicModal(true)
+  }
 
-  const handleVote = (name) => {
-    if (!voted) {
-      setSelectedVote(name)
+  // Delete topic
+  const handleDeleteConfirm = () => {
+    // In a real app, you would delete the conversation from the database
+    console.log("Deleting conversation:", currentCategory)
+
+    // Remove the conversation from the state
+    if (currentCategory) {
+      const updatedConversations = conversationsData.filter((conv) => conv.id !== currentCategory.id)
+      setConversationsData(updatedConversations)
+
+      // If the deleted conversation was selected, select the first available one
+      if (selectedConversation && selectedConversation.id === currentCategory.id) {
+        setSelectedConversation(updatedConversations.length > 0 ? updatedConversations[0] : null)
+      }
+    }
+
+    setIsDeleteTopicModal(false)
+  }
+
+  const onDeleteBond = (conversation) => {
+    setCurrentCategory(conversation)
+    setIsDeleteTopicModal(true)
+  }
+
+  // Add file handling functions
+  const handleFileChange = (e) => {
+    if (e.target.files && e.target.files[0]) {
+      const file = e.target.files[0]
+      setSelectedFile(file)
+      setFilePreview(file.name)
     }
   }
 
-  const handleSubmit = () => {
-    if (selectedVote) {
-      // Update votes
-      setVotes((prev) => ({
-        ...prev,
-        [selectedVote]: prev[selectedVote] + 1,
-      }))
-      setVoted(true)
+  const handleImageChange = (e) => {
+    if (e.target.files && e.target.files[0]) {
+      const file = e.target.files[0]
+      setSelectedImage(file)
+
+      // Create image preview
+      const reader = new FileReader()
+      reader.onload = (e) => {
+        setImagePreview(e.target.result)
+      }
+      reader.readAsDataURL(file)
     }
   }
 
+  // Handle post submission within a conversation
+  const handlePostSubmit = () => {
+    if ((!newPost.trim() && !selectedFile && !selectedImage) || !selectedConversation) return
+
+    const attachments = []
+
+    if (selectedFile) {
+      attachments.push({
+        name: selectedFile.name,
+        type: selectedFile.name.split(".").pop().toLowerCase(),
+        size: `${Math.round(selectedFile.size / 1024)} KB`,
+      })
+    }
+
+    if (selectedImage) {
+      attachments.push({
+        name: selectedImage.name,
+        type: "image",
+        preview: imagePreview,
+      })
+    }
+
+    const newPostObj = {
+      id: Date.now(),
+      author: "You",
+      role: "Member",
+      avatar: "/avatar.png",
+      content: newPost,
+      date: new Date().toLocaleDateString("en-US", { day: "2-digit", month: "short", year: "numeric" }),
+      time: new Date().toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit", hour12: true }),
+      likes: 0,
+      likedBy: [],
+      comments: 0,
+      attachments: attachments,
+    }
+
+    // Update the conversation with the new post
+    const updatedConversations = conversationsData.map((conv) => {
+      if (conv.id === selectedConversation.id) {
+        return {
+          ...conv,
+          posts: [newPostObj, ...conv.posts],
+        }
+      }
+      return conv
+    })
+
+    setConversationsData(updatedConversations)
+
+    // Update the selected conversation
+    setSelectedConversation({
+      ...selectedConversation,
+      posts: [newPostObj, ...selectedConversation.posts],
+    })
+
+    // Clear form
+    setNewPost("")
+    setSelectedFile(null)
+    setSelectedImage(null)
+    setFilePreview(null)
+    setImagePreview(null)
+  }
+
+  // Replace the entire handleLike function with this updated version that allows unliking
+  const handleLike = (conversationId, postId) => {
+    const updatedConversations = conversationsData.map((conv) => {
+      if (conv.id === conversationId) {
+        const updatedPosts = conv.posts.map((post) => {
+          if (post.id === postId) {
+            // Check if user already liked this post
+            const alreadyLiked = post.likedBy?.includes(currentUserId)
+
+            if (alreadyLiked) {
+              // Unlike: Remove user from likedBy array and decrement likes count
+              return {
+                ...post,
+                likes: post.likes - 1,
+                likedBy: post.likedBy.filter((id) => id !== currentUserId),
+              }
+            } else {
+              // Like: Add user to likedBy array and increment likes count
+              return {
+                ...post,
+                likes: post.likes + 1,
+                likedBy: [...(post.likedBy || []), currentUserId],
+              }
+            }
+          }
+          return post
+        })
+
+        return {
+          ...conv,
+          posts: updatedPosts,
+        }
+      }
+      return conv
+    })
+
+    setConversationsData(updatedConversations)
+
+    // Update selected conversation if needed
+    if (selectedConversation && selectedConversation.id === conversationId) {
+      const updatedPosts = selectedConversation.posts.map((post) => {
+        if (post.id === postId) {
+          const alreadyLiked = post.likedBy?.includes(currentUserId)
+
+          if (alreadyLiked) {
+            return {
+              ...post,
+              likes: post.likes - 1,
+              likedBy: post.likedBy.filter((id) => id !== currentUserId),
+            }
+          } else {
+            return {
+              ...post,
+              likes: post.likes + 1,
+              likedBy: [...(post.likedBy || []), currentUserId],
+            }
+          }
+        }
+        return post
+      })
+
+      setSelectedConversation({
+        ...selectedConversation,
+        posts: updatedPosts,
+      })
+    }
+  }
+
+  // Handle voting for a group name
+  const handleVoteForName = (mediator) => {
+    setVotedFor(mediator.groupName)
+    // In a real app, you would send this vote to the server
+    console.log(`Voted for ${mediator.groupName} by ${mediator.name}`)
+
+    // Hide voting after a delay
+    setTimeout(() => {
+      setShowInitialVoting(false)
+    }, 1500)
+  }
+
+  // Toggle conversation privacy
+  const toggleConversationPrivacy = (conversationId) => {
+    const updatedConversations = conversationsData.map((conv) => {
+      if (conv.id === conversationId) {
+        return {
+          ...conv,
+          isPublic: !conv.isPublic,
+        }
+      }
+      return conv
+    })
+
+    setConversationsData(updatedConversations)
+
+    // Update selected conversation if needed
+    if (selectedConversation && selectedConversation.id === conversationId) {
+      setSelectedConversation({
+        ...selectedConversation,
+        isPublic: !selectedConversation.isPublic,
+      })
+    }
+  }
+
+  // Ensure the modals are properly rendered at the end of the component
   return (
     <div className="xl:w-8/11 lg:w-10/12 px-5 my-5 mx-auto">
       {/* Banner Image */}
@@ -171,21 +495,92 @@ const EcoFriendlyPackage = () => {
         />
       </div>
 
-      {/* Header Section */}
+      {/* Header Section with Social Links */}
       <div className="mb-6 px-2">
         <div className="flex justify-between items-start mb-2">
-          <div className="flex items-center justify-between w-full">
+          <div className="flex flex-col">
             <h1 className="text-lg text-[#1C4587] font-semibold">{project.title}</h1>
-            <img
-              src="/filter.svg"
-              alt="Filter Icon"
-              className="w-4 h-4 border border-[#1C4587] inline-block rounded-sm cursor-pointer"
-            />
+            <p className="text-xs text-gray-600 mt-1">{project.description}</p>
+
+            {/* Social Media Links */}
+            <div className="flex mt-2 gap-3">
+              {project.socialLinks?.facebook && (
+                <a
+                  href={project.socialLinks.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#1C4587] hover:text-blue-700 cursor-pointer"
+                >
+                  <Facebook size={16} />
+                </a>
+              )}
+              {project.socialLinks?.instagram && (
+                <a
+                  href={project.socialLinks.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#1C4587] hover:text-pink-600 cursor-pointer"
+                >
+                  <Instagram size={16} />
+                </a>
+              )}
+            </div>
+          </div>
+          <div className="flex items-center gap-2">
+            {/* <span className="text-xs text-gray-500">{project.created}</span> */}
+            <img className="w-4 border rounded-sm border-[#1C4587] cursor-pointer" src="/filter.svg" alt="" />
           </div>
         </div>
       </div>
 
-      <p className="text-xs text-gray-600 px-2">{project.description}</p>
+      {/* Mediators Section */}
+      <div className="mb-6 border border-gray-200 bg-[#FFFFFF] rounded-sm p-4">
+        <div className="flex justify-between items-center mb-4">
+          <h2 className="text-sm text-[#1C4587] font-semibold">Mediators</h2>
+          {showInitialVoting && (
+            <span className="text-xs text-[#1C4587]">Click on a mediator to vote for their group name</span>
+          )}
+        </div>
+
+        <div className="flex flex-wrap justify-evenly">
+          {mediators.map((mediator) => (
+            <div
+              key={mediator.id}
+              className={`flex flex-col items-center text-center cursor-pointer transition-all ${votedFor === mediator.groupName ? "scale-110" : "hover:scale-105"
+                }`}
+              onClick={() => handleVoteForName(mediator)}
+            >
+              <div className="relative">
+                <img
+                  src={mediator.avatar || "/placeholder.svg"}
+                  alt={mediator.name}
+                  className={`w-12 h-12 rounded-full border-2 ${votedFor === mediator.groupName ? "border-green-500" : "border-blue-400"
+                    }`}
+                />
+                {votedFor === mediator.groupName && (
+                  <div className="absolute -top-1 -right-1 bg-green-500 rounded-full p-0.5">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-3 w-3 text-white"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </div>
+                )}
+              </div>
+              <p className="text-xs font-medium mt-1">{mediator.name}</p>
+              <p className="text-[10px] text-gray-500">{mediator.role}</p>
+              <p className="text-[10px] font-semibold text-[#1C4587] mt-0.5">{mediator.groupName}</p>
+            </div>
+          ))}
+        </div>
+      </div>
 
       <div className="p-2 mt-6 rounded-sm">
         <div className="grid grid-cols-1 border border-gray-200 rounded-sm lg:grid-cols-12 gap-6">
@@ -196,20 +591,20 @@ const EcoFriendlyPackage = () => {
                 <h2 className="text-sm text-[#1C4587] font-medium">Innovators Hub</h2>
                 <img onClick={() => setCreateGroupModal(true)} src="/edit.svg" alt="" className="cursor-pointer" />
               </div>
-              <div className="relative">
+              {/* <div className="relative">
                 <input
                   type="text"
                   placeholder="Search"
                   className="w-full pl-8 pr-4 py-1.5 border border-[#95B5E9] rounded-sm text-xs outline-none focus:ring-0"
                 />
                 <Search className="absolute left-2.5 top-2 h-4 w-4 text-gray-400" />
-              </div>
+              </div> */}
             </div>
             <div className="p-2 flex flex-col gap-2">
               {producers.map((user) => (
                 <div
                   key={user.id}
-                  className="flex items-center gap-3 p-[5] hover:bg-gray-50 border border-[#95B5E9] rounded-sm"
+                  className="flex items-center gap-3 p-[5] hover:bg-gray-50 border border-[#95B5E9] rounded-sm cursor-pointer"
                 >
                   <div className="relative">
                     <img src={user.avatar || "/placeholder.svg"} alt={user.name} className="rounded-full w-8 h-8" />
@@ -226,35 +621,66 @@ const EcoFriendlyPackage = () => {
             </div>
           </div>
 
-          {/* Files Section */}
+          {/* Conversations Section (formerly Topics) */}
           <div className="lg:col-span-6 space-y-6">
-            {/* All Topics */}
+            {/* Conversations List */}
             <div className="bg-white border rounded-b-sm border-gray-100">
               <div className="flex border-b border-gray-200 p-4 justify-between items-center mb-4">
-                <h2 className="text-sm text-[#1C4587] font-medium">All Topics</h2>
+                <h2 className="text-sm text-[#1C4587] font-medium">Conversations</h2>
                 <img onClick={() => setIsTopicModalOpen(true)} src="/edit.svg" alt="" className="cursor-pointer" />
               </div>
+
+              {/* Search for conversations */}
+              <div className="px-4 mb-4">
+                <div className="relative">
+                  <input
+                    type="text"
+                    placeholder="Search conversations..."
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    className="w-full pl-8 pr-4 py-1.5 border border-[#95B5E9] rounded-sm text-xs outline-none focus:ring-0"
+                  />
+                  <Search className="absolute left-2.5 top-2 h-4 w-4 text-gray-400" />
+                </div>
+              </div>
+
               <div className="p-2">
-                {categories.map((category, index) => (
+                {filteredConversations.map((conversation) => (
                   <div
-                    key={category.id}
-                    className={`flex justify-between items-center px-4 py-3 border border-gray-200 rounded-sm mb-2 transition ${selected === index ? "bg-blue-100 border-blue-300" : "bg-white"
+                    key={conversation.id}
+                    className={`flex justify-between items-center px-4 py-3 border border-gray-200 rounded-sm mb-2 transition ${selectedConversation?.id === conversation.id ? "bg-blue-100 border-blue-300" : "bg-white"
                       }`}
                   >
-                    <span
-                      onClick={() => handleClick(index, category.id)}
-                      className="cursor-pointer text-xs text-gray-700"
+                    <div
+                      className="flex items-center gap-2 cursor-pointer"
+                      onClick={() => setSelectedConversation(conversation)}
                     >
-                      {category.name}
-                    </span>
+                      {conversation.isPublic ? (
+                        <Globe size={14} className="text-green-600" />
+                      ) : (
+                        <Lock size={14} className="text-orange-500" />
+                      )}
+                      <span className="text-xs text-gray-700">{conversation.name}</span>
+                      <span className="text-[10px] text-gray-500">({conversation.members} members)</span>
+                    </div>
                     <div className="flex items-center gap-2">
-                      <button onClick={() => onDeleteBond(category)} className="cursor-pointer outline-none focus:ring-0">
-                        <img src="/Delete.svg" alt="" />
+                      <button
+                        onClick={() => toggleConversationPrivacy(conversation.id)}
+                        className="cursor-pointer outline-none focus:ring-0 text-xs text-gray-500 hover:text-[#1C4587]"
+                      >
+                        {conversation.isPublic ? "Make Private" : "Make Public"}
                       </button>
                       <button
-                        onClick={() => handleEdit(category)}
-                        className="cursor-pointer outline-none focus:ring-0">
-                        <img src="/edit.svg" alt="" />
+                        onClick={() => onDeleteBond(conversation)}
+                        className="cursor-pointer outline-none focus:ring-0"
+                      >
+                        <img src="/Delete.svg" alt="" className="cursor-pointer" />
+                      </button>
+                      <button
+                        onClick={() => handleEdit(conversation)}
+                        className="cursor-pointer outline-none focus:ring-0"
+                      >
+                        <img src="/edit.svg" alt="" className="cursor-pointer" />
                       </button>
                     </div>
                   </div>
@@ -270,20 +696,20 @@ const EcoFriendlyPackage = () => {
                 <h2 className="text-sm text-[#1C4587] font-medium">Critical Thinkers</h2>
                 <img onClick={() => setCreateGroupModal(true)} src="/edit.svg" alt="" className="cursor-pointer" />
               </div>
-              <div className="relative">
+              {/* <div className="relative">
                 <input
                   type="text"
                   placeholder="Search"
                   className="w-full pl-8 pr-4 py-1.5 border border-[#95B5E9] rounded-sm text-xs outline-none focus:ring-0"
                 />
                 <Search className="absolute left-2.5 top-2 h-4 w-4 text-gray-400" />
-              </div>
+              </div> */}
             </div>
             <div className="p-2 flex flex-col gap-2">
               {users.map((user) => (
                 <div
                   key={user.id}
-                  className="flex items-center gap-3 p-[5] hover:bg-gray-50 border border-[#95B5E9] rounded-sm"
+                  className="flex items-center gap-3 p-[5] hover:bg-gray-50 border border-[#95B5E9] rounded-sm cursor-pointer"
                 >
                   <div className="relative">
                     <img src={user.avatar || "/placeholder.svg"} alt={user.name} className="rounded-full w-8 h-8" />
@@ -301,157 +727,323 @@ const EcoFriendlyPackage = () => {
           </div>
         </div>
 
-        {/* Mediators */}
-        <div className="mt-6 mb-10 shadow-[0px_19px_48px_0px_#CFC9DDB2] rounded-sm p-6">
-          <h2 className="text-sm text-[#1C4587] font-semibold">Mediators</h2>
-
-          <div className="flex flex-col gap-5 mt-5">
-            <div className="bg-white rounded-sm">
-              <h1 className="text-xs text-gray-700 font-semibold mb-2">Group 1</h1>
-              <div className="flex flex-wrap justify-center grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-5">
-                {users.map((person, index) => (
-                  <div key={index} className="flex flex-col items-center text-center">
-                    <img
-                      src={person.avatar || "/placeholder.svg"}
-                      alt={person.author}
-                      className="w-10 h-10 rounded-full border-2 border-blue-400"
-                    />
-                    <p className="text-[10px] font-normal mt-1">{person.name}</p>
-                    <p className="text-[9px] text-gray-500">{person.role}</p>
+        {/* Selected Conversation Posts */}
+        {selectedConversation && (
+              <div className="bg-white border rounded-sm border-gray-100 p-4 mt-6">
+                {/* Add sorting controls to the conversation header */}
+                <div className="flex justify-between items-center mb-4">
+                  <div className="flex items-center gap-2">
+                    <h3 className="text-xs font-medium text-[#1C4587]">{selectedConversation.name}</h3>
+                    {selectedConversation.isPublic ? (
+                      <Globe size={14} className="text-green-600" />
+                    ) : (
+                      <Lock size={14} className="text-orange-500" />
+                    )}
                   </div>
-                ))}
-              </div>
-            </div>
-            <div className="bg-white mt-2 rounded-sm">
-              <h1 className="text-xs text-gray-700 font-semibold mb-2">Group 2</h1>
-              <div className="flex flex-wrap justify-center grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-5">
-                {users.map((person, index) => (
-                  <div key={index} className="flex flex-col items-center  text-center">
-                    <img
-                      src={person.avatar || "/placeholder.svg"}
-                      alt={person.author}
-                      className="w-10 h-10 rounded-full border-2 border-blue-400"
-                    />
-                    <p className="text-[10px] font-normal mt-1">{person.name}</p>
-                    <p className="text-[9px] text-gray-500">{person.role}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        {/* vote section  */}
-        <div className="flex flex-col lg:flex-row justify-between shadow-[0px_19px_48px_0px_#CFC9DDB2] rounded-sm
-        p-2">
-          {/* Main Voting Area */}
-          <div className="bg-white p-6 rounded-sm">
-            <h2 className="text-lg font-semibold text-[#1C4587]">Vote for the Group Name</h2>
-
-            {voted && <p className="text-[#1C4587] text-xs mt-1">Remaining time: 1h 10 min</p>}
-
-            <div className="mt-6 space-y-5">
-              {Object.keys(votes).map((name) => (
-                <div key={name} className="space-y-1">
-                  <label className="flex items-center gap-3 cursor-pointer">
-                    <div
-                      className={`w-5 h-5 rounded-full border-2 border-[#1C4587] flex items-center justify-center ${selectedVote === name || (voted && name === "Innovators Hub") ? "bg-[#1C4587]" : "bg-white"
-                        }`}
-                      onClick={() => handleVote(name)}
+                  <div className="flex items-center gap-3">
+                    <button
+                      onClick={() => setSortOrder(sortOrder === "asc" ? "desc" : "asc")}
+                      className="flex items-center gap-1 p-1 text-[10px] font-medium rounded-sm transition-colors text-[#1C4587]"
                     >
-                      {(selectedVote === name || (voted && name === "Innovators Hub")) && (
-                        <div className="w-2 h-2 bg-white rounded-full"></div>
+                      <span>Likes</span>
+                      {sortOrder === "asc" ? (
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="14"
+                          height="14"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <path d="m3 8 4-4 4 4" />
+                          <path d="M7 4v16" />
+                          <path d="M11 12h4" />
+                          <path d="M11 16h7" />
+                          <path d="M11 20h10" />
+                        </svg>
+                      ) : (
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="14"
+                          height="14"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <path d="m3 16 4 4 4-4" />
+                          <path d="M7 20V4" />
+                          <path d="M11 4h10" />
+                          <path d="M11 8h7" />
+                          <path d="M11 12h4" />
+                        </svg>
                       )}
-                    </div>
-                    <span className="text-[#1C4587] text-xs">{name}</span>
-                  </label>
+                    </button>
+                    <span className="text-xs text-gray-500">{selectedConversation.members} members</span>
+                  </div>
+                </div>
 
-                  {voted && (
-                    <div className="pl-8">
-                      <div className="w-full h-1.5 bg-gray-200 rounded-full mt-1">
-                        <div
-                          className="h-full bg-[#1C4587] rounded-full"
-                          style={{ width: `${(votes[name] / totalVotes) * 100}%` }}
-                        ></div>
+                {/* Post Input */}
+                <div className="mb-4 border border-gray-200 rounded-sm p-3">
+                  <div className="flex items-start gap-3">
+                    <img src="/avatar.png" alt="Your Avatar" className="w-8 h-8 rounded-full" />
+                    <div className="flex-1">
+                      <textarea
+                        value={newPost}
+                        onChange={(e) => setNewPost(e.target.value)}
+                        placeholder={`Share something in ${selectedConversation.name}...`}
+                        className="w-full p-2 text-xs border border-gray-200 rounded-sm focus:outline-none focus:border-[#1C4587] min-h-[60px] resize-none"
+                      />
+
+                      {/* File and Image Previews */}
+                      {(filePreview || imagePreview) && (
+                        <div className="mt-2 p-2 bg-gray-50 rounded-sm">
+                          {filePreview && (
+                            <div className="flex items-center justify-between">
+                              <div className="flex items-center gap-2">
+                                <Paperclip className="w-4 h-4 text-[#1C4587]" />
+                                <span className="text-[10px] text-[#1C4587]">{filePreview}</span>
+                              </div>
+                              <button
+                                onClick={() => {
+                                  setSelectedFile(null)
+                                  setFilePreview(null)
+                                }}
+                                className="text-red-500 text-[10px] cursor-pointer"
+                              >
+                                Remove
+                              </button>
+                            </div>
+                          )}
+
+                          {imagePreview && (
+                            <div className="mt-2">
+                              <div className="flex items-center justify-between mb-1">
+                                <span className="text-[10px] text-[#1C4587]">{selectedImage.name}</span>
+                                <button
+                                  onClick={() => {
+                                    setSelectedImage(null)
+                                    setImagePreview(null)
+                                  }}
+                                  className="text-red-500 text-[10px] cursor-pointer"
+                                >
+                                  Remove
+                                </button>
+                              </div>
+                              <img
+                                src={imagePreview || "/placeholder.svg"}
+                                alt="Preview"
+                                className="max-h-32 rounded-sm object-contain"
+                              />
+                            </div>
+                          )}
+                        </div>
+                      )}
+
+                      <div className="flex justify-between items-center mt-2">
+                        <div className="flex items-center gap-2">
+                          <label htmlFor="file-upload" className="text-gray-500 hover:text-[#1C4587] cursor-pointer">
+                            <Paperclip className="w-4 h-4" />
+                            <input id="file-upload" type="file" className="hidden" onChange={handleFileChange} />
+                          </label>
+                          <label htmlFor="image-upload" className="text-gray-500 hover:text-[#1C4587] cursor-pointer">
+                            <ImageIcon className="w-4 h-4" />
+                            <input
+                              id="image-upload"
+                              type="file"
+                              accept="image/*"
+                              className="hidden"
+                              onChange={handleImageChange}
+                            />
+                          </label>
+                          <label htmlFor="link-upload" className="text-gray-500 hover:text-[#1C4587] cursor-pointer">
+                            <LinkIcon className="w-4 h-4" />
+                          </label>
+                        </div>
+                        <button
+                          onClick={handlePostSubmit}
+                          className="bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white px-3 py-1 rounded-sm text-xs hover:from-[#15366b] hover:to-[#2861c4] transition-colors cursor-pointer"
+                        >
+                          Post
+                        </button>
                       </div>
-                      <p className="text-xs text-[#1C4587] mt-1">{`0${votes[name]}`}/10 votes</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Posts List */}
+                <div className="space-y-4">
+                  {selectedConversation.posts.length > 0 ? (
+                    sortPosts(selectedConversation.posts).map((post) => (
+                      <motion.div
+                        key={post.id}
+                        className="border border-gray-200 rounded-sm p-3"
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <div className="flex justify-between">
+                          <div className="flex items-center gap-2">
+                            <img
+                              src={post.avatar || "/placeholder.svg"}
+                              alt={post.author}
+                              className="w-8 h-8 rounded-full"
+                            />
+                            <div>
+                              <h4 className="text-xs font-medium">{post.author}</h4>
+                              <p className="text-[10px] text-gray-500">{post.role}</p>
+                            </div>
+                          </div>
+                          <div className="text-[10px] text-gray-500">
+                            <div className="flex items-center gap-1">
+                              <img src="/calender.svg" alt="" className="w-3 h-3" />
+                              <span>{post.date}</span>
+                            </div>
+                            <div className="flex items-center gap-1">
+                              <img src="/clock.svg" alt="" className="w-3 h-3" />
+                              <span>{post.time}</span>
+                            </div>
+                          </div>
+                        </div>
+
+                        <p className="text-xs text-gray-700 my-2">{post.content}</p>
+
+                        {post.attachments && post.attachments.length > 0 && (
+                          <div className="my-2 p-2 bg-gray-50 rounded-sm">
+                            {post.attachments.map((attachment, index) => (
+                              <div key={index} className="mb-2 last:mb-0">
+                                {attachment.type === "image" ? (
+                                  <div>
+                                    <div className="flex items-center justify-between mb-1">
+                                      <span className="text-[10px] text-[#1C4587]">{attachment.name}</span>
+                                      <a
+                                        href={attachment.preview}
+                                        download={attachment.name}
+                                        className="text-[#1C4587] text-[10px] hover:underline cursor-pointer"
+                                      >
+                                        Download
+                                      </a>
+                                    </div>
+                                    <img
+                                      src={attachment.preview || "/placeholder.svg"}
+                                      alt={attachment.name}
+                                      className="max-h-32 rounded-sm object-contain"
+                                    />
+                                  </div>
+                                ) : (
+                                  <div className="flex items-center justify-between">
+                                    <div className="flex items-center gap-2">
+                                      {attachment.type === "pdf" ? (
+                                        <svg
+                                          xmlns="http://www.w3.org/2000/svg"
+                                          width="16"
+                                          height="16"
+                                          viewBox="0 0 24 24"
+                                          fill="none"
+                                          stroke="currentColor"
+                                          strokeWidth="2"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                          className="text-red-500"
+                                        >
+                                          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                          <polyline points="14 2 14 8 20 8"></polyline>
+                                          <path d="M9 15v-2h6v2"></path>
+                                          <path d="M12 15v3"></path>
+                                          <path d="M9 11h.01"></path>
+                                          <path d="M15 11h.01"></path>
+                                        </svg>
+                                      ) : (
+                                        <Paperclip className="w-4 h-4 text-[#1C4587]" />
+                                      )}
+                                      <span className="text-[10px] text-[#1C4587]">{attachment.name}</span>
+                                      {attachment.size && (
+                                        <span className="text-[9px] text-gray-500">({attachment.size})</span>
+                                      )}
+                                    </div>
+                                    <a
+                                      href="#"
+                                      className="text-[#1C4587] text-[10px] hover:underline cursor-pointer"
+                                      onClick={(e) => {
+                                        e.preventDefault()
+                                        alert(`Download functionality would be implemented here for ${attachment.name}`)
+                                      }}
+                                    >
+                                      Download
+                                    </a>
+                                  </div>
+                                )}
+                              </div>
+                            ))}
+                          </div>
+                        )}
+
+                        <div className="flex items-center gap-4 mt-2 text-[10px]">
+                          <button
+                            onClick={() => handleLike(selectedConversation.id, post.id)}
+                            className={`flex items-center gap-1 ${post.likedBy?.includes(currentUserId)
+                              ? "text-red-500"
+                              : "text-gray-500 hover:text-[#1C4587]"
+                              } cursor-pointer`}
+                          >
+                            <Heart
+                              className={`w-3 h-3 ${post.likedBy?.includes(currentUserId) ? "fill-red-500" : ""}`}
+                            />
+                            <span>
+                              {post.likedBy?.includes(currentUserId) ? "Unlike" : "Like"} ({post.likes})
+                            </span>
+                          </button>
+                          <button className="flex items-center gap-1 text-gray-500 hover:text-[#1C4587] cursor-pointer">
+                            <MessageSquare className="w-3 h-3" />
+                            <span>Comment ({post.comments})</span>
+                          </button>
+                          <button className="flex items-center gap-1 text-gray-500 hover:text-[#1C4587] cursor-pointer">
+                            <Share2 className="w-3 h-3" />
+                            <span>Share</span>
+                          </button>
+                        </div>
+                      </motion.div>
+                    ))
+                  ) : (
+                    <div className="text-center py-8 text-gray-500 text-sm">
+                      <Users className="w-8 h-8 mx-auto mb-2 text-gray-400" />
+                      <p>No posts in this conversation yet.</p>
+                      <p className="text-xs mt-1">Be the first to share something!</p>
                     </div>
                   )}
                 </div>
-              ))}
-            </div>
-
-            {!voted && (
-              <button
-                className="mt-6 bg-[#1C4587] text-white py-1.5 px-4 rounded-sm text-xs hover:bg-[#15366b] transition-colors outline-none focus:ring-0"
-                onClick={handleSubmit}
-                disabled={!selectedVote}
-              >
-                Submit
-              </button>
-            )}
-          </div>
-
-          {/* Vote Count Section - Only visible after voting */}
-          {voted && (
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              className="bg-white border border-gray-300 p-6 rounded-sm w-full lg:w-80"
-            >
-              <h3 className="text-base font-semibold text-[#1C4587] mb-4">Vote Count</h3>
-
-              <div className="space-y-6">
-                {Object.keys(votes).map((name) => (
-                  <div key={name} className="space-y-1">
-                    <div className="flex items-center gap-3">
-                      <div className="w-5 h-5 rounded-full bg-[#1C4587] flex items-center justify-center">
-                        <div className="w-2 h-2 bg-white rounded-full"></div>
-                      </div>
-                      <span className="text-[#1C4587] text-xs">{name}</span>
-                    </div>
-
-                    <div className="w-full h-1.5 bg-gray-200 rounded-full mt-2">
-                      <div
-                        className="h-full bg-[#1C4587] rounded-full"
-                        style={{ width: `${(votes[name] / totalVotes) * 100}%` }}
-                      ></div>
-                    </div>
-
-                    <p className="text-xs text-[#1C4587] mt-1">{`0${votes[name]}`}/10 votes</p>
-                  </div>
-                ))}
               </div>
-            </motion.div>
-          )}
-        </div>
+            )}
       </div>
 
-      {/* Modal */}
+      {/* Modals */}
       {createGroupModal && (
         <DetailsCreateGroupModal isOpen={createGroupModal} onClose={() => setCreateGroupModal(false)} />
       )}
 
-      {/* Modal */}
-      <CreateTopicModal
-        isOpen={isTopicModalOpen}
-        onClose={() => setIsTopicModalOpen(false)}
-      />
+      {isTopicModalOpen && <CreateTopicModal isOpen={isTopicModalOpen} onClose={() => setIsTopicModalOpen(false)} />}
 
-      <EditTopicModal
-        isOpen={isEditTopicModal}
-        onClose={() => setIsEditTopicModal(false)}
-        category={currentCategory}
-      />
+      {isEditTopicModal && (
+        <EditTopicModal
+          isOpen={isEditTopicModal}
+          onClose={() => setIsEditTopicModal(false)}
+          category={currentCategory}
+        />
+      )}
 
-      {/* Modal for Edit Bond */}
-      <DeleteTopicModal
-        isOpen={isDeleteTopicModal}
-        onClose={() => setIsDeleteTopicModal(false)}
-        handleDeleteConfirm={handleDeleteConfirm}
-        category={currentCategory}
-      />
+      {isDeleteTopicModal && (
+        <DeleteTopicModal
+          isOpen={isDeleteTopicModal}
+          onClose={() => setIsDeleteTopicModal(false)}
+          handleDeleteConfirm={handleDeleteConfirm}
+          category={currentCategory}
+        />
+      )}
     </div>
   )
 }
@@ -459,8 +1051,7 @@ const EcoFriendlyPackage = () => {
 export default function Wrapper() {
   return (
     <Suspense fallback={<div className="text-center py-10">Loading...</div>}>
-      <EcoFriendlyPackage />
+      <InstitutionDetails />
     </Suspense>
   )
 }
-
