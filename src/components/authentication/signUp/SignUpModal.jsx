@@ -7,24 +7,41 @@ import { setUser } from "@/store/mainSlice"
 import { useDispatch } from "react-redux"
 
 const SignUpModal = ({ isOpen, onClose, setIsLoginModalOpen }) => {
+
   const dispatch = useDispatch()
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm()
+
+
   const [showPassword, setShowPassword] = useState(false)
   const [loading, setLoading] = useState(false)
 
+  const [skilledPeople, setSkilledPeople] = useState([
+    { name: "", profession: "", phone: "" },
+    { name: "", profession: "", phone: "" },
+    { name: "", profession: "", phone: "" },
+  ]);
+  
+  const handleSkilledChange = (index, field, value) => {
+    const updated = [...skilledPeople];
+    updated[index][field] = value;
+    setSkilledPeople(updated);
+  };
+
   const onSubmit = async (data) => {
-    setLoading(true)
+    setLoading(true);
     setTimeout(() => {
-      setLoading(false)
-      console.log(data)
-      dispatch(setUser(data))
-      onClose()
-    }, 1500)
-  }
+      setLoading(false);
+      console.log({ ...data, skilledPeople });
+      dispatch(setUser({ ...data, skilledPeople }));
+      onClose();
+    }, 1500);
+  };
+  
 
   return (
     <AnimatePresence>
@@ -78,7 +95,7 @@ const SignUpModal = ({ isOpen, onClose, setIsLoginModalOpen }) => {
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                 {/* Username */}
                 <div>
-                  <label className="block text-gray-700 text-xs font-medium mb-1">User name</label>
+                  <label className="block text-[#1C4587] text-xs font-medium mb-1">User name</label>
                   <input
                     type="text"
                     placeholder="Enter your username"
@@ -90,7 +107,7 @@ const SignUpModal = ({ isOpen, onClose, setIsLoginModalOpen }) => {
 
                 {/* Email */}
                 <div>
-                  <label className="block text-gray-700 text-xs font-medium mb-1">Email</label>
+                  <label className="block text-[#1C4587] text-xs font-medium mb-1">Email</label>
                   <input
                     type="email"
                     placeholder="Enter your email"
@@ -100,9 +117,42 @@ const SignUpModal = ({ isOpen, onClose, setIsLoginModalOpen }) => {
                   {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>}
                 </div>
 
+                {/* Skilled People (Optional) */}
+              <div className="pt-4">
+                <label className="block text-[#1C4587] text-xs font-semibold mb-2">
+                  Recommend up to 3 skilled people (Optional)
+                </label>
+
+                {[0, 1, 2].map((_, index) => (
+                  <div key={index} className="grid grid-cols-3 gap-2 mb-2">
+                    <input
+                      type="text"
+                      placeholder="Name"
+                      value={skilledPeople[index].name}
+                      onChange={(e) => handleSkilledChange(index, "name", e.target.value)}
+                      className="px-2 py-1 text-xs rounded-sm bg-white border border-gray-300 focus:outline-none focus:border-[#1C4587]"
+                    />
+                    <input
+                      type="text"
+                      placeholder="Profession (e.g. electrician)"
+                      value={skilledPeople[index].profession}
+                      onChange={(e) => handleSkilledChange(index, "profession", e.target.value)}
+                      className="px-2 py-1 text-xs rounded-sm bg-white border border-gray-300 focus:outline-none focus:border-[#1C4587]"
+                    />
+                    <input
+                      type="number"
+                      placeholder="Phone"
+                      value={skilledPeople[index].phone}
+                      onChange={(e) => handleSkilledChange(index, "phone", e.target.value)}
+                      className="px-2 py-1 text-xs rounded-sm bg-white border border-gray-300 focus:outline-none focus:border-[#1C4587]"
+                    />
+                  </div>
+                ))}
+              </div>
+
                 {/* Contact */}
                 <div>
-                  <label className="block text-gray-700 text-xs font-medium mb-1">Contact no</label>
+                  <label className="block text-[#1C4587] text-xs font-medium mb-1">Contact no</label>
                   <input
                     type="tel"
                     placeholder="Enter your contact number"
@@ -114,7 +164,7 @@ const SignUpModal = ({ isOpen, onClose, setIsLoginModalOpen }) => {
 
                 {/* Password */}
                 <div>
-                  <label className="block text-gray-700 text-xs font-medium mb-1">Password</label>
+                  <label className="block text-[#1C4587] text-xs font-medium mb-1">Password</label>
                   <div className="relative">
                     <input
                       type={showPassword ? "text" : "password"}
@@ -127,7 +177,7 @@ const SignUpModal = ({ isOpen, onClose, setIsLoginModalOpen }) => {
                       className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-[#1C4587]"
                       onClick={() => setShowPassword(!showPassword)}
                     >
-                      {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+                      {showPassword ? <EyeOff size={15} /> : <Eye size={15} />}
                     </button>
                   </div>
                   {errors.password && <p className="text-red-500 text-xs mt-1">{errors.password.message}</p>}
