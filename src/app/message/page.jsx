@@ -343,7 +343,7 @@ const ChatInterface = () => {
             {/* Chat Header */}
             <div className="p-4 border-b border-[#ABC4ED] flex items-center gap-3">
               {isMobile && (
-                <button onClick={handleBackToList} className="mr-2">
+                <button onClick={handleBackToList} className="mr-2 cursor-pointer">
                   <ArrowLeft className="h-5 w-5 text-blue-900" />
                 </button>
               )}
@@ -362,7 +362,7 @@ const ChatInterface = () => {
                 </span>
               </div>
               {isMobile && (
-                <button onClick={handleShowMedia} className="text-blue-900">
+                <button onClick={handleShowMedia} className="text-blue-900 cursor-pointer">
                   <Menu className="h-5 w-5" />
                 </button>
               )}
@@ -435,10 +435,10 @@ const ChatInterface = () => {
                 placeholder="Type a message..."
                 className="flex-1 p-2 border outline-none border-[#ABC4ED] rounded-md text-sm"
               />
-              <motion.button whileHover={{ scale: 1.1 }} className="p-2 text-blue-600">
+              <motion.button whileHover={{ scale: 1.1 }} className="p-2 text-blue-600 cursor-pointer">
                 <Paperclip className="h-5 w-5" />
               </motion.button>
-              <motion.button whileHover={{ scale: 1.1 }} className="p-2 text-blue-600" onClick={handleSendMessage}>
+              <motion.button whileHover={{ scale: 1.1 }} className="p-2 text-blue-600 cursor-pointer" onClick={handleSendMessage}>
                 <Send className="h-5 w-5" />
               </motion.button>
             </div>
@@ -456,7 +456,7 @@ const ChatInterface = () => {
                   <div className="w-full">
                     {isMobile && (
                       <div className="flex justify-between items-center mb-4">
-                        <button onClick={() => setActiveView("chat")} className="text-blue-900">
+                        <button onClick={() => setActiveView("chat")} className="text-blue-900 cursor-pointer">
                           <ArrowLeft className="h-5 w-5" />
                         </button>
                         <h3 className="font-medium">Media & Attachments</h3>
@@ -505,7 +505,7 @@ const ChatInterface = () => {
                                   <p className="text-sm font-medium">{item.name}</p>
                                   <p className="text-xs text-gray-500">{item.size}</p>
                                 </div>
-                                <button className="text-blue-600 text-xs">Download</button>
+                                <button className="text-blue-600 text-xs cursor-pointer">Download</button>
                               </div>
                             </div>
                           ))}
@@ -523,7 +523,7 @@ const ChatInterface = () => {
             <div className="text-center mt-auto pt-4">
               <button
                 onClick={() => setIsMarkModalOpen(true)}
-                className="text-white font-medium rounded-sm px-3 py-1 text-sm bg-gradient-to-b from-[#1C4587] to-[#3279EA]"
+                className="text-white font-medium cursor-pointer rounded-sm px-3 py-1 text-sm bg-gradient-to-b from-[#1C4587] to-[#3279EA]"
               >
                 Mark as complete
               </button>

@@ -23,7 +23,7 @@ export default function EditEventModal({ onClose }) {
         className="bg-white p-6 rounded-lg shadow-lg w-96 relative"
       >
         {/* Close Button */}
-        <button onClick={onClose} className="absolute top-3 right-3 bg-[#1C4587] p-1 rounded-full text-white">
+        <button onClick={onClose} className="absolute top-3 right-3 bg-[#1C4587] p-1 rounded-full text-white cursor-pointer">
           <X size={20} />
         </button>
 
@@ -58,7 +58,7 @@ export default function EditEventModal({ onClose }) {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             type="submit"
-            className="w-full bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white py-2 rounded-lg font-semibold"
+            className="w-full cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white py-2 rounded-lg font-semibold"
           >
             Submit
           </motion.button>

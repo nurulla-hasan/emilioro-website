@@ -17,7 +17,7 @@ const RatingModal = ({ isOpen, onClose }) => {
         className="bg-white relative p-5 rounded-sm shadow-lg w-[400px] text-center"
       >
         {/* Close Button */}
-        <div className="absolute top-2 right-2">
+        <div className="absolute top-2 right-2 cursor-pointer">
           <img className="w-5" onClick={onClose} src="/x.svg" alt="" />
         </div>
 
@@ -42,7 +42,7 @@ const RatingModal = ({ isOpen, onClose }) => {
 
         {/* Submit Button */}
         <button
-          className="px-6 bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white py-1.5 rounded-sm font-medium text-xs"
+          className="px-6 cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white py-1.5 rounded-sm font-medium text-xs"
           onClick={onClose}
         >
           Submit

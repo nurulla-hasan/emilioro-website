@@ -13,7 +13,7 @@ const SelectSkillsModal = ({ onClose, onSave }) => {
                 className="bg-white p-6 rounded-lg shadow-lg w-96 relative"
             >
                 {/* Close Button */}
-                <button onClick={onClose} className="absolute top-3 right-3 text-white bg-[#1C4587] p-1 rounded-full">
+                <button onClick={onClose} className="cursor-pointer absolute top-3 right-3 text-white bg-[#1C4587] p-1 rounded-full">
                     <X size={20} />
                 </button>
 
@@ -32,7 +32,7 @@ const SelectSkillsModal = ({ onClose, onSave }) => {
                 </select>
 
                 {/* Buttons */}
-                <div className="flex justify-end mt-4 gap-3">
+                <div className="flex justify-end mt-4 gap-3 *:cursor-pointer">
                     <button onClick={onClose} className="border border-[#1C4587] text-[#1C4587] px-4 py-2 rounded-lg font-semibold">
                         Cancel
                     </button>

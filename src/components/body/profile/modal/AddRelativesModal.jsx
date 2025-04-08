@@ -20,7 +20,7 @@ export default function AddRelativesModal({ isOpen, onClose }) {
         className="bg-white p-4 rounded-sm shadow-lg w-96 relative"
       >
         {/* Close Button */}
-        <button onClick={onClose} className="absolute top-3 right-3 text-white bg-[#1C4587] p-1 rounded-full">
+        <button onClick={onClose} className="absolute cursor-pointer top-3 right-3 text-white bg-[#1C4587] p-1 rounded-full">
           <X size={20} />
         </button>
 
@@ -69,7 +69,7 @@ export default function AddRelativesModal({ isOpen, onClose }) {
           <motion.button
             whileTap={{ scale: 0.95 }}
             type="submit"
-            className="w-full bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white py-1 rounded-sm font-medium text-sm"
+            className="w-full cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white py-1 rounded-sm font-medium text-sm"
           >
             Submit
           </motion.button>

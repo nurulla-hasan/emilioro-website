@@ -93,7 +93,7 @@ const DonateUsPaymentModal = ({ isOpen, onClose, totalAmount = 155.0 }) => {
               {/* Close Button */}
               <button
                 onClick={onClose}
-                className="absolute top-4 right-4"
+                className="absolute top-4 right-4 cursor-pointer"
                 aria-label="Close"
               >
                 <img src="/x.svg" alt="" />
@@ -243,7 +243,7 @@ const DonateUsPaymentModal = ({ isOpen, onClose, totalAmount = 155.0 }) => {
                 {/* Payment Button */}
                 <button
                   type="submit"
-                  className="w-full bg-[#1C4587] hover:bg-[#15366b] text-white text-sm font-medium py-2 rounded transition"
+                  className="w-full cursor-pointer bg-[#1C4587] hover:bg-[#15366b] text-white text-sm font-medium py-2 rounded transition"
                 >
                   Confirm to pay
                 </button>
@@ -276,7 +276,7 @@ const DonateUsPaymentModal = ({ isOpen, onClose, totalAmount = 155.0 }) => {
                   setIsSuccess(false)
                   onClose()
                 }}
-                className="mt-4 w-1/3 bg-[#1C4587] text-white text-[10px] font-medium py-2 rounded-sm hover:bg-opacity-90 transition outline-none"
+                className="mt-4 cursor-pointer w-1/3 bg-[#1C4587] text-white text-[10px] font-medium py-2 rounded-sm hover:bg-opacity-90 transition outline-none"
               >
                 Go Home
               </button>

@@ -60,7 +60,7 @@ const JoinInstitutionModal = ({ isOpen, setIsOpen }) => {
           </div>
 
           {/* Buttons */}
-          <div className="flex justify-between items-center pt-2">
+          <div className="flex justify-between items-center pt-2 *:cursor-pointer">
             <button
               type="button"
               onClick={() => setIsOpen(false)}

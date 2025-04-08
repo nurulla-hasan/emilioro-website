@@ -95,7 +95,7 @@ const AddUserModal = ({ isOpen, setIsOpen }) => {
                     <button
                       type="button"
                       onClick={() => handleRemoveTag(tag)}
-                      className="w-5 h-5 flex items-center justify-center text-red-500 flex-shrink-0"
+                      className="w-5 h-5 flex items-center justify-center text-red-500 flex-shrink-0 cursor-pointer"
                       aria-label="Remove user"
                     >
                       <div className="w-3 h-0.5 bg-red-500"></div>
@@ -110,7 +110,7 @@ const AddUserModal = ({ isOpen, setIsOpen }) => {
               type="button"
               onClick={addTag}
               whileTap={{ scale: 0.95 }}
-              className="text-gray-600 text-xs font-medium border border-gray-300 py-1.5 rounded-sm w-full hover:bg-gray-50"
+              className="text-gray-600 cursor-pointer text-xs font-medium border border-gray-300 py-1.5 rounded-sm w-full hover:bg-gray-50"
             >
               + Add more
             </motion.button>
@@ -119,7 +119,7 @@ const AddUserModal = ({ isOpen, setIsOpen }) => {
             <motion.button
               whileTap={{ scale: 0.95 }}
               type="submit"
-              className="bg-gradient-to-b from-[#1C4587] to-[#3175e2] text-white py-1.5 text-xs rounded-sm font-medium w-1/3"
+              className="bg-gradient-to-b from-[#1C4587] cursor-pointer to-[#3175e2] text-white py-1.5 text-xs rounded-sm font-medium w-1/3"
             >
               Submit
             </motion.button>

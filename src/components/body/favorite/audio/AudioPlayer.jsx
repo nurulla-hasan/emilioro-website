@@ -35,7 +35,7 @@ const AudioPlayer = () => {
         </div>
 
         {/* Mobile Heart Button */}
-        <button className="sm:hidden text-blue-900 hover:text-blue-700">
+        <button className="sm:hidden text-blue-900 hover:text-blue-700 cursor-pointer">
           <Heart size={18} />
         </button>
       </div>
@@ -43,7 +43,7 @@ const AudioPlayer = () => {
       {/* Main Controls and Progress - Stacked on mobile, inline on larger screens */}
       <div className="flex flex-col sm:flex-row items-center gap-3 w-full mt-3 sm:mt-0">
         {/* Controls */}
-        <div className="flex items-center gap-4 text-blue-900 order-2 sm:order-1 mt-3 sm:mt-0">
+        <div className="flex items-center gap-4 text-blue-900 order-2 sm:order-1 mt-3 sm:mt-0 *:cursor-pointer">
           <button className="hidden xs:inline-block hover:text-blue-700">
             <SkipBack size={16} />
           </button>

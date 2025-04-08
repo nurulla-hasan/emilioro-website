@@ -22,7 +22,7 @@ const DeleteTopicModal = ({ isOpen, onClose, handleDeleteConfirm }) => {
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-2 right-2"
+          className="absolute top-2 right-2 cursor-pointer"
           aria-label="Close"
         >
           <img className="w-6" src="/x.svg" alt="Close" />

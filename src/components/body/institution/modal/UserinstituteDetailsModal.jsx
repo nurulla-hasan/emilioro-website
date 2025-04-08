@@ -224,13 +224,13 @@ const UserInstituteDetailsModal = ({ selectedCardUserProject, setSelectedCardUse
 
             {/* View All Link */}
             <div className="text-right">
-              <button className="text-[#1C4587] text-xs hover:underline outline-none focus:ring-0">View all</button>
+              <button className="text-[#1C4587] text-xs hover:underline outline-none focus:ring-0 cursor-pointer">View all</button>
             </div>
           </div>
           {/* Join Button */}
           <div className="flex justify-center">
             <motion.button
-              className="w-1/2 bg-[#1C4587] text-white py-1 text-sm rounded-sm font-medium "
+              className="w-1/2 bg-[#1C4587] text-white py-1 text-sm rounded-sm font-medium cursor-pointer"
               whileTap={{ scale: 0.98 }}
             >
               Join Institution

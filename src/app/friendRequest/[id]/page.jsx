@@ -93,7 +93,7 @@ const RequestProfile = () => {
                     alt="Cover"
                     className="w-full h-48 md:h-64 object-cover"
                 />
-                <button className="absolute top-4 right-4 bg-white rounded-full p-2 shadow-sm">
+                <button className="absolute top-4 right-4 bg-white rounded-full p-2 shadow-sm cursor-pointer">
                     <Camera size={18} className="text-gray-600" />
                 </button>
             </div>
@@ -119,7 +119,7 @@ const RequestProfile = () => {
                             alt={profileData.profile.name}
                             className="w-32 h-32 rounded-full border-4 border-white object-cover"
                         />
-                        <button className="absolute bottom-2 right-2 bg-white rounded-full p-1.5 shadow-sm">
+                        <button className="absolute bottom-2 right-2 bg-white rounded-full p-1.5 shadow-sm cursor-pointer">
                             <Camera size={16} className="text-gray-600" />
                         </button>
                     </div>
@@ -216,7 +216,7 @@ const RequestProfile = () => {
                             </div>
                             {profileData.social_links[1].url}
                         </a>
-                        <div className="flex gap-2">
+                        <div className="flex gap-2 *:cursor-pointer">
                             <button className="text-red-500">
                                 <img src="/delete.svg" alt="" />
                             </button>
@@ -298,7 +298,7 @@ const RequestProfile = () => {
                                             <p className="text-xs text-gray-500">{relative.relation}</p>
                                         </div>
                                     </div>
-                                    <div className="flex items-center gap-2">
+                                    <div className="flex items-center gap-2 *:cursor-pointer">
                                         <button className="text-[#1C4587] flex items-center text-xs gap-1">
                                             <img src="/messenger.svg" alt="" /> Chat now
                                         </button>
@@ -332,7 +332,7 @@ const RequestProfile = () => {
                                             <p className="text-xs text-gray-500">{relative.relation}</p>
                                         </div>
                                     </div>
-                                    <div className="flex items-center gap-2">
+                                    <div className="flex items-center gap-2 *:cursor-pointer">
                                         <button className="text-[#1C4587] flex items-center text-xs gap-1">
                                             <img src="/messenger.svg" alt="" /> Chat now
                                         </button>

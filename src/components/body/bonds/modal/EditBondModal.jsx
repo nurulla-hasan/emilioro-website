@@ -23,7 +23,7 @@ const EditBondModal = ({ isOpen, onClose, currentBond, handleEditConfirm }) => {
           {/* Close Button */}
           <button
             onClick={onClose}
-            className="absolute top-3 right-3 bg-[#1C4587] rounded-full text-white hover:text-gray-700"
+            className="absolute top-3 right-3 bg-[#1C4587] rounded-full text-white hover:text-gray-700 cursor-pointer"
             aria-label="Close"
           >
             <img className="w-5" src="/x.svg" alt="Close" />
@@ -49,7 +49,7 @@ const EditBondModal = ({ isOpen, onClose, currentBond, handleEditConfirm }) => {
             {/* Submit Button */}
             <button
               type="submit"
-              className="px-4 py-2 bg-[#1C4587] text-white font-medium rounded-sm text-[10px] outline-none focus:ring-0 transition"
+              className="px-4 py-2 bg-[#1C4587] text-white font-medium rounded-sm text-[10px] outline-none focus:ring-0 transition cursor-pointer"
             >
               Submit
             </button>

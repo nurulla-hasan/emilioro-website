@@ -29,7 +29,7 @@ const EditProjectModal = ({ isOpen, setIsOpen, onSubmit }) => {
                             {/* Header */}
                             <div className="flex justify-between items-center mb-3">
                                 <Dialog.Title className="text-lg font-semibold text-gray-700">Edit Project</Dialog.Title>
-                                <button onClick={() => setIsOpen(false)} className="text-gray-500 hover:text-gray-700">
+                                <button onClick={() => setIsOpen(false)} className="text-gray-500 hover:text-gray-700 cursor-pointer">
                                     <img className="w-5" src="/x.svg" alt="" />
                                 </button>
                             </div>
@@ -82,7 +82,7 @@ const EditProjectModal = ({ isOpen, setIsOpen, onSubmit }) => {
                                 <motion.button
                                     whileTap={{ scale: 0.95 }}
                                     type="submit"
-                                    className="bg-gradient-to-b from-[#1C4587] to-[#3175e2] text-white py-1.5 text-xs rounded-sm font-medium w-1/3"
+                                    className="bg-gradient-to-b from-[#1C4587] to-[#3175e2] cursor-pointer text-white py-1.5 text-xs rounded-sm font-medium w-1/3"
                                 >
                                     Submit
                                 </motion.button>

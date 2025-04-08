@@ -96,7 +96,7 @@ const BondRequest = () => {
                 {/* Tabs */}
                 <div className="flex gap-8 mb-8 *:text-sm *:font-semibold">
                     <button
-                        className={`text-lg font-medium relative ${activeTab === "sent" ? "text-[#1C4587]" : "text-gray-400"
+                        className={`text-lg font-medium relative cursor-pointer ${activeTab === "sent" ? "text-[#1C4587]" : "text-gray-400"
                             }`}
                         onClick={() => setActiveTab("sent")}
                     >
@@ -109,7 +109,7 @@ const BondRequest = () => {
                         )}
                     </button>
                     <button
-                        className={`text-lg font-medium relative ${activeTab === "received" ? "text-[#1C4587]" : "text-gray-400"
+                        className={`text-lg font-medium relative cursor-pointer ${activeTab === "received" ? "text-[#1C4587]" : "text-gray-400"
                             }`}
                         onClick={() => setActiveTab("received")}
                     >
@@ -166,7 +166,7 @@ const BondRequest = () => {
                                                 whileHover={{ scale: 1.02 }}
                                                 whileTap={{ scale: 0.98 }}
                                                 onClick={() => handleDecline(req.id)}
-                                                className="flex-1 py-1 px-4 border border-[#1C4587] text-[#1C4587] rounded-md text-xs font-medium hover:bg-gray-50 transition-colors"
+                                                className="flex-1 py-1 cursor-pointer px-4 border border-[#1C4587] text-[#1C4587] rounded-md text-xs font-medium hover:bg-gray-50 transition-colors"
                                             >
                                                 Decline
                                             </motion.button>
@@ -174,7 +174,7 @@ const BondRequest = () => {
                                                 whileHover={{ scale: 1.02 }}
                                                 whileTap={{ scale: 0.98 }}
                                                 onClick={() => handleAccept(req.id)}
-                                                className="flex-1 py-1 px-4 bg-[#1C4587] text-white rounded-md text-xs font-medium hover:bg-[#15366b] transition-colors"
+                                                className="flex-1 py-1 cursor-pointer px-4 bg-[#1C4587] text-white rounded-md text-xs font-medium hover:bg-[#15366b] transition-colors"
                                             >
                                                 Accept
                                             </motion.button>

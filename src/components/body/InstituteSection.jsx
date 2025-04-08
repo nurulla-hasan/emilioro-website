@@ -103,7 +103,7 @@ const EcoFriendlyCards = () => {
                             <div className='flex justify-between items-center'>
                                 
 
-                                <button className='px-6 py-[6] items-center bg-white  rounded-lg font-semibold border-2 border-[#1C4587] to-[#3279EA] text-[#1C4587] text-[11px]'>
+                                <button className='px-6 py-[6] items-center bg-white  rounded-lg font-semibold border-2 border-[#1C4587] to-[#3279EA] text-[#1C4587] text-[11px] cursor-pointer'>
                                     View Details
                                 </button>
 

@@ -22,7 +22,7 @@ const SocialAccountModal = ({ isOpen, onClose }) => {
         className="bg-white p-4 rounded-sm shadow-lg w-96 relative"
       >
         {/* Close Button */}
-        <button onClick={onClose} className="absolute top-3 right-3 text-white bg-[#1C4587] p-1 rounded-full">
+        <button onClick={onClose} className="absolute cursor-pointer top-3 right-3 text-white bg-[#1C4587] p-1 rounded-full">
           <X size={20} />
         </button>
 
@@ -56,7 +56,7 @@ const SocialAccountModal = ({ isOpen, onClose }) => {
           <motion.button
             whileTap={{ scale: 0.95 }}
             type="submit"
-            className=" px-4 bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white text-xs py-1 rounded-sm font-medium"
+            className="cursor-pointer px-4 bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white text-xs py-1 rounded-sm font-medium"
           >
             Submit
           </motion.button>

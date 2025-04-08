@@ -62,7 +62,7 @@ const SignUpModal = ({ isOpen, onClose, setIsLoginModalOpen }) => {
             {/* Close Button */}
             <button
               onClick={onClose}
-              className="absolute top-4 right-4 z-50 bg-[#1C4587] text-white rounded-full p-1 hover:bg-[#15366b] transition-colors"
+              className="cursor-pointer absolute top-4 right-4 z-50 bg-[#1C4587] text-white rounded-full p-1 hover:bg-[#15366b] transition-colors"
             >
               <X size={16} />
             </button>
@@ -80,7 +80,7 @@ const SignUpModal = ({ isOpen, onClose, setIsLoginModalOpen }) => {
                     onClose()
                     setIsLoginModalOpen(true)
                   }}
-                  className="w-full max-w-[200px] bg-[#1C4587] hover:bg-[#15366b] text-white py-1.5 rounded-sm text-xs font-medium transition-colors"
+                  className="w-full cursor-pointer max-w-[200px] bg-[#1C4587] hover:bg-[#15366b] text-white py-1.5 rounded-sm text-xs font-medium transition-colors"
                 >
                   Sign In
                 </button>
@@ -174,7 +174,7 @@ const SignUpModal = ({ isOpen, onClose, setIsLoginModalOpen }) => {
                     />
                     <button
                       type="button"
-                      className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-[#1C4587]"
+                      className="absolute cursor-pointer right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-[#1C4587]"
                       onClick={() => setShowPassword(!showPassword)}
                     >
                       {showPassword ? <EyeOff size={15} /> : <Eye size={15} />}
@@ -187,7 +187,7 @@ const SignUpModal = ({ isOpen, onClose, setIsLoginModalOpen }) => {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full bg-gradient-to-b from-[#1C4587] to-[#3279EA] hover:from-[#15366b] hover:to-[#2861c4] text-white py-1.5 text-xs rounded-sm font-medium transition-colors disabled:opacity-70"
+                  className="w-full cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] hover:from-[#15366b] hover:to-[#2861c4] text-white py-1.5 text-xs rounded-sm font-medium transition-colors disabled:opacity-70"
                 >
                   {loading ? "Signing Up..." : "Sign Up"}
                 </button>

@@ -36,7 +36,7 @@ const DeleteCardModal = ({ isOpen, onClose, handleDeleteConfirm }) => {
         <div className="mt-6 flex justify-center gap-3">
           <button
             onClick={handleDeleteConfirm}
-            className="bg-[#1C4587] text-white px-5 py-1.5 rounded-sm text-[10px]"
+            className="bg-[#1C4587] text-white px-5 py-1.5 rounded-sm text-[10px] cursor-pointer"
           >
             Delete
           </button>

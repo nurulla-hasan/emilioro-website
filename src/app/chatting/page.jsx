@@ -62,12 +62,12 @@ const ChattingPage = () => {
             </div>
             <motion.button
               whileTap={{ scale: 0.95 }}
-              className="bg-gradient-to-b from-[#193f7c] to-[#2965c4] text-white px-5 py-[7px] rounded-sm text-sm font-semibold w-full md:w-auto"
+              className="bg-gradient-to-b from-[#193f7c] to-[#2965c4] text-white px-5 py-[7px] rounded-sm text-sm font-semibold w-full md:w-auto cursor-pointer"
             >
               + Upload New Audio
             </motion.button>
 
-            <button onClick={handleMicrophoneClick} className="focus:outline-none">
+            <button onClick={handleMicrophoneClick} className="focus:outline-none cursor-pointer">
               {isRecording ? (
                 <FaStop color="red" size={30} />
               ) : (

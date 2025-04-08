@@ -53,14 +53,14 @@ const TiptapEditor = ({ bio }) => {
       {/* Toolbar */}
       <div className="flex flex-wrap items-center justify-end gap-2 pb-2 mb-2">
         {/* Image Button */}
-        <button className="p-1.5 rounded hover:bg-gray-100 border border-gray-200">
+        <button className="p-1.5 cursor-pointer rounded hover:bg-gray-100 border border-gray-200">
           <ImageIcon size={16} className="text-gray-600" />
         </button>
 
         {/* Font Size Dropdown */}
         <div className="relative">
           <button
-            className="flex items-center gap-1 p-1.5 rounded hover:bg-gray-100 border border-gray-200"
+            className="flex items-center cursor-pointer gap-1 p-1.5 rounded hover:bg-gray-100 border border-gray-200"
             onClick={() => setShowFontSizes(!showFontSizes)}
           >
             <span className="text-sm">{fontSize}</span>
@@ -72,7 +72,7 @@ const TiptapEditor = ({ bio }) => {
               {fontSizes.map((size) => (
                 <button
                   key={size}
-                  className="block w-full text-left px-3 py-1.5 text-sm hover:bg-gray-100"
+                  className="block cursor-pointer w-full text-left px-3 py-1.5 text-sm hover:bg-gray-100"
                   onClick={() => applyFontSize(size)}
                 >
                   {size}
@@ -83,7 +83,7 @@ const TiptapEditor = ({ bio }) => {
         </div>
 
         {/* Text Formatting */}
-        <div className="flex border border-gray-200 rounded overflow-hidden">
+        <div className="flex border border-gray-200 rounded overflow-hidden *:cursor-pointer">
           <button
             onClick={() => editor.chain().focus().toggleBold().run()}
             className={`p-1.5 ${editor.isActive("bold") ? "bg-gray-200" : "hover:bg-gray-100"}`}
@@ -105,7 +105,7 @@ const TiptapEditor = ({ bio }) => {
         </div>
 
         {/* Alignment */}
-        <div className="flex border border-gray-200 rounded overflow-hidden">
+        <div className="flex border border-gray-200 rounded overflow-hidden *:cursor-pointer">
           <button
             onClick={() => editor.chain().focus().setTextAlign("left").run()}
             className={`p-1.5 ${editor.isActive({ textAlign: "left" }) ? "bg-gray-200" : "hover:bg-gray-100"}`}
@@ -127,7 +127,7 @@ const TiptapEditor = ({ bio }) => {
         </div>
 
         {/* Lists */}
-        <div className="flex border border-gray-200 rounded overflow-hidden">
+        <div className="flex border border-gray-200 rounded overflow-hidden *:cursor-pointer">
           <button
             onClick={() => editor.chain().focus().toggleBulletList().run()}
             className={`p-1.5 ${editor.isActive("bulletList") ? "bg-gray-200" : "hover:bg-gray-100"}`}
@@ -151,7 +151,7 @@ const TiptapEditor = ({ bio }) => {
 
       {/* Button */}
       <div className="flex justify-center mt-4">
-        <button className="bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white text-sm px-4 py-2 rounded-sm hover:opacity-90 transition-opacity">
+        <button className="bg-gradient-to-b cursor-pointer from-[#1C4587] to-[#3279EA] text-white text-sm px-4 py-2 rounded-sm hover:opacity-90 transition-opacity">
           Generate with AI
         </button>
       </div>

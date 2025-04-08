@@ -56,7 +56,7 @@ const MarkCompleteModal = ({ isOpen, onClose }) => {
                         {/* Close Button */}
                         <button
                             onClick={onClose}
-                            className="absolute top-3 right-3 rounded-full p-1 shadow-sm z-10"
+                            className="absolute top-3 right-3 rounded-full p-1 shadow-sm z-10 cursor-pointer"
                             aria-label="Close"
                         >
                             <img src="/x.svg" alt="" />
@@ -126,7 +126,7 @@ const MarkCompleteModal = ({ isOpen, onClose }) => {
                         <div className="flex justify-center">
                             <button 
                                 onClick={() => setShowRatingModal(true)} 
-                                className="w-full bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white py-1.5 rounded-sm font-medium text-xs shadow-md"
+                                className="w-full cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white py-1.5 rounded-sm font-medium text-xs shadow-md"
                             >
                                 Mark as Complete
                             </button>

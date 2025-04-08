@@ -60,7 +60,7 @@ const FriendRequestList = ({ searchTerm = "" }) => {
                         </div>
 
                         {/* Action Buttons */}
-                        <div className="w-full flex gap-2">
+                        <div className="w-full flex gap-2 *:cursor-pointer">
                             <button className="flex-1 border border-gray-300 text-gray-700 text-[10px] py-1 px-2 rounded hover:bg-gray-50 transition-colors">
                                 Decline
                             </button>

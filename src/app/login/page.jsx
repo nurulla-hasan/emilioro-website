@@ -48,7 +48,7 @@ const LoginPage = () => {
               />
               <button
                 type="button"
-                className="absolute top-[50%] right-3 transform -translate-y-[50%] text-gray-500"
+                className="absolute cursor-pointer top-[50%] right-3 transform -translate-y-[50%] text-gray-500"
                 onClick={() => setShowPassword(!showPassword)}
               >
                 {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
@@ -69,7 +69,7 @@ const LoginPage = () => {
               type="submit"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="w-full py-2 bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white rounded-md font-medium shadow-md"
+              className="w-full cursor-pointer py-2 bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white rounded-md font-medium shadow-md"
             >
               Log in
             </motion.button>
@@ -85,7 +85,7 @@ const LoginPage = () => {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="px-6 py-2 bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white rounded-md font-medium shadow-md"
+            className="px-6 py-2 bg-gradient-to-b from-[#1C4587] to-[#3279EA] cursor-pointer text-white rounded-md font-medium shadow-md"
           >
             Sign Up
           </motion.button>

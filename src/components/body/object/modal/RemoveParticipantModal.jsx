@@ -14,7 +14,7 @@ const RemoveParticipantModal = ({ isOpen, setRemoveParticipantModal, onRemove })
     >
         {/* Close Button */}
         <button
-            className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
+            className="absolute top-2 right-2 text-gray-500 hover:text-gray-700 cursor-pointer"
             onClick={() => setRemoveParticipantModal(false)}
         >
             <img className="w-5" src="/x.svg" alt="Close" />
@@ -28,7 +28,7 @@ const RemoveParticipantModal = ({ isOpen, setRemoveParticipantModal, onRemove })
         <motion.button
             whileTap={{ scale: 0.95 }}
             onClick={onRemove}
-            className="bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white text-xs font-normal px-4 py-1 mt-3 rounded-sm"
+            className="bg-gradient-to-b from-[#1C4587] to-[#3279EA] cursor-pointer text-white text-xs font-normal px-4 py-1 mt-3 rounded-sm"
         >
             Remove
         </motion.button>

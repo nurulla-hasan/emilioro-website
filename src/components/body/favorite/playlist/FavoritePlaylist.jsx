@@ -92,11 +92,11 @@ const FavoritePlaylist = () => {
                                     </button>
                                 </Link>
 
-                                <button className='flex gap-2 px-3 text-xs py-[4.5px] items-center bg-white  rounded-sm font-semibold border-2 border-[#1C4587] to-[#3279EA] text-[#1C4587]'>
+                                <button className='flex cursor-pointer gap-2 px-3 text-xs py-[4.5px] items-center bg-white  rounded-sm font-semibold border-2 border-[#1C4587] to-[#3279EA] text-[#1C4587]'>
                                     < AiOutlineEdit />
                                     <span>Edit</span>
                                 </button>
-                                <button className='flex gap-2 px-3 text-xs py-[4.5px] items-center bg-white  rounded-sm font-semibold border-2 border-[#1C4587] to-[#3279EA] text-[#1C4587]'>
+                                <button className='flex cursor-pointer gap-2 px-3 text-xs py-[4.5px] items-center bg-white  rounded-sm font-semibold border-2 border-[#1C4587] to-[#3279EA] text-[#1C4587]'>
                                     < IoMdShare />
                                     <span>Share</span>
                                 </button>

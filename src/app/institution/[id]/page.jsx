@@ -743,7 +743,7 @@ const InstitutionDetails = () => {
                   <div className="flex items-center gap-3">
                     <button
                       onClick={() => setSortOrder(sortOrder === "asc" ? "desc" : "asc")}
-                      className="flex items-center gap-1 p-1 text-[10px] font-medium rounded-sm transition-colors text-[#1C4587]"
+                      className="flex items-center gap-1 p-1 text-[10px] cursor-pointer font-medium rounded-sm transition-colors text-[#1C4587]"
                     >
                       <span>Likes</span>
                       {sortOrder === "asc" ? (

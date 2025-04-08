@@ -58,7 +58,7 @@ const DonateUs = () => {
                             <button
                                 key={amount}
                                 onClick={() => handleSelectAmount(amount)}
-                                className={`w-[110px] py-2 rounded-sm border transition text-xs font-medium focus:outline-none ${selectedAmounts.includes(amount) ? "bg-[#1C4587] text-white hover:bg-opacity-80" : "bg-white text-[#1C4587] border-[#1C4587]"}`}
+                                className={`w-[110px] cursor-pointer py-2 rounded-sm border transition text-xs font-medium focus:outline-none ${selectedAmounts.includes(amount) ? "bg-[#1C4587] text-white hover:bg-opacity-80" : "bg-white text-[#1C4587] border-[#1C4587]"}`}
                             >
                                 {amount}$
                             </button>

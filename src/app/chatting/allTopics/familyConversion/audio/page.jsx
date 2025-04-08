@@ -142,7 +142,7 @@ const AllAudio = () => {
                   height={130}
                   className="rounded-sm object-cover w-full h-full"
                 />
-                <button className="absolute top-2 left-2 text-white">
+                <button className="absolute top-2 left-2 text-white cursor-pointer">
                   <CiHeart size={24} />
                 </button>
               </div>
@@ -166,7 +166,7 @@ const AllAudio = () => {
                 <div className="mt-2 flex items-center gap-3">
                   <button
                     onClick={() => togglePlay(audio.id)}
-                    className="bg-[#1C4587] text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0"
+                    className="bg-[#1C4587] cursor-pointer text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0"
                   >
                     {playing === audio.id ? <FaPause size={12} /> : <FaPlay size={12} />}
                   </button>
@@ -192,7 +192,7 @@ const AllAudio = () => {
 
               {/* Delete Button - Repositioned for mobile */}
               <div className="flex md:items-start absolute md:relative bottom-3 right-3 md:left-0 md:right-0 md:bottom-15">
-                <button className="border border-blue-900 text-blue-900 px-2 md:py-1 py-0.5 rounded-sm flex items-center gap-1 text-xs hover:bg-red-50 transition-colors">
+                <button className="cursor-pointer border border-blue-900 text-blue-900 px-2 md:py-1 py-0.5 rounded-sm flex items-center gap-1 text-xs hover:bg-red-50 transition-colors">
                   <img src="/delete.svg" alt="" />
                   <span>Delete</span>
                 </button>

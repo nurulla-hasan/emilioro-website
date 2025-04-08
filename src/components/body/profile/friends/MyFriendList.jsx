@@ -22,7 +22,7 @@ const MyFriendList = ({ searchTerm = "" }) => {
 
     return (
         <div className="grid grid-cols-1 relative sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 p-4">
-            <button className="absolute md:-right-36 md:-top-[66px] right-[35%] -top-40 font-medium bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white text-sm py-1.5 px-2 rounded-sm hover:opacity-90 transition-opacity">
+            <button className="absolute cursor-pointer md:-right-36 md:-top-[66px] right-[35%] -top-40 font-medium bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white text-sm py-1.5 px-2 rounded-sm hover:opacity-90 transition-opacity">
                 + Add Friend
             </button>
 
@@ -68,7 +68,7 @@ const MyFriendList = ({ searchTerm = "" }) => {
                         {/* Action Buttons */}
                         <div className="w-full space-y-2">
                             <div className="flex gap-2 w-full">
-                                <button className="flex-1 border border-gray-300 text-gray-700 text-[10px] py-1 px-2 rounded hover:bg-gray-50 transition-colors">
+                                <button className="flex-1 border cursor-pointer border-gray-300 text-gray-700 text-[10px] py-1 px-2 rounded hover:bg-gray-50 transition-colors">
                                     Unfriend
                                 </button>
                                 <Link href="#">
@@ -77,7 +77,7 @@ const MyFriendList = ({ searchTerm = "" }) => {
                                     </button>
                                 </Link>
                             </div>
-                            <button className="w-full bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white text-[10px] py-1 px-2 rounded hover:opacity-90 transition-opacity">
+                            <button className="w-full cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white text-[10px] py-1 px-2 rounded hover:opacity-90 transition-opacity">
                                 Message
                             </button>
                         </div>

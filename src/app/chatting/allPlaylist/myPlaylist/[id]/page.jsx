@@ -184,11 +184,11 @@ const PlaylistDetails = () => {
 
             {/* Buttons */}
             <div className="flex flex-col sm:flex-row gap-3 md:gap-5 items-center w-full sm:w-auto mt-4">
-                <button className="w-full sm:w-auto bg-white border border-[#193f7c] text-[#193f7c] px-4 py-2 rounded-sm font-semibold text-xs sm:text-sm flex items-center gap-2 justify-center">
+                <button className="w-full cursor-pointer sm:w-auto bg-white border border-[#193f7c] text-[#193f7c] px-4 py-2 rounded-sm font-semibold text-xs sm:text-sm flex items-center gap-2 justify-center">
                     <img src="/delete.svg" alt="" className="w-4 h-4" />
                     <span>Delete Playlist</span>
                 </button>
-                <button className="w-full sm:w-auto bg-gradient-to-b from-[#193f7c] to-[#2965c4] text-white px-5 py-2 rounded-sm font-semibold text-xs sm:text-sm">
+                <button className="w-full cursor-pointer sm:w-auto bg-gradient-to-b from-[#193f7c] to-[#2965c4] text-white px-5 py-2 rounded-sm font-semibold text-xs sm:text-sm">
                     <span>Edit Playlist</span>
                 </button>
             </div>
@@ -202,7 +202,7 @@ const PlaylistDetails = () => {
                             {/* Thumbnail with Heart */}
                             <div className="relative w-full md:w-[220px] h-[180px] md:h-[140px]">
                                 <Image src={audio.image || "/placeholder.svg"} alt={audio.title} width={220} height={140} className="rounded-sm object-cover w-full h-full" />
-                                <button className="absolute top-2 left-2 text-white">
+                                <button className="cursor-pointer absolute top-2 left-2 text-white">
                                     <CiHeart size={24} />
                                 </button>
                             </div>
@@ -226,7 +226,7 @@ const PlaylistDetails = () => {
                                 <div className="mt-2 flex items-center gap-3">
                                     <button
                                         onClick={() => togglePlay(audio.id)}
-                                        className="bg-[#1C4587] text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0"
+                                        className="bg-[#1C4587] text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 cursor-pointer"
                                     >
                                         {playing === audio.id ? <FaPause size={12} /> : <FaPlay size={12} />}
                                     </button>
@@ -252,7 +252,7 @@ const PlaylistDetails = () => {
 
                             {/* Delete Button */}
                             <div className="md:ml-4 mt-3 md:mt-0 flex md:items-start">
-                                <button className="border border-blue-900 text-blue-900 px-3 py-1 rounded-sm flex items-center gap-1 text-sm hover:bg-red-50 transition-colors">
+                                <button className="border cursor-pointer border-blue-900 text-blue-900 px-3 py-1 rounded-sm flex items-center gap-1 text-sm hover:bg-red-50 transition-colors">
                                     <img src="/delete.svg" alt="" />
                                     <span>Delete</span>
                                 </button>

@@ -99,7 +99,7 @@ const CreatePlaylistModal = ({ isOpen, setIsOpen }) => {
             <button
               type="button"
               onClick={() => setIsOpen(false)}
-              className="px-4 py-1.5 border border-[#1C4587] text-[#1C4587] rounded-sm font-medium text-xs w-full outline-none focus:ring-0"
+              className="px-4 py-1.5 cursor-pointer border border-[#1C4587] text-[#1C4587] rounded-sm font-medium text-xs w-full outline-none focus:ring-0"
             >
               Cancel
             </button>

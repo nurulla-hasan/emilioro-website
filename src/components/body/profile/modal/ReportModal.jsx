@@ -17,13 +17,13 @@ const ReportModal = ({ isOpen, onClose }) => {
       >
         {/* Close Button */}
         <button
-          className="absolute top-1 right-1 bg-[#1C4587] text-white p-1 rounded-full w-5 h-5 flex items-center justify-center text-sm shadow-md transition-colors"
+          className="cursor-pointer absolute top-1 right-1 bg-[#1C4587] text-white p-1 rounded-full w-5 h-5 flex items-center justify-center text-sm shadow-md transition-colors"
           onClick={onClose}
         >
           <X size={14} />
         </button>
 
-        <div className="flex flex-col justify-center items-center">
+        <div className="flex flex-col justify-center items-center *:cursor-pointer">
           {/* Report Button */}
           <button className="border border-[#1C4587] text-[#1C4587] text-xs font-medium px-5 py-2 rounded-sm mb-3 hover:bg-blue-50 transition-colors">
             Report

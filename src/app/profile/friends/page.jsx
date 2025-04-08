@@ -16,7 +16,7 @@ const Friends = () => {
                 <div className="flex flex-col md:flex-row gap-5 justify-between items-center mb-8">
                     <div className="flex gap-8 *:text-sm *:font-semibold">
                         <button
-                            className={`font-medium relative ${activeTab === "my-friend" ? "text-[#1C4587] font-medium" : "text-[#1c4587c3] font-normal"
+                            className={`font-medium relative cursor-pointer ${activeTab === "my-friend" ? "text-[#1C4587] font-medium" : "text-[#1c4587c3] font-normal"
                                 }`}
                             onClick={() => setActiveTab("my-friend")}
                         >
@@ -29,7 +29,7 @@ const Friends = () => {
                             )}
                         </button>
                         <button
-                            className={`text-xl relative ${activeTab === "friend-request" ? "text-[#1C4587] font-medium" : "text-[#1c4587c3] font-normal"
+                            className={`text-xl relative cursor-pointer ${activeTab === "friend-request" ? "text-[#1C4587] font-medium" : "text-[#1c4587c3] font-normal"
                                 }`}
                             onClick={() => setActiveTab("friend-request")}
                         >

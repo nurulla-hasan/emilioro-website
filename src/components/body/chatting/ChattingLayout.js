@@ -49,7 +49,7 @@ const ChattingLayout = ({ children }) => {
                     <h1 className="text-xl font-bold text-[#1C4587]">Real conversation between people</h1>
                     <button
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                        className="p-2 bg-[#1C4587] text-white rounded-md"
+                        className="p-2 bg-[#1C4587] text-white rounded-md cursor-pointer"
                     >
                         {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
                     </button>

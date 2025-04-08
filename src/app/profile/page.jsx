@@ -220,11 +220,11 @@ const ProfilePage = () => {
             {/* if request A friend */}
             <div className="hidden">
               <div className="flex gap-3 items-center justify-center mt-2">
-                <button className="border border-[#1C4587] text-[#1C4587] gap-1 flex items-center bg-white text-xs px-2 py-0.5 rounded-sm">
+                <button className="border cursor-pointer border-[#1C4587] text-[#1C4587] gap-1 flex items-center bg-white text-xs px-2 py-0.5 rounded-sm">
                   {" "}
                   Reject
                 </button>
-                <button className="bg-gradient-to-b from-[#1C4587] to-[#3279EA] gap-1 flex items-center text-white text-xs px-2 py-[3px] rounded-sm">
+                <button className="bg-gradient-to-b cursor-pointer from-[#1C4587] to-[#3279EA] gap-1 flex items-center text-white text-xs px-2 py-[3px] rounded-sm">
                   Accept
                 </button>
                 <img onClick={() => setModal(true)} className="w-5 h-5 cursor-pointer" src="/requestMenu.svg" alt="" />
@@ -235,11 +235,11 @@ const ProfilePage = () => {
             {/* only for not friend profile view */}
             <div className="hidden">
               <div className="flex gap-3 items-center justify-center mt-2">
-                <button className="border border-[#1C4587] text-[#1C4587] gap-1 flex items-center bg-white text-xs px-2 py-0.5 rounded-sm">
+                <button className="border cursor-pointer border-[#1C4587] text-[#1C4587] gap-1 flex items-center bg-white text-xs px-2 py-0.5 rounded-sm">
                   {" "}
                   Follow
                 </button>
-                <button className="bg-gradient-to-b from-[#1C4587] to-[#3279EA] gap-1 flex items-center text-white text-xs px-2 py-[3px] rounded-sm">
+                <button className="bg-gradient-to-b cursor-pointer from-[#1C4587] to-[#3279EA] gap-1 flex items-center text-white text-xs px-2 py-[3px] rounded-sm">
                   Add Friend
                 </button>
               </div>
@@ -423,7 +423,7 @@ const ProfilePage = () => {
                       <p className="text-xs text-gray-500">{relative.relation}</p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-2 *:cursor-pointer">
                     <button className="text-[#1C4587] flex items-center text-xs gap-1">
                       <img src="/messenger.svg" alt="" /> Chat now
                     </button>

@@ -48,7 +48,7 @@ const AddProducerModal = ({ isAddProducerOpen, setIsAddProducerOpen }) => {
         {/* Header */}
         <div className="flex justify-between items-center mb-3">
             <Dialog.Title className="text-lg font-semibold text-gray-700">Create New Project</Dialog.Title>
-            <button onClick={() => setIsAddProducerOpen(false)} className="rounded-full">
+            <button onClick={() => setIsAddProducerOpen(false)} className="rounded-full cursor-pointer">
                 <img className="w-5" src="/x.svg" alt="Close" />
             </button>
         </div>
@@ -116,7 +116,7 @@ const AddProducerModal = ({ isAddProducerOpen, setIsAddProducerOpen }) => {
                         <button
                             type="button"
                             onClick={() => handleRemoveProducer(producer.id)}
-                            className="w-6 h-6 flex items-center justify-center text-red-500"
+                            className="w-6 h-6 flex items-center justify-center text-red-500 cursor-pointer"
                         >
                             <div className="w-4 h-0.5 bg-red-500"></div>
                         </button>
@@ -127,7 +127,7 @@ const AddProducerModal = ({ isAddProducerOpen, setIsAddProducerOpen }) => {
                 <button
                     type="button"
                     onClick={handleAddProducer}
-                    className="border border-gray-300 text-gray-600 text-xs px-2 py-1.5 rounded-sm hover:bg-gray-50 w-full mt-2"
+                    className="border border-gray-300 cursor-pointer text-gray-600 text-xs px-2 py-1.5 rounded-sm hover:bg-gray-50 w-full mt-2"
                 >
                     + Add more
                 </button>
@@ -137,7 +137,7 @@ const AddProducerModal = ({ isAddProducerOpen, setIsAddProducerOpen }) => {
                     type="submit"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="bg-gradient-to-b from-[#1C4587] to-[#3175e2] text-white py-1.5 text-xs rounded-sm font-medium w-1/3 mt-3"
+                    className="cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3175e2] text-white py-1.5 text-xs rounded-sm font-medium w-1/3 mt-3"
                 >
                     Submit
                 </motion.button>

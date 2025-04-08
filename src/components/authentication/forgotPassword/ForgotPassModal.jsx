@@ -42,7 +42,7 @@ const ForgotPasswordModal = ({ isOpen, onClose, setIsVerifyModalOpen }) => {
             {/* Close Button */}
             <button
               onClick={onClose}
-              className="absolute top-4 right-4 z-50 bg-[#1C4587] text-white rounded-full p-1 hover:bg-[#15366b] transition-colors"
+              className="absolute cursor-pointer top-4 right-4 z-50 bg-[#1C4587] text-white rounded-full p-1 hover:bg-[#15366b] transition-colors"
             >
               <X size={16} />
             </button>
@@ -72,7 +72,7 @@ const ForgotPasswordModal = ({ isOpen, onClose, setIsVerifyModalOpen }) => {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full bg-gradient-to-b from-[#1C4587] to-[#3279EA] hover:from-[#15366b] hover:to-[#2861c4] text-white py-1.5 rounded-sm text-xs font-medium transition-colors disabled:opacity-70"
+                  className="w-full cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] hover:from-[#15366b] hover:to-[#2861c4] text-white py-1.5 rounded-sm text-xs font-medium transition-colors disabled:opacity-70"
                 >
                   {loading ? "Sending..." : "Send Code"}
                 </button>

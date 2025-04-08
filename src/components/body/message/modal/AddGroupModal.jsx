@@ -55,7 +55,7 @@ const AddGroupModal = ({ isOpen, onClose }) => {
                                     <h2 className="text-center text-lg font-medium">New group chat</h2>
                                     <button
                                         onClick={onClose}
-                                        className="absolute right-4 top-1/2 -translate-y-1/2 hover:opacity-80 transition-opacity"
+                                        className="absolute right-4 top-1/2 -translate-y-1/2 hover:opacity-80 transition-opacity cursor-pointer"
                                     >
                                         <img className="w-6" src="/x.svg" alt="" />
                                     </button>
@@ -91,7 +91,7 @@ const AddGroupModal = ({ isOpen, onClose }) => {
                                         whileTap={{ scale: 0.98 }}
                                         onClick={() => handleNext(groupName)}
                                         disabled={!groupName.trim()}
-                                        className={`w-2/3 mx-auto mt-6 py-1 rounded-sm text-white font-medium transition-colors ${
+                                        className={`w-2/3 mx-auto cursor-pointer mt-6 py-1 rounded-sm text-white font-medium transition-colors ${
                                             groupName.trim()
                                                 ? 'bg-[#1C4587] hover:bg-[#15366b]'
                                                 : 'bg-gray-300 cursor-not-allowed'

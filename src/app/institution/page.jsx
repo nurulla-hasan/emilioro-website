@@ -62,7 +62,7 @@ const InstitutionPage = () => {
                             ].map((tab) => (
                                 <motion.button
                                     key={tab.id}
-                                    className={`px-4 py-2 text-[10px] font-medium transition-all border rounded-sm outline-none focus:ring-0 ${activeTab === tab.id
+                                    className={`px-4 py-2 text-[10px] font-medium transition-all border rounded-sm outline-none focus:ring-0 cursor-pointer ${activeTab === tab.id
                                         ? "bg-[#1C4587] border border-[#1C4587] text-white"
                                         : "border-transparent text-gray-700"
                                         }`}

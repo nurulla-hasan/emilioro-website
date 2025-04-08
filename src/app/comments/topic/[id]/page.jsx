@@ -91,7 +91,7 @@ const Page = () => {
           <h2 className="text-[#1C4587] font-medium">{category} (Discussion)</h2>
           <button
             onClick={() => setSortOrder((prev) => (prev === "asc" ? "desc" : "asc"))}
-            className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium border border-[#1C4587] rounded-sm hover:bg-blue-50 transition-colors text-[#1C4587]"
+            className="cursor-pointer flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium border border-[#1C4587] rounded-sm hover:bg-blue-50 transition-colors text-[#1C4587]"
           >
             <span>Sort by Likes</span>
             {sortOrder === "asc" ? (
@@ -170,7 +170,7 @@ const Page = () => {
 
                 {/* Like system */}
                 <div className="flex items-center gap-2 text-sm text-gray-500 mt-2">
-                  <button className="text-[#1C4587] font-medium text-xs" onClick={() => handleLike(comment.id)}>
+                  <button className="text-[#1C4587] font-medium text-xs cursor-pointer" onClick={() => handleLike(comment.id)}>
                     👍 Like
                   </button>
                   <span className="text-xs">({comment.likes})</span>
@@ -191,7 +191,7 @@ const Page = () => {
               onChange={(e) => setNewComment(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && handleCommentSubmit()}
             />
-            <div className="flex items-center gap-2 text-gray-400">
+            <div className="flex items-center gap-2 text-gray-400 *:cursor-pointer">
               <button>
                 <img src="/Tagfile.svg" alt="" />
               </button>

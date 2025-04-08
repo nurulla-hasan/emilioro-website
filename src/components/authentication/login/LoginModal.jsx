@@ -43,7 +43,7 @@ const LoginModal = ({ isOpen, onClose, setIsSignUpOpen, setIsForgotPassModalOpen
             {/* Close Button */}
             <button
               onClick={onClose}
-              className="absolute top-4 right-4 z-50 bg-[#1C4587] text-white rounded-full p-1 hover:bg-[#15366b] transition-colors"
+              className="absolute cursor-pointer top-4 right-4 z-50 bg-[#1C4587] text-white rounded-full p-1 hover:bg-[#15366b] transition-colors"
             >
               <X size={16} />
             </button>
@@ -78,7 +78,7 @@ const LoginModal = ({ isOpen, onClose, setIsSignUpOpen, setIsForgotPassModalOpen
                     />
                     <button
                       type="button"
-                      className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-[#1C4587]"
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-[#1C4587] cursor-pointer"
                       onClick={() => setShowPassword(!showPassword)}
                     >
                       {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
@@ -109,7 +109,7 @@ const LoginModal = ({ isOpen, onClose, setIsSignUpOpen, setIsForgotPassModalOpen
                       onClose()
                       setIsForgotPassModalOpen(true)
                     }}
-                    className="text-red-500 hover:text-red-600 text-xs"
+                    className="text-red-500 hover:text-red-600 text-xs cursor-pointer"
                   >
                     Forgot Password?
                   </button>
@@ -118,7 +118,7 @@ const LoginModal = ({ isOpen, onClose, setIsSignUpOpen, setIsForgotPassModalOpen
                 {/* Login Button */}
                 <button
                   type="submit"
-                  className="w-full bg-gradient-to-b from-[#1C4587] to-[#3279EA] hover:from-[#15366b] hover:to-[#2861c4] text-white py-1.5 text-xs rounded-sm font-medium transition-colors"
+                  className="w-full cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] hover:from-[#15366b] hover:to-[#2861c4] text-white py-1.5 text-xs rounded-sm font-medium transition-colors"
                 >
                   Log in
                 </button>

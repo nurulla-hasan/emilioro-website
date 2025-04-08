@@ -59,7 +59,7 @@ const EditProfile = () => {
                             <button
                                 type="button"
                                 onClick={() => setIsModalOpen(true)}
-                                className="bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white text-xs px-4 py-1 rounded-sm"
+                                className="cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white text-xs px-4 py-1 rounded-sm"
                             >
                                 + Add Skill
                             </button>
@@ -144,7 +144,7 @@ const EditProfile = () => {
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         type="submit"
-                        className="w-full bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white py-2 rounded-sm font-semibold text-sm"
+                        className="cursor-pointer w-full bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white py-2 rounded-sm font-semibold text-sm"
                     >
                         Save Changes
                     </motion.button>

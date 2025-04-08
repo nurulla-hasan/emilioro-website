@@ -83,7 +83,7 @@ const DetailsCreateGroupModal = ({ isOpen, onClose }) => {
                                     {groupNames.map((name, index) => (
                                         <div key={index} className="flex justify-between items-center p-2 bg-gray-200 rounded-sm">
                                             <span className="text-xs">{name}</span>
-                                            <button onClick={() => removeGroupName(index)} className="text-red-500 text-xs hover:text-red-600">
+                                            <button onClick={() => removeGroupName(index)} className="text-red-500 cursor-pointer text-xs hover:text-red-600">
                                                 Remove
                                             </button>
                                         </div>
@@ -92,7 +92,7 @@ const DetailsCreateGroupModal = ({ isOpen, onClose }) => {
                             )}
                             <button
                                 onClick={addGroupName}
-                                className="w-full mt-2 p-2.5 text-[#1C4587] border border-gray-300 rounded-sm text-xs hover:bg-gray-50"
+                                className="w-full mt-2 p-2.5 cursor-pointer text-[#1C4587] border border-gray-300 rounded-sm text-xs hover:bg-gray-50"
                             >
                                 + Add more
                             </button>
@@ -114,7 +114,7 @@ const DetailsCreateGroupModal = ({ isOpen, onClose }) => {
                                 <div className="flex flex-1/2 justify-center items-center gap-1 border border-gray-300 rounded-sm px-2">
                                     {/* Hours */}
                                     <div className="relative w-12">
-                                        <div className="absolute inset-y-0 right-[-3] flex flex-col justify-center pr-1.5">
+                                        <div className="absolute inset-y-0 right-[-3] flex flex-col justify-center pr-1.5 *:cursor-pointer">
                                             <button onClick={() => setHour(hour < 12 ? hour + 1 : 1)} className="text-gray-400">
                                                 <IoChevronUpOutline size={10} />
                                             </button>
@@ -131,7 +131,7 @@ const DetailsCreateGroupModal = ({ isOpen, onClose }) => {
                                     </div>
                                     {/* Minutes */}
                                     <div className="relative w-12">
-                                        <div className="absolute inset-y-0 right-[-3] flex flex-col justify-center pr-1.5">
+                                        <div className="absolute inset-y-0 right-[-3] flex flex-col justify-center pr-1.5 *:cursor-pointer">
                                             <button onClick={() => setMinute(minute < 59 ? minute + 1 : 0)} className="text-gray-400">
                                                 <IoChevronUpOutline size={10} />
                                             </button>
@@ -148,7 +148,7 @@ const DetailsCreateGroupModal = ({ isOpen, onClose }) => {
                                     </div>
                                     {/* AM/PM */}
                                     <div className="relative w-12">
-                                        <div className="absolute inset-y-0 right-[-4] flex flex-col justify-center pr-1.5">
+                                        <div className="absolute inset-y-0 right-[-4] flex flex-col justify-center pr-1.5 *:cursor-pointer">
                                             <button onClick={() => setPeriod(period === "AM" ? "PM" : "AM")} className="text-gray-400">
                                                 <IoChevronUpOutline size={10} />
                                             </button>
@@ -172,7 +172,7 @@ const DetailsCreateGroupModal = ({ isOpen, onClose }) => {
                     <div className="p-4">
                         <button
                             onClick={handleSubmit(onSubmit)}
-                            className="w-full bg-[#1C4587] cursopoi text-white py-2.5 rounded-sm text-xs font-medium transition-colors"
+                            className="w-full bg-[#1C4587] cursor-pointer cursopoi text-white py-2.5 rounded-sm text-xs font-medium transition-colors"
                         >
                             Submit
                         </button>

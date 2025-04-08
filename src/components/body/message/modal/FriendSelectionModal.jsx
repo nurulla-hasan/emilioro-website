@@ -39,7 +39,7 @@ const FriendSelectionModal = ({ isOpen, onClose }) => {
                         <h2 className="text-center text-lg font-medium">New group chat</h2>
                         <button
                             onClick={onClose}
-                            className="absolute right-4 top-1/2 -translate-y-1/2 hover:opacity-80 transition-opacity"
+                            className="absolute right-4 top-1/2 -translate-y-1/2 hover:opacity-80 transition-opacity cursor-pointer"
                         >
                             <img className="w-6" src="/x.svg" alt="" />
                         </button>
@@ -105,7 +105,7 @@ const FriendSelectionModal = ({ isOpen, onClose }) => {
                     <div className="p-4 text-center">
                         <button
                             className={`w-1/2 py-1 rounded-sm text-white font-medium ${
-                                selectedFriends.length > 0 ? "bg-[#1C4587] hover:bg-[#15366b]" : "bg-gray-300 cursor-not-allowed"
+                                selectedFriends.length > 0 ? "bg-[#1C4587] cursor-pointer hover:bg-[#15366b]" : "bg-gray-300 cursor-not-allowed"
                             }`}
                             disabled={selectedFriends.length === 0}
                         >

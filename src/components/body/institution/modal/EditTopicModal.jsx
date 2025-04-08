@@ -67,7 +67,7 @@ export default function EditTopicModal({ isOpen, onClose, category = null, onSub
               {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full bg-[#1C4587] hover:bg-[#15366b] text-white p-2 rounded-sm text-[10px] outline-none focus:ring-0"
+                className="w-full cursor-pointer bg-[#1C4587] hover:bg-[#15366b] text-white p-2 rounded-sm text-[10px] outline-none focus:ring-0"
               >
                 Submit
               </button>

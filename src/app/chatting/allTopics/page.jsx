@@ -134,7 +134,7 @@ const AllTopics = () => {
                                 </div>
                                 {/* Button */}
                                 <Link href="/chatting/allTopics/familyConversion/audio">
-                                    <button className="border mt-8 border-white px-3 py-1 rounded-sm hover:bg-white hover:text-[#1C4587] text-xs bg-gradient-to-b from-[#1C4587] to-[#3279EA] transition">
+                                    <button className="border mt-8 border-white px-3 py-1 rounded-sm hover:bg-white hover:text-[#1C4587] cursor-pointer text-xs bg-gradient-to-b from-[#1C4587] to-[#3279EA] transition">
                                         Listen Now
                                     </button>
                                 </Link>

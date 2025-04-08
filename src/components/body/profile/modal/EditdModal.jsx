@@ -37,7 +37,7 @@ export default function EditModal({ isOpen, onClose, editedUrl, setEditedUrl, on
                 />
 
                 {/* Action Buttons */}
-                <div className="flex justify-end gap-3">
+                <div className="flex justify-end gap-3 *:cursor-pointer">
                   <button
                     onClick={onClose}
                     className="px-4 py-2 bg-gray-300 rounded-sm text-[10px] font-medium transition"

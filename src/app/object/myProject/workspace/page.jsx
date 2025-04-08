@@ -359,7 +359,7 @@ const EcoFriendlyPackage = () => {
                   />
                   <button
                     onClick={() => documentFileRef.current.click()}
-                    className="text-[#1C4587] text-xs px-4 py-1 border rounded-sm flex items-center gap-2"
+                    className="text-[#1C4587] cursor-pointer text-xs px-4 py-1 border rounded-sm flex items-center gap-2"
                   >
                     <Upload className="h-3 w-3" />
                     Upload file
@@ -404,7 +404,7 @@ const EcoFriendlyPackage = () => {
                   />
                   <button
                     onClick={() => imageFileRef.current.click()}
-                    className="text-[#1C4587] text-xs px-4 py-1 border rounded-sm flex items-center gap-2"
+                    className="text-[#1C4587] cursor-pointer text-xs px-4 py-1 border rounded-sm flex items-center gap-2"
                   >
                     <Upload className="h-3 w-3" />
                     Upload file
@@ -588,7 +588,7 @@ const EcoFriendlyPackage = () => {
               <button
                 type="button"
                 onClick={() => messageFileRef.current.click()}
-                className="px-4 py-[6] border rounded-sm text-[#1C4587] bg-white text-sm font-medium"
+                className="px-4 py-[6] border rounded-sm text-[#1C4587] bg-white text-sm font-medium cursor-pointer"
               >
                 Upload file
               </button>

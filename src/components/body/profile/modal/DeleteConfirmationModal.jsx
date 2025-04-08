@@ -18,7 +18,7 @@ export default function DeleteConfirmationModal({ onClose }) {
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-3 right-3 bg-[#1C4587] p-1 rounded-full text-white"
+          className="absolute cursor-pointer top-3 right-3 bg-[#1C4587] p-1 rounded-full text-white"
         >
           <X size={15} />
         </button>
@@ -33,7 +33,7 @@ export default function DeleteConfirmationModal({ onClose }) {
         <motion.button
           whileTap={{ scale: 0.95 }}
           onClick={handleDelete}
-          className="w-full bg-[#1C4587] text-white py-1 rounded-sm text-sm font-semibold mt-4"
+          className="w-full cursor-pointer bg-[#1C4587] text-white py-1 rounded-sm text-sm font-semibold mt-4"
         >
           Delete
         </motion.button>

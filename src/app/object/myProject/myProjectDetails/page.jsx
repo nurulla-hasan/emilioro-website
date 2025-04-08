@@ -282,7 +282,7 @@ const ProjectContent = () => {
                       </div>
                       <div>
                         <motion.button
-                          className="px-2 text-xs bg-white border border-red-500 text-red-500 py-1 rounded-sm font-medium"
+                          className="px-2 cursor-pointer text-xs bg-white border border-red-500 text-red-500 py-1 rounded-sm font-medium"
                           whileHover={{ scale: 1.02 }}
                           whileTap={{ scale: 0.98 }}
                           onClick={() => setRemoveParticipantModal(true)}
@@ -295,7 +295,7 @@ const ProjectContent = () => {
                 ))}
                 {/* View All Link */}
                 <div className="text-right">
-                  <button className="text-blue-900 text-xs hover:underline">View all</button>
+                  <button className="text-blue-900 text-xs hover:underline cursor-pointer">View all</button>
                 </div>
               </div>
             </div>
@@ -330,7 +330,7 @@ const ProjectContent = () => {
                       </div>
                       <div>
                         <motion.button
-                          className="px-2 text-xs bg-white border border-red-500 text-red-500 py-1 rounded-sm font-medium"
+                          className="px-2 text-xs cursor-pointer bg-white border border-red-500 text-red-500 py-1 rounded-sm font-medium"
                           whileHover={{ scale: 1.02 }}
                           whileTap={{ scale: 0.98 }}
                           onClick={() => setRemoveParticipantModal(true)}
@@ -343,7 +343,7 @@ const ProjectContent = () => {
                 ))}
                 {/* View All Link */}
                 <div className="text-right">
-                  <button className="text-blue-900 text-xs hover:underline">View all</button>
+                  <button className="text-blue-900 text-xs hover:underline cursor-pointer">View all</button>
                 </div>
               </div>
             </div>
@@ -379,7 +379,7 @@ const ProjectContent = () => {
                           Decline
                         </motion.button>
                         <motion.button
-                          className="px-2 text-xs bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white py-1 rounded-sm font-medium cursor-pointer"
+                          className="px-2 text-xs cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white py-1 rounded-sm font-medium cursor-pointer"
                           whileHover={{ scale: 1.02 }}
                           whileTap={{ scale: 0.98 }}
                         >
@@ -391,7 +391,7 @@ const ProjectContent = () => {
                 ))}
                 {/* View All Link */}
                 <div className="text-right">
-                  <button className="text-blue-900 text-xs hover:underline">View all</button>
+                  <button className="text-blue-900 text-xs hover:underline cursor-pointer">View all</button>
                 </div>
               </div>
             </div>

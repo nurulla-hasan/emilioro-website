@@ -144,7 +144,7 @@ const AllPlaylist = () => {
                                         View
                                     </button>
                                 </Link>
-                                <button className='flex gap-2 px-3 text-xs py-[4.5px] items-center bg-white  rounded-sm font-semibold border-2 border-[#1C4587] to-[#3279EA] text-[#1C4587]'>
+                                <button className='flex gap-2 px-3 text-xs py-[4.5px] items-center bg-white  rounded-sm font-semibold border-2 border-[#1C4587] to-[#3279EA] text-[#1C4587] cursor-pointer'>
                                     < IoMdShare />
                                     <span>Share</span>
                                 </button>

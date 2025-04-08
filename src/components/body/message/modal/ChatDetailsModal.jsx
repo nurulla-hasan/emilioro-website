@@ -56,7 +56,7 @@ const ChatDetailsModal = ({ chat, onClose }) => {
           <div className="mt-3 text-center">
             <div className="flex items-center justify-center gap-2">
               <h2 className="text-xl font-semibold">{chat.name}</h2>
-              <button className="text-white/80 hover:text-white">
+              <button className="text-white/80 hover:text-white cursor-pointer">
                 <Edit2 size={16} />
               </button>
             </div>
@@ -80,7 +80,7 @@ const ChatDetailsModal = ({ chat, onClose }) => {
             <>
               <div className="space-y-4">
                 {/* Copy Link */}
-                <button className="flex items-center gap-2 text-[#1C4587] text-sm w-full">
+                <button className="flex items-center gap-2 text-[#1C4587] text-sm w-full cursor-pointer">
                   <Link size={18} />
                   <div className="flex-1 text-left">
                     <span>copy link to clipboard</span>
@@ -89,7 +89,7 @@ const ChatDetailsModal = ({ chat, onClose }) => {
                 </button>
 
                 {/* Send Message */}
-                <button className="flex items-center gap-2 text-[#1C4587] text-sm">
+                <button className="flex items-center gap-2 text-[#1C4587] text-sm cursor-pointer">
                   <MessageSquare size={18} />
                   <span>Send message</span>
                 </button>
@@ -99,7 +99,7 @@ const ChatDetailsModal = ({ chat, onClose }) => {
                   <div className="flex items-center gap-2 mb-3">
                     <Users size={18} className="text-[#1C4587]" />
                     <span className="text-sm font-medium">{chat.participants?.length || 0} participant</span>
-                    <button className="ml-auto bg-[#1C4587] text-white text-xs px-2 py-1 rounded-sm">
+                    <button className="ml-auto bg-[#1C4587] text-white text-xs px-2 py-1 rounded-sm cursor-pointer">
                       + Add participant
                     </button>
                   </div>
@@ -131,7 +131,7 @@ const ChatDetailsModal = ({ chat, onClose }) => {
 
                   {chat.participants?.length > 5 && (
                     <button
-                      className="text-[#1C4587] text-sm mt-2 w-full text-right"
+                      className="text-[#1C4587] text-sm mt-2 w-full text-right cursor-pointer"
                       onClick={() => setShowAllParticipants(!showAllParticipants)}
                     >
                       {showAllParticipants ? "Show less" : "View all"}
@@ -141,7 +141,7 @@ const ChatDetailsModal = ({ chat, onClose }) => {
               </div>
 
               <div className="mt-6">
-                <button className="text-red-500 text-sm font-medium">Leave</button>
+                <button className="text-red-500 text-sm font-medium cursor-pointer">Leave</button>
               </div>
             </>
           )}
@@ -150,7 +150,7 @@ const ChatDetailsModal = ({ chat, onClose }) => {
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-3 right-3 text-white hover:bg-white/10 rounded-full p-1"
+          className="absolute top-3 right-3 text-white hover:bg-white/10 rounded-full p-1 cursor-pointer"
           aria-label="Close"
         >
           <img className="w-6" src="/x.svg" alt="" />
