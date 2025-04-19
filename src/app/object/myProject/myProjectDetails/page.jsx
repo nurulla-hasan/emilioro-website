@@ -189,7 +189,7 @@ const ProjectContent = () => {
   const imageSrc = getImageSrc()
 
   return (
-    <div className="xl:w-8/11 lg:w-10/12 px-5 mx-auto h-[calc(100vh-90px)]">
+    <div className=" h-[calc(100vh-90px)]">
       <div className="max-w-4xl shadow-[0px_15px_45px_0px_#CFC9DD99] mx-auto p-5 rounded-sm bg-white">
         <div className="relative h-[150px]  w-full">
           <Image
@@ -379,7 +379,7 @@ const ProjectContent = () => {
                           Decline
                         </motion.button>
                         <motion.button
-                          className="px-2 text-xs cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white py-1 rounded-sm font-medium cursor-pointer"
+                          className="px-2 text-xs bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white py-1 rounded-sm font-medium cursor-pointer"
                           whileHover={{ scale: 1.02 }}
                           whileTap={{ scale: 0.98 }}
                         >

@@ -1,4 +1,5 @@
 "use client";
+import Container from "@/components/home/Container";
 import Link from "next/link";
 
 const PeoplePage = () => {
@@ -16,7 +17,7 @@ const PeoplePage = () => {
   };
 
   return (
-    <div className="xl:w-8/11 lg:w-10/12 px-5 my-10 mx-auto">
+    <Container>
       <div className="mt-8">
         {/* Header */}
         <div className="flex justify-between items-center mb-6">
@@ -35,9 +36,8 @@ const PeoplePage = () => {
                 <div className="relative">
                   <img src={user.avatar} className="w-16 h-16 rounded-full border" alt={user.name} />
                   <span
-                    className={`absolute bottom-1 right-1 w-3 h-3 rounded-full ${
-                      user.isOnline ? "bg-green-500" : "bg-gray-400"
-                    }`}
+                    className={`absolute bottom-1 right-1 w-3 h-3 rounded-full ${user.isOnline ? "bg-green-500" : "bg-gray-400"
+                      }`}
                   />
                 </div>
 
@@ -55,7 +55,7 @@ const PeoplePage = () => {
           ))}
         </div>
       </div>
-    </div>
+    </Container>
   );
 };
 

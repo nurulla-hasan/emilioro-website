@@ -28,6 +28,7 @@ import DetailsCreateGroupModal from "@/components/body/institution/modal/Details
 import CreateTopicModal from "@/components/body/institution/modal/CreateTopicModal"
 import EditTopicModal from "@/components/body/institution/modal/EditTopicModal"
 import DeleteTopicModal from "@/components/body/institution/modal/DeleteTopicModal"
+import Container from "@/components/home/Container"
 
 // Store all data in variables for better organization
 const producers = [
@@ -483,7 +484,7 @@ const InstitutionDetails = () => {
 
   // Ensure the modals are properly rendered at the end of the component
   return (
-    <div className="xl:w-8/11 lg:w-10/12 px-5 my-5 mx-auto">
+    <Container>
       {/* Banner Image */}
       <div className="w-full border rounded-sm border-gray-300 h-[200px] relative mb-4">
         <Image
@@ -1044,7 +1045,7 @@ const InstitutionDetails = () => {
           category={currentCategory}
         />
       )}
-    </div>
+    </Container>
   )
 }
 

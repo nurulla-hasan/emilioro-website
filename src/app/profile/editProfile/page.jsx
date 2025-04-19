@@ -1,13 +1,14 @@
 "use client"
 import ChangePassword from "@/components/body/profile/editor/ChangePassword";
 import EditProfile from "@/components/body/profile/editor/EditProfile";
+import Container from "@/components/home/Container";
 import { useState } from "react";
 
 const ProfileSettings = () => {
   const [activeTab, setActiveTab] = useState("editProfile");
 
   return (
-    <div className="xl:w-8/11 lg:w-10/12 mx-auto px-5 pt-5">
+    <Container>
       {/* Tab Buttons */}
       <div className="flex gap-5 justify-center items-center mx-auto">
         <button
@@ -44,7 +45,7 @@ const ProfileSettings = () => {
           </div>
         )}
       </div>
-    </div>
+    </Container>
   );
 };
 

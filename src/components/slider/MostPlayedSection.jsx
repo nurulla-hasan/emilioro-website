@@ -137,7 +137,7 @@ const MostPlayedSection = () => {
 
                                 {/* Play/Pause Button */}
                                 <button
-                                    className="bg-[#1C4587] cursor-pointer text-white rounded-full w-10 h-10 flex items-center justify-center flex-shrink-0 absolute bottom-2 left-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer"
+                                    className="bg-[#1C4587] text-white rounded-full w-10 h-10 flex items-center justify-center flex-shrink-0 absolute bottom-2 left-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer"
                                     onClick={() => handlePlayPause(item.audioUrl)}
                                 >
                                     {isPlaying ? <FaPause size={14} /> : <FaPlay size={14} />}

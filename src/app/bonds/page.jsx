@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import Link from "next/link"
 import { useState, useEffect, useRef } from "react"
 import { MapPin, Pause, Trash2, RefreshCw, Star, Bell, BellOff, List, ChevronDown, X } from "lucide-react"
+import Container from "@/components/home/Container"
 
 // Sample data for suggested entries
 const suggestedEntries = {
@@ -707,7 +708,7 @@ const BondExchangePage = () => {
   }
 
   return (
-    <div className="xl:w-8/11 lg:w-10/12 px-5 my-10 mx-auto">
+    <Container>
       <div className="flex flex-col md:flex-row justify-between items-center gap-4">
         <h1 className="text-lg md:text-xl text-[#1C4587] font-bold mb-4 md:mb-0 text-center md:text-start">
           Exchange Services & Goods
@@ -1159,7 +1160,7 @@ const BondExchangePage = () => {
           </motion.div>
         </div>
       )}
-    </div>
+    </Container>
   )
 }
 

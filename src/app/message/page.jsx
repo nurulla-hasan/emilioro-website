@@ -7,6 +7,7 @@ import avatar from "../../../public/heroImage.png"
 import AddGroupModal from "@/components/body/message/modal/AddGroupModal"
 import MarkCompleteModal from "@/components/body/message/modal/MarkCompleteModal"
 import ChatDetailsModal from "@/components/body/message/modal/ChatDetailsModal"
+import Container from "@/components/home/Container"
 
 const ChatInterface = () => {
   const [message, setMessage] = useState("")
@@ -250,7 +251,7 @@ const ChatInterface = () => {
   }
 
   return (
-    <div className="w-full xl:w-8/11 lg:w-10/12 mx-auto px-5 mt-5">
+    <Container>
       <div className="flex md:flex-row justify-between items-center gap-4">
         <h1 className="text-lg md:text-xl text-[#1C4587] font-bold md:mb-0 text-center md:text-start">Inbox</h1>
         <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
@@ -536,7 +537,7 @@ const ChatInterface = () => {
       <AddGroupModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       <MarkCompleteModal isOpen={isMarkModalOpen} onClose={() => setIsMarkModalOpen(false)} />
       {showDetails && <ChatDetailsModal chat={selectedChat} onClose={() => setShowDetails(false)} />}
-    </div>
+    </Container>
   )
 }
 

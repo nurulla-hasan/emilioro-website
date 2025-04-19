@@ -156,7 +156,7 @@ const FavoriteAudio = () => {
                 </div>
             </div>
             {/* <div className="border-b border-gray-500 mb-5"></div>
-            <div className="xl:w-8/11 lg:w-10/12 mb-5 mx-auto w-full rounded-md">
+            <div className="rounded-md">
                 <AudioPlayer />
             </div> */}
 

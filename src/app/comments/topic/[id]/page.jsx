@@ -84,7 +84,7 @@ const Page = () => {
   }
 
   return (
-    <div className="xl:w-8/11 lg:w-10/12 px-5 mt-3 mx-auto">
+    <div className="">
       <div className="bg-white shadow-[0px_10px_17px_2px_#CFC9DDB2] rounded-md overflow-hidden border-x border-b border-gray-300">
         {/* Header */}
         <div className="p-4 border-b border-blue-200 flex justify-between items-center">

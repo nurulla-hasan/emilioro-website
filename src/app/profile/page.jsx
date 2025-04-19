@@ -8,6 +8,7 @@ import DeleteConfirmationModal from "../../components/body/profile/modal/DeleteC
 import AddRelativesModal from "../../components/body/profile/modal/AddRelativesModal"
 import ReportModal from "@/components/body/profile/modal/ReportModal"
 import EditModal from "@/components/body/profile/modal/EditdModal"
+import Container from "@/components/home/Container"
 
 const ProfilePage = () => {
   // Added refs for file inputs
@@ -127,7 +128,7 @@ const ProfilePage = () => {
   }
 
   return (
-    <div className="xl:w-8/11 lg:w-10/12 px-5 my-5 mx-auto">
+    <Container>
       {/* Hidden file inputs */}
       <input
         type="file"
@@ -456,7 +457,7 @@ const ProfilePage = () => {
         setEditedUrl={setEditedUrl}
         onSave={handleSave}
       />
-    </div>
+    </Container>
   )
 }
 

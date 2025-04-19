@@ -3,6 +3,7 @@ import AllInstitution from '@/components/body/institution/AllInstitution';
 import CreateInstituteModal from '@/components/body/institution/modal/CreateInstituteModal';
 import UserInstituteDetailsModal from '@/components/body/institution/modal/UserinstituteDetailsModal';
 import MyInstitution from '@/components/body/institution/MyInstitution';
+import Container from '@/components/home/Container';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import { CiSearch } from "react-icons/ci";
@@ -13,12 +14,12 @@ const InstitutionPage = () => {
     const [selectedCardUserProject, setSelectedCardUserProject] = useState(null)
 
     return (
-        <>
+        <Container>
             <motion.div
                 initial="initial"
                 animate="in"
                 exit="out"
-                className="xl:w-8/11 lg:w-10/12 px-5 my-10 mx-auto"
+                className=""
             >
                 <motion.div
                     className="flex flex-col lg:flex-row gap-5 justify-between items-center"
@@ -111,7 +112,7 @@ const InstitutionPage = () => {
                 selectedCardUserProject={selectedCardUserProject}
                 setSelectedCardUserProject={setSelectedCardUserProject}
             />
-        </>
+        </Container>
     );
 };
 

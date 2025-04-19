@@ -4,13 +4,14 @@ import { motion } from "framer-motion";
 import { Search } from "lucide-react";
 import MyFriendList from "@/components/body/profile/friends/MyFriendList";
 import FriendRequestList from "@/components/body/profile/friends/FriendRequestList";
+import Container from "@/components/home/Container";
 
 const Friends = () => {
     const [activeTab, setActiveTab] = useState("my-friend");
     const [searchTerm, setSearchTerm] = useState("");
 
     return (
-        <div className="xl:w-8/11 lg:w-10/12 px-5 my-10 mx-auto">
+        <Container>
             <div className="w-full">
                 {/* Tabs */}
                 <div className="flex flex-col md:flex-row gap-5 justify-between items-center mb-8">
@@ -63,7 +64,7 @@ const Friends = () => {
                     <FriendRequestList searchTerm={searchTerm} />
                 )}
             </div>
-        </div>
+        </Container>
     );
 };
 

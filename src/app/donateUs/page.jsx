@@ -76,7 +76,6 @@ const DonateUs = () => {
 
                     <motion.button
                         onClick={() => setIsPaymentOpen(true)}
-                        whileHover={{ scale: selectedAmounts.length > 0 || customAmount > 0 ? 1.05 : 1 }}
                         whileTap={{ scale: selectedAmounts.length > 0 || customAmount > 0 ? 0.95 : 1 }}
                         disabled={selectedAmounts.length === 0 && customAmount <= 0}
                         className={`mt-5 w-3/6 font-medium py-2 px-5 rounded-sm text-xs transition focus:outline-none ${selectedAmounts.length > 0 || customAmount > 0 ? "bg-[#1C4587] text-white hover:bg-opacity-80 cursor-pointer" : "bg-gray-500 text-white cursor-not-allowed"}`}

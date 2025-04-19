@@ -7,6 +7,7 @@ import { useState } from "react"
 import { CiSearch } from "react-icons/ci"
 import CreateProjectModal from "@/components/body/object/modal/CreateProjectModal"
 import AllProjectDetailsModal from "@/components/body/object/modal/AllProjectDetailsModal"
+import Container from "@/components/home/Container"
 
 const ObjectPage = () => {
   const [activeTab, setActiveTab] = useState("all")
@@ -30,9 +31,9 @@ const ObjectPage = () => {
   }
 
   return (
-    <div>
+    <Container>
       <motion.div
-        className="xl:w-8/11 lg:w-10/12 px-5 my-10 mx-auto"
+        className=""
         initial="initial"
         animate="in"
         exit="out"
@@ -128,7 +129,7 @@ const ObjectPage = () => {
         isOpen={isOpen} />
 
 
-    </div>
+    </Container>
   )
 }
 

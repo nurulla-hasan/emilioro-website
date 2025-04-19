@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/header/Navbar";
 import { Providers } from "@/store/providers";
 import AudioPlayer from "@/components/body/favorite/audio/AudioPlayer";
+import Container from "@/components/home/Container";
 
 // Poppins font setup
 const poppins = Poppins({
@@ -25,10 +26,7 @@ export default function RootLayout({ children }) {
       >
         <Providers>
           <Navbar />
-          <div className="">{children}</div>
-
-          
-
+            {children}
         </Providers>
       </body>
     </html>
