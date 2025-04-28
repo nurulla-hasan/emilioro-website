@@ -4,6 +4,7 @@ import BondRequest from "@/components/body/bonds/bondRequest/BondRequest";
 import OngoingBond from "@/components/body/bonds/ongoingBond/OngoingBond";
 import CompletedBond from "@/components/body/bonds/completedBond/CompletedBond";
 import MyBond from "@/components/body/bonds/myBond/MyBond";
+import Container from "@/components/home/Container";
 
 const MyBondPage = () => {
     const [selectedOption, setSelectedOption] = useState("My Bond");
@@ -44,27 +45,30 @@ const MyBondPage = () => {
     };
 
     return (
-        <div className=" relative">
-            <div className="absolute right-5 top-9 ">
-                <div className="border p-2 border-[#D6D6D6] rounded-sm flex">
-                    <select
-                        value={selectedOption}
-                        onChange={(e) => setSelectedOption(e.target.value)}
-                        className="border-none outline-0 cursor-pointer text-[#595D62] bg-white font-normal border border-[#1C4587] rounded-sm text-xs"
-                    >
-                        <option value="My Bond">My Bonds</option>
-                        <option value="Bond Request">Bond Request</option>
-                        <option value="Ongoing Bond">Ongoing Bond</option>
-                        <option value="Completed Bond">Completed Bond</option>
-                    </select>
+        <Container>
+            <div className=" relative">
+                <div className="absolute right-5 top-9 ">
+                    <div className="border p-2 border-[#D6D6D6] rounded-sm flex">
+                        <select
+                            value={selectedOption}
+                            onChange={(e) => setSelectedOption(e.target.value)}
+                            className="border-none outline-0 cursor-pointer text-[#595D62] bg-white font-normal border border-[#1C4587] rounded-sm text-xs"
+                        >
+                            <option value="My Bond">My Bonds</option>
+                            <option value="Bond Request">Bond Request</option>
+                            <option value="Ongoing Bond">Ongoing Bond</option>
+                            <option value="Completed Bond">Completed Bond</option>
+                        </select>
+                    </div>
                 </div>
-            </div>
 
-            {/* Render content based on selected option */}
-            <section>
-                <div>{renderSection()}</div>
-            </section>
-        </div>
+                {/* Render content based on selected option */}
+                <section>
+                    <div>{renderSection()}</div>
+                </section>
+            </div>
+        </Container>
+
     );
 };
 

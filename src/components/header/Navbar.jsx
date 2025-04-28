@@ -38,7 +38,7 @@ const Navbar = () => {
 
   const navLinks = [
     { title: "Home", href: "/" },
-    { title: "Donate Us", href: "/donateUs" },
+    { title: "Donate Us", href: "/donate-us" },
     { title: "People", href: "/people" },
     { title: "Bonds", href: "/bonds" },
     { title: "Objects", href: "/object" },
