@@ -37,94 +37,93 @@ const ProjectContent = () => {
   const projectId = searchParams.get("id");
   const { register, handleSubmit, reset } = useForm()
 
-  const data = {
-    cards: [
-      {
-        id: "1",
-        title: "Eco-Friendly Packaging",
-        status: ["Ongoing", "Public"],
-        description: "Develop sustainable packaging solutions using biodegradable materials dsjh.",
-        author: "MR. Sarwar",
-        authorRole: ["Owner"],
-        image: "/project (1).png",
-        ownerImage: "/avatar.png",
-        participant: "10",
-        created: "22 may 2023"
-      },
-      {
-        id: "2",
-        title: "Recyclable Materials",
-        status: ["Ongoing", 'Public'],
-        description: "Use recyclable materials to create packaging that can be reused.",
-        author: "MR. Ahmed",
-        authorRole: ["Owner"],
-        image: "/project (2).png",
-        ownerImage: "/avatar.png",
-        participant: "10",
-        created: "22 may 2023"
-      },
-      {
-        id: "3",
-        title: "Minimalist Design",
-        status: ['Ongoing', 'Public'],
-        description: "Implement minimalist design principles to reduce waste and improve.",
-        author: "MS. Fatima",
-        authorRole: ["Owner"],
-        image: "/project (3).png",
-        ownerImage: "/avatar.png",
-        participant: "10",
-        created: "22 may 2023"
-      },
-      {
-        id: "4",
-        title: "Minimalist Design",
-        status: ['Ongoing', 'Public'],
-        description: "Implement minimalist design principles to reduce waste and improve.",
-        author: "MS. Fatima",
-        authorRole: ["Owner"],
-        image: "/project (4).png",
-        ownerImage: "/avatar.png",
-        participant: "10",
-        created: "22 may 2023"
-      },
-      {
-        id: "5",
-        title: "Minimalist Design",
-        status: ['Ongoing', 'Public'],
-        description: "Implement minimalist design principles to reduce waste and improve .",
-        author: "MS. Fatima",
-        authorRole: ["Owner"],
-        image: "/project (5).png",
-        ownerImage: "/avatar.png",
-        participant: "10",
-        created: "22 may 2023"
-      },
-      {
-        id: "6",
-        title: "Minimalist Design",
-        status: ['Ongoing', 'Public'],
-        description: "Implement minimalist design principles to reduce waste and improve .",
-        author: "MS. Fatima",
-        authorRole: ["Owner"],
-        image: "/project (6).png",
-        ownerImage: "/avatar.png",
-        participant: "10",
-        created: "22 may 2023"
-      },
-      {
-        id: "7",
-        title: "Minimalist Design",
-        status: ['Ongoing', 'Public'],
-        description: "Implement minimalist design principles to reduce waste and improve .",
-        author: "MS. Fatima",
-        authorRole: ["Owner"],
-        image: "/project (1).png",
-        ownerImage: "/avatar.png",
-        participant: "10",
-        created: "22 may 2023"
-      }
-    ]
-  };
+  const projectDetails = [
+    {
+      id: "1",
+      title: "Eco-Friendly Packaging",
+      status: ["Ongoing", "Public"],
+      description: "Develop sustainable packaging solutions using biodegradable materials dsjh.",
+      author: "MR. Sarwar",
+      authorRole: ["Owner"],
+      image: "/project (1).png",
+      ownerImage: "/avatar.png",
+      participant: "10",
+      created: "22 may 2023"
+    },
+    {
+      id: "2",
+      title: "Recyclable Materials",
+      status: ["Ongoing", 'Public'],
+      description: "Use recyclable materials to create packaging that can be reused.",
+      author: "MR. Ahmed",
+      authorRole: ["Owner"],
+      image: "/project (2).png",
+      ownerImage: "/avatar.png",
+      participant: "10",
+      created: "22 may 2023"
+    },
+    {
+      id: "3",
+      title: "Minimalist Design",
+      status: ['Ongoing', 'Public'],
+      description: "Implement minimalist design principles to reduce waste and improve.",
+      author: "MS. Fatima",
+      authorRole: ["Owner"],
+      image: "/project (3).png",
+      ownerImage: "/avatar.png",
+      participant: "10",
+      created: "22 may 2023"
+    },
+    {
+      id: "4",
+      title: "Minimalist Design",
+      status: ['Ongoing', 'Public'],
+      description: "Implement minimalist design principles to reduce waste and improve.",
+      author: "MS. Fatima",
+      authorRole: ["Owner"],
+      image: "/project (4).png",
+      ownerImage: "/avatar.png",
+      participant: "10",
+      created: "22 may 2023"
+    },
+    {
+      id: "5",
+      title: "Minimalist Design",
+      status: ['Ongoing', 'Public'],
+      description: "Implement minimalist design principles to reduce waste and improve .",
+      author: "MS. Fatima",
+      authorRole: ["Owner"],
+      image: "/project (5).png",
+      ownerImage: "/avatar.png",
+      participant: "10",
+      created: "22 may 2023"
+    },
+    {
+      id: "6",
+      title: "Minimalist Design",
+      status: ['Ongoing', 'Public'],
+      description: "Implement minimalist design principles to reduce waste and improve .",
+      author: "MS. Fatima",
+      authorRole: ["Owner"],
+      image: "/project (6).png",
+      ownerImage: "/avatar.png",
+      participant: "10",
+      created: "22 may 2023"
+    },
+    {
+      id: "7",
+      title: "Minimalist Design",
+      status: ['Ongoing', 'Public'],
+      description: "Implement minimalist design principles to reduce waste and improve .",
+      author: "MS. Fatima",
+      authorRole: ["Owner"],
+      image: "/project (1).png",
+      ownerImage: "/avatar.png",
+      participant: "10",
+      created: "22 may 2023"
+    }
+  ]
+
 
   useEffect(() => {
     if (!projectId) {
@@ -132,7 +131,7 @@ const ProjectContent = () => {
       return;
     }
 
-    const selectedProject = data.cards.find((item) => item.id === projectId);
+    const selectedProject = projectDetails.find((item) => item.id === projectId);
 
     if (selectedProject) {
       setProject(selectedProject);

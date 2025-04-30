@@ -165,7 +165,7 @@ const projects = [
   },
 ]
 
-const EcoFriendlyPackage = () => {
+const WorkSpace = () => {
   const searchParams = useSearchParams()
   const projectId = searchParams.get("id")
   const router = useRouter()
@@ -249,7 +249,7 @@ const EcoFriendlyPackage = () => {
   }
 
   return (
-    <div className="xl:w-8/12 lg:w-10/12 px-5 lg:px-0 mx-auto py-5">
+    <div className=" px-5 lg:px-0 mx-auto py-2">
       {/* Banner Image */}
       <div className="w-full h-[200px] relative mb-4">
         <Image
@@ -603,7 +603,7 @@ const EcoFriendlyPackage = () => {
 export default function Wrapper() {
   return (
     <Suspense fallback={<div className="text-center py-10">Loading...</div>}>
-      <EcoFriendlyPackage />
+      <WorkSpace />
     </Suspense>
   )
 }

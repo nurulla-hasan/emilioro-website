@@ -3,8 +3,6 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/header/Navbar";
 import { Providers } from "@/store/providers";
-import AudioPlayer from "@/components/body/favorite/audio/AudioPlayer";
-import Container from "@/components/home/Container";
 
 // Poppins font setup
 const poppins = Poppins({
