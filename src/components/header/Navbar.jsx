@@ -39,7 +39,7 @@ const Navbar = () => {
   const navLinks = [
     { title: "Home", href: "/" },
     { title: "Donate Us", href: "/donate-us" },
-    { title: "People", href: "/people" },
+    // { title: "People", href: "/people" },
     { title: "Bonds", href: "/bonds" },
     { title: "Objects", href: "/object" },
     { title: "Institutions", href: "/institution" },
@@ -108,7 +108,7 @@ const Navbar = () => {
 
   return (
     <div className="bg-[#1C4587] sticky top-0 z-50">
-      <nav className="z-50 py-6 px-5 md:px-8 lg:px-0 xl:w-11/13 lg:w-10/12 mx-auto flex justify-evenly items-center relative">
+      <nav className="z-50 py-6 px-5 md:px-8 lg:px-24 mx-auto flex justify-between items-center relative">
         {/* Mobile nav */}
         <div className=" flex items-center justify-between w-full xl:w-auto">
           {/* Mobile Menu Button */}
@@ -251,7 +251,7 @@ const Navbar = () => {
           initial="hidden"
           animate="visible"
           variants={menuVariants}
-          className="hidden xl:flex justify-center"
+          className="hidden xl:flex justify-center gap-5"
         >
           {navLinks.map((link, index) => (
             <motion.div key={index} variants={menuItemVariants}>

@@ -114,9 +114,9 @@ const AllAudio = () => {
   }
 
   return (
-    <div className="my-5 px-5 md:px-8">
+    <div className="px-5 my-5 md:px-8">
       {/* Header */}
-      <div className=" mx-auto flex flex-col lg:flex-row gap-2 justify-between items-center">
+      <div className="flex flex-col items-center justify-between gap-2 mx-auto lg:flex-row">
         <h1 className="text-xl text-[#1C4587] font-bold">Family Conversation</h1>
         <div className="relative border border-[#1C4587] rounded-sm flex items-center px-2">
           <CiSearch className="cursor-pointer " color="#1C4587" size={15} />
@@ -131,8 +131,8 @@ const AllAudio = () => {
       {/* Audio List */}
       <div className="flex flex-col gap-4 mt-5">
         {conversations.map((audio) => (
-          <div key={audio.id} className="bg-white rounded-sm shadow-lg overflow-hidden">
-            <div className=" relative flex flex-col md:flex-row items-center p-3 gap-4">
+          <div key={audio.id} className="overflow-hidden bg-white rounded-sm shadow-lg">
+            <div className="relative flex flex-col items-center gap-4 p-3 md:flex-row">
               {/* Thumbnail with Heart - Full width on mobile, fixed width on desktop */}
               <div className="relative w-full md:w-[220px] h-[180px] md:h-[140px]">
                 <Image
@@ -140,21 +140,21 @@ const AllAudio = () => {
                   alt={audio.title}
                   width={220}
                   height={130}
-                  className="rounded-sm object-cover w-full h-full"
+                  className="object-cover w-full h-full rounded-sm"
                 />
-                <button className="absolute top-2 left-2 text-white cursor-pointer">
+                <button className="absolute text-white cursor-pointer top-2 left-2">
                   <CiHeart size={24} />
                 </button>
               </div>
 
               {/* Content */}
               <div className="flex-1">
-                <div className="flex flex-col md:flex-row justify-between md:items-start gap-2 md:gap-0">
+                <div className="flex flex-col justify-between gap-2 md:flex-row md:items-start md:gap-0">
                   <div>
                     <h2 className="text-md font-semibold text-[#1C4587]">{audio.title}</h2>
-                    <p className="text-gray-600 text-xs mt-1">{audio.description}</p>
+                    <p className="mt-1 text-xs text-gray-600">{audio.description}</p>
                   </div>
-                  <div className="flex items-center gap-2 text-gray-500 text-xs">
+                  <div className="flex items-center gap-2 text-xs text-gray-500">
                     <AiFillEye size={16} />
                     <span>{audio.views}</span>
                     <AiFillStar size={16} className="text-yellow-500" />
@@ -163,7 +163,7 @@ const AllAudio = () => {
                 </div>
 
                 {/* Audio Player */}
-                <div className="mt-2 flex items-center gap-3">
+                <div className="flex items-center gap-3 mt-2">
                   <button
                     onClick={() => togglePlay(audio.id)}
                     className="bg-[#1C4587] cursor-pointer text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0"
@@ -181,7 +181,7 @@ const AllAudio = () => {
                 </div>
 
                 {/* Tags */}
-                <div className="mt-3 flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2 mt-3">
                   {audio.tags.map((tag, index) => (
                     <span key={index} className="bg-[#1C4587] text-white text-[10px] px-3 py-1 rounded-sm">
                       {tag}
@@ -191,7 +191,7 @@ const AllAudio = () => {
               </div>
 
               {/* Delete Button - Repositioned for mobile */}
-              <div className="flex md:items-start absolute md:relative bottom-3 right-3 md:left-0 md:right-0 md:bottom-15">
+              <div className="absolute flex md:items-start md:relative bottom-3 right-3 md:left-0 md:right-0 md:bottom-15">
                 <button className="cursor-pointer border border-blue-900 text-blue-900 px-2 md:py-1 py-0.5 rounded-sm flex items-center gap-1 text-xs hover:bg-red-50 transition-colors">
                   <img src="/delete.svg" alt="" />
                   <span>Delete</span>

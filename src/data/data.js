@@ -438,6 +438,224 @@ export const joinedProject = [
   }
 ]
 
+export const conversations = [
+
+  {
+    id: 1,
+    title: "Family Conversation",
+    image: "/conversion1.png",
+    duration: "1 hr 23m",
+    type: "10+ audio"
+  },
+  {
+    id: 2,
+    title: "Family Conversation",
+    image: "/conversion2.png",
+    duration: "1 hr 23m",
+    type: "10+ audio"
+  },
+  {
+    id: 3,
+    title: "Family Conversation",
+    image: "/conversion3.png",
+    duration: "1 hr 23m",
+    type: "10+ audio"
+  },
+  {
+    id: 4,
+    title: "Family Conversation",
+    image: "/conversion1.png",
+    duration: "1 hr 23m",
+    type: "10+ audio"
+  },
+  {
+    id: 5,
+    title: "Family Conversation",
+    image: "/conversion2.png",
+    duration: "1 hr 23m",
+    type: "10+ audio"
+  },
+  {
+    id: 6,
+    title: "Family Conversation",
+    image: "/conversion3.png",
+    duration: "1 hr 23m",
+    type: "10+ audio"
+  },
+  {
+    id: 7,
+    title: "Family Conversation",
+    image: "/conversion1.png",
+    duration: "1 hr 23m",
+    type: "10+ audio"
+  },
+  {
+    id: 8,
+    title: "Family Conversation",
+    image: "/conversion2.png",
+    duration: "1 hr 23m",
+    type: "10+ audio"
+  },
+  {
+    id: 9,
+    title: "Family Conversation",
+    image: "/conversion3.png",
+    duration: "1 hr 23m",
+    type: "10+ audio"
+  }
+
+]
+
+export const trendingData = [
+  {
+    id: 1,
+    title: "Family Conversation",
+    audioCount: "3k+ audio",
+    image: "/trading1.png",
+  },
+  {
+    id: 2,
+    title: "Travel Conversation",
+    audioCount: "3k+ audio",
+    image: "/trading3.png",
+  },
+  {
+    id: 3,
+    title: "Friends Conversation",
+    audioCount: "3k+ audio",
+    image: "/trading2.png",
+  },
+  {
+    id: 4,
+    title: "Travel Conversation",
+    audioCount: "3k+ audio",
+    image: "/trading3.png",
+  },
+  {
+    id: 5,
+    title: "Friends Conversation",
+    audioCount: "3k+ audio",
+    image: "/trading2.png",
+  },
+  {
+    id: 6,
+    title: "Family Conversation",
+    audioCount: "3k+ audio",
+    image: "/trading1.png",
+  },
+  {
+    id: 7,
+    title: "Travel Conversation",
+    audioCount: "3k+ audio",
+    image: "/trading3.png",
+  },
+  {
+    id: 8,
+    title: "Friends Conversation",
+    audioCount: "3k+ audio",
+    image: "/trading2.png",
+  },
+  {
+    id: 9,
+    title: "Travel Conversation",
+    audioCount: "3k+ audio",
+    image: "/trading3.png",
+  },
+  {
+    id: 10,
+    title: "Travel Conversation",
+    audioCount: "3k+ audio",
+    image: "/trading3.png",
+  },
+  {
+    id: 11,
+    title: "Friends Conversation",
+    audioCount: "3k+ audio",
+    image: "/trading2.png",
+  },
+  {
+    id: 12,
+    title: "Travel Conversation",
+    audioCount: "3k+ audio",
+    image: "/trading3.png",
+  },
+];
+
+export const favoriteAudioData = [
+  {
+    id: 1,
+    title: "Family Conversation",
+    plays: "3.5k",
+    rating: "5",
+    tags: ["Family", "Travel"],
+    duration: "02:20min",
+    image: "/mostPlayed.png",
+  },
+  {
+    id: 2,
+    title: "Family Conversation",
+    plays: "3.5k",
+    rating: "5",
+    tags: ["Family", "Travel"],
+    duration: "02:20min",
+    image: "/mostPlayed.png",
+  },
+  {
+    id: 3,
+    title: "Family Conversation",
+    plays: "3.5k",
+    rating: "5",
+    tags: ["Family", "Travel"],
+    duration: "02:20min",
+    image: "/mostPlayed.png",
+  },
+  {
+    id: 4,
+    title: "Family Conversation",
+    plays: "3.5k",
+    rating: "5",
+    tags: ["Family", "Travel"],
+    duration: "02:20min",
+    image: "/mostPlayed.png",
+  },
+  {
+    id: 5,
+    title: "Family Conversation",
+    plays: "3.5k",
+    rating: "5",
+    tags: ["Family", "Travel"],
+    duration: "02:20min",
+    image: "/mostPlayed.png",
+  },
+  {
+    id: 6,
+    title: "Family Conversation",
+    plays: "3.5k",
+    rating: "5",
+    tags: ["Family", "Travel"],
+    duration: "02:20min",
+    image: "/mostPlayed.png",
+  },
+  {
+    id: 7,
+    title: "Family Conversation",
+    plays: "3.5k",
+    rating: "5",
+    tags: ["Family", "Travel"],
+    duration: "02:20min",
+    image: "/mostPlayed.png",
+  },
+  {
+    id: 8,
+    title: "Family Conversation",
+    plays: "3.5k",
+    rating: "5",
+    tags: ["Family", "Travel"],
+    duration: "02:20min",
+    image: "/mostPlayed.png",
+  },
+];
+
 
 // Single bond
 export const singleBond = (giveValue, getValue) => ({

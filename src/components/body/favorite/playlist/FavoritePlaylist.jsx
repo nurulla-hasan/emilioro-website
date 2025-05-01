@@ -4,55 +4,16 @@ import { IoMdShare } from 'react-icons/io';
 import { IoTimeOutline } from 'react-icons/io5';
 import { AiOutlineEdit } from "react-icons/ai";
 import Link from 'next/link';
+import { conversations } from '@/data/data';
 
 const FavoritePlaylist = () => {
-
-    const conversations = [
-
-        {
-            id: 1,
-            title: "Family Conversation",
-            image: "/conversion1.png",
-            duration: "1 hr 23m",
-            type: "10+ audio"
-        },
-        {
-            id: 2,
-            title: "Family Conversation",
-            image: "/conversion2.png",
-            duration: "1 hr 23m",
-            type: "10+ audio"
-        },
-        {
-            id: 3,
-            title: "Family Conversation",
-            image: "/conversion3.png",
-            duration: "1 hr 23m",
-            type: "10+ audio"
-        },
-        {
-            id: 4,
-            title: "Family Conversation",
-            image: "/conversion1.png",
-            duration: "1 hr 23m",
-            type: "10+ audio"
-        },
-        {
-            id: 5,
-            title: "Family Conversation",
-            image: "/conversion2.png",
-            duration: "1 hr 23m",
-            type: "10+ audio"
-        },
-
-    ]
 
     return (
         <div className=''>
             {/* Cards */}
-            <div className="mx-auto xl:my-5 grid xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-10 lg:justify-between justify-items-center items-center ">
+            <div className="grid items-center grid-cols-1 gap-2 mx-auto xl:my-5 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 lg:justify-between justify-items-center ">
                 {conversations.map((conversation, index) => (
-                    <div key={conversation.id} className='flex flex-col gap-2'>
+                    <div key={conversation.id} className='flex flex-col gap-2 p-2 border border-gray-300 rounded-sm'>
                         <div>
                             <img
                                 src={conversation.image}
@@ -63,7 +24,7 @@ const FavoritePlaylist = () => {
                         </div>
 
                         <div className='flex flex-col gap-2'>
-                            <div className='flex justify-between items-center'>
+                            <div className='flex items-center justify-between'>
                                 <div className="text-sm text-[#1C4587] font-semibold mb-1">
                                     {conversation.title}
                                 </div>
@@ -85,7 +46,7 @@ const FavoritePlaylist = () => {
                                 </div>
                             </div>
 
-                            <div className='flex justify-between items-center'>
+                            <div className='flex items-center justify-between'>
                                 <Link href={`/chatting/allPlaylist/myPlaylist/${conversation.id}`}>
                                     <button className="cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white px-6 py-[6px] rounded-sm text-xs font-medium">
                                         View

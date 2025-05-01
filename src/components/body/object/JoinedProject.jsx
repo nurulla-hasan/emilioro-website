@@ -28,7 +28,7 @@ const JoinedProject = () => {
                     <option value="Completed">Completed</option>
                 </select>
             </motion.div>
-            <div className='mt-13.5 md:mt-10 grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 items-center gap-5 rounded-lg'>
+            <div className='mt-13.5 md:mt-10 grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 items-center gap-5 rounded-lg'>
                 {filteredCards.map((card) => (
                     <motion.div key={card.id}
                         className='lg:w-full mx-auto flex flex-col gap-2 shadow-[0px_15px_45px_0px_#CFC9DD99]'
@@ -89,11 +89,11 @@ const JoinedProject = () => {
 
 
 
-                            <div className='flex items-center justify-between mt-4'>
-                                <button onClick={() => router.push(`/object/myProject/myProjectDetails?id=${card.id}`)} className="cursor-pointer bg-white text-[#1C4587] border morder-[1C4587] text-xs px-4 py-[6px] rounded-sm font-medium">
+                            <div className='flex items-center gap-2 justify-between mt-4'>
+                                <button onClick={() => router.push(`/object/myProject/myProjectDetails?id=${card.id}`)} className="cursor-pointer flex-1/2 bg-white text-[#1C4587] border morder-[1C4587] text-xs px-4 py-[6px] rounded-sm font-medium">
                                     View Details
                                 </button>
-                                <button onClick={() => router.push(`/object/workspace?id=${card.id}`)} className="cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white text-xs px-4 py-2 rounded-sm font-medium">
+                                <button onClick={() => router.push(`/object/workspace?id=${card.id}`)} className="cursor-pointer flex-1/2 bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white text-xs px-4 py-[7px] rounded-sm font-medium">
                                     Open Workspace
                                 </button>
                             </div>

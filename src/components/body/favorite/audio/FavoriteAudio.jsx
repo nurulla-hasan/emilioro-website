@@ -1,106 +1,30 @@
-
-import { FaCirclePlay } from "react-icons/fa6";
+"use client"
 import { CiMenuKebab } from "react-icons/ci";
 import { LuEye } from "react-icons/lu";
 import { FaPlay, FaRegStar } from "react-icons/fa";
 import { IoTimeOutline } from "react-icons/io5";
 import { CiHeart } from "react-icons/ci";
-import AudioPlayer from "./AudioPlayer";
+import { favoriteAudioData } from "@/data/data";
 
 const FavoriteAudio = () => {
-    const data = [
-        {
-            id: 1,
-            title: "Family Conversation",
-            plays: "3.5k",
-            rating: "5",
-            tags: ["Family", "Travel"],
-            duration: "02:20min",
-            image: "/mostPlayed.png",
-        },
-        {
-            id: 2,
-            title: "Family Conversation",
-            plays: "3.5k",
-            rating: "5",
-            tags: ["Family", "Travel"],
-            duration: "02:20min",
-            image: "/mostPlayed.png",
-        },
-        {
-            id: 3,
-            title: "Family Conversation",
-            plays: "3.5k",
-            rating: "5",
-            tags: ["Family", "Travel"],
-            duration: "02:20min",
-            image: "/mostPlayed.png",
-        },
-        {
-            id: 4,
-            title: "Family Conversation",
-            plays: "3.5k",
-            rating: "5",
-            tags: ["Family", "Travel"],
-            duration: "02:20min",
-            image: "/mostPlayed.png",
-        },
-        {
-            id: 5,
-            title: "Family Conversation",
-            plays: "3.5k",
-            rating: "5",
-            tags: ["Family", "Travel"],
-            duration: "02:20min",
-            image: "/mostPlayed.png",
-        },
-        {
-            id: 6,
-            title: "Family Conversation",
-            plays: "3.5k",
-            rating: "5",
-            tags: ["Family", "Travel"],
-            duration: "02:20min",
-            image: "/mostPlayed.png",
-        },
-        {
-            id: 7,
-            title: "Family Conversation",
-            plays: "3.5k",
-            rating: "5",
-            tags: ["Family", "Travel"],
-            duration: "02:20min",
-            image: "/mostPlayed.png",
-        },
-        {
-            id: 8,
-            title: "Family Conversation",
-            plays: "3.5k",
-            rating: "5",
-            tags: ["Family", "Travel"],
-            duration: "02:20min",
-            image: "/mostPlayed.png",
-        },
-    ];
-
     return (
         <div className="">
-            <div className="mb-5 flex flex-col gap-8 justify-between ">
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 overflow-scroll hide-scrollbar">
-                    {data.map((item) => (
+            <div className="flex flex-col justify-between gap-8 mb-5 ">
+                <div className="grid grid-cols-1 gap-2 overflow-scroll sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 hide-scrollbar">
+                    {favoriteAudioData.map((item) => (
                         <div
                             key={item.id}
-                            className="relative flex-shrink-0 mx-auto w-full lg:px-0 px-5 group"
+                            className="relative flex-shrink-0 w-full px-5 mx-auto lg:px-0 group"
                         >
                             {/* Image Container */}
                             <div className="relative h-40 overflow-hidden rounded-xl">
                                 <img
                                     src={item.image}
                                     alt={item.title}
-                                    className="w-full h-full object-cover transition duration-300 group-hover:blur-xs"
+                                    className="object-cover w-full h-full transition duration-300 group-hover:blur-xs"
                                 />
 
-                                <div className="absolute top-2 left-2 text-white font-bold cursor-pointer">
+                                <div className="absolute font-bold text-white cursor-pointer top-2 left-2">
                                     <CiHeart size={20} />
                                 </div>
 
@@ -111,7 +35,7 @@ const FavoriteAudio = () => {
                                 </button>
 
                                 {/* Menu Icon (Hidden before hover) */}
-                                <div className="absolute top-0 right-2 p-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 rotate-90 cursor-pointer">
+                                <div className="absolute top-0 p-1 transition-opacity duration-300 rotate-90 rounded-full opacity-0 cursor-pointer right-2 group-hover:opacity-100">
                                     <CiMenuKebab size={22} className="text-white" />
                                 </div>
                             </div>
@@ -134,7 +58,7 @@ const FavoriteAudio = () => {
                                     </div>
                                 </div>
 
-                                <div className="mt-2 flex justify-between items-center">
+                                <div className="flex items-center justify-between mt-2">
                                     <div className="flex items-center gap-1 *:px-[4px] *:py-[1px] *:rounded-xs">
                                         {item.tags.map((tag, index) => (
                                             <p
@@ -145,7 +69,7 @@ const FavoriteAudio = () => {
                                             </p>
                                         ))}
                                     </div>
-                                    <div className="flex gap-1 items-center">
+                                    <div className="flex items-center gap-1">
                                         <IoTimeOutline size={12} />
                                         <p className="text-[12px] text-gray-600">{item.duration}</p>
                                     </div>
@@ -155,7 +79,7 @@ const FavoriteAudio = () => {
                     ))}
                 </div>
             </div>
-            {/* <div className="border-b border-gray-500 mb-5"></div>
+            {/* <div className="mb-5 border-b border-gray-500"></div>
             <div className="rounded-md">
                 <AudioPlayer />
             </div> */}

@@ -22,7 +22,7 @@ const InstitutionPage = () => {
                 className=""
             >
                 <motion.div
-                    className="flex flex-col lg:flex-row gap-5 justify-between items-center"
+                    className="flex flex-col items-start justify-between gap-5 lg:flex-row"
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2 }}
@@ -30,7 +30,7 @@ const InstitutionPage = () => {
                     <motion.h1 className="text-xl text-[#1C4587] font-bold" whileHover={{ scale: 1.05 }}>
                     Be part of it
                     </motion.h1>
-                    <div className="flex gap-5 items-center justify-center">
+                    <div className="flex items-center justify-center gap-5">
                         <motion.div className="relative lg:w-[250] w-[150] text-gray-700 border border-[#1C4587] rounded-sm flex items-center px-2">
                             <CiSearch className="cursor-pointer" color="#1C4587" size={15} />
                             <input

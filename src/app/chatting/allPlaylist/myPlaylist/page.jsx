@@ -8,61 +8,24 @@ import CreatePlaylistModal from '@/components/body/myPlaylist/modal/CreatePlayli
 import { useState } from 'react';
 import Link from 'next/link';
 import ChattingHeader from '@/components/body/chatting/ChattingHeader';
+import { conversations } from '@/data/data';
 
 
 const MyPlaylist = () => {
 
     const [isCreatePlaylistModalOpen, setIsCreatePlaylistModalOpen] = useState(false);
-    const conversations = [
-
-        {
-            id: 1,
-            title: "Family Conversation",
-            image: "/conversion1.png",
-            duration: "1 hr 23m",
-            type: "10+ audio"
-        },
-        {
-            id: 2,
-            title: "Family Conversation",
-            image: "/conversion2.png",
-            duration: "1 hr 23m",
-            type: "10+ audio"
-        },
-        {
-            id: 3,
-            title: "Family Conversation",
-            image: "/conversion3.png",
-            duration: "1 hr 23m",
-            type: "10+ audio"
-        },
-        {
-            id: 4,
-            title: "Family Conversation",
-            image: "/conversion1.png",
-            duration: "1 hr 23m",
-            type: "10+ audio"
-        },
-        {
-            id: 5,
-            title: "Family Conversation",
-            image: "/conversion2.png",
-            duration: "1 hr 23m",
-            type: "10+ audio"
-        },
-
-    ]
+    
     return (
         <div className="px-5 my-5 md:px-8">
 
-            <div className=" mx-auto flex flex-col md:flex-row gap-5 justify-between items-center">
+            <div className="flex flex-col items-center justify-between gap-5 mx-auto md:flex-row">
                 <h1 className="w-full text-xl text-[#1C4587] text-left font-bold">My Playlists</h1>
-                <div className='flex w-full items-center gap-5 justify-between md:justify-end'>
+                <div className='flex items-center justify-between w-full gap-5 md:justify-end'>
                     <motion.div
                         className=' border border-[#1e4a9b] px-3 py-[3px] rounded-sm bg-white'
                         whileHover={{ scale: 1.05 }}
                     >
-                        <select className='text-sm text outline-none text-gray-600'>
+                        <select className='text-sm text-gray-600 outline-none text'>
                             <option value="">Liked</option>
                             <option value="">Created</option>
                         </select>
@@ -70,7 +33,7 @@ const MyPlaylist = () => {
                     <motion.div
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.99 }}
-                        className="text-blue-500 font-semibold cursor-pointer"
+                        className="font-semibold text-blue-500 cursor-pointer"
                     >
                         <button onClick={() => setIsCreatePlaylistModalOpen(true)} className="cursor-pointer bg-gradient-to-b from-[#193f7c] to-[#2965c4] text-white px-5 md:py-2 py-[9px] rounded-sm font-medium text-xs lg:text-[12px]">
                             +Create new playlist
@@ -80,9 +43,9 @@ const MyPlaylist = () => {
             </div>
 
             {/* Cards */}
-            <div className="mx-auto my-5 grid xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-10 lg:justify-between justify-items-center items-center">
+            <div className="grid items-center grid-cols-1 gap-2 mx-auto my-5 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 lg:justify-between justify-items-center">
                 {conversations.map((conversation, index) => (
-                    <div key={conversation.id} className='flex flex-col gap-2'>
+                    <div key={conversation.id} className='flex flex-col gap-2 p-2 border border-gray-300 rounded-sm'>
                         <div>
                             <img
                                 src={conversation.image}
@@ -92,8 +55,8 @@ const MyPlaylist = () => {
                             </img>
                         </div>
 
-                        <div className='flex flex-col gap-2'>
-                            <div className='flex justify-between items-center'>
+                        <div className='flex flex-col gap-2 '>
+                            <div className='flex items-center justify-between'>
                                 <div className="text-sm text-[#1C4587] font-semibold mb-1">
                                     {conversation.title}
                                 </div>
@@ -115,7 +78,7 @@ const MyPlaylist = () => {
                                 </div>
                             </div>
 
-                            <div className='flex justify-between items-center'>
+                            <div className='flex items-center justify-between'>
                                 <Link href={`/chatting/allPlaylist/myPlaylist/${conversation.id}`}>
                                     <button className="cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white px-6 py-[6px] rounded-sm text-xs font-medium">
                                         View

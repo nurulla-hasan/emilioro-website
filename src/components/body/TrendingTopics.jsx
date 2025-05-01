@@ -1,26 +1,6 @@
 
+import { trendingData } from '@/data/data';
 import Link from 'next/link';
-
-const trendingData = [
-  {
-    id: 1,
-    title: "Family Conversation",
-    audioCount: "3k+ audio",
-    image: "/trading1.png",
-  },
-  {
-    id: 2,
-    title: "Friends Conversation",
-    audioCount: "3k+ audio",
-    image: "/trading2.png",
-  },
-  {
-    id: 3,
-    title: "Travel Conversation",
-    audioCount: "3k+ audio",
-    image: "/trading3.png",
-  },
-];
 
 const TrendingTopics = () => {
   return (
@@ -35,7 +15,7 @@ const TrendingTopics = () => {
       </div>
 
       {/* Cards */}
-      <div className="mt-2 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 lg:justify-between justify-items-center items-center">
+      <div className="grid items-center grid-cols-1 gap-2 mt-2 lg:grid-cols-3 xl:grid-cols-4 md:grid-cols-2 lg:justify-between justify-items-center">
         {trendingData.map((item) => (
           <div
             key={item.id}
@@ -53,7 +33,7 @@ const TrendingTopics = () => {
 
               <div>
                 {/* Title */}
-                <h3 className="text-xs font-semibold mb-1">{item.title}</h3>
+                <h3 className="mb-1 text-xs font-semibold">{item.title}</h3>
 
                 {/* Audio Count */}
                 <p className="text-xs font-[300] mb-4">{item.audioCount}</p>

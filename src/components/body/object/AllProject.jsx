@@ -6,12 +6,12 @@ const AllProject = ({ setSelectedCardAllProject }) => {
     
 
     return (
-        <div className='grid items-center grid-cols-1 gap-5 mt-10 rounded-lg xl:grid-cols-3 md:grid-cols-2'>
+        <div className='grid items-center grid-cols-1 gap-5 mt-10 rounded-lg xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2'>
             {allProject.map((card) => (
                 <motion.div
                     onClick={() => setSelectedCardAllProject(card)}
                     key={card.id}
-                    className="cursor-pointer lg:w-full mx-auto flex flex-col gap-2 shadow-[0px_15px_45px_0px_#CFC9DD99]"
+                    className="cursor-pointer lg:w-full mx-auto flex flex-col gap-2 shadow-[0px_15px_45px_0px_#CFC9DD99] "
                     whileHover={{ scale: 1.02 }}
                     transition={{ type: "tween", duration: 0.2, ease: "easeInOut" }}
                 >
@@ -55,8 +55,8 @@ const AllProject = ({ setSelectedCardAllProject }) => {
                                 </div>
                             </div>
                         </div>
-                        <div className="flex items-center justify-between mt-4">
-                            <button className="cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white text-xs px-4 py-2 rounded-sm font-medium">
+                        <div className="mt-4">
+                            <button className="cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white text-xs w-full py-2 rounded-sm font-medium">
                                 Request to join
                             </button>
                         </div>

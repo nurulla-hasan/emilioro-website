@@ -29,7 +29,7 @@ const MyInstitution = ({ setSelectedCardUserProject }) => {
                     <option value="Joined">Joined</option>
                 </select>
             </motion.div>
-            <div className='mt-13.5 md:mt-10 grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 items-center gap-5 rounded-lg'>
+            <div className='mt-13.5 md:mt-10 grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 items-center gap-5 rounded-lg'>
                 {
                     filteredCards.map((card, i) => (
                         <MyInstitutionItem  key={i} card={card}/>

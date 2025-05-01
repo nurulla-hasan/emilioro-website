@@ -57,7 +57,7 @@ const ChattingLayout = ({ children }) => {
             {/* Sidebar - Desktop always visible, Mobile conditionally visible */}
             <div className="shadow-md bg-[#f8f9fc]">
                 {/* Mobile Menu Toggle */}
-                <div className="lg:hidden flex justify-between items-center p-4">
+                <div className="flex items-center justify-between p-4 lg:hidden">
                     <h2 className="text-lg font-semibold text-[#1C4587]">Menu</h2>
                     <button
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -131,9 +131,9 @@ const ChattingLayout = ({ children }) => {
             </div>
 
             {/* Main Content Area */}
-            <div className="h-[calc(100vh-175px)] overflow-scroll hide-scrollbar xl:w-[72%]">{children}</div>
-            <div className="fixed  bottom-0 left-0 w-full backdrop-blur-2xl border-t border-gray-300 z-50">
-                <div className="flex justify-center items-center xl:w-8/11 lg:w-10/12 p-2 mx-auto w-full">
+            <div className="h-[calc(100vh-175px)] overflow-scroll hide-scrollbar ">{children}</div>
+            <div className="fixed bottom-0 left-0 z-50 w-full border-t border-gray-300 backdrop-blur-2xl">
+                <div className="flex items-center justify-center w-full p-2 mx-auto xl:w-8/11 lg:w-10/12">
                     <AudioPlayer />
                 </div>
             </div>

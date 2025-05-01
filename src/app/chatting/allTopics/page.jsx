@@ -1,4 +1,5 @@
 "use client"
+import { trendingData } from '@/data/data';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { CiSearch } from 'react-icons/ci';
@@ -6,88 +7,15 @@ import { CiSearch } from 'react-icons/ci';
 
 const AllTopics = () => {
 
-    const trendingData = [
-        {
-            id: 1,
-            title: "Family Conversation",
-            audioCount: "3k+ audio",
-            image: "/trading1.png",
-        },
-        {
-            id: 2,
-            title: "Travel Conversation",
-            audioCount: "3k+ audio",
-            image: "/trading3.png",
-        },
-        {
-            id: 3,
-            title: "Friends Conversation",
-            audioCount: "3k+ audio",
-            image: "/trading2.png",
-        },
-        {
-            id: 4,
-            title: "Travel Conversation",
-            audioCount: "3k+ audio",
-            image: "/trading3.png",
-        },
-        {
-            id: 5,
-            title: "Friends Conversation",
-            audioCount: "3k+ audio",
-            image: "/trading2.png",
-        },
-        {
-            id: 6,
-            title: "Family Conversation",
-            audioCount: "3k+ audio",
-            image: "/trading1.png",
-        },
-        {
-            id: 7,
-            title: "Travel Conversation",
-            audioCount: "3k+ audio",
-            image: "/trading3.png",
-        },
-        {
-            id: 8,
-            title: "Friends Conversation",
-            audioCount: "3k+ audio",
-            image: "/trading2.png",
-        },
-        {
-            id: 9,
-            title: "Travel Conversation",
-            audioCount: "3k+ audio",
-            image: "/trading3.png",
-        },
-        {
-            id: 10,
-            title: "Travel Conversation",
-            audioCount: "3k+ audio",
-            image: "/trading3.png",
-        },
-        {
-            id: 11,
-            title: "Friends Conversation",
-            audioCount: "3k+ audio",
-            image: "/trading2.png",
-        },
-        {
-            id: 12,
-            title: "Travel Conversation",
-            audioCount: "3k+ audio",
-            image: "/trading3.png",
-        },
-    ];
+
 
     return (
 
         <>
-            <div className='my-5 px-5 md:px-8'>
-                <div className=" md:flex flex-row gap-5 justify-between items-center">
+            <div className='px-5 md:px-8'>
+                <div className="flex-row items-center justify-between gap-5 md:flex">
                     <h1 className="text-xl text-[#1C4587] font-bold">Trending topics</h1>
-                    <div className='flex gap-5 items-center justify-center mt-5'>
+                    <div className='flex items-center justify-center gap-5 mt-5'>
                         <div className="relative border border-[#1C4587] w-[45%] rounded-sm px-2 flex items-center">
                             <CiSearch className='absolute cursor-pointer ' color='#1C4587' size={16} />
                             <input
@@ -108,7 +36,7 @@ const AllTopics = () => {
                 </div>
 
                 {/* Cards */}
-                <div className="mx-auto mt-5 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8 lg:justify-between justify-items-center items-center">
+                <div className="grid items-center grid-cols-1 gap-2 mx-auto mt-5 lg:grid-cols-4 md:grid-cols-3 lg:justify-between justify-items-center">
                     {trendingData.map((item) => (
                         <div
                             key={item.id}
@@ -126,7 +54,7 @@ const AllTopics = () => {
 
                                 <div>
                                     {/* Title */}
-                                    <h3 className="text-xs font-semibold mb-1">{item.title}</h3>
+                                    <h3 className="mb-1 text-xs font-semibold">{item.title}</h3>
 
                                     {/* Audio Count */}
                                     <p className="text-xs font-[300] mb-4">{item.audioCount}</p>
