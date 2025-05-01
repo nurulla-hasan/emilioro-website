@@ -10,7 +10,7 @@ import AudioPlayer from "@/components/body/favorite/audio/AudioPlayer"
 
 const ChattingPage = () => {
   const [isRecording, setIsRecording] = useState(false)
-  const [audioList, setAudioList] = useState([]); // 🔹 সব রেকর্ড করা অডিও সংরক্ষণ করবে
+  const [audioList, setAudioList] = useState([]); 
   const mediaRecorderRef = useRef(null);
   const audioChunksRef = useRef([]);
 
@@ -32,7 +32,7 @@ const ChattingPage = () => {
           const audioBlob = new Blob(audioChunksRef.current, { type: "audio/wav" });
           const url = URL.createObjectURL(audioBlob);
 
-          setAudioList(prevList => [...prevList, { id: Date.now(), url }]); // 🔹 নতুন অডিও state-এ যোগ হবে
+          setAudioList(prevList => [...prevList, { id: Date.now(), url }]); 
         };
 
         mediaRecorder.start();
@@ -47,11 +47,11 @@ const ChattingPage = () => {
   };
 
   return (
-    <div className="my-5 px-5 md:px-8">
+    <div className="px-5 my-5 md:px-8">
       <div>
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-5 gap-4">
+        <div className="flex flex-col items-start justify-between gap-4 mb-5 md:flex-row md:items-center">
           <h1 className="text-xl md:text-2xl font-bold text-[#1C4587] ">Real conversation between people</h1>
-          <div className="flex flex-col md:flex-row items-start md:items-center gap-4 w-full md:w-auto">
+          <div className="flex flex-col items-start w-full gap-4 md:flex-row md:items-center md:w-auto">
             <div className="relative flex items-center border border-[#1C4587] rounded-sm px-3 py-1.5 w-full md:w-auto">
               <CiSearch className="text-[#1C4587]" size={16} />
               <input
@@ -67,7 +67,7 @@ const ChattingPage = () => {
               + Upload New Audio
             </motion.button>
 
-            <button onClick={handleMicrophoneClick} className="focus:outline-none cursor-pointer">
+            <button onClick={handleMicrophoneClick} className="cursor-pointer focus:outline-none">
               {isRecording ? (
                 <FaStop color="red" size={30} />
               ) : (
@@ -79,11 +79,11 @@ const ChattingPage = () => {
 
         {/* 🔹 ALL AUDIO IN UI */}
         {audioList.length > 0 && (
-          <div className="mt-5 mx-auto w-full flex flex-col">
+          <div className="flex flex-col w-full mx-auto mt-5">
             <h3 className="text-[#1C4587] font-semibold mb-2">Recorded Audios:</h3>
             <div className="grid grid-cols-2 gap-5">
               {audioList.map((audio) => (
-                <div key={audio.id} className="flex gap-3 justify-items-center items-center">
+                <div key={audio.id} className="flex items-center gap-3 justify-items-center">
                   <span className="text-sm text-[#1C4587]">Audio {audioList.indexOf(audio) + 1}:</span>
                   <audio controls src={audio.url} className="w-full md:w-96" />
                 </div>

@@ -48,9 +48,9 @@ const ConversationList = () => {
             </div>
 
 
-            <div className="mt-2 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 items-center gap-8 lg:gap-5 mx-auto rounded-lg ">
+            <div className="grid items-center grid-cols-1 gap-2 mx-auto mt-2 rounded-lg lg:grid-cols-3 md:grid-cols-2 lg:gap-5 ">
                 {conversations.map((conversation, index) => (
-                    <div key={conversation.id} className='flex flex-col gap-2'>
+                    <div key={conversation.id} className='flex flex-col gap-2 p-2 border border-gray-300 rounded-sm'>
                         <div>
                             <img
                                 src={conversation.image}
@@ -61,7 +61,7 @@ const ConversationList = () => {
                         </div>
 
                         <div className='flex flex-col gap-2'>
-                            <div className='flex justify-between items-center'>
+                            <div className='flex items-center justify-between'>
                                 <div className="text-sm text-[#1C4587] font-semibold mb-1">
                                     {conversation.title}
                                 </div>
@@ -83,7 +83,7 @@ const ConversationList = () => {
                                 </div>
                             </div>
 
-                            <div className='flex justify-between items-center'>
+                            <div className='flex items-center justify-between'>
                                 <Link href={`/chatting/allPlaylist/myPlaylist/${conversation.id}`}>
                                     <button className="cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white px-6 py-[6px] rounded-sm text-xs font-medium">
                                         View
