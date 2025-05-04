@@ -1,15 +1,15 @@
 
-import { Poppins } from "next/font/google";
+// import { Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/header/Navbar";
 import { Providers } from "@/store/providers";
 
 // Poppins font setup
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-poppins", // Custom CSS variable for font
-});
+// const poppins = Poppins({
+//   subsets: ["latin"],
+//   weight: ["300", "400", "500", "600", "700"],
+//   variable: "--font-poppins",
+// });
 
 export const metadata = {
   title: "Audio-sharing-platform",
@@ -20,7 +20,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${poppins.variable} antialiased `}
+        className={` antialiased `}
       >
         <Providers>
           <Navbar />

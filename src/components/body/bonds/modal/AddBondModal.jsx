@@ -5,38 +5,42 @@ import { useState, useEffect } from "react"
 
 const AddBondModal = ({ isOpen, onClose, onSubmit, register, tags, setTags, removeTag }) => {
   const [canSubmit, setCanSubmit] = useState(false)
+  const [bondType, setBondType] = useState("give") // "give" or "get"
 
-  // Check if form can be submitted whenever tags change
   useEffect(() => {
-    // Allow submission if there's at least one tag
     setCanSubmit(tags.length > 0)
   }, [tags])
 
   if (!isOpen) return null
 
-  // Modified submit handler
   const handleSubmit = (e) => {
     e.preventDefault()
 
-    // Get the input value
+    const offerInput = document.querySelector("input[name='offer']")
+    const wantInput = document.querySelector("input[name='want']")
     const input = document.querySelector("input[placeholder='Type here']")
     const inputValue = input.value.trim()
 
-    // If there's text in the input, add it as a tag first
     if (inputValue && !tags.includes(inputValue)) {
       const newTags = [...tags, inputValue]
       setTags(newTags)
       input.value = ""
-
-      // Submit with the updated tags
-      onSubmit(e, newTags)
+      onSubmit({
+        offer: offerInput?.value || "",
+        want: wantInput?.value || "",
+        tags: newTags,
+        type: bondType,
+      })
     } else if (canSubmit) {
-      // If no input text but we have tags, submit with existing tags
-      onSubmit(e, tags)
+      onSubmit({
+        offer: offerInput?.value || "",
+        want: wantInput?.value || "",
+        tags,
+        type: bondType,
+      })
     }
   }
 
-  // Handle adding a tag
   const handleAddTag = () => {
     const input = document.querySelector("input[placeholder='Type here']")
     const tagValue = input.value.trim()
@@ -70,13 +74,50 @@ const AddBondModal = ({ isOpen, onClose, onSubmit, register, tags, setTags, remo
         </div>
 
         <form onSubmit={handleSubmit}>
+          {/* Bond Type Selector */}
+          <div className="flex items-center gap-4 mb-4">
+            <label className="text-xs font-semibold text-gray-700">Bond Type:</label>
+            <div className="flex gap-2">
+              <label className="flex items-center text-[10px] gap-1">
+                <input
+                  type="radio"
+                  name="bondType"
+                  value="give"
+                  checked={bondType === "give"}
+                  onChange={() => setBondType("give")}
+                  className="accent-blue-600"
+                />
+                Give
+              </label>
+              <label className="flex items-center text-[10px] gap-1">
+                <input
+                  type="radio"
+                  name="bondType"
+                  value="get"
+                  checked={bondType === "get"}
+                  onChange={() => setBondType("get")}
+                  className="accent-blue-600"
+                />
+                Get
+              </label>
+            </div>
+          </div>
+
           <h2 className="text-xs font-semibold text-gray-700 mb-2">What do you offer</h2>
           <input
-            {...register("offer", { required: false })} // Changed required to false
+            {...register("offer", { required: false })}
+            name="offer"
             placeholder="Type here"
             className="w-full p-2 border border-gray-300 rounded-sm mb-3 text-[10px] outline-none focus:ring-0"
           />
 
+          <h2 className="text-xs font-semibold text-gray-700 mb-2">What do you want</h2>
+          <input
+            {...register("want", { required: false })}
+            name="want"
+            placeholder="Type here"
+            className="w-full p-2 border border-gray-300 rounded-sm mb-3 text-[10px] outline-none focus:ring-0"
+          />
 
           {/* Display Tags */}
           <div className="flex flex-col gap-2 mb-3">
@@ -88,9 +129,10 @@ const AddBondModal = ({ isOpen, onClose, onSubmit, register, tags, setTags, remo
                 {tag}
                 <button
                   type="button"
-                  className="ml-1 text-red-500 border w-4 flex items-center justify-center cursor-pointer"
+                  className="ml-1 text-red-500 border w-4 h-0 flex items-center justify-center cursor-pointer"
                   onClick={() => removeTag(tag)}
                 >
+                  ×
                 </button>
               </div>
             ))}
@@ -123,4 +165,3 @@ const AddBondModal = ({ isOpen, onClose, onSubmit, register, tags, setTags, remo
 }
 
 export default AddBondModal
-

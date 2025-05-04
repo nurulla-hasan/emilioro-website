@@ -5,7 +5,10 @@ import AddBondModal from "@/components/body/bonds/modal/AddBondModal";
 import EditBondModal from "@/components/body/bonds/modal/EditBondModal";
 import DeleteBondModal from "@/components/body/bonds/modal/DeleteBondModal";
 import { useState } from "react";
+import { PiPencilSimpleDuotone } from "react-icons/pi";
 import Image from "next/image";
+import { AiOutlineDelete } from "react-icons/ai";
+import { BiEditAlt } from "react-icons/bi";
 
 const MyBond = () => {
     // modal state
@@ -83,14 +86,19 @@ const MyBond = () => {
                                 <div key={bond.id} className="flex items-center justify-between p-3 bg-[#EAF0FB] rounded-sm">
                                     <h3 className="text-sm text-gray-700">{bond.title}</h3>
                                     <div className="flex gap-2">
-                                        <Image
-                                            width={18}
-                                            height={18}
-                                            className="cursor-pointer"
+
+                                        <span
                                             onClick={() => onDeleteBond(bond)}
-                                            src="/delete.svg" alt="Delete"
-                                        />
-                                        <img className="cursor-pointer" onClick={() => onEditBond(bond)} src="/edit.svg" alt="Edit" />
+                                            className="cursor-pointer">
+                                            <AiOutlineDelete size={18} color="#eb2525" />
+                                        </span>
+
+                                        <span
+                                            onClick={() => onEditBond(bond)}
+                                            className="cursor-pointer w-[13px] border-b border-[#4d64a5]"
+                                        >
+                                            <PiPencilSimpleDuotone size={18} color="#4d64a5" />
+                                        </span>
                                     </div>
                                 </div>
                             ))}
@@ -108,14 +116,17 @@ const MyBond = () => {
                                 <div key={bond.id} className="flex items-center justify-between p-3 bg-[#EAF0FB] rounded-sm">
                                     <h3 className="text-sm text-gray-700">{bond.title}</h3>
                                     <div className="flex gap-2">
-                                        <Image
-                                            width={18}
-                                            height={18}
-                                            className="cursor-pointer"
+                                        <span
                                             onClick={() => onDeleteBond(bond)}
-                                            src="/delete.svg" alt="Delete"
-                                        />
-                                        <img className="cursor-pointer" onClick={() => onEditBond(bond)} src="/edit.svg" alt="Edit" />
+                                            className="cursor-pointer">
+                                            <AiOutlineDelete size={18} color="#eb2525" />
+                                        </span>
+                                        <span
+                                            onClick={() => onEditBond(bond)}
+                                            className="cursor-pointer w-[13px] border-b border-[#4d64a5]"
+                                        >
+                                            <PiPencilSimpleDuotone size={18} color="#4d64a5" />
+                                        </span>
                                     </div>
                                 </div>
                             ))}
