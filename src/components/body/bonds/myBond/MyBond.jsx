@@ -1,10 +1,10 @@
 "use client";
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
+import { useState, useEffect } from "react";
 import AddBondModal from "@/components/body/bonds/modal/AddBondModal";
 import EditBondModal from "@/components/body/bonds/modal/EditBondModal";
 import DeleteBondModal from "@/components/body/bonds/modal/DeleteBondModal";
-import { useState } from "react";
 import { PiPencilSimpleDuotone } from "react-icons/pi";
 import { AiOutlineDelete } from "react-icons/ai";
 
@@ -19,42 +19,47 @@ const MyBond = () => {
   const [bonds, setBonds] = useState(initialBonds);
   const [tags, setTags] = useState([]);
   const [currentBond, setCurrentBond] = useState(null);
-
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
 
   const { register, handleSubmit, reset } = useForm();
 
+  // Remove tag
   const removeTag = (tagToRemove) => {
     setTags(tags.filter((tag) => tag !== tagToRemove));
   };
 
+  // Add a new tag
   const handleAddTag = () => {
     const tagInput = document.querySelector("input[name='tag']");
     const tagValue = tagInput?.value.trim();
     if (tagValue && !tags.includes(tagValue)) {
-      setTags([...tags, tagValue]);
-      tagInput.value = "";
+      setTags((prevTags) => [...prevTags, tagValue]); // Add tag to tags array
+      tagInput.value = ""; // Clear input field after adding tag
     }
   };
 
+  // Determine bond type based on user input
   const inferBondType = (offer, want) => {
     const isOfferEmpty = !offer.trim();
     const isWantEmpty = !want.trim();
     const wantLower = want.toLowerCase();
 
-    if (!isOfferEmpty && !isWantEmpty) return "mutual_exchange";
-    if (!isOfferEmpty && isWantEmpty) return "giving";
-    if (!isOfferEmpty && wantLower.includes("surprise")) return "giving_surprise";
-    if (isOfferEmpty && !isWantEmpty) return "receiving";
-    if (isOfferEmpty && wantLower.includes("surprise")) return "awaiting_surprise";
-    return "undefined";
+    // Entry-based logic
+    if (offer === "Entry" && want === "Entry") return "mutual_exchange";
+    if (offer === "Entry" && want === "Empty") return "giving";
+    if (offer === "Entry" && want === "Surprise") return "giving_surprise";
+    if (offer === "Empty" && want === "Entry") return "receiving";
+    if (offer === "Empty" && want === "Empty") return "awaiting";
+    if (offer === "Empty" && want === "Surprise") return "awaiting_surprise";
+
+    return "undefined";  // fallback
   };
 
+  // Submit new bond form
   const onSubmit = (data) => {
     if (!tags.length) return;
-
     const bondType = inferBondType(data.offer || "", data.want || "");
 
     const newBond = {
@@ -65,16 +70,18 @@ const MyBond = () => {
     };
 
     setBonds((prev) => [...prev, newBond]);
-    reset();
-    setTags([]);
+    reset(); // Reset form after submit
+    setTags([]); // Clear tags array
     setIsModalOpen(false);
   };
 
+  // Confirm deletion of bond
   const handleDeleteConfirm = () => {
     setBonds((prev) => prev.filter((bond) => bond.id !== currentBond.id));
     setIsDeleteModalOpen(false);
   };
 
+  // Edit bond's title
   const handleEditConfirm = (updatedTitle) => {
     setBonds((prev) =>
       prev.map((bond) =>
@@ -113,7 +120,7 @@ const MyBond = () => {
       </div>
 
       <div className="flex flex-col lg:flex-row items-start gap-8 my-20">
-        {/* Give Bonds */}
+        {/* Display "Give" Bonds */}
         <div className="w-full shadow rounded-sm p-8">
           <h1 className="text-xl text-[#1C4587] font-bold mb-4">Give</h1>
           <div className="flex flex-col gap-3">
@@ -129,7 +136,7 @@ const MyBond = () => {
           </div>
         </div>
 
-        {/* Get Bonds */}
+        {/* Display "Get" Bonds */}
         <div className="w-full shadow rounded-sm p-8">
           <h1 className="text-xl text-[#1C4587] font-bold mb-4">Get</h1>
           <div className="flex flex-col gap-3">

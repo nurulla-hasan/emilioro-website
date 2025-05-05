@@ -1,4 +1,3 @@
-"use client";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
@@ -6,7 +5,7 @@ const AddBondModal = ({ isOpen, onClose, onSubmit, register, tags, removeTag, ha
   const [canSubmit, setCanSubmit] = useState(false);
 
   useEffect(() => {
-    setCanSubmit(tags.length > 0);
+    setCanSubmit(tags.length > 0); // Enable submit only if there are tags
   }, [tags]);
 
   if (!isOpen) return null;
@@ -35,7 +34,7 @@ const AddBondModal = ({ isOpen, onClose, onSubmit, register, tags, removeTag, ha
 
         <form onSubmit={onSubmit}>
           {/* Offer input */}
-          <h2 className="text-xs font-semibold text-gray-700 mb-2">What do you offer</h2>
+          <h2 className="text-xs font-semibold text-gray-700 mb-2">What do you offer?</h2>
           <input
             {...register("offer")}
             placeholder="Type here"
@@ -43,7 +42,7 @@ const AddBondModal = ({ isOpen, onClose, onSubmit, register, tags, removeTag, ha
           />
 
           {/* Want input */}
-          <h2 className="text-xs font-semibold text-gray-700 mb-2">What do you want</h2>
+          <h2 className="text-xs font-semibold text-gray-700 mb-2">What do you want?</h2>
           <input
             {...register("want")}
             placeholder="Type here"
@@ -64,9 +63,9 @@ const AddBondModal = ({ isOpen, onClose, onSubmit, register, tags, removeTag, ha
           {/* Display tags */}
           <div className="flex flex-col gap-2 mb-3">
             {tags.map((tag, index) => (
-              <div key={index} className="border px-2 py-1 rounded-sm text-[10px] flex justify-between items-center">
+              <div key={index} className="bg-blue-50 px-2 py-1 rounded-sm text-[10px] flex justify-between items-center">
                 {tag}
-                <button type="button" onClick={() => removeTag(tag)} className="text-red-500">×</button>
+                <button type="button" onClick={() => removeTag(tag)} className="text-red-500 h-3 w-3 cursor-pointer">X</button>
               </div>
             ))}
           </div>
