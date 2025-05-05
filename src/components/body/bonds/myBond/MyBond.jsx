@@ -6,162 +6,175 @@ import EditBondModal from "@/components/body/bonds/modal/EditBondModal";
 import DeleteBondModal from "@/components/body/bonds/modal/DeleteBondModal";
 import { useState } from "react";
 import { PiPencilSimpleDuotone } from "react-icons/pi";
-import Image from "next/image";
 import { AiOutlineDelete } from "react-icons/ai";
-import { BiEditAlt } from "react-icons/bi";
+
+const initialBonds = [
+  { id: "1", title: "Teaching Math", type: "give", tags: ["math", "tutor"] },
+  { id: "2", title: "Spending Time Together", type: "get", tags: ["friendship"] },
+  { id: "3", title: "Fixing Computer", type: "give", tags: ["tech"] },
+  { id: "4", title: "Cooking Help", type: "get", tags: ["cooking"] },
+];
 
 const MyBond = () => {
-    // modal state
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const [isEditModalOpen, setIsEditModalOpen] = useState(false);
-    const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
-    const [currentBond, setCurrentBond] = useState(null);
+  const [bonds, setBonds] = useState(initialBonds);
+  const [tags, setTags] = useState([]);
+  const [currentBond, setCurrentBond] = useState(null);
 
-    const { register, handleSubmit, reset } = useForm();
-    const [tags, setTags] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
 
-    const removeTag = (tagToRemove) => {
-        setTags(tags.filter((tag) => tag !== tagToRemove));
+  const { register, handleSubmit, reset } = useForm();
+
+  const removeTag = (tagToRemove) => {
+    setTags(tags.filter((tag) => tag !== tagToRemove));
+  };
+
+  const handleAddTag = () => {
+    const tagInput = document.querySelector("input[name='tag']");
+    const tagValue = tagInput?.value.trim();
+    if (tagValue && !tags.includes(tagValue)) {
+      setTags([...tags, tagValue]);
+      tagInput.value = "";
+    }
+  };
+
+  const inferBondType = (offer, want) => {
+    const isOfferEmpty = !offer.trim();
+    const isWantEmpty = !want.trim();
+    const wantLower = want.toLowerCase();
+
+    if (!isOfferEmpty && !isWantEmpty) return "mutual_exchange";
+    if (!isOfferEmpty && isWantEmpty) return "giving";
+    if (!isOfferEmpty && wantLower.includes("surprise")) return "giving_surprise";
+    if (isOfferEmpty && !isWantEmpty) return "receiving";
+    if (isOfferEmpty && wantLower.includes("surprise")) return "awaiting_surprise";
+    return "undefined";
+  };
+
+  const onSubmit = (data) => {
+    if (!tags.length) return;
+
+    const bondType = inferBondType(data.offer || "", data.want || "");
+
+    const newBond = {
+      id: Date.now().toString(),
+      title: data.offer || data.want,
+      tags,
+      type: bondType.includes("give") || bondType.includes("giving") ? "give" : "get",
     };
 
-    const onSubmit = (data) => {
-        console.log({ ...data, tags });
-        reset();
-        setTags([]);
-        setIsModalOpen(false);
-    };
+    setBonds((prev) => [...prev, newBond]);
+    reset();
+    setTags([]);
+    setIsModalOpen(false);
+  };
 
-    const handleDeleteConfirm = () => {
-        console.log("Bond deleted: ", currentBond);
-        setIsDeleteModalOpen(false);
-    };
+  const handleDeleteConfirm = () => {
+    setBonds((prev) => prev.filter((bond) => bond.id !== currentBond.id));
+    setIsDeleteModalOpen(false);
+  };
 
-    const handleEditConfirm = (newTitle) => {
-        console.log("Bond edited: ", newTitle);
-        setIsEditModalOpen(false);
-    };
-
-    const onDeleteBond = (bond) => {
-        setCurrentBond(bond);
-        setIsDeleteModalOpen(true);
-    };
-
-    const onEditBond = (bond) => {
-        setCurrentBond(bond);
-        setIsEditModalOpen(true);
-    };
-
-    const bonds = [
-        { id: "1", title: "Teaching Math" },
-        { id: "2", title: "Teaching English" },
-        { id: "3", title: "Spending Time Together" },
-        { id: "4", title: "Fixing Computer" },
-    ];
-
-    return (
-        <div>
-            <h1 className="text-xl text-[#1C4587] font-bold mb-4">My Bonds</h1>
-            <div className="w-full my-20">
-
-                <div className="my-5 text-center">
-                    <motion.button
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        onClick={() => setIsModalOpen(true)}
-                        className="cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white px-3 py-2 rounded-sm font-medium text-xs"
-                    >
-                        +Add New Bond
-                    </motion.button>
-                </div>
-
-                <div className="flex flex-col lg:flex-row items-center gap-8">
-                    {/* Section: Give */}
-                    <div className="w-full shadow-[0px_15px_45px_0px_#CFC9DDCC] rounded-sm p-8">
-                        <div className="flex justify-between items-center">
-                            <h1 className="text-xl text-[#1C4587] font-bold">Give</h1>
-                        </div>
-
-                        <div className="flex flex-col gap-3 mt-6">
-                            {bonds.map((bond) => (
-                                <div key={bond.id} className="flex items-center justify-between p-3 bg-[#EAF0FB] rounded-sm">
-                                    <h3 className="text-sm text-gray-700">{bond.title}</h3>
-                                    <div className="flex gap-2">
-
-                                        <span
-                                            onClick={() => onDeleteBond(bond)}
-                                            className="cursor-pointer">
-                                            <AiOutlineDelete size={18} color="#eb2525" />
-                                        </span>
-
-                                        <span
-                                            onClick={() => onEditBond(bond)}
-                                            className="cursor-pointer w-[13px] border-b border-[#4d64a5]"
-                                        >
-                                            <PiPencilSimpleDuotone size={18} color="#4d64a5" />
-                                        </span>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-
-                    {/* Section: Get */}
-                    <div className="w-full shadow-[0px_15px_45px_0px_#CFC9DDCC] rounded-sm p-8">
-                        <div className="flex justify-between items-center">
-                            <h1 className="text-xl text-[#1C4587] font-bold">Get</h1>
-                        </div>
-
-                        <div className="flex flex-col gap-3 mt-6">
-                            {bonds.map((bond) => (
-                                <div key={bond.id} className="flex items-center justify-between p-3 bg-[#EAF0FB] rounded-sm">
-                                    <h3 className="text-sm text-gray-700">{bond.title}</h3>
-                                    <div className="flex gap-2">
-                                        <span
-                                            onClick={() => onDeleteBond(bond)}
-                                            className="cursor-pointer">
-                                            <AiOutlineDelete size={18} color="#eb2525" />
-                                        </span>
-                                        <span
-                                            onClick={() => onEditBond(bond)}
-                                            className="cursor-pointer w-[13px] border-b border-[#4d64a5]"
-                                        >
-                                            <PiPencilSimpleDuotone size={18} color="#4d64a5" />
-                                        </span>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            {/* Modal for Add Bond */}
-            <AddBondModal
-                isOpen={isModalOpen}
-                onClose={() => setIsModalOpen(false)}
-                onSubmit={handleSubmit(onSubmit)}
-                register={register}
-                tags={tags}
-                setTags={setTags}
-                removeTag={removeTag}
-            />
-
-            {/* Modal for Edit Bond */}
-            <EditBondModal
-                isOpen={isEditModalOpen}
-                onClose={() => setIsEditModalOpen(false)}
-                currentBond={currentBond}
-                handleEditConfirm={handleEditConfirm}
-            />
-
-            {/* Modal for Delete Bond */}
-            <DeleteBondModal
-                isOpen={isDeleteModalOpen}
-                onClose={() => setIsDeleteModalOpen(false)}
-                handleDeleteConfirm={handleDeleteConfirm}
-            />
-        </div>
+  const handleEditConfirm = (updatedTitle) => {
+    setBonds((prev) =>
+      prev.map((bond) =>
+        bond.id === currentBond.id ? { ...bond, title: updatedTitle } : bond
+      )
     );
+    setIsEditModalOpen(false);
+  };
+
+  const onDeleteBond = (bond) => {
+    setCurrentBond(bond);
+    setIsDeleteModalOpen(true);
+  };
+
+  const onEditBond = (bond) => {
+    setCurrentBond(bond);
+    setIsEditModalOpen(true);
+  };
+
+  const giveBonds = bonds.filter((bond) => bond.type === "give");
+  const getBonds = bonds.filter((bond) => bond.type === "get");
+
+  return (
+    <div>
+      <h1 className="text-xl text-[#1C4587] font-bold mb-4">My Bonds</h1>
+
+      <div className="my-5 text-center">
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={() => setIsModalOpen(true)}
+          className="cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white px-3 py-2 rounded-sm font-medium text-xs"
+        >
+          + Add New Bond
+        </motion.button>
+      </div>
+
+      <div className="flex flex-col lg:flex-row items-start gap-8 my-20">
+        {/* Give Bonds */}
+        <div className="w-full shadow rounded-sm p-8">
+          <h1 className="text-xl text-[#1C4587] font-bold mb-4">Give</h1>
+          <div className="flex flex-col gap-3">
+            {giveBonds.map((bond) => (
+              <div key={bond.id} className="flex justify-between items-center bg-[#EAF0FB] p-3 rounded-sm">
+                <h3 className="text-sm text-gray-700">{bond.title}</h3>
+                <div className="flex gap-2">
+                  <AiOutlineDelete size={18} color="#eb2525" className="cursor-pointer" onClick={() => onDeleteBond(bond)} />
+                  <PiPencilSimpleDuotone size={18} color="#4d64a5" className="cursor-pointer" onClick={() => onEditBond(bond)} />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Get Bonds */}
+        <div className="w-full shadow rounded-sm p-8">
+          <h1 className="text-xl text-[#1C4587] font-bold mb-4">Get</h1>
+          <div className="flex flex-col gap-3">
+            {getBonds.map((bond) => (
+              <div key={bond.id} className="flex justify-between items-center bg-[#EAF0FB] p-3 rounded-sm">
+                <h3 className="text-sm text-gray-700">{bond.title}</h3>
+                <div className="flex gap-2">
+                  <AiOutlineDelete size={18} color="#eb2525" className="cursor-pointer" onClick={() => onDeleteBond(bond)} />
+                  <PiPencilSimpleDuotone size={18} color="#4d64a5" className="cursor-pointer" onClick={() => onEditBond(bond)} />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Modals */}
+      <AddBondModal
+        isOpen={isModalOpen}
+        onClose={() => {
+          setIsModalOpen(false);
+          reset();
+          setTags([]);
+        }}
+        onSubmit={handleSubmit(onSubmit)}
+        register={register}
+        tags={tags}
+        removeTag={removeTag}
+        handleAddTag={handleAddTag}
+      />
+
+      <EditBondModal
+        isOpen={isEditModalOpen}
+        onClose={() => setIsEditModalOpen(false)}
+        currentBond={currentBond}
+        handleEditConfirm={handleEditConfirm}
+      />
+
+      <DeleteBondModal
+        isOpen={isDeleteModalOpen}
+        onClose={() => setIsDeleteModalOpen(false)}
+        handleDeleteConfirm={handleDeleteConfirm}
+      />
+    </div>
+  );
 };
 
-export default MyBond;                      
+export default MyBond;

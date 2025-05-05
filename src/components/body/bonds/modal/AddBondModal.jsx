@@ -1,55 +1,15 @@
-"use client"
+"use client";
+import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
-import { motion } from "framer-motion"
-import { useState, useEffect } from "react"
-
-const AddBondModal = ({ isOpen, onClose, onSubmit, register, tags, setTags, removeTag }) => {
-  const [canSubmit, setCanSubmit] = useState(false)
-  const [bondType, setBondType] = useState("give") // "give" or "get"
+const AddBondModal = ({ isOpen, onClose, onSubmit, register, tags, removeTag, handleAddTag }) => {
+  const [canSubmit, setCanSubmit] = useState(false);
 
   useEffect(() => {
-    setCanSubmit(tags.length > 0)
-  }, [tags])
+    setCanSubmit(tags.length > 0);
+  }, [tags]);
 
-  if (!isOpen) return null
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-
-    const offerInput = document.querySelector("input[name='offer']")
-    const wantInput = document.querySelector("input[name='want']")
-    const input = document.querySelector("input[placeholder='Type here']")
-    const inputValue = input.value.trim()
-
-    if (inputValue && !tags.includes(inputValue)) {
-      const newTags = [...tags, inputValue]
-      setTags(newTags)
-      input.value = ""
-      onSubmit({
-        offer: offerInput?.value || "",
-        want: wantInput?.value || "",
-        tags: newTags,
-        type: bondType,
-      })
-    } else if (canSubmit) {
-      onSubmit({
-        offer: offerInput?.value || "",
-        want: wantInput?.value || "",
-        tags,
-        type: bondType,
-      })
-    }
-  }
-
-  const handleAddTag = () => {
-    const input = document.querySelector("input[placeholder='Type here']")
-    const tagValue = input.value.trim()
-
-    if (tagValue && !tags.includes(tagValue)) {
-      setTags([...tags, tagValue])
-      input.value = ""
-    }
-  }
+  if (!isOpen) return null;
 
   return (
     <motion.div
@@ -69,99 +29,68 @@ const AddBondModal = ({ isOpen, onClose, onSubmit, register, tags, setTags, remo
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-xs font-semibold text-gray-700">Create new Bond</h2>
           <button onClick={onClose} className="cursor-pointer">
-            <img className="w-5" src="/x.svg" alt="" />
+            <img className="w-5" src="/x.svg" alt="Close" />
           </button>
         </div>
 
-        <form onSubmit={handleSubmit}>
-          {/* Bond Type Selector */}
-          <div className="flex items-center gap-4 mb-4">
-            <label className="text-xs font-semibold text-gray-700">Bond Type:</label>
-            <div className="flex gap-2">
-              <label className="flex items-center text-[10px] gap-1">
-                <input
-                  type="radio"
-                  name="bondType"
-                  value="give"
-                  checked={bondType === "give"}
-                  onChange={() => setBondType("give")}
-                  className="accent-blue-600"
-                />
-                Give
-              </label>
-              <label className="flex items-center text-[10px] gap-1">
-                <input
-                  type="radio"
-                  name="bondType"
-                  value="get"
-                  checked={bondType === "get"}
-                  onChange={() => setBondType("get")}
-                  className="accent-blue-600"
-                />
-                Get
-              </label>
-            </div>
-          </div>
-
+        <form onSubmit={onSubmit}>
+          {/* Offer input */}
           <h2 className="text-xs font-semibold text-gray-700 mb-2">What do you offer</h2>
           <input
-            {...register("offer", { required: false })}
-            name="offer"
+            {...register("offer")}
             placeholder="Type here"
-            className="w-full p-2 border border-gray-300 rounded-sm mb-3 text-[10px] outline-none focus:ring-0"
+            className="w-full p-2 border border-gray-300 rounded-sm mb-3 text-[10px] outline-none"
           />
 
+          {/* Want input */}
           <h2 className="text-xs font-semibold text-gray-700 mb-2">What do you want</h2>
           <input
-            {...register("want", { required: false })}
-            name="want"
+            {...register("want")}
             placeholder="Type here"
-            className="w-full p-2 border border-gray-300 rounded-sm mb-3 text-[10px] outline-none focus:ring-0"
+            className="w-full p-2 border border-gray-300 rounded-sm mb-3 text-[10px] outline-none"
           />
 
-          {/* Display Tags */}
+          {/* Tag input */}
+          <div className="mb-2">
+            <h2 className="text-xs font-semibold text-gray-700 ">Add a tag</h2>
+            <span className="text-[8px]">(for better matching)</span>
+          </div>
+          <input
+            name="tag"
+            placeholder="Enter a tag"
+            className="w-full p-2 border border-gray-300 rounded-sm mb-3 text-[10px] outline-none"
+          />
+
+          {/* Display tags */}
           <div className="flex flex-col gap-2 mb-3">
             {tags.map((tag, index) => (
-              <div
-                key={index}
-                className="border border-gray-300 w-full px-2 py-1 rounded-sm text-[10px] flex items-center justify-between"
-              >
+              <div key={index} className="border px-2 py-1 rounded-sm text-[10px] flex justify-between items-center">
                 {tag}
-                <button
-                  type="button"
-                  className="ml-1 text-red-500 border w-4 h-0 flex items-center justify-center cursor-pointer"
-                  onClick={() => removeTag(tag)}
-                >
-                  ×
-                </button>
+                <button type="button" onClick={() => removeTag(tag)} className="text-red-500">×</button>
               </div>
             ))}
           </div>
 
-          {/* Add More Button */}
-          <button
-            type="button"
-            onClick={handleAddTag}
-            className="border cursor-pointer w-full border-gray-300 text-gray-500 px-3 py-1 rounded-sm text-[10px] mb-3 outline-none focus:ring-0"
-          >
+          {/* Add more tag */}
+          <button type="button" onClick={handleAddTag} className="w-full border border-gray-300 text-gray-500 px-3 py-1 rounded-sm text-[10px] mb-3">
             + Add more
           </button>
 
-          {/* Submit Button */}
+          {/* Submit */}
           <button
             type="submit"
             disabled={!canSubmit}
-            className={`w-full cursor-pointer ${canSubmit
-                ? "bg-gradient-to-b from-[#164083] to-[#1f5fc8] text-white"
-                : "bg-gray-300 text-gray-500"
-              } p-2 rounded-sm text-[10px] outline-none focus:ring-0`}
+            className={`w-full p-2 rounded-sm text-[10px] ${canSubmit
+              ? "bg-gradient-to-b from-[#164083] to-[#1f5fc8] text-white"
+              : "bg-gray-300 text-gray-500"
+              }`}
           >
             Submit
           </button>
         </form>
       </motion.div>
     </motion.div>
-  )
-}
+  );
+};
 
-export default AddBondModal
+export default AddBondModal;
