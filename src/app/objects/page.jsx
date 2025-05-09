@@ -13,6 +13,14 @@ const ObjectPage = () => {
   const [activeTab, setActiveTab] = useState("all")
   const [selectedCardAllProject, setSelectedCardAllProject] = useState(null)
   const [isOpen, setIsOpen] = useState(false)
+
+
+  const tabs = [
+    { id: "all", label: "All Project" },
+    { id: "my", label: "My Project" },
+    { id: "joined", label: "Joined Project" },
+  ]
+
   const pageVariants = {
     initial: { opacity: 0, y: 20 },
     in: { opacity: 1, y: 0 },
@@ -46,18 +54,19 @@ const ObjectPage = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
         >
-          <motion.h1 className="text-xl text-[#1C4587] font-bold" whileHover={{ scale: 1.05 }}>
+          <h1 className="text-xl text-[#1C4587] font-bold w-full">
             Cocreate your products
-          </motion.h1>
-          <div className="flex items-center justify-center gap-5">
+          </h1>
+
+          <div className="flex gap-2 justify-between lg:justify-end w-full items-center">
             <motion.div
-              className="relative lg:w-[250] w-[150] text-gray-700 border border-[#1C4587] rounded-sm flex items-center px-2"
+              className="relative w-fit text-gray-700 border border-[#1C4587] rounded-sm flex items-center px-2"
             >
               <CiSearch className="cursor-pointer" color="#1C4587" size={15} />
               <input
                 type="text"
                 placeholder="Search Project"
-                className="px-2 py-1.5 lg:w-full w-36 rounded-sm lg:py-2 border-none outline-none focus:ring-0 text-[12px] text-gray-700"
+                className="px-2 py-1.5 lg:w-full w-28 rounded-sm lg:py-2 border-none outline-none focus:ring-0 text-[12px] text-gray-700"
               />
             </motion.div>
             <motion.button
@@ -68,6 +77,7 @@ const ObjectPage = () => {
               +Create New Project
             </motion.button>
           </div>
+
         </motion.div>
 
         <div className="flex justify-between">
@@ -79,14 +89,10 @@ const ObjectPage = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
             >
-              {[
-                { id: "all", label: "All Project" },
-                { id: "my", label: "My Project" },
-                { id: "joined", label: "Joined Project" },
-              ].map((tab) => (
+              {tabs.map((tab) => (
                 <motion.button
                   key={tab.id}
-                  className={`px-4 py-2 text-[10px] font-medium transition-all border rounded-sm outline-none focus:ring-0 cursor-pointer ${activeTab === tab.id
+                  className={`px-4 py-2 text-[10px] font-medium transition-all border outline-none focus:ring-0 cursor-pointer ${activeTab === tab.id
                     ? "bg-[#1C4587] border border-[#1C4587] text-white"
                     : "border-transparent text-gray-700"
                     }`}
@@ -112,8 +118,8 @@ const ObjectPage = () => {
             className="mt-4"
           >
             {activeTab === "all" && <AllProject setSelectedCardAllProject={setSelectedCardAllProject} />}
-            {activeTab === "my" && <MyProject/>}
-            {activeTab === "joined" && <JoinedProject/>}
+            {activeTab === "my" && <MyProject />}
+            {activeTab === "joined" && <JoinedProject />}
           </motion.div>
         </AnimatePresence>
       </motion.div>
@@ -126,9 +132,8 @@ const ObjectPage = () => {
 
       <CreateProjectModal
         setIsOpen={setIsOpen}
-        isOpen={isOpen} />
-
-
+        isOpen={isOpen}
+         />
     </Container>
   )
 }

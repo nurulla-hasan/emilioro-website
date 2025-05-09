@@ -41,8 +41,8 @@ const Navbar = () => {
     { title: "Donate Us", href: "/donate-us" },
     // { title: "People", href: "/people" },
     { title: "Bonds", href: "/bonds" },
-    { title: "Objects", href: "/object" },
-    { title: "Institutions", href: "/institution" },
+    { title: "Objects", href: "/objects" },
+    { title: "Institutions", href: "/institutions" },
     { title: "Message", href: "/message" },
     { title: "We are chatting", href: "/chatting" },
   ]

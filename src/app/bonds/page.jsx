@@ -30,30 +30,28 @@ const BondExchangePage = () => {
     },
   })
 
-  const giveValue = watch("give")
-  const getValue = watch("get")
-  const locationValue = watch("location")
-  const radiusValue = watch("radius")
-
-  const [toggle, setToggle] = useState(false)
-  const [matchingBonds, setMatchingBonds] = useState([])
-  const [showLocationFilter, setShowLocationFilter] = useState(false)
-  const [showCreateListModal, setShowCreateListModal] = useState(false)
-  const [showRatingModal, setShowRatingModal] = useState(false)
-  const [selectedBond, setSelectedBond] = useState(null)
-  const [userLists, setUserLists] = useState(sampleLists)
-  const [newListName, setNewListName] = useState("")
-  const [rating, setRating] = useState(0)
-  const [ratingComment, setRatingComment] = useState("")
-  const [showSuggestions, setShowSuggestions] = useState(false)
-  const [suggestionType, setSuggestionType] = useState(null)
-  const [customGive, setCustomGive] = useState("")
-  const [customGet, setCustomGet] = useState("")
-  const [notifications, setNotifications] = useState(true)
-  const [showSimulatedEntries, setShowSimulatedEntries] = useState(false)
-
-  const giveInputRef = useRef(null)
-  const getInputRef = useRef(null)
+  const giveValue = watch("give");
+  const getValue = watch("get");
+  const locationValue = watch("location");
+  const radiusValue = watch("radius");
+  const [toggle, setToggle] = useState(false);
+  const [matchingBonds, setMatchingBonds] = useState([]);
+  const [showLocationFilter, setShowLocationFilter] = useState(false);
+  const [showCreateListModal, setShowCreateListModal] = useState(false);
+  const [showRatingModal, setShowRatingModal] = useState(false);
+  const [selectedBond, setSelectedBond] = useState(null);
+  const [userLists, setUserLists] = useState(sampleLists);
+  const [newListName, setNewListName] = useState("");
+  const [rating, setRating] = useState(0);
+  const [ratingComment, setRatingComment] = useState("");
+  const [showSuggestions, setShowSuggestions] = useState(false);
+  const [suggestionType, setSuggestionType] = useState(null);
+  const [customGive, setCustomGive] = useState("");
+  const [customGet, setCustomGet] = useState("");
+  const [notifications, setNotifications] = useState(true);
+  const [showSimulatedEntries, setShowSimulatedEntries] = useState(false);
+  const giveInputRef = useRef(null);
+  const getInputRef = useRef(null);
 
 
 
@@ -177,7 +175,6 @@ const BondExchangePage = () => {
   }
 
   const confirmRealLifeMeeting = (bondId) => {
-    // In a real app, you would send this confirmation to your backend
     alert(`You've confirmed to meet for bond #${bondId} in real life!`)
   }
 
@@ -207,15 +204,15 @@ const BondExchangePage = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => setShowSimulatedEntries(!showSimulatedEntries)}
-            className="text-[#1C4587] border border-[#1C4587] px-3 py-1.5 rounded-sm text-sm font-medium cursor-pointer"
+            className="text-[#1C4587] border border-[#1C4587] px-3 py-[7px] rounded-sm text-xs font-medium cursor-pointer"
           >
             {showSimulatedEntries ? "Hide Simulated Entries" : "Show Simulated Entries"}
           </motion.button>
 
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="cursor-pointer">
-            <Link href="/bonds/myBondPage">
-              <button className="cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white px-4 py-1.5 rounded-sm font-medium">
-                My Bonds →
+            <Link href="/bonds/all-bonds">
+              <button className="cursor-pointer text-xs bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white px-4 py-2 rounded-sm font-medium">
+                All Bonds →
               </button>
             </Link>
           </motion.div>

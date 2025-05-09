@@ -13,6 +13,10 @@ const initialBonds = [
   { id: "2", title: "Spending Time Together", type: "get", tags: ["friendship"] },
   { id: "3", title: "Fixing Computer", type: "give", tags: ["tech"] },
   { id: "4", title: "Cooking Help", type: "get", tags: ["cooking"] },
+  { id: "5", title: "Teaching Math", type: "give", tags: ["math", "tutor"] },
+  { id: "6", title: "Spending Time Together", type: "get", tags: ["friendship"] },
+  { id: "7", title: "Fixing Computer", type: "give", tags: ["tech"] },
+  { id: "8", title: "Cooking Help", type: "get", tags: ["cooking"] },
 ];
 
 const MyBond = () => {
@@ -108,47 +112,49 @@ const MyBond = () => {
     <div>
       <h1 className="text-xl text-[#1C4587] font-bold mb-4">My Bonds</h1>
 
-      <div className="my-5 text-center">
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          onClick={() => setIsModalOpen(true)}
-          className="cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white px-3 py-2 rounded-sm font-medium text-xs"
-        >
-          + Add New Bond
-        </motion.button>
-      </div>
-
-      <div className="flex flex-col lg:flex-row items-start gap-8 my-20">
-        {/* Display "Give" Bonds */}
-        <div className="w-full shadow rounded-sm p-8">
-          <h1 className="text-xl text-[#1C4587] font-bold mb-4">Give</h1>
-          <div className="flex flex-col gap-3">
-            {giveBonds.map((bond) => (
-              <div key={bond.id} className="flex justify-between items-center bg-[#EAF0FB] p-3 rounded-sm">
-                <h3 className="text-sm text-gray-700">{bond.title}</h3>
-                <div className="flex gap-2">
-                  <AiOutlineDelete size={18} color="#eb2525" className="cursor-pointer" onClick={() => onDeleteBond(bond)} />
-                  <PiPencilSimpleDuotone size={18} color="#4d64a5" className="cursor-pointer" onClick={() => onEditBond(bond)} />
-                </div>
-              </div>
-            ))}
-          </div>
+      <div className="lg:mt-32 mt-16">
+        <div className="my-5 text-center">
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => setIsModalOpen(true)}
+            className="cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white px-3 py-2 rounded-sm font-medium text-xs"
+          >
+            + Add New Bond
+          </motion.button>
         </div>
 
-        {/* Display "Get" Bonds */}
-        <div className="w-full shadow rounded-sm p-8">
-          <h1 className="text-xl text-[#1C4587] font-bold mb-4">Get</h1>
-          <div className="flex flex-col gap-3">
-            {getBonds.map((bond) => (
-              <div key={bond.id} className="flex justify-between items-center bg-[#EAF0FB] p-3 rounded-sm">
-                <h3 className="text-sm text-gray-700">{bond.title}</h3>
-                <div className="flex gap-2">
-                  <AiOutlineDelete size={18} color="#eb2525" className="cursor-pointer" onClick={() => onDeleteBond(bond)} />
-                  <PiPencilSimpleDuotone size={18} color="#4d64a5" className="cursor-pointer" onClick={() => onEditBond(bond)} />
+        <div className="flex flex-col lg:flex-row items-start gap-8 my-8">
+          {/* Display "Give" Bonds */}
+          <div className="w-full shadow rounded-sm p-8">
+            <h1 className="text-xl text-[#1C4587] font-bold mb-4">Give</h1>
+            <div className="flex flex-col gap-3">
+              {giveBonds.map((bond) => (
+                <div key={bond.id} className="flex justify-between items-center bg-[#EAF0FB] p-3 rounded-sm">
+                  <h3 className="text-sm text-gray-700">{bond.title}</h3>
+                  <div className="flex gap-2">
+                    <AiOutlineDelete size={18} color="#eb2525" className="cursor-pointer" onClick={() => onDeleteBond(bond)} />
+                    <PiPencilSimpleDuotone size={18} color="#4d64a5" className="cursor-pointer" onClick={() => onEditBond(bond)} />
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
+          </div>
+
+          {/* Display "Get" Bonds */}
+          <div className="w-full shadow rounded-sm p-8">
+            <h1 className="text-xl text-[#1C4587] font-bold mb-4">Get</h1>
+            <div className="flex flex-col gap-3">
+              {getBonds.map((bond) => (
+                <div key={bond.id} className="flex justify-between items-center bg-[#EAF0FB] p-3 rounded-sm">
+                  <h3 className="text-sm text-gray-700">{bond.title}</h3>
+                  <div className="flex gap-2">
+                    <AiOutlineDelete size={18} color="#eb2525" className="cursor-pointer" onClick={() => onDeleteBond(bond)} />
+                    <PiPencilSimpleDuotone size={18} color="#4d64a5" className="cursor-pointer" onClick={() => onEditBond(bond)} />
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -184,4 +190,4 @@ const MyBond = () => {
   );
 };
 
-export default MyBond;
+export default MyBond; 

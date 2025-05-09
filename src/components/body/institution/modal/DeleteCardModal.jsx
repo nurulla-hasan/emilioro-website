@@ -13,7 +13,7 @@ const DeleteCardModal = ({ isOpen, onClose, handleDeleteConfirm }) => {
       exit={{ opacity: 0 }}
     >
       <motion.div
-        className="bg-white xl:w-1/4 w-10/13 rounded-sm shadow-lg overflow-hidden my-auto mx-4 text-center p-6 relative"
+        className="bg-white xl:w-1/6 w-10/13 rounded-xs shadow-lg overflow-hidden my-auto mx-4 text-center p-6 relative"
         initial={{ scale: 0.95, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.95, opacity: 0 }}
@@ -36,7 +36,7 @@ const DeleteCardModal = ({ isOpen, onClose, handleDeleteConfirm }) => {
         <div className="mt-6 flex justify-center gap-3">
           <button
             onClick={handleDeleteConfirm}
-            className="bg-[#1C4587] text-white px-5 py-1.5 rounded-sm text-[10px] cursor-pointer"
+            className="bg-[#1C4587] text-white px-5 py-1.5 rounded-xs text-[10px] cursor-pointer"
           >
             Delete
           </button>

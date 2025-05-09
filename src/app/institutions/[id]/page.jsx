@@ -17,10 +17,7 @@ import {
   Lock,
   Facebook,
   Instagram,
-  Users,
-  Filter,
-  ArrowUp,
-  ArrowDown,
+  Users
 } from "lucide-react"
 
 // Import modals
@@ -29,187 +26,10 @@ import CreateTopicModal from "@/components/body/institution/modal/CreateTopicMod
 import EditTopicModal from "@/components/body/institution/modal/EditTopicModal"
 import DeleteTopicModal from "@/components/body/institution/modal/DeleteTopicModal"
 import Container from "@/components/home/Container"
+import { initialConversations, mediators, producers, projects, users } from "@/data/data"
 
 // Store all data in variables for better organization
-const producers = [
-  { id: 1, name: "Ahamad musa", role: "CEO", online: true, avatar: "/avatar.png" },
-  { id: 2, name: "Ahamad musa", role: "General manager", online: true, avatar: "/avatar.png" },
-  { id: 3, name: "Ahamad musa", role: "Chief of engineer", online: false, avatar: "/avatar.png" },
-  { id: 4, name: "Ahamad musa", role: "work administrator", online: true, avatar: "/avatar.png" },
-  { id: 5, name: "Ahamad musa", role: "Artist, Engineer, musician", online: true, avatar: "/avatar.png" },
-]
 
-const users = [
-  { id: 1, name: "Ahamad musa", role: "Artist, Engineer, musician", online: true, avatar: "/avatar.png" },
-  { id: 2, name: "Ahamad musa", role: "Artist, Engineer, musician", online: false, avatar: "/avatar.png" },
-  { id: 3, name: "Ahamad musa", role: "Artist, Engineer, musician", online: true, avatar: "/avatar.png" },
-  { id: 4, name: "Ahamad musa", role: "Artist, Engineer, musician", online: true, avatar: "/avatar.png" },
-  { id: 5, name: "Ahamad musa", role: "Artist, Engineer, musician", online: false, avatar: "/avatar.png" },
-]
-
-const mediators = [
-  { id: 1, name: "MR. Sarwar", role: "Mediator", avatar: "/avatar.png", groupName: "Innovators Hub" },
-  { id: 2, name: "MR. Golap", role: "Mediator", avatar: "/avatar.png", groupName: "Change makers" },
-  { id: 3, name: "MS. Fatima", role: "Mediator", avatar: "/avatar.png", groupName: "Pioneers" },
-  { id: 4, name: "MR. Ahmed", role: "Mediator", avatar: "/avatar.png", groupName: "Visionaries" },
-  { id: 5, name: "MS. Sarah", role: "Mediator", avatar: "/avatar.png", groupName: "Trailblazers" },
-]
-
-// Updated conversations (formerly topics)
-const initialConversations = [
-  {
-    id: 1,
-    name: "Sustainable Development & Climate Action",
-    isPublic: true,
-    members: 12,
-    posts: [
-      {
-        id: 101,
-        author: "MR. Sarwar",
-        role: "CEO",
-        avatar: "/avatar.png",
-        content:
-          "Just shared a new research paper on sustainable packaging materials. Check it out in the resources section!",
-        date: "22 May 2025",
-        time: "10:30 AM",
-        likes: 12,
-        likedBy: [2, 3, 4],
-        comments: 5,
-        attachments: [],
-      },
-      {
-        id: 102,
-        author: "Ahmad Musa",
-        role: "General Manager",
-        avatar: "/avatar.png",
-        content:
-          "Our team has made significant progress on the biodegradable packaging prototype. Looking forward to presenting it next week.",
-        date: "21 May 2025",
-        time: "2:45 PM",
-        likes: 8,
-        likedBy: [1, 5],
-        comments: 3,
-        attachments: [],
-      },
-    ],
-  },
-  {
-    id: 2,
-    name: "Technology & Innovation",
-    isPublic: true,
-    members: 8,
-    posts: [
-      {
-        id: 201,
-        author: "Fatima Khan",
-        role: "Research Lead",
-        avatar: "/avatar.png",
-        content:
-          "Important announcement: We'll be hosting a workshop on circular economy principles next Thursday. All team members are encouraged to attend.",
-        date: "20 May 2025",
-        time: "9:15 AM",
-        likes: 15,
-        likedBy: [1, 2, 3],
-        comments: 7,
-        attachments: [],
-      },
-    ],
-  },
-  {
-    id: 3,
-    name: "Health & Well-being",
-    isPublic: false,
-    members: 5,
-    posts: [],
-  },
-  {
-    id: 4,
-    name: "Education & Research",
-    isPublic: true,
-    members: 10,
-    posts: [],
-  },
-]
-
-// Project data from props
-const projects = [
-  {
-    id: "1",
-    title: "Eco-Friendly Packaging",
-    status: ["Ongoing", "Public"],
-    description:
-      "Develop sustainable packaging solutions using biodegradable materials to reduce environmental impact. Focus on innovative designs that maintain product integrity while being eco-conscious.",
-    author: "MR. Sarwar",
-    authorRole: ["Owner"],
-    image: "/institute (1).png",
-    participant: "10",
-    created: "22 may 2025",
-    socialLinks: {
-      facebook: "https://facebook.com/eco-friendly-packaging",
-      instagram: "https://instagram.com/eco_friendly_packaging",
-    },
-  },
-  {
-    id: "2",
-    title: "Recyclable Materials",
-    status: ["Ongoing", "Public"],
-    description: "Use recyclable materials to create packaging that can be reused.",
-    author: "MR. Golap",
-    authorRole: ["Owner"],
-    image: "/institute (2).png",
-    participant: "10",
-    created: "22 may 2023",
-    socialLinks: {
-      facebook: "https://facebook.com/recyclable-materials",
-      instagram: "https://instagram.com/recyclable_materials",
-    },
-  },
-  {
-    id: "3",
-    title: "Minimalist Design",
-    status: ["Ongoing", "Public"],
-    description: "Implement minimalist design principles to reduce waste and improve.",
-    author: "MS. Fatima",
-    authorRole: ["Owner"],
-    image: "/institute (3).png",
-    participant: "10",
-    created: "22 may 2023",
-    socialLinks: {
-      facebook: "https://facebook.com/minimalist-design",
-      instagram: "https://instagram.com/minimalist_design",
-    },
-  },
-  {
-    id: "4",
-    title: "Minimalist Design",
-    status: ["Ongoing", "Public"],
-    description: "Implement minimalist design principles to reduce waste and improve.",
-    author: "MS. Fatima",
-    authorRole: ["Owner"],
-    image: "/institute (1).png",
-    participant: "10",
-    created: "22 may 2023",
-    socialLinks: {
-      facebook: "https://facebook.com/minimalist-design-2",
-      instagram: "https://instagram.com/minimalist_design_2",
-    },
-  },
-  {
-    id: "5",
-    title: "Minimalist Design",
-    status: ["Ongoing", "Public"],
-    description: "Implement minimalist design principles to reduce waste and improve.",
-    author: "MS. Fatima",
-    authorRole: ["User"],
-    image: "/institute (2).png",
-    participant: "10",
-    created: "22 may 2023",
-    socialLinks: {
-      facebook: "https://facebook.com/minimalist-design-3",
-      instagram: "https://instagram.com/minimalist_design_3",
-    },
-  },
-]
 
 const InstitutionDetails = () => {
   const router = useRouter()
@@ -484,252 +304,237 @@ const InstitutionDetails = () => {
 
   // Ensure the modals are properly rendered at the end of the component
   return (
-    <Container>
-      {/* Banner Image */}
-      <div className="w-full border rounded-sm border-gray-300 h-[200px] relative mb-4">
-        <Image
-          src={project.image || "/placeholder.svg"}
-          alt={project.title}
-          layout="fill"
-          objectFit="cover"
-          className="rounded-sm"
-        />
-      </div>
+    <>
+        <div className='px-5 lg:px-0 mx-auto py-2'>
+          {/* Banner Image */}
+          <div className="w-full border rounded-sm border-gray-300 h-[200px] relative mb-4">
+            <Image
+              src={project.image || "/placeholder.svg"}
+              alt={project.title}
+              layout="fill"
+              objectFit="cover"
+              className="rounded-sm"
+            />
+          </div>
 
-      {/* Header Section with Social Links */}
-      <div className="mb-6 px-2">
-        <div className="flex justify-between items-start mb-2">
-          <div className="flex flex-col">
-            <h1 className="text-lg text-[#1C4587] font-semibold">{project.title}</h1>
-            <p className="text-xs text-gray-600 mt-1">{project.description}</p>
+          {/* Header Section with Social Links */}
+          <div className="mb-6 px-2">
+            <div className="flex justify-between items-start mb-2">
+              <div className="flex flex-col">
+                <h1 className="text-lg text-[#1C4587] font-semibold">{project.title}</h1>
+                <p className="text-xs text-gray-600 mt-1">{project.description}</p>
 
-            {/* Social Media Links */}
-            <div className="flex mt-2 gap-3">
-              {project.socialLinks?.facebook && (
-                <a
-                  href={project.socialLinks.facebook}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#1C4587] hover:text-blue-700 cursor-pointer"
-                >
-                  <Facebook size={16} />
-                </a>
-              )}
-              {project.socialLinks?.instagram && (
-                <a
-                  href={project.socialLinks.instagram}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#1C4587] hover:text-pink-600 cursor-pointer"
-                >
-                  <Instagram size={16} />
-                </a>
-              )}
+                {/* Social Media Links */}
+                <div className="flex mt-2 gap-3">
+                  {project.socialLinks?.facebook && (
+                    <a
+                      href={project.socialLinks.facebook}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#1C4587] hover:text-blue-700 cursor-pointer"
+                    >
+                      <Facebook size={16} />
+                    </a>
+                  )}
+                  {project.socialLinks?.instagram && (
+                    <a
+                      href={project.socialLinks.instagram}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#1C4587] hover:text-pink-600 cursor-pointer"
+                    >
+                      <Instagram size={16} />
+                    </a>
+                  )}
+                </div>
+              </div>
+              <div className="flex items-center gap-2">
+                {/* <span className="text-xs text-gray-500">{project.created}</span> */}
+                <img className="w-4 border rounded-sm border-[#1C4587] cursor-pointer" src="/filter.svg" alt="" />
+              </div>
             </div>
           </div>
-          <div className="flex items-center gap-2">
-            {/* <span className="text-xs text-gray-500">{project.created}</span> */}
-            <img className="w-4 border rounded-sm border-[#1C4587] cursor-pointer" src="/filter.svg" alt="" />
-          </div>
-        </div>
-      </div>
 
-      {/* Mediators Section */}
-      <div className="mb-6 border border-gray-200 bg-[#FFFFFF] rounded-sm p-4">
-        <div className="flex justify-between items-center mb-4">
-          <h2 className="text-sm text-[#1C4587] font-semibold">Mediators</h2>
-          {showInitialVoting && (
-            <span className="text-xs text-[#1C4587]">Click on a mediator to vote for their group name</span>
-          )}
-        </div>
+          {/* Mediators Section */}
+          <div className="mb-6 border border-gray-200 bg-[#FFFFFF] rounded-sm p-4">
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-sm text-[#1C4587] font-semibold">Mediators</h2>
+              {showInitialVoting && (
+                <span className="text-xs text-[#1C4587]">Click on a mediator to vote for their group name</span>
+              )}
+            </div>
 
-        <div className="flex flex-wrap justify-evenly">
-          {mediators.map((mediator) => (
-            <div
-              key={mediator.id}
-              className={`flex flex-col items-center text-center cursor-pointer transition-all ${votedFor === mediator.groupName ? "scale-110" : "hover:scale-105"
-                }`}
-              onClick={() => handleVoteForName(mediator)}
-            >
-              <div className="relative">
-                <img
-                  src={mediator.avatar || "/placeholder.svg"}
-                  alt={mediator.name}
-                  className={`w-12 h-12 rounded-full border-2 ${votedFor === mediator.groupName ? "border-green-500" : "border-blue-400"
+            <div className="flex flex-wrap justify-evenly">
+              {mediators.map((mediator) => (
+                <div
+                  key={mediator.id}
+                  className={`flex flex-col items-center text-center cursor-pointer transition-all ${votedFor === mediator.groupName ? "scale-110" : "hover:scale-105"
                     }`}
-                />
-                {votedFor === mediator.groupName && (
-                  <div className="absolute -top-1 -right-1 bg-green-500 rounded-full p-0.5">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-3 w-3 text-white"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  </div>
-                )}
-              </div>
-              <p className="text-xs font-medium mt-1">{mediator.name}</p>
-              <p className="text-[10px] text-gray-500">{mediator.role}</p>
-              <p className="text-[10px] font-semibold text-[#1C4587] mt-0.5">{mediator.groupName}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <div className="p-2 mt-6 rounded-sm">
-        <div className="grid grid-cols-1 border border-gray-200 rounded-sm lg:grid-cols-12 gap-6">
-          {/* Producer Section */}
-          <div className="lg:col-span-3 bg-white rounded-sm">
-            <div className="p-4">
-              <div className="flex justify-between items-center mb-3">
-                <h2 className="text-sm text-[#1C4587] font-medium">Innovators Hub</h2>
-                <img onClick={() => setCreateGroupModal(true)} src="/edit.svg" alt="" className="cursor-pointer" />
-              </div>
-              {/* <div className="relative">
-                <input
-                  type="text"
-                  placeholder="Search"
-                  className="w-full pl-8 pr-4 py-1.5 border border-[#95B5E9] rounded-sm text-xs outline-none focus:ring-0"
-                />
-                <Search className="absolute left-2.5 top-2 h-4 w-4 text-gray-400" />
-              </div> */}
-            </div>
-            <div className="p-2 flex flex-col gap-2">
-              {producers.map((user) => (
-                <div
-                  key={user.id}
-                  className="flex items-center gap-3 p-[5] hover:bg-gray-50 border border-[#95B5E9] rounded-sm cursor-pointer"
+                  onClick={() => handleVoteForName(mediator)}
                 >
                   <div className="relative">
-                    <img src={user.avatar || "/placeholder.svg"} alt={user.name} className="rounded-full w-8 h-8" />
-                    {user.online && (
-                      <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-green-500 rounded-full border-2 border-white"></span>
+                    <img
+                      src={mediator.avatar || "/placeholder.svg"}
+                      alt={mediator.name}
+                      className={`w-12 h-12 rounded-full border-2 ${votedFor === mediator.groupName ? "border-green-500" : "border-blue-400"
+                        }`}
+                    />
+                    {votedFor === mediator.groupName && (
+                      <div className="absolute -top-1 -right-1 bg-green-500 rounded-full p-0.5">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-3 w-3 text-white"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                      </div>
                     )}
                   </div>
-                  <div>
-                    <p className="text-xs">{user.name}</p>
-                    <p className="text-[10px] text-gray-500">{user.role}</p>
-                  </div>
+                  <p className="text-xs font-medium mt-1">{mediator.name}</p>
+                  <p className="text-[10px] text-gray-500">{mediator.role}</p>
+                  <p className="text-[10px] font-semibold text-[#1C4587] mt-0.5">{mediator.groupName}</p>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Conversations Section (formerly Topics) */}
-          <div className="lg:col-span-6 space-y-6">
-            {/* Conversations List */}
-            <div className="bg-white border rounded-b-sm border-gray-100">
-              <div className="flex border-b border-gray-200 p-4 justify-between items-center mb-4">
-                <h2 className="text-sm text-[#1C4587] font-medium">Conversations</h2>
-                <img onClick={() => setIsTopicModalOpen(true)} src="/edit.svg" alt="" className="cursor-pointer" />
-              </div>
-
-              {/* Search for conversations */}
-              <div className="px-4 mb-4">
-                <div className="relative">
-                  <input
-                    type="text"
-                    placeholder="Search conversations..."
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                    className="w-full pl-8 pr-4 py-1.5 border border-[#95B5E9] rounded-sm text-xs outline-none focus:ring-0"
-                  />
-                  <Search className="absolute left-2.5 top-2 h-4 w-4 text-gray-400" />
+          <div className="p-2 mt-6 rounded-sm">
+            <div className="grid grid-cols-1 border border-gray-200 rounded-sm lg:grid-cols-12 gap-6">
+              {/* Producer Section */}
+              <div className="lg:col-span-3 bg-white rounded-sm">
+                <div className="p-4">
+                  <div className="flex justify-between items-center mb-3">
+                    <h2 className="text-sm text-[#1C4587] font-medium">Innovators Hub</h2>
+                    <img onClick={() => setCreateGroupModal(true)} src="/edit.svg" alt="" className="cursor-pointer" />
+                  </div>
                 </div>
-              </div>
-
-              <div className="p-2">
-                {filteredConversations.map((conversation) => (
-                  <div
-                    key={conversation.id}
-                    className={`flex justify-between items-center px-4 py-3 border border-gray-200 rounded-sm mb-2 transition ${selectedConversation?.id === conversation.id ? "bg-blue-100 border-blue-300" : "bg-white"
-                      }`}
-                  >
+                <div className="p-2 flex flex-col gap-2">
+                  {producers.map((user) => (
                     <div
-                      className="flex items-center gap-2 cursor-pointer"
-                      onClick={() => setSelectedConversation(conversation)}
+                      key={user.id}
+                      className="flex items-center gap-3 p-[5] hover:bg-gray-50 border border-[#95B5E9] rounded-sm cursor-pointer"
                     >
-                      {conversation.isPublic ? (
-                        <Globe size={14} className="text-green-600" />
-                      ) : (
-                        <Lock size={14} className="text-orange-500" />
-                      )}
-                      <span className="text-xs text-gray-700">{conversation.name}</span>
-                      <span className="text-[10px] text-gray-500">({conversation.members} members)</span>
+                      <div className="relative">
+                        <img src={user.avatar || "/placeholder.svg"} alt={user.name} className="rounded-full w-8 h-8" />
+                        {user.online && (
+                          <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-green-500 rounded-full border-2 border-white"></span>
+                        )}
+                      </div>
+                      <div>
+                        <p className="text-xs">{user.name}</p>
+                        <p className="text-[10px] text-gray-500">{user.role}</p>
+                      </div>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <button
-                        onClick={() => toggleConversationPrivacy(conversation.id)}
-                        className="cursor-pointer outline-none focus:ring-0 text-xs text-gray-500 hover:text-[#1C4587]"
-                      >
-                        {conversation.isPublic ? "Make Private" : "Make Public"}
-                      </button>
-                      <button
-                        onClick={() => onDeleteBond(conversation)}
-                        className="cursor-pointer outline-none focus:ring-0"
-                      >
-                        <img src="/Delete.svg" alt="" className="cursor-pointer" />
-                      </button>
-                      <button
-                        onClick={() => handleEdit(conversation)}
-                        className="cursor-pointer outline-none focus:ring-0"
-                      >
-                        <img src="/edit.svg" alt="" className="cursor-pointer" />
-                      </button>
-                    </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
-            </div>
-          </div>
 
-          {/* Users Section */}
-          <div className="lg:col-span-3 bg-white rounded-sm">
-            <div className="p-4">
-              <div className="flex flex-row-reverse justify-between items-center mb-3">
-                <h2 className="text-sm text-[#1C4587] font-medium">Critical Thinkers</h2>
-                <img onClick={() => setCreateGroupModal(true)} src="/edit.svg" alt="" className="cursor-pointer" />
-              </div>
-              {/* <div className="relative">
-                <input
-                  type="text"
-                  placeholder="Search"
-                  className="w-full pl-8 pr-4 py-1.5 border border-[#95B5E9] rounded-sm text-xs outline-none focus:ring-0"
-                />
-                <Search className="absolute left-2.5 top-2 h-4 w-4 text-gray-400" />
-              </div> */}
-            </div>
-            <div className="p-2 flex flex-col gap-2">
-              {users.map((user) => (
-                <div
-                  key={user.id}
-                  className="flex items-center gap-3 p-[5] hover:bg-gray-50 border border-[#95B5E9] rounded-sm cursor-pointer"
-                >
-                  <div className="relative">
-                    <img src={user.avatar || "/placeholder.svg"} alt={user.name} className="rounded-full w-8 h-8" />
-                    {user.online && (
-                      <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-green-500 rounded-full border-2 border-white"></span>
-                    )}
+              {/* Conversations Section (formerly Topics) */}
+              <div className="lg:col-span-6 space-y-6">
+                {/* Conversations List */}
+                <div className="bg-white border rounded-b-sm border-gray-100">
+                  <div className="flex border-b border-gray-200 p-4 justify-between items-center mb-4">
+                    <h2 className="text-sm text-[#1C4587] font-medium">Conversations</h2>
+                    <img onClick={() => setIsTopicModalOpen(true)} src="/edit.svg" alt="" className="cursor-pointer" />
                   </div>
-                  <div>
-                    <p className="text-xs">{user.name}</p>
-                    <p className="text-[10px] text-gray-500">{user.role}</p>
+
+                  {/* Search for conversations */}
+                  <div className="px-4 mb-4">
+                    <div className="relative">
+                      <input
+                        type="text"
+                        placeholder="Search conversations..."
+                        value={searchTerm}
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                        className="w-full pl-8 pr-4 py-1.5 border border-[#95B5E9] rounded-sm text-xs outline-none focus:ring-0"
+                      />
+                      <Search className="absolute left-2.5 top-2 h-4 w-4 text-gray-400" />
+                    </div>
+                  </div>
+
+                  <div className="p-2">
+                    {filteredConversations.map((conversation) => (
+                      <div
+                        key={conversation.id}
+                        className={`flex justify-between items-center px-4 py-3 border border-gray-200 rounded-sm mb-2 transition ${selectedConversation?.id === conversation.id ? "bg-blue-100 border-blue-300" : "bg-white"
+                          }`}
+                      >
+                        <div
+                          className="flex items-center gap-2 cursor-pointer"
+                          onClick={() => setSelectedConversation(conversation)}
+                        >
+                          {conversation.isPublic ? (
+                            <Globe size={14} className="text-green-600" />
+                          ) : (
+                            <Lock size={14} className="text-orange-500" />
+                          )}
+                          <span className="text-xs text-gray-700">{conversation.name}</span>
+                          <span className="text-[10px] text-gray-500">({conversation.members} members)</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <button
+                            onClick={() => toggleConversationPrivacy(conversation.id)}
+                            className="cursor-pointer outline-none focus:ring-0 text-xs text-gray-500 hover:text-[#1C4587]"
+                          >
+                            {conversation.isPublic ? "Make Private" : "Make Public"}
+                          </button>
+                          <button
+                            onClick={() => onDeleteBond(conversation)}
+                            className="cursor-pointer outline-none focus:ring-0"
+                          >
+                            <img src="/Delete.svg" alt="" className="cursor-pointer" />
+                          </button>
+                          <button
+                            onClick={() => handleEdit(conversation)}
+                            className="cursor-pointer outline-none focus:ring-0"
+                          >
+                            <img src="/edit.svg" alt="" className="cursor-pointer" />
+                          </button>
+                        </div>
+                      </div>
+                    ))}
                   </div>
                 </div>
-              ))}
-            </div>
-          </div>
-        </div>
+              </div>
 
-        {/* Selected Conversation Posts */}
-        {selectedConversation && (
+              {/* Users Section */}
+              <div className="lg:col-span-3 bg-white rounded-sm">
+                <div className="p-4">
+                  <div className="flex flex-row-reverse justify-between items-center mb-3">
+                    <h2 className="text-sm text-[#1C4587] font-medium">Critical Thinkers</h2>
+                    <img onClick={() => setCreateGroupModal(true)} src="/edit.svg" alt="" className="cursor-pointer" />
+                  </div>
+                </div>
+                <div className="p-2 flex flex-col gap-2">
+                  {users.map((user) => (
+                    <div
+                      key={user.id}
+                      className="flex items-center gap-3 p-[5] hover:bg-gray-50 border border-[#95B5E9] rounded-sm cursor-pointer"
+                    >
+                      <div className="relative">
+                        <img src={user.avatar || "/placeholder.svg"} alt={user.name} className="rounded-full w-8 h-8" />
+                        {user.online && (
+                          <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-green-500 rounded-full border-2 border-white"></span>
+                        )}
+                      </div>
+                      <div>
+                        <p className="text-xs">{user.name}</p>
+                        <p className="text-[10px] text-gray-500">{user.role}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Selected Conversation Posts */}
+            {selectedConversation && (
               <div className="bg-white border rounded-sm border-gray-100 p-4 mt-6">
                 {/* Add sorting controls to the conversation header */}
                 <div className="flex justify-between items-center mb-4">
@@ -1020,7 +825,8 @@ const InstitutionDetails = () => {
                 </div>
               </div>
             )}
-      </div>
+          </div>
+        </div>
 
       {/* Modals */}
       {createGroupModal && (
@@ -1045,7 +851,7 @@ const InstitutionDetails = () => {
           category={currentCategory}
         />
       )}
-    </Container>
+    </>
   )
 }
 

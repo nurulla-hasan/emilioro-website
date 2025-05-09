@@ -28,20 +28,20 @@ const CreateListModal = ({setShowCreateListModal, showCreateListModal, setNewLis
                                 value={newListName}
                                 onChange={(e) => setNewListName(e.target.value)}
                                 placeholder="Enter list name"
-                                className="w-full p-2 border border-gray-300 rounded-sm focus:outline-none focus:border-[#1C4587]"
+                                className="w-full p-1 px-2 text-sm border border-gray-300 rounded-sm focus:outline-none focus:border-[#1C4587]"
                             />
                         </div>
 
                         <div className="flex justify-end gap-2">
                             <button
                                 onClick={() => setShowCreateListModal(false)}
-                                className="px-4 py-2 border border-gray-300 text-gray-700 rounded-sm hover:bg-gray-50 text-sm cursor-pointer"
+                                className="px-4 py-1 border border-gray-300 text-gray-700 rounded-xs hover:bg-gray-50 text-sm cursor-pointer"
                             >
                                 Cancel
                             </button>
                             <button
                                 onClick={createNewList}
-                                className="px-4 py-2 bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white rounded-sm text-sm cursor-pointer"
+                                className="px-4 py-1 bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white rounded-xs text-sm cursor-pointer"
                             >
                                 Create List
                             </button>

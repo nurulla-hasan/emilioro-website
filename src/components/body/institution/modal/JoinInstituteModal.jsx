@@ -1,28 +1,26 @@
 "use client";
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { motion } from "framer-motion";
-import { IoMdClose } from "react-icons/io";
 
 const JoinInstitutionModal = ({ isOpen, setIsOpen }) => {
-    const { register, handleSubmit, reset } = useForm({
-        defaultValues: {
-            designation: "",
-            group: "Group A (Main party)",
-        },
-    });
+  const { register, handleSubmit, reset } = useForm({
+    defaultValues: {
+      designation: "",
+      group: "Group A",
+    },
+  });
 
-    const onSubmit = (data) => {
-        console.log("Submitted Data:", data);
-        setIsOpen(false);
-        reset();
-    };
+  const onSubmit = (data) => {
+    console.log("Submitted Data:", data);
+    setIsOpen(false);
+    reset();
+  };
 
-    if (!isOpen) return null;
+  if (!isOpen) return null;
 
-    return (
-        <div className="fixed inset-0 bg-black/30 bg-opacity-50 flex justify-center items-center z-50">
-      <div className="bg-white p-5 mt-10 rounded-sm w-[90%] max-w-md lg:max-w-lg shadow-md relative overflow-auto hide-scrollbar">
+  return (
+    <div className="fixed inset-0 bg-black/30 bg-opacity-50 flex justify-center items-center z-50">
+      <div className="bg-white p-5 mt-10 rounded-sm w-[90%] max-w-sm shadow-md relative overflow-auto hide-scrollbar">
         {/* Close Button */}
         <button
           onClick={() => setIsOpen(false)}
@@ -53,9 +51,8 @@ const JoinInstitutionModal = ({ isOpen, setIsOpen }) => {
               {...register("group")}
               className="outline-none border-gray-300 w-full border px-2 py-1.5 rounded-sm text-xs"
             >
-              <option value="Group A (Main party)">Group A (Main party)</option>
+              <option value="Group A">Group A</option>
               <option value="Group B">Group B</option>
-              <option value="Group C">Group C</option>
             </select>
           </div>
 
@@ -79,7 +76,7 @@ const JoinInstitutionModal = ({ isOpen, setIsOpen }) => {
         </form>
       </div>
     </div>
-    );
+  );
 };
 
 export default JoinInstitutionModal;

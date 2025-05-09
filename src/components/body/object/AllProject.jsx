@@ -56,7 +56,7 @@ const AllProject = ({ setSelectedCardAllProject }) => {
                             </div>
                         </div>
                         <div className="mt-4">
-                            <button className="cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white text-xs w-full py-2 rounded-sm font-medium">
+                            <button className="cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white text-xs w-full py-2 rounded-xs font-medium">
                                 Request to join
                             </button>
                         </div>

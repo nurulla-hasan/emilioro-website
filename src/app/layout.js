@@ -1,15 +1,6 @@
-
-// import { Poppins } from "next/font/google";
+import ClientLayout from "./clientLayout";
 import "./globals.css";
-import Navbar from "@/components/header/Navbar";
-import { Providers } from "@/store/providers";
 
-// Poppins font setup
-// const poppins = Poppins({
-//   subsets: ["latin"],
-//   weight: ["300", "400", "500", "600", "700"],
-//   variable: "--font-poppins",
-// });
 
 export const metadata = {
   title: "Audio-sharing-platform",
@@ -19,16 +10,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={` antialiased `}
+      <body className={` antialiased `}
       >
-        <Providers>
-          <Navbar />
-          <div className="container max-w-full mx-auto">
-
-            {children}
-          </div>
-        </Providers>
+        <ClientLayout>
+          {children}
+        </ClientLayout>
       </body>
     </html>
   );

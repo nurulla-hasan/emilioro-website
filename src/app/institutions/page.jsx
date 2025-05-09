@@ -13,6 +13,11 @@ const InstitutionPage = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [selectedCardUserProject, setSelectedCardUserProject] = useState(null)
 
+    const tabs = [
+        { id: "all", label: "All Institution" },
+        { id: "my", label: "My Institution" },
+    ]
+
     return (
         <Container>
             <motion.div
@@ -27,16 +32,16 @@ const InstitutionPage = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2 }}
                 >
-                    <motion.h1 className="text-xl text-[#1C4587] font-bold" whileHover={{ scale: 1.05 }}>
-                    Be part of it
-                    </motion.h1>
-                    <div className="flex items-center justify-center gap-5">
-                        <motion.div className="relative lg:w-[250] w-[150] text-gray-700 border border-[#1C4587] rounded-sm flex items-center px-2">
+                    <h1 className="text-xl text-[#1C4587] font-bold w-full">
+                        Be part of it
+                    </h1>
+                    <div className="flex gap-2 justify-between lg:justify-end w-full items-center">
+                        <motion.div className="relative w-fit text-gray-700 border border-[#1C4587] rounded-sm flex items-center px-2">
                             <CiSearch className="cursor-pointer" color="#1C4587" size={15} />
                             <input
                                 type="text"
                                 placeholder="Search Project"
-                                className="px-2 py-1.5 lg:w-full w-36 rounded-sm lg:py-2 border-none outline-none focus:ring-0 text-[12px] text-gray-700"
+                                className="px-2 py-1.5 lg:w-full w-28 rounded-sm lg:py-2 border-none outline-none focus:ring-0 text-[12px] text-gray-700"
                             />
                         </motion.div>
                         <motion.button
@@ -52,18 +57,15 @@ const InstitutionPage = () => {
                 <div className="flex justify-between">
                     <div className="mx-auto md:ml-0">
                         <motion.div
-                            className="flex border-[#1C4587] border justify-between rounded-sm mt-5 lg:mt-10"
+                            className="flex border-[#1C4587] border justify-between rounded-sm overflow-hidden mt-5 lg:mt-10"
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.4 }}
                         >
-                            {[
-                                { id: "all", label: "All Institution" },
-                                { id: "my", label: "My Institution" },
-                            ].map((tab) => (
+                            {tabs.map((tab) => (
                                 <motion.button
                                     key={tab.id}
-                                    className={`px-4 py-2 text-[10px] font-medium transition-all border rounded-sm outline-none focus:ring-0 cursor-pointer ${activeTab === tab.id
+                                    className={`px-4 py-2 text-[10px] font-medium transition-all border outline-none focus:ring-0 cursor-pointer ${activeTab === tab.id
                                         ? "bg-[#1C4587] border border-[#1C4587] text-white"
                                         : "border-transparent text-gray-700"
                                         }`}

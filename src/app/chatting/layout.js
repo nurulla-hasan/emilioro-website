@@ -53,7 +53,7 @@ const ChattingLayout = ({ children }) => {
     const activeMenuId = getActiveMenuItem()
 
     return (
-        <div className="flex flex-col md:gap-8 lg:flex-row h-[calc(100vh-88px)] overflow-scroll hide-scrollbar">
+        <div className="flex flex-col md:gap-8 lg:flex-row h-[calc(100vh-88px)] overflow-scroll hide-scrollbar  max-w-full mx-auto">
             {/* Sidebar - Desktop always visible, Mobile conditionally visible */}
             <div className="shadow-md bg-[#f8f9fc]">
                 {/* Mobile Menu Toggle */}

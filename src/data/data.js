@@ -264,6 +264,93 @@ export const myProject = [
   }
 ]
 
+export const projectDetails = [
+  {
+    id: "1",
+    title: "Eco-Friendly Packaging",
+    status: ["Ongoing", "Public"],
+    description: "Develop sustainable packaging solutions using biodegradable materials dsjh.",
+    author: "MR. Sarwar",
+    authorRole: ["Owner"],
+    image: "/project (1).png",
+    ownerImage: "/avatar.png",
+    participant: "10",
+    created: "22 may 2023"
+  },
+  {
+    id: "2",
+    title: "Recyclable Materials",
+    status: ["Ongoing", 'Public'],
+    description: "Use recyclable materials to create packaging that can be reused.",
+    author: "MR. Ahmed",
+    authorRole: ["Owner"],
+    image: "/project (2).png",
+    ownerImage: "/avatar.png",
+    participant: "10",
+    created: "22 may 2023"
+  },
+  {
+    id: "3",
+    title: "Minimalist Design",
+    status: ['Ongoing', 'Public'],
+    description: "Implement minimalist design principles to reduce waste and improve.",
+    author: "MS. Fatima",
+    authorRole: ["Owner"],
+    image: "/project (3).png",
+    ownerImage: "/avatar.png",
+    participant: "10",
+    created: "22 may 2023"
+  },
+  {
+    id: "4",
+    title: "Minimalist Design",
+    status: ['Ongoing', 'Public'],
+    description: "Implement minimalist design principles to reduce waste and improve.",
+    author: "MS. Fatima",
+    authorRole: ["Owner"],
+    image: "/project (4).png",
+    ownerImage: "/avatar.png",
+    participant: "10",
+    created: "22 may 2023"
+  },
+  {
+    id: "5",
+    title: "Minimalist Design",
+    status: ['Ongoing', 'Public'],
+    description: "Implement minimalist design principles to reduce waste and improve .",
+    author: "MS. Fatima",
+    authorRole: ["Owner"],
+    image: "/project (5).png",
+    ownerImage: "/avatar.png",
+    participant: "10",
+    created: "22 may 2023"
+  },
+  {
+    id: "6",
+    title: "Minimalist Design",
+    status: ['Ongoing', 'Public'],
+    description: "Implement minimalist design principles to reduce waste and improve .",
+    author: "MS. Fatima",
+    authorRole: ["Owner"],
+    image: "/project (6).png",
+    ownerImage: "/avatar.png",
+    participant: "10",
+    created: "22 may 2023"
+  },
+  {
+    id: "7",
+    title: "Minimalist Design",
+    status: ['Ongoing', 'Public'],
+    description: "Implement minimalist design principles to reduce waste and improve .",
+    author: "MS. Fatima",
+    authorRole: ["Owner"],
+    image: "/project (1).png",
+    ownerImage: "/avatar.png",
+    participant: "10",
+    created: "22 may 2023"
+  }
+]
+
 export const allProject = [
   {
     id: "1",
@@ -655,6 +742,192 @@ export const favoriteAudioData = [
     image: "/mostPlayed.png",
   },
 ];
+
+
+
+
+// institutions
+export const producers = [
+  { id: 1, name: "Ahamad musa", role: "CEO", online: true, avatar: "/avatar.png" },
+  { id: 2, name: "Ahamad musa", role: "General manager", online: true, avatar: "/avatar.png" },
+  { id: 3, name: "Ahamad musa", role: "Chief of engineer", online: false, avatar: "/avatar.png" },
+  { id: 4, name: "Ahamad musa", role: "work administrator", online: true, avatar: "/avatar.png" },
+  { id: 5, name: "Ahamad musa", role: "Artist, Engineer, musician", online: true, avatar: "/avatar.png" },
+]
+
+export const users = [
+  { id: 1, name: "Ahamad musa", role: "Artist, Engineer, musician", online: true, avatar: "/avatar.png" },
+  { id: 2, name: "Ahamad musa", role: "Artist, Engineer, musician", online: false, avatar: "/avatar.png" },
+  { id: 3, name: "Ahamad musa", role: "Artist, Engineer, musician", online: true, avatar: "/avatar.png" },
+  { id: 4, name: "Ahamad musa", role: "Artist, Engineer, musician", online: true, avatar: "/avatar.png" },
+  { id: 5, name: "Ahamad musa", role: "Artist, Engineer, musician", online: false, avatar: "/avatar.png" },
+]
+
+export const mediators = [
+  { id: 1, name: "MR. Sarwar", role: "Mediator", avatar: "/avatar.png", groupName: "Innovators Hub" },
+  { id: 2, name: "MR. Golap", role: "Mediator", avatar: "/avatar.png", groupName: "Change makers" },
+  { id: 3, name: "MS. Fatima", role: "Mediator", avatar: "/avatar.png", groupName: "Pioneers" },
+  { id: 4, name: "MR. Ahmed", role: "Mediator", avatar: "/avatar.png", groupName: "Visionaries" },
+  { id: 5, name: "MS. Sarah", role: "Mediator", avatar: "/avatar.png", groupName: "Trailblazers" },
+]
+
+export const initialConversations = [
+  {
+    id: 1,
+    name: "Sustainable Development & Climate Action",
+    isPublic: true,
+    members: 12,
+    posts: [
+      {
+        id: 101,
+        author: "MR. Sarwar",
+        role: "CEO",
+        avatar: "/avatar.png",
+        content:
+          "Just shared a new research paper on sustainable packaging materials. Check it out in the resources section!",
+        date: "22 May 2025",
+        time: "10:30 AM",
+        likes: 12,
+        likedBy: [2, 3, 4],
+        comments: 5,
+        attachments: [],
+      },
+      {
+        id: 102,
+        author: "Ahmad Musa",
+        role: "General Manager",
+        avatar: "/avatar.png",
+        content:
+          "Our team has made significant progress on the biodegradable packaging prototype. Looking forward to presenting it next week.",
+        date: "21 May 2025",
+        time: "2:45 PM",
+        likes: 8,
+        likedBy: [1, 5],
+        comments: 3,
+        attachments: [],
+      },
+    ],
+  },
+  {
+    id: 2,
+    name: "Technology & Innovation",
+    isPublic: true,
+    members: 8,
+    posts: [
+      {
+        id: 201,
+        author: "Fatima Khan",
+        role: "Research Lead",
+        avatar: "/avatar.png",
+        content:
+          "Important announcement: We'll be hosting a workshop on circular economy principles next Thursday. All team members are encouraged to attend.",
+        date: "20 May 2025",
+        time: "9:15 AM",
+        likes: 15,
+        likedBy: [1, 2, 3],
+        comments: 7,
+        attachments: [],
+      },
+    ],
+  },
+  {
+    id: 3,
+    name: "Health & Well-being",
+    isPublic: false,
+    members: 5,
+    posts: [],
+  },
+  {
+    id: 4,
+    name: "Education & Research",
+    isPublic: true,
+    members: 10,
+    posts: [],
+  },
+]
+
+ export const projects = [
+  {
+    id: "1",
+    title: "Eco-Friendly Packaging",
+    status: ["Ongoing", "Public"],
+    description:
+      "Develop sustainable packaging solutions using biodegradable materials to reduce environmental impact. Focus on innovative designs that maintain product integrity while being eco-conscious.",
+    author: "MR. Sarwar",
+    authorRole: ["Owner"],
+    image: "/institute (1).png",
+    participant: "10",
+    created: "22 may 2025",
+    socialLinks: {
+      facebook: "https://facebook.com/eco-friendly-packaging",
+      instagram: "https://instagram.com/eco_friendly_packaging",
+    },
+  },
+  {
+    id: "2",
+    title: "Recyclable Materials",
+    status: ["Ongoing", "Public"],
+    description: "Use recyclable materials to create packaging that can be reused.",
+    author: "MR. Golap",
+    authorRole: ["Owner"],
+    image: "/institute (2).png",
+    participant: "10",
+    created: "22 may 2023",
+    socialLinks: {
+      facebook: "https://facebook.com/recyclable-materials",
+      instagram: "https://instagram.com/recyclable_materials",
+    },
+  },
+  {
+    id: "3",
+    title: "Minimalist Design",
+    status: ["Ongoing", "Public"],
+    description: "Implement minimalist design principles to reduce waste and improve.",
+    author: "MS. Fatima",
+    authorRole: ["Owner"],
+    image: "/institute (3).png",
+    participant: "10",
+    created: "22 may 2023",
+    socialLinks: {
+      facebook: "https://facebook.com/minimalist-design",
+      instagram: "https://instagram.com/minimalist_design",
+    },
+  },
+  {
+    id: "4",
+    title: "Minimalist Design",
+    status: ["Ongoing", "Public"],
+    description: "Implement minimalist design principles to reduce waste and improve.",
+    author: "MS. Fatima",
+    authorRole: ["Owner"],
+    image: "/institute (1).png",
+    participant: "10",
+    created: "22 may 2023",
+    socialLinks: {
+      facebook: "https://facebook.com/minimalist-design-2",
+      instagram: "https://instagram.com/minimalist_design_2",
+    },
+  },
+  {
+    id: "5",
+    title: "Minimalist Design",
+    status: ["Ongoing", "Public"],
+    description: "Implement minimalist design principles to reduce waste and improve.",
+    author: "MS. Fatima",
+    authorRole: ["User"],
+    image: "/institute (2).png",
+    participant: "10",
+    created: "22 may 2023",
+    socialLinks: {
+      facebook: "https://facebook.com/minimalist-design-3",
+      instagram: "https://instagram.com/minimalist_design_3",
+    },
+  },
+]
+
+
+
+
 
 
 // Single bond

@@ -9,6 +9,7 @@ import EditProjectModal from "@/components/body/object/modal/EditProjectModal"
 import AddUserModal from "@/components/body/object/modal/AddUserModal"
 import { useRouter, useSearchParams } from "next/navigation"
 import RemoveParticipantModal from "@/components/body/object/modal/RemoveParticipantModal"
+import { projectDetails } from "@/data/data"
 
 const MyProjectDetails = () => {
   return (
@@ -37,92 +38,6 @@ const ProjectContent = () => {
   const projectId = searchParams.get("id");
   const { register, handleSubmit, reset } = useForm()
 
-  const projectDetails = [
-    {
-      id: "1",
-      title: "Eco-Friendly Packaging",
-      status: ["Ongoing", "Public"],
-      description: "Develop sustainable packaging solutions using biodegradable materials dsjh.",
-      author: "MR. Sarwar",
-      authorRole: ["Owner"],
-      image: "/project (1).png",
-      ownerImage: "/avatar.png",
-      participant: "10",
-      created: "22 may 2023"
-    },
-    {
-      id: "2",
-      title: "Recyclable Materials",
-      status: ["Ongoing", 'Public'],
-      description: "Use recyclable materials to create packaging that can be reused.",
-      author: "MR. Ahmed",
-      authorRole: ["Owner"],
-      image: "/project (2).png",
-      ownerImage: "/avatar.png",
-      participant: "10",
-      created: "22 may 2023"
-    },
-    {
-      id: "3",
-      title: "Minimalist Design",
-      status: ['Ongoing', 'Public'],
-      description: "Implement minimalist design principles to reduce waste and improve.",
-      author: "MS. Fatima",
-      authorRole: ["Owner"],
-      image: "/project (3).png",
-      ownerImage: "/avatar.png",
-      participant: "10",
-      created: "22 may 2023"
-    },
-    {
-      id: "4",
-      title: "Minimalist Design",
-      status: ['Ongoing', 'Public'],
-      description: "Implement minimalist design principles to reduce waste and improve.",
-      author: "MS. Fatima",
-      authorRole: ["Owner"],
-      image: "/project (4).png",
-      ownerImage: "/avatar.png",
-      participant: "10",
-      created: "22 may 2023"
-    },
-    {
-      id: "5",
-      title: "Minimalist Design",
-      status: ['Ongoing', 'Public'],
-      description: "Implement minimalist design principles to reduce waste and improve .",
-      author: "MS. Fatima",
-      authorRole: ["Owner"],
-      image: "/project (5).png",
-      ownerImage: "/avatar.png",
-      participant: "10",
-      created: "22 may 2023"
-    },
-    {
-      id: "6",
-      title: "Minimalist Design",
-      status: ['Ongoing', 'Public'],
-      description: "Implement minimalist design principles to reduce waste and improve .",
-      author: "MS. Fatima",
-      authorRole: ["Owner"],
-      image: "/project (6).png",
-      ownerImage: "/avatar.png",
-      participant: "10",
-      created: "22 may 2023"
-    },
-    {
-      id: "7",
-      title: "Minimalist Design",
-      status: ['Ongoing', 'Public'],
-      description: "Implement minimalist design principles to reduce waste and improve .",
-      author: "MS. Fatima",
-      authorRole: ["Owner"],
-      image: "/project (1).png",
-      ownerImage: "/avatar.png",
-      participant: "10",
-      created: "22 may 2023"
-    }
-  ]
 
 
   useEffect(() => {
@@ -188,15 +103,15 @@ const ProjectContent = () => {
   const imageSrc = getImageSrc()
 
   return (
-    <div className=" h-[calc(100vh-90px)]">
-      <div className="max-w-4xl shadow-[0px_15px_45px_0px_#CFC9DD99] mx-auto p-5 rounded-sm bg-white">
-        <div className="relative h-[150px]  w-full">
+    <div className="">
+      <div className="max-w-7xl shadow-[0px_15px_45px_0px_#CFC9DD99] mx-auto p-5 rounded-b-sm bg-white">
+        <div className="relative h-[250px]  w-full">
           <Image
             src={imageSrc || "/placeholder.svg"}
             alt="Project Header"
             fill
             style={{ objectFit: "cover" }}
-            className="rounded-sm"
+            className="rounded-xs"
           />
         </div>
         <div>
@@ -204,7 +119,7 @@ const ProjectContent = () => {
             <h1 className="lg:text-lg text-sm font-bold text-[#1C4587]">{project.title}</h1>
             {/* Edit Button */}
             <button
-              className="flex gap-1 items-center cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white text-xs px-3 py-2 rounded-sm font-medium"
+              className="flex gap-1 items-center cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white text-xs px-3 py-2 rounded-xs font-medium"
               onClick={() => setIsOpen(true)}
             >
               <RiEdit2Line />
@@ -213,7 +128,7 @@ const ProjectContent = () => {
           </div>
         </div>
 
-        <div className="lg:h-[50vh] h-[53vh] overflow-auto hide-scrollbar">
+        <div>
           <div className="flex justify-between items-center mt-2">
             <div className="flex gap-2 items-center">
               <img className="rounded-full w-[30px] h-[30px]" src={project.ownerImage || "/placeholder.svg"} alt="image" />
@@ -224,13 +139,13 @@ const ProjectContent = () => {
             </div>
 
             <div className="flex gap-2 items-center">
-              <div className="flex border rounded-sm px-1 gap-1 items-center text-[#6F6F6F] text-sm">
+              <div className="flex border rounded-xs px-1 gap-1 items-center text-[#6F6F6F] text-sm">
                 <select className="border-none outline-none text-xs">
                   <option value="active">Active</option>
                   <option value="complete">Complete</option>
                 </select>
               </div>
-              <div className="flex border rounded-sm px-1 gap-1 items-center text-[#6F6F6F] text-sm">
+              <div className="flex border rounded-xs px-1 gap-1 items-center text-[#6F6F6F] text-sm">
                 <select className="border-none outline-none text-xs">
                   <option value="private">Private</option>
                   <option value="public">Public</option>
@@ -254,7 +169,7 @@ const ProjectContent = () => {
               <div className="flex justify-between items-center">
                 <h3 className="font-semibold mb-2">Producer</h3>
                 <motion.button
-                  className="px-2 cursor-pointer text-xs bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white py-1 rounded-sm font-medium"
+                  className="px-2 cursor-pointer text-xs bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white py-1 rounded-xs font-medium"
                   whileTap={{ scale: 0.98 }}
                   onClick={() => setIsAddProducerOpen(true)}
                 >
@@ -281,7 +196,7 @@ const ProjectContent = () => {
                       </div>
                       <div>
                         <motion.button
-                          className="px-2 cursor-pointer text-xs bg-white border border-red-500 text-red-500 py-1 rounded-sm font-medium"
+                          className="px-2 cursor-pointer text-xs bg-white border border-red-500 text-red-500 py-1 rounded-xs font-medium"
                           whileHover={{ scale: 1.02 }}
                           whileTap={{ scale: 0.98 }}
                           onClick={() => setRemoveParticipantModal(true)}
@@ -303,7 +218,7 @@ const ProjectContent = () => {
               <div className="flex justify-between items-center">
                 <h3 className="font-semibold mb-2">User</h3>
                 <motion.button
-                  className="px-2 cursor-pointer text-xs bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white py-1 rounded-sm font-medium"
+                  className="px-2 cursor-pointer text-xs bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white py-1 rounded-xs font-medium"
                   whileTap={{ scale: 0.98 }}
                   onClick={() => setIsAddUserOpen(true)}
                 >
@@ -329,7 +244,7 @@ const ProjectContent = () => {
                       </div>
                       <div>
                         <motion.button
-                          className="px-2 text-xs cursor-pointer bg-white border border-red-500 text-red-500 py-1 rounded-sm font-medium"
+                          className="px-2 text-xs cursor-pointer bg-white border border-red-500 text-red-500 py-1 rounded-xs font-medium"
                           whileHover={{ scale: 1.02 }}
                           whileTap={{ scale: 0.98 }}
                           onClick={() => setRemoveParticipantModal(true)}
@@ -371,14 +286,14 @@ const ProjectContent = () => {
                       </div>
                       <div className="flex gap-2 items-center">
                         <motion.button
-                          className="px-2 text-xs cursor-pointer bg-white border border-red-500 text-red-500 py-1 rounded-sm font-medium"
+                          className="px-2 text-xs cursor-pointer bg-white border border-red-500 text-red-500 py-1 rounded-xs font-medium"
                           whileHover={{ scale: 1.02 }}
                           whileTap={{ scale: 0.98 }}
                         >
                           Decline
                         </motion.button>
                         <motion.button
-                          className="px-2 text-xs bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white py-1 rounded-sm font-medium cursor-pointer"
+                          className="px-2 text-xs bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white py-1 rounded-xs font-medium cursor-pointer"
                           whileHover={{ scale: 1.02 }}
                           whileTap={{ scale: 0.98 }}
                         >
@@ -399,9 +314,9 @@ const ProjectContent = () => {
         {/* button */}
         <div className="flex justify-center mt-5">
           <motion.button
-            className="lg:w-1/3 cursor-pointer text-sm bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white px-2 lg:px-0 py-2 rounded-sm font-medium"
+            className="lg:w-1/4 cursor-pointer text-xs bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white px-2 lg:px-0 py-2 rounded-xs font-medium"
             whileTap={{ scale: 0.98 }}
-            onClick={() => router.push(`/object/myProject/workspace?id=${project.id}`)}
+            onClick={() => router.push(`/objects/workspace?id=${project.id}`)}
           >
             Open Workspace
           </motion.button>

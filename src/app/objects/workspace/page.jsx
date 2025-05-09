@@ -249,7 +249,7 @@ const WorkSpace = () => {
   }
 
   return (
-    <div className=" px-5 lg:px-0 mx-auto py-2">
+    <div className="px-5 lg:px-0 mx-auto py-2">
       {/* Banner Image */}
       <div className="w-full h-[200px] relative mb-4">
         <Image
