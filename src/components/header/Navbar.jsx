@@ -2,7 +2,7 @@
 import { usePathname } from "next/navigation"
 import Link from "next/link"
 import { useState } from "react"
-import { FiLogOut, FiMenu, FiX } from "react-icons/fi"
+import { FiLogOut, FiMenu, FiSearch, FiX } from "react-icons/fi"
 import { motion, AnimatePresence } from "framer-motion"
 import LoginModal from "../authentication/login/LoginModal"
 import SignUpModal from "../authentication/signUp/SignUpModal"
@@ -143,7 +143,7 @@ const Navbar = () => {
                         className="xl:flex items-center space-x-3 cursor-pointer"
                         onClick={() => setIsMobileDropdownOpen(!isMobileDropdownOpen)}
                       >
-                        <img src={ "/avatar.png"} alt="User Avatar" className="w-8 h-8 rounded-full" />
+                        <img src={"/avatar.png"} alt="User Avatar" className="w-8 h-8 rounded-full" />
                         {/* <p className="text-sm font-semibold">{user.name}</p> */}
                       </div>
 
@@ -265,6 +265,19 @@ const Navbar = () => {
             </motion.div>
           ))}
         </motion.div>
+
+        <div
+          className="md:flex justify-center hidden"
+        >
+          <div className="relative w-full">
+            <FiSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
+            <input
+              type="text"
+              placeholder="Search People"
+              className="w-full pl-10 py-2 rounded-full border text-gray-100 border-gray-300 text-[10px] md:text-xs shadow-sm outline-none focus:outline-none focus:ring-0 focus:border-gray-300"
+            />
+          </div>
+        </div>
 
         {/* Desktop Buttons */}
         {user ? (

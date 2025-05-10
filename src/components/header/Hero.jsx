@@ -67,19 +67,7 @@ const Hero = () => {
             <motion.p variants={fadeInUp} className="text-base md:text-lg text-[#E3E3E3] mt-5 font-[300]">
               We are what we do together
             </motion.p>
-            <motion.div
-              variants={fadeInUp}
-              className="mt-6 flex justify-center"
-            >
-              <div className="relative w-full max-w-[300px]">
-                <FiSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
-                <input
-                  type="text"
-                  placeholder="Search Institutions or People"
-                  className="w-full pl-10 pr-4 py-2 rounded-full border border-gray-300 text-xs md:text-sm shadow-sm outline-none focus:outline-none focus:ring-0 focus:border-gray-300"
-                />
-              </div>
-            </motion.div>
+           
 
 
             {
