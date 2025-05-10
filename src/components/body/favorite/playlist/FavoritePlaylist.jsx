@@ -11,7 +11,7 @@ const FavoritePlaylist = () => {
     return (
         <div className=''>
             {/* Cards */}
-            <div className="grid items-center grid-cols-1 gap-2 mx-auto xl:my-5 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 lg:justify-between justify-items-center ">
+            <div className="grid items-center grid-cols-1 gap-2 mx-auto xl:my-5 xl:grid-cols-4 lg:grid-cols-2 md:grid-cols-2 lg:justify-between justify-items-center ">
                 {conversations.map((conversation, index) => (
                     <div key={conversation.id} className='flex flex-col gap-2 p-2 border border-gray-300 rounded-sm'>
                         <div>

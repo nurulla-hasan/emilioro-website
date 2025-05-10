@@ -1,13 +1,14 @@
 "use client"
 import FavoriteAudio from "@/components/body/favorite/audio/FavoriteAudio";
 import FavoritePlaylist from "@/components/body/favorite/playlist/FavoritePlaylist";
+import Container from "@/components/home/Container";
 import { useState } from "react";
 
 const Favorite = () => {
     const [selectedOption, setSelectedOption] = useState("Audio");
 
     return (
-        <>
+        <div className="">
             <div className="px-5 my-5 md:px-8">
                 <div className="flex items-start justify-between gap-4">
                     <h2 className="text-xl font-bold text-[#1C4587]">My Favorite</h2>
@@ -31,7 +32,7 @@ const Favorite = () => {
             <div className="my-5 md:px-8">
                 {selectedOption === "Audio" ? <FavoriteAudio /> : <FavoritePlaylist />}
             </div>
-        </>
+        </div>
     );
 };
 

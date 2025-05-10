@@ -7,7 +7,7 @@ import Favorite from "@/app/chatting/favorite/page";
 import MostPlayedSection from "@/components/slider/MostPlayedSection";
 import TrendingTopics from "../TrendingTopics";
 import ConversationList from "../ConversationList";
-import MyPlaylist from "@/app/chatting/allPlaylist/myPlaylist/page";
+import MyPlaylist from "@/app/chatting/all-playlist/my-playlist/page";
 
 const ChattingLayout = ({ children }) => {
     const menuItems = [

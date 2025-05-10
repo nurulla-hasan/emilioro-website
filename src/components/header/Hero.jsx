@@ -1,18 +1,14 @@
 "use client"
-
-import Image from "next/image"
-import wave2 from "../../../public/wave (2).png"
-import wave3 from "../../../public/wave (3).png"
-import heroImage from "../../../public/heroImage.png"
 import { motion } from "framer-motion"
 import { setIsSignUpOpen } from "@/store/mainSlice"
 import { useDispatch, useSelector } from "react-redux"
-  // import Inter font
-  import { Inter } from "next/font/google";
-  const inter = Inter({
-    subsets: ["latin"],
-    weight: ["400", "500", "600", "700"],
-  });
+import { FiSearch } from "react-icons/fi";
+// import Inter font
+import { Inter } from "next/font/google";
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
 
 
 const Hero = () => {
@@ -24,14 +20,6 @@ const Hero = () => {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: "easeOut" },
-    },
-  }
-
-  const fadeIn = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
       transition: { duration: 0.6, ease: "easeOut" },
     },
   }
@@ -58,7 +46,7 @@ const Hero = () => {
     },
   }
 
-  
+
 
   return (
 
@@ -79,6 +67,20 @@ const Hero = () => {
             <motion.p variants={fadeInUp} className="text-base md:text-lg text-[#E3E3E3] mt-5 font-[300]">
               We are what we do together
             </motion.p>
+            <motion.div
+              variants={fadeInUp}
+              className="mt-6 flex justify-center"
+            >
+              <div className="relative w-full max-w-[300px]">
+                <FiSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
+                <input
+                  type="text"
+                  placeholder="Search Institutions or People"
+                  className="w-full pl-10 pr-4 py-2 rounded-full border border-gray-300 text-xs md:text-sm shadow-sm outline-none focus:outline-none focus:ring-0 focus:border-gray-300"
+                />
+              </div>
+            </motion.div>
+
 
             {
               user ?
@@ -108,29 +110,14 @@ const Hero = () => {
         </motion.div>
 
         {/* Right Content Image */}
-        {/* <motion.div variants={fadeIn} className="h-full relative flex-1 z-10 flex md:justify-end items-start md:items-center">
-          <motion.div
-            variants={scaleIn}
-            className="rounded-full"
-          >
-            <Image
-              src={heroImage.src || "/placeholder.svg"}
-              alt="Hero Image"
-              className="rounded-full object-cover w-64 h-64 sm:w-52 sm:h-52 md:w-96 md:h-96 lg:w-[450px] lg:h-[450px]"
-              width={400}
-              height={400}
-            />
-
-          </motion.div>
-        </motion.div> */}
 
 
       </motion.section>
       {/* Wave Images */}
-      <motion.div variants={waveAnimation} className="absolute right-0 bottom-28 left-0">
-        <motion.img variants={waveAnimation} className="absolute" src={wave3.src} alt="Wave 1" />
-        <motion.img variants={waveAnimation} className="" src={wave2.src} alt="Wave 3" />
-        <motion.img variants={waveAnimation} className="" src={wave2.src} alt="Wave 3" />
+      <motion.div variants={waveAnimation} className="absolute right-0 bottom-20 left-0">
+        <motion.img variants={waveAnimation} className="absolute" src='/wave (3).png' alt="Wave 1" />
+        <motion.img variants={waveAnimation} className="absolut" src='/wave (2).png' alt="Wave 3" />
+        <motion.img variants={waveAnimation} className="absolut" src='/wave (3).png' alt="Wave 3" />
       </motion.div>
     </div>
   )

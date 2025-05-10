@@ -5,6 +5,9 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
+@theme {
+  --breakpoint-3xl: 120rem;
+}
 
   /* globals.css */
 .hide-scrollbar::-webkit-scrollbar {

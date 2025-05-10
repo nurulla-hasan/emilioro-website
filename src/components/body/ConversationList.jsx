@@ -31,6 +31,13 @@ const ConversationList = () => {
             image: "/conversion3.png",
             duration: "1 hr 23m",
             type: "10+ audio"
+        },
+        {
+            id: 4,
+            title: "Family Conversation",
+            image: "/conversion3.png",
+            duration: "1 hr 23m",
+            type: "10+ audio"
         }
 
     ]
@@ -48,13 +55,13 @@ const ConversationList = () => {
             </div>
 
 
-            <div className="grid items-center grid-cols-1 gap-2 mx-auto mt-2 rounded-lg lg:grid-cols-3 md:grid-cols-2 lg:gap-5 ">
+            <div className="grid items-center grid-cols-1 gap-2 mx-auto mt-2 rounded-lg lg:grid-cols-3 3xl:grid-cols-4 md:grid-cols-2 lg:gap-5 ">
                 {conversations.map((conversation, index) => (
                     <div key={conversation.id} className='flex flex-col gap-2 p-2 border border-gray-300 rounded-sm'>
                         <div>
                             <img
                                 src={conversation.image}
-                                className='rounded-md'
+                                className='rounded-md w-full'
                                 alt='image'
                             >
                             </img>
