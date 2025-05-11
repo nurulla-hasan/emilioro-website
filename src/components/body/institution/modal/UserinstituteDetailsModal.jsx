@@ -8,11 +8,11 @@ import { useState } from "react"
 
 const sampleData = {
   producers: [
-    { id: 1, name: "Ahamad Musa", role: "CEO", avatar: "/avatar.png" },
+    { id: 1, name: "Ahamad Musa", role: "Engineer, CEO", avatar: "/avatar.png" },
     { id: 2, name: "John Smith", role: "General Manager", avatar: "/avatar.png" },
     { id: 3, name: "Sarah Johnson", role: "Chief of Engineer", avatar: "/avatar.png" },
     { id: 4, name: "Michael Brown", role: "Work Administrator", avatar: "/avatar.png" },
-    { id: 5, name: "Emily Davis", role: "Artist, Engineer, Musician", avatar: "/avatar.png" },
+    { id: 5, name: "Emily Davis", role: "Artist, Engineer", avatar: "/avatar.png" },
   ],
   users: [
     { id: 1, name: "Robert Wilson", role: "Artist, Engineer, Musician", avatar: "/avatar.png" },
@@ -79,7 +79,6 @@ const UserInstituteDetailsModal = ({ selectedCardUserProject, setSelectedCardUse
           {/* Content */}
           <div className="p-5 flex justify-between flex-col">
             <div>
-
               {/* Title & description*/}
               <div className="flex flex-col gap-3">
                 <h1 className="text-md font-bold text-[#1C4587]">
@@ -88,9 +87,45 @@ const UserInstituteDetailsModal = ({ selectedCardUserProject, setSelectedCardUse
                 <p className="text-gray-600 text-xs mb-4">{selectedCardUserProject.description}</p>
               </div>
 
+              <div>
+                {/* Mediator Column */}
+                <div className="my-5">
+                  <div>
+                    <div className="flex justify-between mb-2">
+                      <h3 className="font-semibold text-sm text-gray-800 mb-2">Mediators</h3>
+                      {/* Participant Count */}
+                      <div className="flex items-center gap-2 mb-2">
+                        <img className="w-4" src="/participants.svg" alt="Participants" />
+                        <span className="text-sm text-gray-800 font-semibold">{selectedCardUserProject.participant1} Participent</span>
+                      </div>
+                    </div>
 
-
-
+                    <div className="space-y-4 grid grid-cols-3 md:grid-cols-5 justify-items-center items-start">
+                      {sampleData.producers.map((producer, i) => (
+                        <motion.div
+                          key={producer.id}
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: i * 0.1 }}
+                          className="flex items-center gap-3"
+                        >
+                          <div className="flex flex-col justify-center items-center gap-2">
+                            <img
+                              src={producer.avatar || "/placeholder.svg"}
+                              alt={producer.name}
+                              className="w-8 h-8 rounded-full"
+                            />
+                            <div>
+                              <p className="font-medium text-xs text-center text-gray-700">{producer.name}</p>
+                              <p className="text-[10px] text-gray-500 text-center">{producer.role}</p>
+                            </div>
+                          </div>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
               {/* Participants Grid */}
               <div className="flex flex-col md:flex-row gap-5 justify-between w-full">
                 {/* Producer Column */}
@@ -127,7 +162,7 @@ const UserInstituteDetailsModal = ({ selectedCardUserProject, setSelectedCardUse
 
                 {/* User Column */}
                 <div>
-                  <h3 className="font-semibold text-xs text-gray-800 mb-2 md:text-end">Group B</h3>
+                  <h3 className="font-semibold text-xs text-gray-800 mb-2 text-end">Group B</h3>
                   {/* Participant Count */}
                   <div className="flex items-center gap-2 mb-2 justify-end">
                     <img className="w-4" src="/participants.svg" alt="Participants" />
@@ -158,42 +193,6 @@ const UserInstituteDetailsModal = ({ selectedCardUserProject, setSelectedCardUse
               </div>
 
 
-              <div className=" mt-5">
-                {/* Producer Column */}
-                <div>
-                  <div className="flex justify-between">
-                    <h3 className="font-semibold text-sm text-gray-800 mb-2">Mediators</h3>
-                    {/* Participant Count */}
-                    <div className="flex items-center gap-2 mb-2">
-                      <img className="w-4" src="/participants.svg" alt="Participants" />
-                      <span className="text-sm text-gray-800 font-semibold">{selectedCardUserProject.participant1} Participent</span>
-                    </div>
-                  </div>
-
-                  <div className="space-y-4">
-                    {sampleData.producers.map((producer, i) => (
-                      <motion.div
-                        key={producer.id}
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: i * 0.1 }}
-                        className="flex items-center gap-3"
-                      >
-                        <img
-                          src={producer.avatar || "/placeholder.svg"}
-                          alt={producer.name}
-                          className="w-8 h-8 rounded-full"
-                        />
-                        <div>
-                          <p className="font-medium text-sm text-gray-700">{producer.name}</p>
-                          <p className="text-xs text-gray-500">{producer.role}</p>
-                        </div>
-                      </motion.div>
-                    ))}
-                  </div>
-                </div>
-
-              </div>
               <div className="text-end mt-1">
                 <Link className="text-xs text-[#1C4587]" href="#">View All</Link>
               </div>
@@ -212,9 +211,9 @@ const UserInstituteDetailsModal = ({ selectedCardUserProject, setSelectedCardUse
                         }`}
                     >
                       <span
-                      onClick={() => handleClick(index, category.id)}
-                      className="cursor-pointer text-xs text-gray-700"
-                    >
+                        onClick={() => handleClick(index, category.id)}
+                        className="cursor-pointer text-xs text-gray-700"
+                      >
                         {category.name}
                       </span>
                     </div>
@@ -222,24 +221,30 @@ const UserInstituteDetailsModal = ({ selectedCardUserProject, setSelectedCardUse
                 </div>
               </div>
 
-            {/* View All Link */}
-            <div className="text-right">
-              <button className="text-[#1C4587] text-xs hover:underline outline-none focus:ring-0 cursor-pointer">View all</button>
+              {/* View All Link */}
+              <div className="text-right">
+                <button className="text-[#1C4587] text-xs hover:underline outline-none focus:ring-0 cursor-pointer">View all</button>
+              </div>
+            </div>
+            {/* Join Button */}
+            <div className="flex gap-5 mt-4">
+              <motion.button
+                className="w-1/2 bg-[#1C4587] text-white py-1 text-sm rounded-sm font-medium cursor-pointer"
+                whileTap={{ scale: 0.98 }}
+              >
+                Leave
+              </motion.button>
+              <motion.button
+                className="w-1/2 bg-[#1C4587] text-white py-1 text-sm rounded-sm font-medium cursor-pointer"
+                whileTap={{ scale: 0.98 }}
+                onClick={() => router.push(`/institutions/${selectedCardUserProject.id}`)}
+              >
+                Open Institution
+              </motion.button>
             </div>
           </div>
-          {/* Join Button */}
-          <div className="flex justify-center">
-            <motion.button
-              className="w-1/2 bg-[#1C4587] text-white py-1 text-sm rounded-sm font-medium cursor-pointer"
-              whileTap={{ scale: 0.98 }}
-              onClick={() => router.push(`/institutions/${selectedCardUserProject.id}`)}
-            >
-              Open Institution
-            </motion.button>
-          </div>
-        </div>
+        </motion.div>
       </motion.div>
-    </motion.div>
     </AnimatePresence >
   )
 }
