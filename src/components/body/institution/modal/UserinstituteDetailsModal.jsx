@@ -100,7 +100,7 @@ const UserInstituteDetailsModal = ({ selectedCardUserProject, setSelectedCardUse
                       </div>
                     </div>
 
-                    <div className="space-y-4 grid grid-cols-3 md:grid-cols-5 justify-items-center items-start">
+                    <div className="space-y-4 md:grid grid-cols-3 md:grid-cols-5 justify-items-center items-start hidden">
                       {sampleData.producers.map((producer, i) => (
                         <motion.div
                           key={producer.id}
@@ -189,6 +189,7 @@ const UserInstituteDetailsModal = ({ selectedCardUserProject, setSelectedCardUse
                   </div>
                 </div>
               </div>
+             
 
               {/* All Topics */}
               <div className="bg-white mt-5">
