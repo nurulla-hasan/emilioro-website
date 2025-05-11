@@ -114,12 +114,12 @@ const MyProject = () => {
             {/* for workspace  */}
             <div className={`${isWorkspace ? "" : "hidden"} space-y-5 relative`}>
                 <div
-                    className='w-fit absolute -top-8 bg-white'
+                    className='absolute -top-8 right-0 bg-white'
                     value={status}
                     onChange={(e) => setStatus(e.target.value)}
                 >
                     <select
-                        className='text-[10px] text outline-none text-[#595D62] border border-gray-400 py-1 rounded-sm overflow-hidden'
+                        className='text-[10px] w-14 outline-none text-[#595D62] border border-gray-400 rounded-xs overflow-hidden'
                         value={status}
                         onChange={(e) => setStatus(e.target.value)}
                     >
