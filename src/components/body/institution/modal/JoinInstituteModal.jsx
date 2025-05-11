@@ -53,6 +53,7 @@ const JoinInstitutionModal = ({ isOpen, setIsOpen }) => {
             >
               <option value="Group A">Group A</option>
               <option value="Group B">Group B</option>
+              <option value="Mediators">Mediators</option>
             </select>
           </div>
 
