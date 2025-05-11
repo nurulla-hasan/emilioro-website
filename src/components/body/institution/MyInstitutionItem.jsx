@@ -31,7 +31,6 @@ const MyInstitutionItem = ({ card, setSelectedCardUserProject }) => {
                     <div
                         className="cursor-pointer"
                         onClick={() => setSelectedCardUserProject(card)}
-                        // onClick={() => router.push(`/institutions/${card.id}`)}
                     >
                         <img src={card.image || "/placeholder.svg"} alt="image" className="w-full" />
                     </div>
@@ -97,7 +96,7 @@ const MyInstitutionItem = ({ card, setSelectedCardUserProject }) => {
             </div>
 
             {/* for details */}
-            <div className={`${isInstitutions ? "" : "hidden"} space-y-5`}>
+            <div className={`${isInstitutions ? "" : "hidden"} space-y-5 cursor-pointer`}>
                 <div
                     key={card.id}
                     className="lg:w-full mx-auto flex flex-col gap-2 border border-gray-200 rounded-sm"
@@ -105,7 +104,7 @@ const MyInstitutionItem = ({ card, setSelectedCardUserProject }) => {
 
                     <div className="flex flex-col gap-2 p-3 rounded-b-sm">
                         <div className="flex items-center justify-between">
-                            <div>
+                            <div onClick={() => setSelectedCardUserProject(card)} >
                                 <p className=" text-[#1C4587] text-sm font-semibold">
                                     {card.institutionName}
                                 </p>
