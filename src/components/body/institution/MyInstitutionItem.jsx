@@ -1,12 +1,12 @@
 import { useState } from "react";
 import DeleteCardModal from "./modal/DeleteCardModal";
 import EditInstituteModal from "./modal/EditInstituteModal";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 
 const MyInstitutionItem = ({ card, setSelectedCardUserProject }) => {
 
-    // const router = useRouter()
+    const router = useRouter()
     const pathname = usePathname()
     const isInstitutions = pathname.includes(`/institutions/`);
 
@@ -96,7 +96,7 @@ const MyInstitutionItem = ({ card, setSelectedCardUserProject }) => {
             </div>
 
             {/* for details */}
-            <div className={`${isInstitutions ? "" : "hidden"} space-y-5 cursor-pointer`}>
+            <div className={`${isInstitutions ? "" : "hidden"} space-y-5`}>
                 <div
                     key={card.id}
                     className="lg:w-full mx-auto flex flex-col gap-2 border border-gray-200 rounded-sm"
@@ -104,7 +104,9 @@ const MyInstitutionItem = ({ card, setSelectedCardUserProject }) => {
 
                     <div className="flex flex-col gap-2 p-3 rounded-b-sm">
                         <div className="flex items-center justify-between">
-                            <div onClick={() => setSelectedCardUserProject(card)} >
+                            <div onClick={() => router.push(`/institutions/${card.id}`)}
+                                className="cursor-pointer"
+                            >
                                 <p className=" text-[#1C4587] text-sm font-semibold">
                                     {card.institutionName}
                                 </p>
