@@ -64,7 +64,7 @@ const AllInstitution = () => {
                     onClick={() => router.push(`/institutions/${card.id}`)}
                     className="px-4 py-[7px] flex-1/2 items-center cursor-pointer bg-white rounded-xs font-medium border border-[#1C4587] text-[#1C4587] text-xs outline-none focus:ring-0"
                   >
-                    View Details
+                    Open
                   </button>
 
                   <button
@@ -125,7 +125,7 @@ const AllInstitution = () => {
                     onClick={() => router.push(`/institutions/${card.id}`)}
                     className="py-1 flex-1/2 items-center cursor-pointer bg-white rounded-xs font-medium border border-[#1C4587] text-[#1C4587] text-[10px] outline-none focus:ring-0"
                   >
-                    View Details
+                    Open
                   </button>
 
                   <button

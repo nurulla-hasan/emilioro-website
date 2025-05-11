@@ -91,7 +91,7 @@ const ConversationList = () => {
                             </div>
 
                             <div className='flex items-center justify-between'>
-                                <Link href={`/chatting/allPlaylist/myPlaylist/${conversation.id}`}>
+                                <Link href={`/chatting/all-playlist/my-playlist/${conversation.id}`}>
                                     <button className="cursor-pointer bg-button text-white px-6 py-[6px] rounded-sm text-xs font-medium">
                                         View
                                     </button>
