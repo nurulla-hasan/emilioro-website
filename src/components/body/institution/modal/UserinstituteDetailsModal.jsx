@@ -127,7 +127,8 @@ const UserInstituteDetailsModal = ({ selectedCardUserProject, setSelectedCardUse
                 </div>
               </div>
               {/* Participants Grid */}
-              <div className="flex flex-col md:flex-row gap-5 justify-between w-full">
+              <div className="flex md:flex-row gap-5 justify-between w-full">
+
                 {/* Producer Column */}
                 <div>
                   <h3 className="font-semibold text-xs text-gray-800 mb-2">Group A</h3>
@@ -137,7 +138,7 @@ const UserInstituteDetailsModal = ({ selectedCardUserProject, setSelectedCardUse
                     <span className="text-xs text-gray-800 font-semibold">{selectedCardUserProject.participant1} Participent</span>
                   </div>
 
-                  <div className="space-y-4">
+                  <div className="space-y-4 hidden md:block">
                     {sampleData.producers.map((producer, i) => (
                       <motion.div
                         key={producer.id}
@@ -168,7 +169,7 @@ const UserInstituteDetailsModal = ({ selectedCardUserProject, setSelectedCardUse
                     <img className="w-4" src="/participants.svg" alt="Participants" />
                     <span className="text-xs text-gray-800 font-semibold">{selectedCardUserProject.participant2} Participent</span>
                   </div>
-                  <div className="space-y-4">
+                  <div className="space-y-4 hidden md:block">
                     {sampleData.users.map((user, i) => (
                       <motion.div
                         key={user.id}
@@ -187,14 +188,6 @@ const UserInstituteDetailsModal = ({ selectedCardUserProject, setSelectedCardUse
                     ))}
                   </div>
                 </div>
-              </div>
-              <div className="text-end mt-1">
-                <Link className="text-xs text-[#1C4587]" href="#">View All</Link>
-              </div>
-
-
-              <div className="text-end mt-1">
-                <Link className="text-xs text-[#1C4587]" href="#">View All</Link>
               </div>
 
               {/* All Topics */}
