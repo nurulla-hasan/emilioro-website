@@ -42,7 +42,8 @@ const JoinedProject = () => {
                         >
                             <div>
                                 <img
-                                    className='w-full'
+                                    onClick={() => router.push(`/objects/workspace?id=${card.id}`)}
+                                    className='w-full cursor-pointer'
                                     src={card.image}
                                     alt='image'
                                 >

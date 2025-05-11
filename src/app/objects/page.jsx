@@ -16,9 +16,9 @@ const ObjectPage = () => {
 
 
   const tabs = [
-    { id: "all", label: "All Project" },
-    { id: "my", label: "My Project" },
-    { id: "joined", label: "Joined Project" },
+    { id: "all", label: "All Projects" },
+    { id: "my", label: "My Projects" },
+    { id: "joined", label: "Joined Projects" },
   ]
 
   const pageVariants = {
@@ -134,7 +134,7 @@ const ObjectPage = () => {
         setIsOpen={setIsOpen}
         isOpen={isOpen}
          />
-    </Container>
+    </Container> 
   )
 }
 

@@ -46,9 +46,10 @@ const MyProject = () => {
                         >
                             <div>
                                 <img
+                                    onClick={() => router.push(`/objects/workspace?id=${card.id}`)}
                                     src={card.image}
                                     alt="image"
-                                    className="w-full"
+                                    className="w-full cursor-pointer"
                                 />
                             </div>
 
@@ -58,7 +59,7 @@ const MyProject = () => {
                                         {card.title}
                                     </div>
                                     <div className="flex items-center gap-1">
-                                        <p className={`bg-[#9A9A9A33] rounded-xs px-1 py-[1] text-[#1C4587] text-[9px] font-normal ${card.status[0] === 'Completed'? 'bg-green-100 text-green-800':''}`}>
+                                        <p className={`bg-[#9A9A9A33] rounded-xs px-1 py-[1] text-[#1C4587] text-[9px] font-normal ${card.status[0] === 'Completed' ? 'bg-green-100 text-green-800' : ''}`}>
                                             {card.status[0]}
                                         </p>
                                         <p className="bg-[#9A9A9A33] rounded-xs px-1 py-[1] text-[#1C4587] text-[9px] font-normal">
@@ -141,7 +142,7 @@ const MyProject = () => {
                                     {card.title}
                                 </div>
                                 <div className="flex items-center gap-1">
-                                    <p className={`bg-[#9A9A9A33] rounded-xs px-1 py-[1] text-[#1C4587] text-[9px] font-normal ${card.status[0] === 'Completed'? 'bg-green-100 text-green-800':''}`}>
+                                    <p className={`bg-[#9A9A9A33] rounded-xs px-1 py-[1] text-[#1C4587] text-[9px] font-normal ${card.status[0] === 'Completed' ? 'bg-green-100 text-green-800' : ''}`}>
                                         {card.status[0]}
                                     </p>
                                     <p className="bg-[#9A9A9A33] rounded-xs px-1 py-[1] text-[#1C4587] text-[9px] font-normal">
