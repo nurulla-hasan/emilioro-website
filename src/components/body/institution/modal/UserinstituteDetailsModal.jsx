@@ -2,12 +2,8 @@
 import { motion, AnimatePresence } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
 import { useState } from "react"
-
-
-
-// Sample JSON data for producers and users
-
 
 
 const sampleData = {
@@ -34,6 +30,10 @@ const categories = [
 ]
 
 const UserInstituteDetailsModal = ({ selectedCardUserProject, setSelectedCardUserProject }) => {
+
+  const router = useRouter()
+
+
   if (!selectedCardUserProject) return null
   const [selected, setSelected] = useState(null)
   const handleClick = (index, categoryId) => {
@@ -232,8 +232,9 @@ const UserInstituteDetailsModal = ({ selectedCardUserProject, setSelectedCardUse
             <motion.button
               className="w-1/2 bg-[#1C4587] text-white py-1 text-sm rounded-sm font-medium cursor-pointer"
               whileTap={{ scale: 0.98 }}
+              onClick={() => router.push(`/institutions/${selectedCardUserProject.id}`)}
             >
-              Join Institution
+              Open Institution
             </motion.button>
           </div>
         </div>

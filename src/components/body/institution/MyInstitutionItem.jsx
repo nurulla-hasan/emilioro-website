@@ -4,9 +4,9 @@ import EditInstituteModal from "./modal/EditInstituteModal";
 import { usePathname } from "next/navigation";
 
 
-const MyInstitutionItem = ({ card }) => {
+const MyInstitutionItem = ({ card, setSelectedCardUserProject }) => {
 
-
+    // const router = useRouter()
     const pathname = usePathname()
     const isInstitutions = pathname.includes(`/institutions/`);
 
@@ -30,7 +30,9 @@ const MyInstitutionItem = ({ card }) => {
                 >
                     <div
                         className="cursor-pointer"
-                        onClick={() => setSelectedCardUserProject(card)}>
+                        onClick={() => setSelectedCardUserProject(card)}
+                        // onClick={() => router.push(`/institutions/${card.id}`)}
+                    >
                         <img src={card.image || "/placeholder.svg"} alt="image" className="w-full" />
                     </div>
 
@@ -94,7 +96,7 @@ const MyInstitutionItem = ({ card }) => {
                 />
             </div>
 
-
+            {/* for details */}
             <div className={`${isInstitutions ? "" : "hidden"} space-y-5`}>
                 <div
                     key={card.id}
