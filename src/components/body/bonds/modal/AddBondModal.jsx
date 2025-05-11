@@ -80,7 +80,7 @@ const AddBondModal = ({ isOpen, onClose, onSubmit, register, tags, removeTag, ha
             type="submit"
             disabled={!canSubmit}
             className={`w-full p-2 rounded-sm text-[10px] ${canSubmit
-              ? "bg-gradient-to-b from-[#164083] to-[#1f5fc8] text-white"
+              ? "bg-button text-white"
               : "bg-gray-300 text-gray-500"
               }`}
           >

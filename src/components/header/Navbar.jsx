@@ -108,7 +108,7 @@ const Navbar = () => {
 
   return (
     <div className="bg-[#1C4587] sticky top-0 z-50">
-      <nav className="z-50 py-6 px-5 md:px-8 lg:px-24 mx-auto flex justify-between items-center relative">
+      <nav className="z-50 py-6 px-5 md:px-8 lg:px-30 mx-auto flex justify-between items-center relative">
         {/* Mobile nav */}
         <div className=" flex items-center justify-between w-full xl:w-auto">
           {/* Mobile Menu Button */}
@@ -304,7 +304,7 @@ const Navbar = () => {
                     <FaRegHeart size={20} color="#1C4587" className="text-gray-700" /> Favorite
                   </button>
                 </Link>
-                <Link href="/chatting/allPlaylist/myPlaylist">
+                <Link href="/chatting/all-playlist/my-playlist">
                   <button className="flex items-center gap-2 w-full px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-100">
                     <img src="/playlist.svg" alt="" /> Playlist
                   </button>
@@ -338,7 +338,7 @@ const Navbar = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => dispatch(setIsSignUpOpen(true))}
-              className="text-sm font-medium bg-gradient-to-b from-[#13418b] to-[#2671eb] border text-white px-6 py-[6px] rounded-full cursor-pointer"
+              className="text-sm font-medium bg-button border text-white px-6 py-[6px] rounded-full cursor-pointer"
             >
               Sign Up
             </motion.button>
@@ -384,8 +384,6 @@ const Navbar = () => {
           setIsLoginModalOpen={setIsLoginModalOpen}
         />
       </nav>
-
-      {/* <Hero setIsSignUpOpen={setIsSignUpOpen}/> */}
     </div>
   )
 }

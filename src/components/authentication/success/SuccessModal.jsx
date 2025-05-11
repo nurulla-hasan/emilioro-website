@@ -46,7 +46,7 @@ const SuccessModal = ({ isOpen, onClose, setIsLoginModalOpen }) => {
                   onClose()
                   setIsLoginModalOpen(true)
                 }}
-                className="w-full cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] hover:from-[#15366b] hover:to-[#2861c4] text-white py-1.5 rounded-sm text-xs font-medium transition-colors"
+                className="w-full cursor-pointer bg-button hover:from-[#15366b] hover:to-[#2861c4] text-white py-1.5 rounded-sm text-xs font-medium transition-colors"
               >
                 Continue to Login
               </button>

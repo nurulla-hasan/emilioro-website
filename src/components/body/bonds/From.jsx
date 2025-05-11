@@ -274,7 +274,7 @@ const From = ({
                         whileTap={{ scale: 0.95 }}
                         onClick={() => setToggle(!toggle)}
                         type="button"
-                        className="w-full md:w-2/6 text-sm bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white p-2 rounded-sm transition-all cursor-pointer"
+                        className="w-full md:w-2/6 text-sm bg-button text-white p-2 rounded-sm transition-all cursor-pointer"
                     >
                         <AnimatePresence mode="wait">
                             {toggle ? (

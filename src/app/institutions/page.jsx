@@ -47,7 +47,7 @@ const InstitutionPage = () => {
                         <motion.button
                             whileTap={{ scale: 0.95 }}
                             onClick={() => setIsOpen(true)}
-                            className="cursor-pointer bg-gradient-to-b from-[#193f7c] to-[#2965c4] text-white px-4 py-[9] rounded-sm font-medium text-[12px] outline-none focus:ring-0"
+                            className="cursor-pointer bg-button text-white px-4 py-[9] rounded-sm font-medium text-[12px] outline-none focus:ring-0"
                         >
                             +Create Institution
                         </motion.button>

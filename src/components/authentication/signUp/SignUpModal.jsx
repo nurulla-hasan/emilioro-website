@@ -187,7 +187,7 @@ const SignUpModal = ({ isOpen, onClose, setIsLoginModalOpen }) => {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] hover:from-[#15366b] hover:to-[#2861c4] text-white py-1.5 text-xs rounded-sm font-medium transition-colors disabled:opacity-70"
+                  className="w-full cursor-pointer bg-button hover:from-[#15366b] hover:to-[#2861c4] text-white py-1.5 text-xs rounded-sm font-medium transition-colors disabled:opacity-70"
                 >
                   {loading ? "Signing Up..." : "Sign Up"}
                 </button>

@@ -118,7 +118,7 @@ const MyBond = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => setIsModalOpen(true)}
-            className="cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white px-3 py-2 rounded-sm font-medium text-xs"
+            className="cursor-pointer bg-button text-white px-3 py-2 rounded-sm font-medium text-xs"
           >
             + Add New Bond
           </motion.button>

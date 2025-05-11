@@ -40,8 +40,8 @@ const TrendingTopics = () => {
 
               </div>
               {/* Button */}
-              <Link href="/chatting/allTopics/familyConversion/audio">
-                <button className="border mt-8 border-white px-3 py-1 rounded-sm cursor-pointer text-xs bg-gradient-to-b from-[#1C4587] to-[#3279EA] transition">
+              <Link href="/chatting/all-topics/family-conversion/audio">
+                <button className="border mt-8 border-white px-3 py-1 rounded-sm cursor-pointer text-xs bg-button transition">
                   Listen Now
                 </button>
               </Link>

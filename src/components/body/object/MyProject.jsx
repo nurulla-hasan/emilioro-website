@@ -98,7 +98,7 @@ const MyProject = () => {
 
                                     <button
                                         onClick={() => router.push(`/objects/workspace?id=${card.id}`)}
-                                        className="cursor-pointer w-full bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white text-[10px] px-4 py-[7px] rounded-xs font-medium"
+                                        className="cursor-pointer w-full bg-button text-white text-[10px] px-4 py-[7px] rounded-xs font-medium"
                                     >
                                         Open Workspace
                                     </button>
@@ -160,7 +160,7 @@ const MyProject = () => {
 
                                 <button
                                     onClick={() => router.push(`/objects/workspace?id=${card.id}`)}
-                                    className="cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white text-[8px] px-2 py-1 rounded-xs font-medium"
+                                    className="cursor-pointer bg-button text-white text-[8px] px-2 py-1 rounded-xs font-medium"
                                 >
                                     Open Workspace
                                 </button>

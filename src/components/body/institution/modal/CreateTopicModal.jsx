@@ -93,7 +93,7 @@ export default function CreateTopicModal({
               <button
                 type="submit"
                 onClick={onClose}
-                className="w-full cursor-pointer bg-gradient-to-b from-[#164083] to-[#1f5fc8] text-white p-2 rounded-sm text-[10px] outline-none focus:ring-0"
+                className="w-full cursor-pointer bg-button text-white p-2 rounded-sm text-[10px] outline-none focus:ring-0"
               >
                 Submit
               </button>

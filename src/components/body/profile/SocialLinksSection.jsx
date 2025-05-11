@@ -8,7 +8,7 @@ const SocialLinksSection = ({profileData, setIsSocialAccountModalOpen, setIsDele
           <h2 className="text-xl lg:text-2xl font-semibold text-[#1C4587]">Social Links</h2>
           <button
             onClick={() => setIsSocialAccountModalOpen(true)}
-            className="bg-gradient-to-b from-[#1C4587] to-[#2570e9] cursor-pointer gap-1 flex items-center text-white text-sm px-4 py-1.5 rounded-sm"
+            className="bg-button cursor-pointer gap-1 flex items-center text-white text-sm px-4 py-1.5 rounded-sm"
           >
             + Add Social account
           </button>

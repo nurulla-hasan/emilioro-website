@@ -188,7 +188,7 @@ const PlaylistDetails = () => {
                     <img src="/delete.svg" alt="" className="w-4 h-4" />
                     <span>Delete Playlist</span>
                 </button>
-                <button className="w-full cursor-pointer sm:w-auto bg-gradient-to-b from-[#193f7c] to-[#2965c4] text-white px-5 py-2 rounded-sm font-semibold text-xs sm:text-sm">
+                <button className="w-full cursor-pointer sm:w-auto bg-button text-white px-5 py-2 rounded-sm font-semibold text-xs sm:text-sm">
                     <span>Edit Playlist</span>
                 </button>
             </div>

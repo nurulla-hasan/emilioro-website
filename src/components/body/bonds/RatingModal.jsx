@@ -60,7 +60,7 @@ const BondsRatingModal = ({showRatingModal, setShowRatingModal, setRating, ratin
                             <button
                                 onClick={submitRating}
                                 disabled={rating === 0}
-                                className="px-4 py-2 bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white rounded-sm text-sm disabled:opacity-50 cursor-pointer"
+                                className="px-4 py-2 bg-button text-white rounded-sm text-sm disabled:opacity-50 cursor-pointer"
                             >
                                 Submit Rating
                             </button>

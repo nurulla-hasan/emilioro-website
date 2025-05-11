@@ -211,7 +211,7 @@ const BondExchangePage = () => {
 
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="cursor-pointer">
             <Link href="/bonds/all-bonds">
-              <button className="cursor-pointer text-xs bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white px-4 py-2 rounded-sm font-medium">
+              <button className="cursor-pointer text-xs bg-button text-white px-4 py-2 rounded-sm font-medium">
                 All Bonds →
               </button>
             </Link>

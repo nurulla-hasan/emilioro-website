@@ -35,7 +35,7 @@ const About = () => {
                         </p>
                     </div>
 
-                    <button className="cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white px-6 py-2 rounded-md font-medium">
+                    <button className="cursor-pointer bg-button text-white px-6 py-2 rounded-md font-medium">
                         Read more
                     </button>
                 </div>

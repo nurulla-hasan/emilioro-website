@@ -41,7 +41,7 @@ const CreateListModal = ({setShowCreateListModal, showCreateListModal, setNewLis
                             </button>
                             <button
                                 onClick={createNewList}
-                                className="px-4 py-1 bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white rounded-xs text-sm cursor-pointer"
+                                className="px-4 py-1 bg-button text-white rounded-xs text-sm cursor-pointer"
                             >
                                 Create List
                             </button>

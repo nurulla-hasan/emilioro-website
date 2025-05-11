@@ -148,7 +148,7 @@ const RequestProfile = () => {
                             <div className="flex gap-3 items-center justify-center mt-2">
                                 <button className="border border-[#1C4587] text-[#1C4587] gap-1 flex items-center bg-white text-xs px-2 py-0.5 rounded-sm"> Reject
                                 </button>
-                                <button className="bg-gradient-to-b from-[#1C4587] to-[#3279EA] gap-1 flex items-center text-white text-xs px-2 py-[3px] rounded-sm">
+                                <button className="bg-button gap-1 flex items-center text-white text-xs px-2 py-[3px] rounded-sm">
                                     Accept
                                 </button>
                                 <img

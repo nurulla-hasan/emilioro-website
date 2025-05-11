@@ -88,7 +88,7 @@ const SingleMatch = ({ match, handleBondAction, handleRateBond, confirmRealLifeM
 
                 <button
                     onClick={() => confirmRealLifeMeeting(match.id)}
-                    className="text-xs bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white px-3 py-1 rounded-sm cursor-pointer"
+                    className="text-xs bg-button text-white px-3 py-1 rounded-sm cursor-pointer"
                 >
                     Confirm Meeting
                 </button>

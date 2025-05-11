@@ -43,7 +43,7 @@ const SelectSkillsModal = ({ onClose, onSave }) => {
                         whileTap={{ scale: 0.95 }}
                         onClick={() => onSave(selectedSkill)}
                         disabled={!selectedSkill}
-                        className="px-4 bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white text-xs py-2 rounded-sm font-semibold disabled:opacity-50"
+                        className="px-4 bg-button text-white text-xs py-2 rounded-sm font-semibold disabled:opacity-50"
                     >
                         Save
                     </motion.button>

@@ -22,7 +22,7 @@ const MyFriendList = ({ searchTerm = "" }) => {
 
     return (
         <div className="grid grid-cols-1 relative sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 p-4">
-            <button className="absolute cursor-pointer md:-right-36 md:-top-[66px] right-[35%] -top-40 font-medium bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white text-sm py-1.5 px-2 rounded-sm hover:opacity-90 transition-opacity">
+            <button className="absolute cursor-pointer md:-right-36 md:-top-[66px] right-[35%] -top-40 font-medium bg-button text-white text-sm py-1.5 px-2 rounded-sm hover:opacity-90 transition-opacity">
                 + Add Friend
             </button>
 
@@ -77,7 +77,7 @@ const MyFriendList = ({ searchTerm = "" }) => {
                                     </button>
                                 </Link>
                             </div>
-                            <button className="w-full cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white text-[10px] py-1 px-2 rounded hover:opacity-90 transition-opacity">
+                            <button className="w-full cursor-pointer bg-button text-white text-[10px] py-1 px-2 rounded hover:opacity-90 transition-opacity">
                                 Message
                             </button>
                         </div>

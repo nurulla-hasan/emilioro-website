@@ -30,7 +30,7 @@ const AllPlaylist = () => {
                         whileTap={{ scale: 0.99 }}
                         className="font-semibold text-blue-500 cursor-pointer"
                     >
-                        <button className="cursor-pointer bg-gradient-to-b from-[#193f7c] to-[#2965c4] text-white px-5 lg:py-[10px] py-[9px] rounded-sm font-semibold text-xs lg:text-[13px]">
+                        <button className="cursor-pointer bg-button text-white px-5 lg:py-[10px] py-[9px] rounded-sm font-semibold text-xs lg:text-[13px]">
                             +Upload New Audio
                         </button>
                     </motion.div>
@@ -75,7 +75,7 @@ const AllPlaylist = () => {
 
                             <div className='flex items-center justify-between'>
                                 <Link href={`/chatting/allPlaylist/myPlaylist/${conversation.id}`}>
-                                    <button className="cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white px-6 py-[6px] rounded-sm text-xs font-medium">
+                                    <button className="cursor-pointer bg-button text-white px-6 py-[6px] rounded-sm text-xs font-medium">
                                         View
                                     </button>
                                 </Link>

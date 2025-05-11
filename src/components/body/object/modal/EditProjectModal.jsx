@@ -82,7 +82,7 @@ const EditProjectModal = ({ isOpen, setIsOpen, onSubmit }) => {
                                 <motion.button
                                     whileTap={{ scale: 0.95 }}
                                     type="submit"
-                                    className="bg-gradient-to-b from-[#1C4587] to-[#3175e2] cursor-pointer text-white py-1.5 text-xs rounded-sm font-medium w-1/3"
+                                    className="bg-button cursor-pointer text-white py-1.5 text-xs rounded-sm font-medium w-1/3"
                                 >
                                     Submit
                                 </motion.button>

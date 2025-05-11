@@ -126,7 +126,7 @@ const MarkCompleteModal = ({ isOpen, onClose }) => {
                         <div className="flex justify-center">
                             <button 
                                 onClick={() => setShowRatingModal(true)} 
-                                className="w-full cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white py-1.5 rounded-sm font-medium text-xs shadow-md"
+                                className="w-full cursor-pointer bg-button text-white py-1.5 rounded-sm font-medium text-xs shadow-md"
                             >
                                 Mark as Complete
                             </button>

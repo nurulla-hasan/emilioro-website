@@ -42,7 +42,7 @@ const RatingModal = ({ isOpen, onClose }) => {
 
         {/* Submit Button */}
         <button
-          className="px-6 cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white py-1.5 rounded-sm font-medium text-xs"
+          className="px-6 cursor-pointer bg-button text-white py-1.5 rounded-sm font-medium text-xs"
           onClick={onClose}
         >
           Submit

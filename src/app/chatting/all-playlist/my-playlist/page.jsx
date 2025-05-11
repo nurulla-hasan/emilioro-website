@@ -34,7 +34,7 @@ const MyPlaylist = () => {
                         whileTap={{ scale: 0.99 }}
                         className="font-semibold text-blue-500 cursor-pointer"
                     >
-                        <button onClick={() => setIsCreatePlaylistModalOpen(true)} className="cursor-pointer bg-gradient-to-b from-[#193f7c] to-[#2965c4] text-white px-5 md:py-2 py-[9px] rounded-sm font-medium text-xs lg:text-[12px]">
+                        <button onClick={() => setIsCreatePlaylistModalOpen(true)} className="cursor-pointer bg-button text-white px-5 md:py-2 py-[9px] rounded-sm font-medium text-xs lg:text-[12px]">
                             +Create new playlist
                         </button>
                     </motion.div>
@@ -79,7 +79,7 @@ const MyPlaylist = () => {
 
                             <div className='flex items-center justify-between'>
                                 <Link href={`/chatting/all-playlist/my-playlist/${conversation.id}`}>
-                                    <button className="cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white px-6 py-[6px] rounded-sm text-xs font-medium">
+                                    <button className="cursor-pointer bg-button text-white px-6 py-[6px] rounded-sm text-xs font-medium">
                                         View
                                     </button>
                                 </Link>

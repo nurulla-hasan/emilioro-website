@@ -75,7 +75,7 @@ const EditInstituteModal = ({ isOpen, onClose }) => {
               <motion.button
                 type="submit"
                 whileTap={{ scale: 0.97 }}
-                className="w-full cursor-pointer bg-gradient-to-b from-[#193f7c] to-[#2965c4] text-white py-1.5 rounded-sm font-medium text-sm outline-none focus:ring-0"
+                className="w-full cursor-pointer bg-button text-white py-1.5 rounded-sm font-medium text-sm outline-none focus:ring-0"
               >
                 Submit
               </motion.button>

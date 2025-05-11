@@ -28,7 +28,7 @@ const RemoveParticipantModal = ({ isOpen, setRemoveParticipantModal, onRemove })
         <motion.button
             whileTap={{ scale: 0.95 }}
             onClick={onRemove}
-            className="bg-gradient-to-b from-[#1C4587] to-[#3279EA] cursor-pointer text-white text-xs font-normal px-4 py-1 mt-3 rounded-sm"
+            className="bg-button cursor-pointer text-white text-xs font-normal px-4 py-1 mt-3 rounded-sm"
         >
             Remove
         </motion.button>

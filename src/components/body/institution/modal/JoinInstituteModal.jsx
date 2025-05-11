@@ -68,7 +68,7 @@ const JoinInstitutionModal = ({ isOpen, setIsOpen }) => {
             <motion.button
               whileTap={{ scale: 0.97 }}
               type="submit"
-              className="px-4 py-1.5 bg-gradient-to-b from-[#193f7c] to-[#2965c4] text-white rounded-sm font-medium text-xs outline-none focus:ring-0"
+              className="px-4 py-1.5 bg-button text-white rounded-sm font-medium text-xs outline-none focus:ring-0"
             >
               Submit
             </motion.button>

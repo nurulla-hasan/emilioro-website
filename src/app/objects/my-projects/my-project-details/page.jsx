@@ -119,7 +119,7 @@ const ProjectContent = () => {
             <h1 className="lg:text-lg text-sm font-bold text-[#1C4587]">{project.title}</h1>
             {/* Edit Button */}
             <button
-              className="flex gap-1 items-center cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white text-xs px-3 py-2 rounded-xs font-medium"
+              className="flex gap-1 items-center cursor-pointer bg-button text-white text-xs px-3 py-2 rounded-xs font-medium"
               onClick={() => setIsOpen(true)}
             >
               <RiEdit2Line />
@@ -169,7 +169,7 @@ const ProjectContent = () => {
               <div className="flex justify-between items-center">
                 <h3 className="font-semibold mb-2">Producer</h3>
                 <motion.button
-                  className="px-2 cursor-pointer text-xs bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white py-1 rounded-xs font-medium"
+                  className="px-2 cursor-pointer text-xs bg-button text-white py-1 rounded-xs font-medium"
                   whileTap={{ scale: 0.98 }}
                   onClick={() => setIsAddProducerOpen(true)}
                 >
@@ -218,7 +218,7 @@ const ProjectContent = () => {
               <div className="flex justify-between items-center">
                 <h3 className="font-semibold mb-2">User</h3>
                 <motion.button
-                  className="px-2 cursor-pointer text-xs bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white py-1 rounded-xs font-medium"
+                  className="px-2 cursor-pointer text-xs bg-button text-white py-1 rounded-xs font-medium"
                   whileTap={{ scale: 0.98 }}
                   onClick={() => setIsAddUserOpen(true)}
                 >
@@ -293,7 +293,7 @@ const ProjectContent = () => {
                           Decline
                         </motion.button>
                         <motion.button
-                          className="px-2 text-xs bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white py-1 rounded-xs font-medium cursor-pointer"
+                          className="px-2 text-xs bg-button text-white py-1 rounded-xs font-medium cursor-pointer"
                           whileHover={{ scale: 1.02 }}
                           whileTap={{ scale: 0.98 }}
                         >
@@ -314,7 +314,7 @@ const ProjectContent = () => {
         {/* button */}
         <div className="flex justify-center mt-5">
           <motion.button
-            className="lg:w-1/4 cursor-pointer text-xs bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white px-2 lg:px-0 py-2 rounded-xs font-medium"
+            className="lg:w-1/4 cursor-pointer text-xs bg-button text-white px-2 lg:px-0 py-2 rounded-xs font-medium"
             whileTap={{ scale: 0.98 }}
             onClick={() => router.push(`/objects/workspace?id=${project.id}`)}
           >

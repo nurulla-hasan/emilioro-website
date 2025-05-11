@@ -98,7 +98,7 @@ const JoinedProject = () => {
                                     <button onClick={() => router.push(`/objects/my-projects/my-project-details?id=${card.id}`)} className="cursor-pointer flex-1/2 bg-white text-[#1C4587] border morder-[1C4587] text-[10px] px-4 py-[6px] rounded-xs font-medium">
                                         View Details
                                     </button>
-                                    <button onClick={() => router.push(`/objects/workspace?id=${card.id}`)} className="cursor-pointer flex-1/2 bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white text-[10px] px-4 py-[7px] rounded-xs font-medium">
+                                    <button onClick={() => router.push(`/objects/workspace?id=${card.id}`)} className="cursor-pointer flex-1/2 bg-button text-white text-[10px] px-4 py-[7px] rounded-xs font-medium">
                                         Open Workspace
                                     </button>
                                 </div>
@@ -157,7 +157,7 @@ const JoinedProject = () => {
 
                                 <button
                                     onClick={() => router.push(`/objects/workspace?id=${card.id}`)}
-                                    className="cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white text-[8px] px-2 py-1 rounded-xs font-medium"
+                                    className="cursor-pointer bg-button text-white text-[8px] px-2 py-1 rounded-xs font-medium"
                                 >
                                     Open Workspace
                                 </button>

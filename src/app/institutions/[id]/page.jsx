@@ -673,7 +673,7 @@ const InstitutionDetails = () => {
                         </div>
                         <button
                           onClick={handlePostSubmit}
-                          className="bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white px-3 py-1 rounded-sm text-xs hover:from-[#15366b] hover:to-[#2861c4] transition-colors cursor-pointer"
+                          className="bg-button text-white px-3 py-1 rounded-sm text-xs hover:from-[#15366b] hover:to-[#2861c4] transition-colors cursor-pointer"
                         >
                           Post
                         </button>

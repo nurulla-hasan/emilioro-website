@@ -69,7 +69,7 @@ export default function AddRelativesModal({ isOpen, onClose }) {
           <motion.button
             whileTap={{ scale: 0.95 }}
             type="submit"
-            className="w-full cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white py-1 rounded-sm font-medium text-sm"
+            className="w-full cursor-pointer bg-button text-white py-1 rounded-sm font-medium text-sm"
           >
             Submit
           </motion.button>

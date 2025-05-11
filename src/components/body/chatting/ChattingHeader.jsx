@@ -18,7 +18,7 @@ const ChattingHeader = () => {
                 <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="cursor-pointer bg-gradient-to-b from-[#193f7c] to-[#2965c4] text-white px-5 py-[7px] rounded-sm text-sm font-semibold w-full md:w-auto"
+                    className="cursor-pointer bg-button text-white px-5 py-[7px] rounded-sm text-sm font-semibold w-full md:w-auto"
                 >
                     + Upload New Audio
                 </motion.button>

@@ -28,7 +28,7 @@ const AllTopics = () => {
                             whileTap={{ scale: 0.99 }}
                             className="text-blue-500 font-semibold cursor-pointer flex-1 w-[45%]"
                         >
-                            <button className="w-full cursor-pointer bg-gradient-to-b from-[#193f7c] to-[#2965c4] text-white px-5 py-[8px] md:py-[9px] rounded-sm font-semibold text-xs lg:text-[12px]">
+                            <button className="w-full cursor-pointer bg-button text-white px-5 py-[8px] md:py-[9px] rounded-sm font-semibold text-xs lg:text-[12px]">
                                 +Upload New Audio
                             </button>
                         </motion.div>
@@ -62,7 +62,7 @@ const AllTopics = () => {
                                 </div>
                                 {/* Button */}
                                 <Link href="/chatting/allTopics/familyConversion/audio">
-                                    <button className="border mt-8 border-white px-3 py-1 rounded-sm hover:bg-white hover:text-[#1C4587] cursor-pointer text-xs bg-gradient-to-b from-[#1C4587] to-[#3279EA] transition">
+                                    <button className="border mt-8 border-white px-3 py-1 rounded-sm hover:bg-white hover:text-[#1C4587] cursor-pointer text-xs bg-button transition">
                                         Listen Now
                                     </button>
                                 </Link>

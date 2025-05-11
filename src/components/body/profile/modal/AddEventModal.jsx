@@ -58,7 +58,7 @@ export default function AddEventModal({ onClose }) {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             type="submit"
-            className="w-full bg-gradient-to-b from-[#1C4587] to-[#3279EA] cursor-pointer text-white py-2 rounded-lg font-semibold"
+            className="w-full bg-button cursor-pointer text-white py-2 rounded-lg font-semibold"
           >
             Submit
           </motion.button>

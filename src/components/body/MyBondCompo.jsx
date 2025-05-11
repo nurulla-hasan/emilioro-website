@@ -18,7 +18,7 @@ const MyBondSection = ({ bonds, handleEditClick, handleDeleteClick }) => {
                     >
                         <button
                             onClick={() => setIsModalOpen(true)}
-                            className="cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white px-2 py-[6] rounded-md font-medium text-xs"
+                            className="cursor-pointer bg-button text-white px-2 py-[6] rounded-md font-medium text-xs"
                         >
                             +Add New Bond
                         </button>
@@ -48,7 +48,7 @@ const MyBondSection = ({ bonds, handleEditClick, handleDeleteClick }) => {
                     >
                         <button
                             onClick={() => setIsModalOpen(true)}
-                            className="cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white px-2 py-[6] rounded-md font-medium text-xs"
+                            className="cursor-pointer bg-button text-white px-2 py-[6] rounded-md font-medium text-xs"
                         >
                             +Add New Bond
                         </button>

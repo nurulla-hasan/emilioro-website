@@ -137,7 +137,7 @@ const AddProducerModal = ({ isAddProducerOpen, setIsAddProducerOpen }) => {
                     type="submit"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3175e2] text-white py-1.5 text-xs rounded-sm font-medium w-1/3 mt-3"
+                    className="cursor-pointer bg-button text-white py-1.5 text-xs rounded-sm font-medium w-1/3 mt-3"
                 >
                     Submit
                 </motion.button>

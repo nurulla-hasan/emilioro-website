@@ -96,7 +96,7 @@ const EcoFriendlyCards = () => {
                 </div>
               </div>
               <div className='flex justify-between items-center mt-4'>
-                <button className="cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white text-xs px-4 py-2 rounded-lg font-medium">
+                <button className="cursor-pointer bg-button text-white text-xs px-4 py-2 rounded-lg font-medium">
                   Request to join
                 </button>
               </div>

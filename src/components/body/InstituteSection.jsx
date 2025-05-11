@@ -107,7 +107,7 @@ const EcoFriendlyCards = () => {
                                     View Details
                                 </button>
 
-                                <button className="cursor-pointer bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white px-6 py-2 rounded-lg font-medium text-[11px]">
+                                <button className="cursor-pointer bg-button text-white px-6 py-2 rounded-lg font-medium text-[11px]">
                                     Join Institute
                                 </button>
                             </div>

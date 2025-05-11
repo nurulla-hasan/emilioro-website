@@ -76,7 +76,7 @@ const MyInstitutionItem = ({ card }) => {
 
                             <button
                                 onClick={() => setIsModalOpen(true)}
-                                className="cursor-pointer flex-1/2 bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white px-4 py-2 rounded-xs font-medium text-xs outline-none focus:ring-0"
+                                className="cursor-pointer flex-1/2 bg-button text-white px-4 py-2 rounded-xs font-medium text-xs outline-none focus:ring-0"
                             >
                                 Edit
                             </button>
@@ -141,7 +141,7 @@ const MyInstitutionItem = ({ card }) => {
 
                             <button
                                 onClick={() => setIsModalOpen(true)}
-                                className="cursor-pointer flex-1/2 bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white py-1 rounded-xs font-medium text-[10px] outline-none focus:ring-0"
+                                className="cursor-pointer flex-1/2 bg-button text-white py-1 rounded-xs font-medium text-[10px] outline-none focus:ring-0"
                             >
                                 Edit
                             </button>

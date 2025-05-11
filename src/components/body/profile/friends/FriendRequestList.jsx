@@ -64,7 +64,7 @@ const FriendRequestList = ({ searchTerm = "" }) => {
                             <button className="flex-1 border border-gray-300 text-gray-700 text-[10px] py-1 px-2 rounded hover:bg-gray-50 transition-colors">
                                 Decline
                             </button>
-                            <button className="flex-1 bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white text-[10px] py-1 px-2 rounded hover:opacity-90 transition-opacity">
+                            <button className="flex-1 bg-button text-white text-[10px] py-1 px-2 rounded hover:opacity-90 transition-opacity">
                                 Accept
                             </button>
                         </div>

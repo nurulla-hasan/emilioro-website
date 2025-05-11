@@ -9,6 +9,11 @@ body {
   --breakpoint-3xl: 120rem;
 }
 
+.bg-button {
+  @apply bg-gradient-to-b from-[#1C4587] to-[#3279EA];
+}
+
+
   /* globals.css */
 .hide-scrollbar::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Opera */

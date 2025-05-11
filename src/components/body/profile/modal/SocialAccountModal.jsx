@@ -56,7 +56,7 @@ const SocialAccountModal = ({ isOpen, onClose }) => {
           <motion.button
             whileTap={{ scale: 0.95 }}
             type="submit"
-            className="cursor-pointer px-4 bg-gradient-to-b from-[#1C4587] to-[#3279EA] text-white text-xs py-1 rounded-sm font-medium"
+            className="cursor-pointer px-4 bg-button text-white text-xs py-1 rounded-sm font-medium"
           >
             Submit
           </motion.button>
