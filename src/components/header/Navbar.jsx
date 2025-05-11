@@ -251,7 +251,7 @@ const Navbar = () => {
           initial="hidden"
           animate="visible"
           variants={menuVariants}
-          className="hidden xl:flex justify-center gap-5"
+          className="hidden xl:flex justify-center items-center gap-5"
         >
           {navLinks.map((link, index) => (
             <motion.div key={index} variants={menuItemVariants}>
@@ -264,20 +264,19 @@ const Navbar = () => {
               </Link>
             </motion.div>
           ))}
+          <div className="md:flex justify-center hidden">
+            <div className="relative w-full">
+              <FiSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
+              <input
+                type="text"
+                placeholder="Search"
+                className="w-full pl-10 py-2 rounded-full border text-gray-100 border-gray-300 text-[10px] md:text-xs shadow-sm outline-none focus:outline-none focus:ring-0 focus:border-gray-300"
+              />
+            </div>
+          </div>
         </motion.div>
 
-        <div
-          className="md:flex justify-center hidden"
-        >
-          <div className="relative w-full">
-            <FiSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
-            <input
-              type="text"
-              placeholder="Search People"
-              className="w-full pl-10 py-2 rounded-full border text-gray-100 border-gray-300 text-[10px] md:text-xs shadow-sm outline-none focus:outline-none focus:ring-0 focus:border-gray-300"
-            />
-          </div>
-        </div>
+
 
         {/* Desktop Buttons */}
         {user ? (
