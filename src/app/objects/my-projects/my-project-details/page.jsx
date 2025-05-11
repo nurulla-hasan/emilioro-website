@@ -163,103 +163,107 @@ const ProjectContent = () => {
           </div>
 
           {/* Participants Grid */}
-          <div className="grid grid-cols-1 mt-5 gap-5">
+          <div className="mt-5 space-y-">
             {/* Producer Column */}
-            <div>
-              <div className="flex justify-between items-center">
-                <h3 className="font-semibold mb-2">Producer</h3>
-                <motion.button
-                  className="px-2 cursor-pointer text-xs bg-button text-white py-1 rounded-xs font-medium"
-                  whileTap={{ scale: 0.98 }}
-                  onClick={() => setIsAddProducerOpen(true)}
-                >
-                  +Add Producer
-                </motion.button>
+            <div className="md:flex flex-row gap-10 items-center justify-between space-y-5">
+
+              <div className="md:w-[40%]">
+                <div className="flex justify-between items-center">
+                  <h3 className="font-semibold mb-2">Producer</h3>
+                  <motion.button
+                    className="px-2 cursor-pointer text-xs bg-button text-white py-1 rounded-xs font-medium"
+                    whileTap={{ scale: 0.98 }}
+                    onClick={() => setIsAddProducerOpen(true)}
+                  >
+                    +Add Producer
+                  </motion.button>
+                </div>
+                <div>
+                  {participants.map((participant, i) => (
+                    <motion.div
+                      key={participant.id}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: i * 0.1 }}
+                      className="flex items-center mt-2 gap-2"
+                    >
+                      <div className="flex justify-between items-center w-full">
+                        <div className="flex gap-2 items-center">
+                          <img src={participant.image} alt={participant.name} className="w-8 h-8 rounded-full" />
+                          <div>
+                            <p className="font-medium text-sm text-gray-700">{participant.name}</p>
+                            <p className="text-xs text-gray-500">{participant.role}</p>
+                          </div>
+                        </div>
+                        <div>
+                          <motion.button
+                            className="px-2 cursor-pointer text-xs bg-white border border-red-500 text-red-500 py-1 rounded-xs font-medium"
+                            whileHover={{ scale: 1.02 }}
+                            whileTap={{ scale: 0.98 }}
+                            onClick={() => setRemoveParticipantModal(true)}
+                          >
+                            Remove
+                          </motion.button>
+                        </div>
+                      </div>
+                    </motion.div>
+                  ))}
+                  {/* View All Link */}
+                  <div className="text-right">
+                    <button className="text-blue-900 text-xs hover:underline cursor-pointer">View all</button>
+                  </div>
+                </div>
               </div>
 
-              <div>
-                {participants.map((participant, i) => (
-                  <motion.div
-                    key={participant.id}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: i * 0.1 }}
-                    className="flex items-center mt-2 gap-2"
+              {/* User Column */}
+              <div className="md:w-[40%]">
+                <div className="flex justify-between items-center">
+                  <h3 className="font-semibold mb-2">User</h3>
+                  <motion.button
+                    className="px-2 cursor-pointer text-xs bg-button text-white py-1 rounded-xs font-medium"
+                    whileTap={{ scale: 0.98 }}
+                    onClick={() => setIsAddUserOpen(true)}
                   >
-                    <div className="flex justify-between items-center w-full">
-                      <div className="flex gap-2 items-center">
-                        <img src={participant.image} alt={participant.name} className="w-8 h-8 rounded-full" />
+                    +Add User
+                  </motion.button>
+                </div>
+                <div>
+                  {participants.map((participant, i) => (
+                    <motion.div
+                      key={participant.id}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: i * 0.1 }}
+                      className="flex items-center mt-2 gap-2"
+                    >
+                      <div className="flex justify-between items-center w-full">
+                        <div className="flex gap-2 items-center">
+                          <img src={participant.image} alt={participant.name} className="w-8 h-8 rounded-full" />
+                          <div>
+                            <p className="font-medium text-sm text-gray-700">{participant.name}</p>
+                            <p className="text-xs text-gray-500">{participant.role}</p>
+                          </div>
+                        </div>
                         <div>
-                          <p className="font-medium text-sm text-gray-700">{participant.name}</p>
-                          <p className="text-xs text-gray-500">{participant.role}</p>
+                          <motion.button
+                            className="px-2 text-xs cursor-pointer bg-white border border-red-500 text-red-500 py-1 rounded-xs font-medium"
+                            whileHover={{ scale: 1.02 }}
+                            whileTap={{ scale: 0.98 }}
+                            onClick={() => setRemoveParticipantModal(true)}
+                          >
+                            Remove
+                          </motion.button>
                         </div>
                       </div>
-                      <div>
-                        <motion.button
-                          className="px-2 cursor-pointer text-xs bg-white border border-red-500 text-red-500 py-1 rounded-xs font-medium"
-                          whileHover={{ scale: 1.02 }}
-                          whileTap={{ scale: 0.98 }}
-                          onClick={() => setRemoveParticipantModal(true)}
-                        >
-                          Remove
-                        </motion.button>
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
-                {/* View All Link */}
-                <div className="text-right">
-                  <button className="text-blue-900 text-xs hover:underline cursor-pointer">View all</button>
+                    </motion.div>
+                  ))}
+                  {/* View All Link */}
+                  <div className="text-right">
+                    <button className="text-blue-900 text-xs hover:underline cursor-pointer">View all</button>
+                  </div>
                 </div>
               </div>
-            </div>
-            {/* User Column */}
-            <div>
-              <div className="flex justify-between items-center">
-                <h3 className="font-semibold mb-2">User</h3>
-                <motion.button
-                  className="px-2 cursor-pointer text-xs bg-button text-white py-1 rounded-xs font-medium"
-                  whileTap={{ scale: 0.98 }}
-                  onClick={() => setIsAddUserOpen(true)}
-                >
-                  +Add User
-                </motion.button>
-              </div>
-              <div>
-                {participants.map((participant, i) => (
-                  <motion.div
-                    key={participant.id}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: i * 0.1 }}
-                    className="flex items-center mt-2 gap-2"
-                  >
-                    <div className="flex justify-between items-center w-full">
-                      <div className="flex gap-2 items-center">
-                        <img src={participant.image} alt={participant.name} className="w-8 h-8 rounded-full" />
-                        <div>
-                          <p className="font-medium text-sm text-gray-700">{participant.name}</p>
-                          <p className="text-xs text-gray-500">{participant.role}</p>
-                        </div>
-                      </div>
-                      <div>
-                        <motion.button
-                          className="px-2 text-xs cursor-pointer bg-white border border-red-500 text-red-500 py-1 rounded-xs font-medium"
-                          whileHover={{ scale: 1.02 }}
-                          whileTap={{ scale: 0.98 }}
-                          onClick={() => setRemoveParticipantModal(true)}
-                        >
-                          Remove
-                        </motion.button>
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
-                {/* View All Link */}
-                <div className="text-right">
-                  <button className="text-blue-900 text-xs hover:underline cursor-pointer">View all</button>
-                </div>
-              </div>
+
             </div>
 
             {/* Join Request Column */}
