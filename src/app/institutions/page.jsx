@@ -14,8 +14,8 @@ const InstitutionPage = () => {
     const [selectedCardUserProject, setSelectedCardUserProject] = useState(null)
 
     const tabs = [
-        { id: "all", label: "All Institution" },
-        { id: "my", label: "My Institution" },
+        { id: "all", label: "All Institutions" },
+        { id: "my", label: "My Institutions" },
     ]
 
     return (

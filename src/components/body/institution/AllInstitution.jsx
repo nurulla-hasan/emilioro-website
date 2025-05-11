@@ -39,10 +39,10 @@ const AllInstitution = () => {
                   <p className="text-[#6F6F6F] text-xs">{card.description}</p>
 
                   <div className="flex flex-col gap-2">
-                    <div className="flex items-center justify-between">
+                    {/* <div className="flex items-center justify-between">
                       <h5 className="text-[13px] text-gray-800 font-semibold">Group A</h5>
                       <h5 className="text-[13px] text-gray-800 font-semibold">Group B</h5>
-                    </div>
+                    </div> */}
                     <div className="flex items-center justify-between">
                       <h5 className="text-[13px] text-gray-800 font-semibold">{card.skils[0]}</h5>
                       <h5 className="text-[13px] text-gray-800 font-semibold">{card.skils[1]}</h5>
@@ -71,7 +71,7 @@ const AllInstitution = () => {
                     onClick={() => setIsOpen(true)}
                     className="cursor-pointer flex-1/2 bg-button text-white px-4 py-2 rounded-xs font-medium text-xs outline-none focus:ring-0"
                   >
-                    Join Institute
+                    Join Institution
                   </button>
                 </div>
               </div>
@@ -99,10 +99,10 @@ const AllInstitution = () => {
 
                 <div className="flex flex-col gap-4">
                   <div className="flex flex-col gap-2">
-                    <div className="flex items-center justify-between">
+                    {/* <div className="flex items-center justify-between">
                       <h5 className="text-[10px] text-gray-800 font-semibold">Group A</h5>
                       <h5 className="text-[10px] text-gray-800 font-semibold">Group B</h5>
-                    </div>
+                    </div> */}
                     <div className="flex items-center justify-between">
                       <h5 className="text-[10px] text-gray-800 font-semibold">{card.skils[0]}</h5>
                       <h5 className="text-[10px] text-gray-800 font-semibold">{card.skils[1]}</h5>
@@ -132,7 +132,7 @@ const AllInstitution = () => {
                     onClick={() => setIsOpen(true)}
                     className="cursor-pointer flex-1/2 bg-button text-white py-1 rounded-xs font-medium text-[10px] outline-none focus:ring-0"
                   >
-                    Join Institute
+                    Join Institution
                   </button>
                 </div>
               </div>

@@ -1,10 +1,8 @@
 "use client"
 import { motion, AnimatePresence } from "framer-motion"
 import Image from "next/image"
-import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
-
 
 const sampleData = {
   producers: [
@@ -22,6 +20,7 @@ const sampleData = {
     { id: 5, name: "Kevin Anderson", role: "Content Creator", avatar: "/avatar.png" },
   ],
 }
+
 const categories = [
   { id: 1, name: "Sustainable Development & Climate Action" },
   { id: 2, name: "Technology & Innovation" },
@@ -30,17 +29,20 @@ const categories = [
 ]
 
 const UserInstituteDetailsModal = ({ selectedCardUserProject, setSelectedCardUserProject }) => {
-
   const router = useRouter()
-
+  const [selected, setSelected] = useState(null)
+  const [showAllGroupA, setShowAllGroupA] = useState(false)
+  const [showAllGroupB, setShowAllGroupB] = useState(false)
 
   if (!selectedCardUserProject) return null
-  const [selected, setSelected] = useState(null)
+
   const handleClick = (index, categoryId) => {
     setSelected(index)
   }
 
-  console.log(selectedCardUserProject);
+  // Limit the number of items to display unless "View All" is clicked
+  const displayedProducers = showAllGroupA ? sampleData.producers : sampleData.producers.slice(0, 3)
+  const displayedUsers = showAllGroupB ? sampleData.users : sampleData.users.slice(0, 3)
 
   return (
     <AnimatePresence>
@@ -55,14 +57,14 @@ const UserInstituteDetailsModal = ({ selectedCardUserProject, setSelectedCardUse
           animate={{ scale: 1, opacity: 1 }}
           exit={{ scale: 0.95, opacity: 0 }}
           transition={{ type: "spring", damping: 25 }}
-          className="bg-white lg:top-11 rounded-sm w-full h-[90vh] md:h-[85vh] overflow-scroll hide-scrollbar max-w-xl  relative"
+          className="bg-white lg:top-11 rounded-sm w-full h-[90vh] md:h-[85vh] overflow-scroll hide-scrollbar max-w-xl relative"
         >
           {/* Close Button */}
           <button
             onClick={() => setSelectedCardUserProject(null)}
             className="absolute right-4 top-4 z-10 cursor-pointer"
           >
-            <img src="/x.svg" alt="" />
+            <img src="/x.svg" alt="Close" />
           </button>
 
           {/* Header Image */}
@@ -70,10 +72,9 @@ const UserInstituteDetailsModal = ({ selectedCardUserProject, setSelectedCardUse
             <Image
               src={selectedCardUserProject.image || "/placeholder.svg"}
               alt="Project Header"
-              layout="fill"
-              objectFit="cover"
+              fill
+              className="object-cover"
             />
-
           </div>
 
           {/* Content */}
@@ -81,9 +82,7 @@ const UserInstituteDetailsModal = ({ selectedCardUserProject, setSelectedCardUse
             <div>
               {/* Title & description*/}
               <div className="flex flex-col gap-3">
-                <h1 className="text-md font-bold text-[#1C4587]">
-                  {selectedCardUserProject.institutionName}
-                </h1>
+                <h1 className="text-md font-bold text-[#1C4587]">{selectedCardUserProject.institutionName}</h1>
                 <p className="text-gray-600 text-xs mb-4">{selectedCardUserProject.description}</p>
               </div>
 
@@ -96,7 +95,9 @@ const UserInstituteDetailsModal = ({ selectedCardUserProject, setSelectedCardUse
                       {/* Participant Count */}
                       <div className="flex items-center gap-2 mb-2">
                         <img className="w-4" src="/participants.svg" alt="Participants" />
-                        <span className="text-sm text-gray-800 font-semibold">{selectedCardUserProject.participant1} Participent</span>
+                        <span className="text-sm text-gray-800 font-semibold">
+                          {selectedCardUserProject.participant1} Participent
+                        </span>
                       </div>
                     </div>
 
@@ -128,18 +129,19 @@ const UserInstituteDetailsModal = ({ selectedCardUserProject, setSelectedCardUse
               </div>
               {/* Participants Grid */}
               <div className="flex md:flex-row gap-5 justify-between w-full">
-
                 {/* Producer Column */}
-                <div>
+                <div className="w-1/2">
                   <h3 className="font-semibold text-xs text-gray-800 mb-2">Group A</h3>
                   {/* Participant Count */}
                   <div className="flex items-center gap-2 mb-2">
                     <img className="w-4" src="/participants.svg" alt="Participants" />
-                    <span className="text-xs text-gray-800 font-semibold">{selectedCardUserProject.participant1} Participent</span>
+                    <span className="text-xs text-gray-800 font-semibold">
+                      {selectedCardUserProject.participant1} Participent
+                    </span>
                   </div>
 
                   <div className="space-y-4 hidden md:block">
-                    {sampleData.producers.map((producer, i) => (
+                    {displayedProducers.map((producer, i) => (
                       <motion.div
                         key={producer.id}
                         initial={{ opacity: 0, y: 10 }}
@@ -159,18 +161,30 @@ const UserInstituteDetailsModal = ({ selectedCardUserProject, setSelectedCardUse
                       </motion.div>
                     ))}
                   </div>
+
+                  {/* View All Button for Group A */}
+                  {!showAllGroupA && sampleData.producers.length > 3 && (
+                    <button
+                      onClick={() => setShowAllGroupA(true)}
+                      className="text-[#1C4587] text-xs hover:underline mt-2 cursor-pointer"
+                    >
+                      View all
+                    </button>
+                  )}
                 </div>
 
                 {/* User Column */}
-                <div>
+                <div className="w-1/2">
                   <h3 className="font-semibold text-xs text-gray-800 mb-2 text-end">Group B</h3>
                   {/* Participant Count */}
                   <div className="flex items-center gap-2 mb-2 justify-end">
                     <img className="w-4" src="/participants.svg" alt="Participants" />
-                    <span className="text-xs text-gray-800 font-semibold">{selectedCardUserProject.participant2} Participent</span>
+                    <span className="text-xs text-gray-800 font-semibold">
+                      {selectedCardUserProject.participant2} Participent
+                    </span>
                   </div>
                   <div className="space-y-4 hidden md:block">
-                    {sampleData.users.map((user, i) => (
+                    {displayedUsers.map((user, i) => (
                       <motion.div
                         key={user.id}
                         initial={{ opacity: 0, y: 10 }}
@@ -178,7 +192,6 @@ const UserInstituteDetailsModal = ({ selectedCardUserProject, setSelectedCardUse
                         transition={{ delay: i * 0.1 }}
                         className="flex items-center justify-end gap-3"
                       >
-
                         <div>
                           <p className="font-medium text-sm text-gray-700 text-end">{user.name}</p>
                           <p className="text-xs text-gray-500 text-end">{user.role}</p>
@@ -187,9 +200,20 @@ const UserInstituteDetailsModal = ({ selectedCardUserProject, setSelectedCardUse
                       </motion.div>
                     ))}
                   </div>
+
+                  {/* View All Button for Group B */}
+                  {!showAllGroupB && sampleData.users.length > 3 && (
+                    <div className="text-right">
+                      <button
+                        onClick={() => setShowAllGroupB(true)}
+                        className="text-[#1C4587] text-xs hover:underline mt-2 cursor-pointer"
+                      >
+                        View all
+                      </button>
+                    </div>
+                  )}
                 </div>
               </div>
-             
 
               {/* All Topics */}
               <div className="bg-white mt-5">
@@ -201,8 +225,9 @@ const UserInstituteDetailsModal = ({ selectedCardUserProject, setSelectedCardUse
                   {categories.map((category, index) => (
                     <div
                       key={category.id}
-                      className={`flex justify-between items-center px-4 py-3 border border-gray-200 rounded-sm mb-2 transition ${selected === index ? "bg-blue-100 border-blue-300" : "bg-white"
-                        }`}
+                      className={`flex justify-between items-center px-4 py-3 border border-gray-200 rounded-sm mb-2 transition ${
+                        selected === index ? "bg-blue-100 border-blue-300" : "bg-white"
+                      }`}
                     >
                       <span
                         onClick={() => handleClick(index, category.id)}
@@ -215,9 +240,11 @@ const UserInstituteDetailsModal = ({ selectedCardUserProject, setSelectedCardUse
                 </div>
               </div>
 
-              {/* View All Link */}
+              {/* View All Link for Topics */}
               <div className="text-right">
-                <button className="text-[#1C4587] text-xs hover:underline outline-none focus:ring-0 cursor-pointer">View all</button>
+                <button className="text-[#1C4587] text-xs hover:underline outline-none focus:ring-0 cursor-pointer">
+                  View all
+                </button>
               </div>
             </div>
             {/* Join Button */}
@@ -239,9 +266,8 @@ const UserInstituteDetailsModal = ({ selectedCardUserProject, setSelectedCardUse
           </div>
         </motion.div>
       </motion.div>
-    </AnimatePresence >
+    </AnimatePresence>
   )
 }
 
 export default UserInstituteDetailsModal
-
