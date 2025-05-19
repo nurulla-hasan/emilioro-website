@@ -54,13 +54,14 @@ const From = ({
                                         className="w-full outline-none focus:ring-0 border-none text-[14px] text-[#595D62] px-1 placeholder:text-xs"
                                         ref={giveInputRef}
                                     />
-                                    <div className="relative">
+                                    <div
+                                        onClick={() => {
+                                            setSuggestionType("give")
+                                            setShowSuggestions(!showSuggestions)
+                                        }}
+                                        className="relative w-full text-end cursor-pointer">
                                         <button
                                             type="button"
-                                            onClick={() => {
-                                                setSuggestionType("give")
-                                                setShowSuggestions(!showSuggestions)
-                                            }}
                                             className="p-1 text-gray-500 hover:text-[#1C4587] cursor-pointer"
                                         >
                                             <ChevronDown size={16} />
@@ -108,13 +109,15 @@ const From = ({
                                         className="w-full outline-none focus:ring-0 border-none text-[14px] text-[#595D62] px-1 placeholder:text-xs"
                                         ref={getInputRef}
                                     />
-                                    <div className="relative">
+                                    <div
+                                        onClick={() => {
+                                            setSuggestionType("get")
+                                            setShowSuggestions(!showSuggestions)
+                                        }}
+                                        className="relative w-full text-end cursor-pointer">
                                         <button
                                             type="button"
-                                            onClick={() => {
-                                                setSuggestionType("get")
-                                                setShowSuggestions(!showSuggestions)
-                                            }}
+
                                             className="p-1 text-gray-500 hover:text-[#1C4587] cursor-pointer"
                                         >
                                             <ChevronDown size={16} />
