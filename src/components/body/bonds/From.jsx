@@ -47,6 +47,10 @@ const From = ({
                             <div className="border p-1 border-[#1C4587] rounded-sm ">
                                 <div className="flex items-center">
                                     <input
+                                        onClick={() => {
+                                            setSuggestionType("give")
+                                            setShowSuggestions(!showSuggestions)
+                                        }}
                                         type="text"
                                         value={customGive}
                                         onChange={(e) => handleCustomInputChange("give", e.target.value)}
@@ -102,6 +106,10 @@ const From = ({
                             <div className="border p-1 border-[#1C4587] rounded-sm">
                                 <div className="flex items-center">
                                     <input
+                                        onClick={() => {
+                                            setSuggestionType("get")
+                                            setShowSuggestions(!showSuggestions)
+                                        }}
                                         type="text"
                                         value={customGet}
                                         onChange={(e) => handleCustomInputChange("get", e.target.value)}
