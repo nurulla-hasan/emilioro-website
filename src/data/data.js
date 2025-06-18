@@ -1188,3 +1188,4 @@ export const profile = {
     { name: "Yolanda", relation: "Aunt", avatar: "/heroImage.png" },
   ],
 }
+

@@ -3,11 +3,11 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { CiSearch } from "react-icons/ci";
 import { FaMusic, FaFire, FaComments, FaHeart, FaList, FaBars, FaTimes } from "react-icons/fa";
-import Favorite from "@/app/chatting/favorite/page";
+import Favorite from "@/app/(chatting)/chatting/favorite/page";
 import MostPlayedSection from "@/components/slider/MostPlayedSection";
 import TrendingTopics from "../TrendingTopics";
 import ConversationList from "../ConversationList";
-import MyPlaylist from "@/app/chatting/all-playlist/my-playlist/page";
+import MyPlaylist from "@/app/(chatting)/chatting/all-playlist/my-playlist/page";
 
 const ChattingLayout = ({ children }) => {
     const menuItems = [

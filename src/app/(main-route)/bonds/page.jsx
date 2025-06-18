@@ -53,10 +53,6 @@ const BondExchangePage = () => {
   const giveInputRef = useRef(null);
   const getInputRef = useRef(null);
 
-
-
-
-  // Simulate fetching matching bonds based on give and get values
   useEffect(() => {
     if (toggle) {
       const timer = setTimeout(() => {

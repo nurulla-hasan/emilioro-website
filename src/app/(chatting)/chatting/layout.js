@@ -19,34 +19,20 @@ const ChattingLayout = ({ children }) => {
     const pathname = usePathname()
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
     const [isMobile, setIsMobile] = useState(false)
-
-    // Check if mobile on mount and window resize
     useEffect(() => {
         const checkIfMobile = () => {
             setIsMobile(window.innerWidth < 1024)
         }
-
-        // Initial check
         checkIfMobile()
-
-        // Add event listener
         window.addEventListener("resize", checkIfMobile)
-
-        // Cleanup
         return () => window.removeEventListener("resize", checkIfMobile)
     }, [])
 
-    // Find active menu item based on current path
     const getActiveMenuItem = () => {
-        // Exact match first
         const exactMatch = menuItems.find((item) => item.path === pathname)
         if (exactMatch) return exactMatch.id
-
-        // Then check if current path starts with any menu item path
         const partialMatch = menuItems.find((item) => item.path !== "/chatting" && pathname.startsWith(item.path))
         if (partialMatch) return partialMatch.id
-
-        // Default to All Content
         return 0
     }
 
@@ -99,9 +85,9 @@ const ChattingLayout = ({ children }) => {
                             }
                             transition={{
                                 duration: 0.4,
-                                ease: [0.04, 0.62, 0.23, 0.98], // Custom easing curve for smoother motion
-                                height: { duration: 0.5 }, // Slightly longer duration for height
-                                opacity: { duration: 0.3 }, // Faster opacity transition
+                                ease: [0.04, 0.62, 0.23, 0.98], 
+                                height: { duration: 0.5 }, 
+                                opacity: { duration: 0.3 }, 
                             }}
                             className=" h-[calc(100vh-88px)] p-2 rounded-sm overflow-hidden"
                         >

@@ -13,11 +13,11 @@ export default function ClientLayout({ children }) {
 
     return (
         <Providers>
-            <Navbar />
+            {/* <Navbar /> */}
             <div className="container max-w-full mx-auto min-h-[calc(100vh-88px)]">
                 {children}
             </div>
-            {!hideFooter && <Footer />}
+            {/* {!hideFooter && <Footer />} */}
         </Providers>
     );
 }
