@@ -437,7 +437,7 @@ export const allProject = [
     created: "22 may 2023"
   }
 ]
-
+ 
 export const joinedProject = [
   {
     id: "1",
@@ -925,7 +925,92 @@ export const initialConversations = [
   },
 ]
 
-
+export const projects2 = [
+  {
+    id: "1",
+    title: "Eco-Friendly Packaging",
+    status: ["Completed", "Public"],
+    description: "Develop sustainable packaging solutions using biodegradable materials dsjh.",
+    author: "MR. Sarwar",
+    authorRole: ["Owner"],
+    image: "/project (1).png",
+    ownerImage: "/avatar.png",
+    participant: "10",
+    created: "22 may 2023",
+  },
+  {
+    id: "2",
+    title: "Recyclable Materials",
+    status: ["Completed", "Public"],
+    description: "Use recyclable materials to create packaging that can be reused.",
+    author: "MR. Ahmed",
+    authorRole: ["Owner"],
+    image: "/project (2).png",
+    ownerImage: "/avatar.png",
+    participant: "10",
+    created: "22 may 2023",
+  },
+  {
+    id: "3",
+    title: "Minimalist Design",
+    status: ["Ongoing", "Public"],
+    description: "Implement minimalist design principles to reduce waste and improve.",
+    author: "MS. Fatima",
+    authorRole: ["Owner"],
+    image: "/project (3).png",
+    ownerImage: "/avatar.png",
+    participant: "10",
+    created: "22 may 2023",
+  },
+  {
+    id: "4",
+    title: "Minimalist Design",
+    status: ["Completed", "Public"],
+    description: "Implement minimalist design principles to reduce waste and improve.",
+    author: "MS. Fatima",
+    authorRole: ["Owner"],
+    image: "/project (4).png",
+    ownerImage: "/avatar.png",
+    participant: "10",
+    created: "22 may 2023",
+  },
+  {
+    id: "5",
+    title: "Minimalist Design",
+    status: ["Ongoing", "Public"],
+    description: "Implement minimalist design principles to reduce waste and improve .",
+    author: "MS. Fatima",
+    authorRole: ["Owner"],
+    image: "/project (5).png",
+    ownerImage: "/avatar.png",
+    participant: "10",
+    created: "22 may 2023",
+  },
+  {
+    id: "6",
+    title: "Minimalist Design",
+    status: ["Completed", "Public"],
+    description: "Implement minimalist design principles to reduce waste and improve .",
+    author: "MS. Fatima",
+    authorRole: ["Owner"],
+    image: "/project (6).png",
+    ownerImage: "/avatar.png",
+    participant: "10",
+    created: "22 may 2023",
+  },
+  {
+    id: "7",
+    title: "Minimalist Design",
+    status: ["Ongoing", "Public"],
+    description: "Implement minimalist design principles to reduce waste and improve .",
+    author: "MS. Fatima",
+    authorRole: ["Owner"],
+    image: "/project (1).png",
+    ownerImage: "/avatar.png",
+    participant: "10",
+    created: "22 may 2023",
+  },
+]
 
 
 

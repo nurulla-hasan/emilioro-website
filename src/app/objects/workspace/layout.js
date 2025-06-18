@@ -29,8 +29,8 @@ export default function Layout({ children }) {
                     </div>
 
                     {/* Main content */}
-                    <div className="overflow-y-auto hide-scrollbar">
-                        {children}
+                    <div className="overflow-y-auto hide-scrollbar w-full">
+                        {children} 
                     </div>
                 </div>
             </div>

@@ -15,7 +15,7 @@ import {
   LinkIcon,
   Globe,
   Lock,
-  Facebook,
+  Facebook, 
   Instagram,
   Users
 } from "lucide-react"

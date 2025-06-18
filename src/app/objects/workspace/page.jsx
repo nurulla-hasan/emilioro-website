@@ -5,6 +5,7 @@ import { Suspense, useState, useRef } from "react"
 import Image from "next/image"
 import { useForm } from "react-hook-form"
 import { Search, Upload } from "lucide-react"
+import { projects2 } from "@/data/data"
 
 // Additional data for the interface
 const producers = [
@@ -29,7 +30,7 @@ const documents = [
   { id: 3, name: "Project Document", sharedBy: "MR. Sarwar" },
   { id: 4, name: "Project Document", sharedBy: "MR. Sarwar" },
 ]
-
+ 
 const images = [
   { id: 1, src: "/uplodeImage (1).png", sharedBy: "MR. Sarwar" },
   { id: 2, src: "/uplodeImage (2).png", sharedBy: "MR. Sarwar" },
@@ -78,92 +79,7 @@ const messages = [
 ]
 
 // Project data from props
-const projects = [
-  {
-    id: "1",
-    title: "Eco-Friendly Packaging",
-    status: ["Completed", "Public"],
-    description: "Develop sustainable packaging solutions using biodegradable materials dsjh.",
-    author: "MR. Sarwar",
-    authorRole: ["Owner"],
-    image: "/project (1).png",
-    ownerImage: "/avatar.png",
-    participant: "10",
-    created: "22 may 2023",
-  },
-  {
-    id: "2",
-    title: "Recyclable Materials",
-    status: ["Completed", "Public"],
-    description: "Use recyclable materials to create packaging that can be reused.",
-    author: "MR. Ahmed",
-    authorRole: ["Owner"],
-    image: "/project (2).png",
-    ownerImage: "/avatar.png",
-    participant: "10",
-    created: "22 may 2023",
-  },
-  {
-    id: "3",
-    title: "Minimalist Design",
-    status: ["Ongoing", "Public"],
-    description: "Implement minimalist design principles to reduce waste and improve.",
-    author: "MS. Fatima",
-    authorRole: ["Owner"],
-    image: "/project (3).png",
-    ownerImage: "/avatar.png",
-    participant: "10",
-    created: "22 may 2023",
-  },
-  {
-    id: "4",
-    title: "Minimalist Design",
-    status: ["Completed", "Public"],
-    description: "Implement minimalist design principles to reduce waste and improve.",
-    author: "MS. Fatima",
-    authorRole: ["Owner"],
-    image: "/project (4).png",
-    ownerImage: "/avatar.png",
-    participant: "10",
-    created: "22 may 2023",
-  },
-  {
-    id: "5",
-    title: "Minimalist Design",
-    status: ["Ongoing", "Public"],
-    description: "Implement minimalist design principles to reduce waste and improve .",
-    author: "MS. Fatima",
-    authorRole: ["Owner"],
-    image: "/project (5).png",
-    ownerImage: "/avatar.png",
-    participant: "10",
-    created: "22 may 2023",
-  },
-  {
-    id: "6",
-    title: "Minimalist Design",
-    status: ["Completed", "Public"],
-    description: "Implement minimalist design principles to reduce waste and improve .",
-    author: "MS. Fatima",
-    authorRole: ["Owner"],
-    image: "/project (6).png",
-    ownerImage: "/avatar.png",
-    participant: "10",
-    created: "22 may 2023",
-  },
-  {
-    id: "7",
-    title: "Minimalist Design",
-    status: ["Ongoing", "Public"],
-    description: "Implement minimalist design principles to reduce waste and improve .",
-    author: "MS. Fatima",
-    authorRole: ["Owner"],
-    image: "/project (1).png",
-    ownerImage: "/avatar.png",
-    participant: "10",
-    created: "22 may 2023",
-  },
-]
+
 
 const WorkSpace = () => {
   const searchParams = useSearchParams()
@@ -189,7 +105,7 @@ const WorkSpace = () => {
   const messageFileRef = useRef(null)
 
   // Find the current project
-  const project = projects.find((p) => p.id === projectId) || projects[0]
+  const project = projects2.find((p) => p.id === projectId) || projects2[0]
 
   // Handle document file upload
   const handleDocumentUpload = (e) => {
