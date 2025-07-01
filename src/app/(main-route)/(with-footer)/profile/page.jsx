@@ -5,7 +5,7 @@ import DeleteConfirmationModal from "../../../components/body/profile/modal/Dele
 import AddRelativesModal from "../../../components/body/profile/modal/AddRelativesModal"
 import ReportModal from "@/components/body/profile/modal/ReportModal"
 import EditModal from "@/components/body/profile/modal/EditdModal"
-import Container from "@/components/home/Container"
+import Container from "@/components/layout/Container"
 import { profile } from "@/data/data"
 import HeaderSection from "@/components/body/profile/HeaderSection"
 import SocialLinksSection from "@/components/body/profile/SocialLinksSection"

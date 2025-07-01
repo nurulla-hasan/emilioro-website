@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form"
 import { motion, AnimatePresence } from "framer-motion"
 import Link from "next/link"
 import { useState, useEffect, useRef } from "react"
-import Container from "@/components/home/Container"
+import Container from "@/components/layout/Container"
 import { bidirectionalBond, singleBond, triangleBond, sampleLists, simulatedEntries , suggestedEntries  } from "@/data/data"
 import CreateListModal from "@/components/body/bonds/CreateListModal"
 import BondsRatingModal from "@/components/body/bonds/RatingModal"
@@ -196,22 +196,20 @@ const BondExchangePage = () => {
           Exchange Services & Goods
         </h1>
         <div className="flex gap-3">
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+          <button
             onClick={() => setShowSimulatedEntries(!showSimulatedEntries)}
             className="text-[#1C4587] border border-[#1C4587] px-3 py-[7px] rounded-sm text-xs font-medium cursor-pointer"
           >
             {showSimulatedEntries ? "Hide Simulated Entries" : "Show Simulated Entries"}
-          </motion.button>
+          </button>
 
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="cursor-pointer">
+          <div className="cursor-pointer">
             <Link href="/bonds/all-bonds">
               <button className="cursor-pointer text-xs bg-button text-white px-4 py-2 rounded-sm font-medium">
                 All Bonds →
               </button>
             </Link>
-          </motion.div>
+          </div>
         </div>
       </div>
 

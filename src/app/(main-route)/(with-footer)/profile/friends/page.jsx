@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Search } from "lucide-react";
 import MyFriendList from "@/components/body/profile/friends/MyFriendList";
 import FriendRequestList from "@/components/body/profile/friends/FriendRequestList";
-import Container from "@/components/home/Container";
+import Container from "@/components/layout/Container";
 
 const Friends = () => {
     const [activeTab, setActiveTab] = useState("my-friend");

@@ -1,7 +1,7 @@
 "use client"
 import ChangePassword from "@/components/body/profile/editor/ChangePassword";
 import EditProfile from "@/components/body/profile/editor/EditProfile";
-import Container from "@/components/home/Container";
+import Container from "@/components/layout/Container";
 import { useState } from "react";
 
 const ProfileSettings = () => {

@@ -3,7 +3,7 @@ import AllInstitution from '@/components/body/institution/AllInstitution';
 import CreateInstituteModal from '@/components/body/institution/modal/CreateInstituteModal';
 import UserInstituteDetailsModal from '@/components/body/institution/modal/UserinstituteDetailsModal';
 import MyInstitution from '@/components/body/institution/MyInstitution';
-import Container from '@/components/home/Container';
+import Container from '@/components/layout/Container';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import { CiSearch } from "react-icons/ci";

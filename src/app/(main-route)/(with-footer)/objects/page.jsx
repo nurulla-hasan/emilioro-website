@@ -7,7 +7,7 @@ import { useState } from "react"
 import { CiSearch } from "react-icons/ci"
 import CreateProjectModal from "@/components/body/object/modal/CreateProjectModal"
 import AllProjectDetailsModal from "@/components/body/object/modal/AllProjectDetailsModal"
-import Container from "@/components/home/Container"
+import Container from "@/components/layout/Container"
 
 const ObjectPage = () => {
   const [activeTab, setActiveTab] = useState("all")

@@ -7,7 +7,7 @@ import avatar from "../../../../public/avatar.png"
 import AddGroupModal from "@/components/body/message/modal/AddGroupModal"
 import MarkCompleteModal from "@/components/body/message/modal/MarkCompleteModal"
 import ChatDetailsModal from "@/components/body/message/modal/ChatDetailsModal"
-import Container from "@/components/home/Container"
+import Container from "@/components/layout/Container"
 
 const ChatInterface = () => {
   const [message, setMessage] = useState("")

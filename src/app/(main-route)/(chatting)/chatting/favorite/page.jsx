@@ -1,7 +1,7 @@
 "use client"
 import FavoriteAudio from "@/components/body/favorite/audio/FavoriteAudio";
 import FavoritePlaylist from "@/components/body/favorite/playlist/FavoritePlaylist";
-import Container from "@/components/home/Container";
+import Container from "@/components/layout/Container";
 import { useState } from "react";
 
 const Favorite = () => {

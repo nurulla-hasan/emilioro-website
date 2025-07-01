@@ -4,7 +4,7 @@ import BondRequest from "@/components/body/bonds/bondRequest/BondRequest";
 import OngoingBond from "@/components/body/bonds/ongoingBond/OngoingBond";
 import CompletedBond from "@/components/body/bonds/completedBond/CompletedBond";
 import MyBond from "@/components/body/bonds/myBond/MyBond";
-import Container from "@/components/home/Container";
+import Container from "@/components/layout/Container";
 
 const MyBondPage = () => {
     const [selectedOption, setSelectedOption] = useState("My Bond");

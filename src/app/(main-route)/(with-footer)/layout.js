@@ -1,11 +1,10 @@
-import Navbar from "@/components/header/Navbar";
-
+import Footer from "@/components/shared/footer/Footer";
 
 export default function ChattingLayout({ children }) {
     return (
         <>
-            <Navbar />
             {children}
+            <Footer/>
         </>
     );
 }

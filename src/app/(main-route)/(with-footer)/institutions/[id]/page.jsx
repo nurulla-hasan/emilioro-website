@@ -25,7 +25,7 @@ import DetailsCreateGroupModal from "@/components/body/institution/modal/Details
 import CreateTopicModal from "@/components/body/institution/modal/CreateTopicModal"
 import EditTopicModal from "@/components/body/institution/modal/EditTopicModal"
 import DeleteTopicModal from "@/components/body/institution/modal/DeleteTopicModal"
-import Container from "@/components/home/Container"
+import Container from "@/components/layout/Container"
 import { initialConversations, mediators, producers, projects, users } from "@/data/data"
 
 // Store all data in variables for better organization
