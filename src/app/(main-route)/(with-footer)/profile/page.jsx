@@ -13,19 +13,13 @@ import DeleteConfirmationModal from "@/components/body/profile/modal/DeleteConfi
 import AddRelativesModal from "@/components/body/profile/modal/AddRelativesModal"
 
 const ProfilePage = () => {
-  // Added refs for file inputs
   const coverPhotoInputRef = useRef(null)
   const profilePhotoInputRef = useRef(null)
-  // const motherPhotoInputRef = useRef(null)
-  // const fatherPhotoInputRef = useRef(null)
-
   const [profileData, setProfileData] = useState(profile)
-
   const [isSocialAccountModalOpen, setIsSocialAccountModalOpen] = useState(false)
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false)
   const [addRelativesModal, setAddRelativesModal] = useState(false)
   const [modal, setModal] = useState(false)
-
   const [isEditModalOpen, setIsEditModalOpen] = useState(false)
   const [selectedLinkIndex, setSelectedLinkIndex] = useState(0)
   const [editedUrl, setEditedUrl] = useState("")

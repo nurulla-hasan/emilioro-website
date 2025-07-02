@@ -61,7 +61,7 @@ const AllTopics = () => {
 
                                 </div>
                                 {/* Button */}
-                                <Link href="/chatting/allTopics/familyConversion/audio">
+                                <Link href="/chatting/all-topics/family-conversion/audio">
                                     <button className="border mt-8 border-white px-3 py-1 rounded-sm hover:bg-white hover:text-primary cursor-pointer text-xs bg-button transition">
                                         Listen Now
                                     </button>
