@@ -66,7 +66,7 @@ const MarkCompleteModal = ({ isOpen, onClose }) => {
                     {/* Modal Content */}
                     <div className="p-4 sm:p-6">
                         {/* Title */}
-                        <h2 className="text-sm sm:text-lg font-semibold text-[#1C4587] mb-4">{bond.title}</h2>
+                        <h2 className="text-sm sm:text-lg font-semibold text-primary mb-4">{bond.title}</h2>
 
                         {/* Owner Section */}
                         <div className="flex justify-between items-start sm:items-center mb-1">

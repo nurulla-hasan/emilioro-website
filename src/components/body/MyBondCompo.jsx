@@ -10,7 +10,7 @@ const MyBondSection = ({ bonds, handleEditClick, handleDeleteClick }) => {
             {/* Section 1 */}
             <div className="w-full shadow-2xl rounded-sm p-5">
                 <div className="flex justify-between">
-                    <h1 className="text-xl text-[#1C4587] font-bold mb-4">Give</h1>
+                    <h1 className="text-xl text-primary font-bold mb-4">Give</h1>
                     <motion.div
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
@@ -40,7 +40,7 @@ const MyBondSection = ({ bonds, handleEditClick, handleDeleteClick }) => {
             {/* Section 2 */}
             <div className="w-full shadow-2xl rounded-sm p-5">
                 <div className="flex justify-between">
-                    <h1 className="text-xl text-[#1C4587] font-bold mb-4">Get</h1>
+                    <h1 className="text-xl text-primary font-bold mb-4">Get</h1>
                     <motion.div
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}

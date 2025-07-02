@@ -49,7 +49,7 @@ export default function EditModal({ isOpen, onClose, editedUrl, setEditedUrl, on
                       onSave()
                       onClose()
                     }}
-                    className="px-4 py-2 bg-[#1C4587] text-white rounded-sm text-[10px] font-medium outline-none focus:ring-0 transition"
+                    className="px-4 py-2 bg-primary text-white rounded-sm text-[10px] font-medium outline-none focus:ring-0 transition"
                   >
                     Save
                   </button>

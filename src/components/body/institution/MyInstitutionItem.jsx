@@ -38,7 +38,7 @@ const MyInstitutionItem = ({ card, setSelectedCardUserProject }) => {
                     <div className="flex flex-col gap-2 p-3 rounded-b-sm">
                         <div className="flex items-center justify-between">
                             <div>
-                                <p className=" text-[#1C4587] text-sm font-semibold">
+                                <p className=" text-primary text-sm font-semibold">
                                     {card.institutionName}
                                 </p>
                             </div>
@@ -71,7 +71,7 @@ const MyInstitutionItem = ({ card, setSelectedCardUserProject }) => {
                         <div className="flex items-center justify-between gap-2 mt-4">
                             <button
                                 onClick={() => onDeleteBond(card)}
-                                className="px-4 py-[7px] flex-1/2 items-center cursor-pointer bg-white rounded-xs font-medium border border-[#1C4587] text-[#1C4587] text-xs outline-none focus:ring-0">
+                                className="px-4 py-[7px] flex-1/2 items-center cursor-pointer bg-white rounded-xs font-medium border border-primary text-primary text-xs outline-none focus:ring-0">
                                 Delete
                             </button>
 
@@ -107,7 +107,7 @@ const MyInstitutionItem = ({ card, setSelectedCardUserProject }) => {
                             <div onClick={() => router.push(`/institutions/${card.id}`)}
                                 className="cursor-pointer"
                             >
-                                <p className=" text-[#1C4587] text-sm font-semibold">
+                                <p className=" text-primary text-sm font-semibold">
                                     {card.institutionName}
                                 </p>
                             </div>
@@ -138,7 +138,7 @@ const MyInstitutionItem = ({ card, setSelectedCardUserProject }) => {
                         <div className="flex justify-between gap-2">
                             <button
                                 onClick={() => onDeleteBond(card)}
-                                className="py-1 flex-1/2 items-center cursor-pointer bg-white rounded-xs font-medium border border-[#1C4587] text-[#1C4587] text-[10px] outline-none focus:ring-0">
+                                className="py-1 flex-1/2 items-center cursor-pointer bg-white rounded-xs font-medium border border-primary text-primary text-[10px] outline-none focus:ring-0">
                                 Delete
                             </button>
 

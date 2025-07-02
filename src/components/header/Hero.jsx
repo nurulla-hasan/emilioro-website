@@ -50,7 +50,7 @@ const Hero = () => {
 
   return (
 
-    <div className="bg-[#1C4587] px-5">
+    <div className="bg-primary px-5">
       <motion.section
         initial="hidden"
         animate="visible"

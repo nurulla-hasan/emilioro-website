@@ -22,7 +22,7 @@ const DeleteCardModal = ({ isOpen, onClose, handleDeleteConfirm }) => {
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute cursor-pointer top-2 right-2 bg-[#1C4587] text-white rounded-full outline-none focus:ring-0"
+          className="absolute cursor-pointer top-2 right-2 bg-primary text-white rounded-full outline-none focus:ring-0"
           aria-label="Close"
         >
           <img className="w-5" src="/x.svg" alt="Close" />
@@ -36,7 +36,7 @@ const DeleteCardModal = ({ isOpen, onClose, handleDeleteConfirm }) => {
         <div className="mt-6 flex justify-center gap-3">
           <button
             onClick={handleDeleteConfirm}
-            className="bg-[#1C4587] text-white px-5 py-1.5 rounded-xs text-[10px] cursor-pointer"
+            className="bg-primary text-white px-5 py-1.5 rounded-xs text-[10px] cursor-pointer"
           >
             Delete
           </button>

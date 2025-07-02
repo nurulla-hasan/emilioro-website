@@ -7,10 +7,11 @@ body {
 
 @theme {
   --breakpoint-3xl: 120rem;
+  --color-primary: #1C4587;
 }
 
 .bg-button {
-  @apply bg-gradient-to-b from-[#1C4587] to-[#3279EA];
+  @apply bg-gradient-to-b from-primary to-[#3279EA];
 }
 
 
@@ -22,4 +23,8 @@ body {
 .hide-scrollbar {
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE and Edge */
+}
+
+.min-h-minus-header {
+  min-height: calc(100vh - 88px);
 }

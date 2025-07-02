@@ -253,7 +253,7 @@ const ChatInterface = () => {
   return (
     <Container>
       <div className="flex md:flex-row justify-between items-center gap-4">
-        <h1 className="text-lg md:text-xl text-[#1C4587] font-bold md:mb-0 text-center md:text-start">Inbox</h1>
+        <h1 className="text-lg md:text-xl text-primary font-bold md:mb-0 text-center md:text-start">Inbox</h1>
         <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
           <button
             onClick={() => setIsModalOpen(true)}

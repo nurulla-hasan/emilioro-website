@@ -12,7 +12,7 @@ const CreateListModal = ({setShowCreateListModal, showCreateListModal, setNewLis
                         className="bg-white rounded-sm p-5 w-full max-w-md"
                     >
                         <div className="flex justify-between items-center mb-4">
-                            <h2 className="text-lg font-medium text-[#1C4587]">Create New List</h2>
+                            <h2 className="text-lg font-medium text-primary">Create New List</h2>
                             <button
                                 onClick={() => setShowCreateListModal(false)}
                                 className="text-gray-500 hover:text-gray-700 cursor-pointer"
@@ -28,7 +28,7 @@ const CreateListModal = ({setShowCreateListModal, showCreateListModal, setNewLis
                                 value={newListName}
                                 onChange={(e) => setNewListName(e.target.value)}
                                 placeholder="Enter list name"
-                                className="w-full p-1 px-2 text-sm border border-gray-300 rounded-sm focus:outline-none focus:border-[#1C4587]"
+                                className="w-full p-1 px-2 text-sm border border-gray-300 rounded-sm focus:outline-none focus:border-primary"
                             />
                         </div>
 

@@ -38,14 +38,14 @@ const VerifyCodeModal = ({ isOpen, onClose, setIsResetModalOpen }) => {
             {/* Close Button */}
             <button
               onClick={onClose}
-              className="absolute cursor-pointer top-4 right-4 z-50 bg-[#1C4587] text-white rounded-full p-1 hover:bg-[#15366b] transition-colors"
+              className="absolute cursor-pointer top-4 right-4 z-50 bg-primary text-white rounded-full p-1 hover:bg-[#15366b] transition-colors"
             >
               <X size={16} />
             </button>
 
             {/* Left Section - Form */}
             <div className="w-full md:w-1/2 p-8 md:p-12">
-              <h2 className="text-[#1C4587] text-lg font-semibold mb-6">
+              <h2 className="text-primary text-lg font-semibold mb-6">
                 Verify Code
               </h2>
 
@@ -63,7 +63,7 @@ const VerifyCodeModal = ({ isOpen, onClose, setIsResetModalOpen }) => {
                         message: "Enter a valid 6-digit code",
                       },
                     })}
-                    className="w-full px-3 py-1.5 rounded-sm border border-gray-300 focus:outline-none focus:border-[#1C4587] text-xs"
+                    className="w-full px-3 py-1.5 rounded-sm border border-gray-300 focus:outline-none focus:border-primary text-xs"
                   />
                   {errors.code && (
                     <p className="text-red-500 text-xs mt-1">{errors.code.message}</p>
@@ -82,10 +82,10 @@ const VerifyCodeModal = ({ isOpen, onClose, setIsResetModalOpen }) => {
 
             {/* Right Section - Message */}
             <div className="w-full md:w-1/2 bg-[#C0D3F2] p-8 md:p-12 flex flex-col justify-center items-center text-center">
-              <h2 className="text-[#1C4587] text-lg font-semibold mb-2">
+              <h2 className="text-primary text-lg font-semibold mb-2">
                 Check your email for the code!
               </h2>
-              <p className="text-[#1C4587] text-xs">
+              <p className="text-primary text-xs">
                 Enter the 6-digit verification code <br />
                 to continue resetting your password.
               </p>

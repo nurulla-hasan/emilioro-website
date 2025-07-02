@@ -116,7 +116,7 @@ const ProjectContent = () => {
         </div>
         <div>
           <div className="flex justify-between items-center mt-2">
-            <h1 className="lg:text-lg text-sm font-bold text-[#1C4587]">{project.title}</h1>
+            <h1 className="lg:text-lg text-sm font-bold text-primary">{project.title}</h1>
             {/* Edit Button */}
             <button
               className="flex gap-1 items-center cursor-pointer bg-button text-white text-xs px-3 py-2 rounded-xs font-medium"

@@ -50,7 +50,7 @@ const AddGroupModal = ({ isOpen, onClose }) => {
                             className="bg-white rounded-sm lg:w-[400px] overflow-hidden"
                         >
                             {/* Header */}
-                            <div className="bg-[#1C4587]">
+                            <div className="bg-primary">
                                 <div className="text-white py-4 relative">
                                     <h2 className="text-center text-lg font-medium">New group chat</h2>
                                     <button
@@ -81,7 +81,7 @@ const AddGroupModal = ({ isOpen, onClose }) => {
                                     placeholder="Add Group name"
                                     value={groupName}
                                     onChange={(e) => setGroupName(e.target.value)}
-                                    className="w-full text-sm px-4 py-2.5 border border-gray-200 rounded-sm text-center focus:outline-none focus:border-[#1C4587] transition-colors"
+                                    className="w-full text-sm px-4 py-2.5 border border-gray-200 rounded-sm text-center focus:outline-none focus:border-primary transition-colors"
                                 />
 
                                 {/* Next Button */}
@@ -93,7 +93,7 @@ const AddGroupModal = ({ isOpen, onClose }) => {
                                         disabled={!groupName.trim()}
                                         className={`w-2/3 mx-auto cursor-pointer mt-6 py-1 rounded-sm text-white font-medium transition-colors ${
                                             groupName.trim()
-                                                ? 'bg-[#1C4587] hover:bg-[#15366b]'
+                                                ? 'bg-primary hover:bg-[#15366b]'
                                                 : 'bg-gray-300 cursor-not-allowed'
                                         }`}
                                     >

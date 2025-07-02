@@ -8,13 +8,13 @@ const RelativesSection = ({profileData, setIsDeleteModalOpen, setAddRelativesMod
         <div className="mt-12 mb-8">
           {/* Header */}
           <div className="flex flex-col gap-2 md:flex-row justify-between items-center mb-6">
-            <h2 className="xl:text-2xl text-lg font-semibold text-[#1C4587]">Relatives & Relationships</h2>
+            <h2 className="xl:text-2xl text-lg font-semibold text-primary">Relatives & Relationships</h2>
 
 
 
             <button
               onClick={() => setAddRelativesModal(true)}
-              className="bg-gradient-to-b cursor-pointer from-[#1C4587] to-[#3279EA]  text-white text-sm px-3 py-1.5 rounded-sm flex items-center"
+              className="bg-gradient-to-b cursor-pointer from-primary to-[#3279EA]  text-white text-sm px-3 py-1.5 rounded-sm flex items-center"
             >
               <Plus size={14} className="mr-1" /> Add New relatives
             </button>
@@ -46,7 +46,7 @@ const RelativesSection = ({profileData, setIsDeleteModalOpen, setAddRelativesMod
                     </div>
                   </div>
                   <div className="flex items-center gap-2 *:cursor-pointer">
-                    <button className="text-[#1C4587] flex items-center text-xs gap-1">
+                    <button className="text-primary flex items-center text-xs gap-1">
                       <img src="/messenger.svg" alt="" /> Chat now
                     </button>
                     <button onClick={() => setIsDeleteModalOpen(true)} className="text-red-500">
@@ -81,7 +81,7 @@ const RelativesSection = ({profileData, setIsDeleteModalOpen, setAddRelativesMod
                     </div>
                   </div>
                   <div className="flex items-center gap-2 *:cursor-pointer">
-                    <button className="text-[#1C4587] flex items-center text-xs gap-1">
+                    <button className="text-primary flex items-center text-xs gap-1">
                       <img src="/messenger.svg" alt="" /> Chat now
                     </button>
                     <button className="text-red-500">

@@ -46,10 +46,10 @@ const ChattingLayout = ({ children }) => {
             <div className="flex flex-col lg:flex-row gap-5">
                 {/* Mobile Menu Toggle */}
                 <div className="lg:hidden flex justify-between items-center mb-4">
-                    <h1 className="text-xl font-bold text-[#1C4587]">Real conversation between people</h1>
+                    <h1 className="text-xl font-bold text-primary">Real conversation between people</h1>
                     <button
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                        className="p-2 bg-[#1C4587] text-white rounded-md cursor-pointer"
+                        className="p-2 bg-primary text-white rounded-md cursor-pointer"
                     >
                         {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
                     </button>
@@ -65,7 +65,7 @@ const ChattingLayout = ({ children }) => {
                             transition={{ duration: 0.3 }}
                             className={`${isMobile ? "w-full" : "w-full lg:w-57"} bg-[#f8f9fc] -my-5 p-4 rounded-lg shadow-md mb-5 lg:mb-0`}
                         >
-                            <h2 className="text-lg font-semibold text-[#1C4587] mb-4">Menu</h2>
+                            <h2 className="text-lg font-semibold text-primary mb-4">Menu</h2>
                             <ul className={`flex ${isMobile ? "flex-row overflow-x-auto hide-scrollbar" : "flex-col"} gap-3`}>
                                 {menuItems.map((item) => (
                                     <motion.li
@@ -74,7 +74,7 @@ const ChattingLayout = ({ children }) => {
                                         whileTap={{ scale: 0.95 }}
                                         className={`flex items-center gap-2 p-3 cursor-pointer rounded-lg transition-all ${
                                             isMobile ? "min-w-[120px] justify-center" : ""
-                                        } ${activeTab.id === item.id ? "bg-[#1C4587] text-white" : "hover:bg-gray-200"}`}
+                                        } ${activeTab.id === item.id ? "bg-primary text-white" : "hover:bg-gray-200"}`}
                                         onClick={() => handleTabChange(item)}
                                     >
                                         {item.icon}
@@ -92,10 +92,10 @@ const ChattingLayout = ({ children }) => {
                         {activeTab.id === 0 ? (
                             <>
                                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-5 gap-4">
-                                    <h1 className="text-xl md:text-2xl font-bold text-[#1C4587] hidden lg:block">We are chatting</h1>
+                                    <h1 className="text-xl md:text-2xl font-bold text-primary hidden lg:block">We are chatting</h1>
                                     <div className="flex flex-col md:flex-row items-start md:items-center gap-4 w-full md:w-auto">
-                                        <div className="relative flex items-center border border-[#1C4587] rounded-sm px-3 py-1.5 w-full md:w-auto">
-                                            <CiSearch className="text-[#1C4587]" size={16} />
+                                        <div className="relative flex items-center border border-primary rounded-sm px-3 py-1.5 w-full md:w-auto">
+                                            <CiSearch className="text-primary" size={16} />
                                             <input
                                                 type="text"
                                                 placeholder="Search institute"
@@ -111,12 +111,12 @@ const ChattingLayout = ({ children }) => {
                         ) : (
                             <>
                                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-4">
-                                    <h1 className="text-xl md:text-2xl font-bold text-[#1C4587] hidden lg:block">
+                                    <h1 className="text-xl md:text-2xl font-bold text-primary hidden lg:block">
                                         {activeTab.name}
                                     </h1>
                                     <div className="flex flex-col md:flex-row items-start md:items-center gap-4 w-full md:w-auto">
-                                        <div className="relative flex items-center border border-[#1C4587] rounded-sm px-3 py-1.5 w-full md:w-auto">
-                                            <CiSearch className="text-[#1C4587]" size={16} />
+                                        <div className="relative flex items-center border border-primary rounded-sm px-3 py-1.5 w-full md:w-auto">
+                                            <CiSearch className="text-primary" size={16} />
                                             <input
                                                 type="text"
                                                 placeholder="Search institute"

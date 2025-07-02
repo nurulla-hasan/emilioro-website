@@ -143,10 +143,10 @@ const RequestProfile = () => {
                 <div className="flex flex-col gap-3 w-full items-center justify-center text-center">
                     <div className="relative">
                         <div>
-                            <h1 className="text-2xl font-bold text-[#1C4587]">{profileData.profile.name}</h1>
+                            <h1 className="text-2xl font-bold text-primary">{profileData.profile.name}</h1>
 
                             <div className="flex gap-3 items-center justify-center mt-2">
-                                <button className="border border-[#1C4587] text-[#1C4587] gap-1 flex items-center bg-white text-xs px-2 py-0.5 rounded-sm"> Reject
+                                <button className="border border-primary text-primary gap-1 flex items-center bg-white text-xs px-2 py-0.5 rounded-sm"> Reject
                                 </button>
                                 <button className="bg-button gap-1 flex items-center text-white text-xs px-2 py-[3px] rounded-sm">
                                     Accept
@@ -162,7 +162,7 @@ const RequestProfile = () => {
 
                         <div className="flex gap-2 mt-4">
                             {profileData.profile.tags.map((tag, index) => (
-                                <span key={index} className="bg-blue-50 text-[#1C4587] text-xs px-3 py-1 rounded-md">
+                                <span key={index} className="bg-blue-50 text-primary text-xs px-3 py-1 rounded-md">
                                     {tag}
                                 </span>
                             ))}
@@ -189,7 +189,7 @@ const RequestProfile = () => {
 
             <div className="mt-8">
                 <div className="flex justify-between items-center mb-4">
-                    <h2 className="xl:text-2xl text-xl font-semibold text-[#1C4587]">Social Links
+                    <h2 className="xl:text-2xl text-xl font-semibold text-primary">Social Links
 
                     </h2>
                 </div>
@@ -233,8 +233,8 @@ const RequestProfile = () => {
                 {/* Friends Section */}
                 <div className="mt-8">
                     <div className="flex justify-between items-center mb-6">
-                        <h2 className="xl:text-2xl text-xl font-semibold text-[#1C4587]">Friends</h2>
-                        <a href="#" className="text-[#1C4587] text-sm hover:underline">
+                        <h2 className="xl:text-2xl text-xl font-semibold text-primary">Friends</h2>
+                        <a href="#" className="text-primary text-sm hover:underline">
                             view more
                         </a>
                     </div>
@@ -271,7 +271,7 @@ const RequestProfile = () => {
                 <div className="mt-12 mb-8">
                     {/* Header */}
                     <div className="flex flex-col gap-2 md:flex-row justify-between items-center mb-6">
-                        <h2 className="xl:text-2xl text-lg font-semibold text-[#1C4587]">Relatives & Relationships</h2>
+                        <h2 className="xl:text-2xl text-lg font-semibold text-primary">Relatives & Relationships</h2>
                     </div>
 
                     {/* Two-column layout */}
@@ -299,7 +299,7 @@ const RequestProfile = () => {
                                         </div>
                                     </div>
                                     <div className="flex items-center gap-2 *:cursor-pointer">
-                                        <button className="text-[#1C4587] flex items-center text-xs gap-1">
+                                        <button className="text-primary flex items-center text-xs gap-1">
                                             <img src="/messenger.svg" alt="" /> Chat now
                                         </button>
                                         <button className="text-red-500">
@@ -333,7 +333,7 @@ const RequestProfile = () => {
                                         </div>
                                     </div>
                                     <div className="flex items-center gap-2 *:cursor-pointer">
-                                        <button className="text-[#1C4587] flex items-center text-xs gap-1">
+                                        <button className="text-primary flex items-center text-xs gap-1">
                                             <img src="/messenger.svg" alt="" /> Chat now
                                         </button>
                                         <button className="text-red-500">

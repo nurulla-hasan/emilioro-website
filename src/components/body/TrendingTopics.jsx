@@ -7,9 +7,9 @@ const TrendingTopics = () => {
     <section className="">
       {/* Header */}
       <div className="flex items-center justify-between mb-5">
-        <h2 className="lg:text-xl font-bold text-[#1C4587]">Trending topics
+        <h2 className="lg:text-xl font-bold text-primary">Trending topics
         </h2>
-        <Link href="/chatting/allTopics" className="text-[#1C4587] text-sm lg:text-md font-medium">
+        <Link href="/chatting/allTopics" className="text-primary text-sm lg:text-md font-medium">
           View all
         </Link>
       </div>
@@ -19,7 +19,7 @@ const TrendingTopics = () => {
         {trendingData.map((item) => (
           <div
             key={item.id}
-            className="bg-[#1C4587] w-full rounded-sm flex p-2 gap-3 items-center text-white"
+            className="bg-primary w-full rounded-sm flex p-2 gap-3 items-center text-white"
           >
             <div>
               {/* Image */}

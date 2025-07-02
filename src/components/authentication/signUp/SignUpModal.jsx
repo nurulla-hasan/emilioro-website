@@ -62,25 +62,25 @@ const SignUpModal = ({ isOpen, onClose, setIsLoginModalOpen }) => {
             {/* Close Button */}
             <button
               onClick={onClose}
-              className="cursor-pointer absolute top-4 right-4 z-50 bg-[#1C4587] text-white rounded-full p-1 hover:bg-[#15366b] transition-colors"
+              className="cursor-pointer absolute top-4 right-4 z-50 bg-primary text-white rounded-full p-1 hover:bg-[#15366b] transition-colors"
             >
               <X size={16} />
             </button>
 
             {/* Left Section */}
             <div className="w-full md:w-1/2 p-8 md:p-12 flex flex-col items-center justify-center gap-10">
-              <h2 className="text-[#1C4587] text-lg font-semibold mb-3">Hello Friend!</h2>
-              <p className="text-[#1C4587] text-center mb-6 text-xs">
+              <h2 className="text-primary text-lg font-semibold mb-3">Hello Friend!</h2>
+              <p className="text-primary text-center mb-6 text-xs">
                 Please provide the information's to register your account
               </p>
               <div className="text-center">
-                <p className="text-[#1C4587] mb-4 text-sm ">Already have an account! Sign in</p>
+                <p className="text-primary mb-4 text-sm ">Already have an account! Sign in</p>
                 <button
                   onClick={() => {
                     onClose()
                     setIsLoginModalOpen(true)
                   }}
-                  className="w-full cursor-pointer max-w-[200px] bg-[#1C4587] hover:bg-[#15366b] text-white py-1.5 rounded-sm text-xs font-medium transition-colors"
+                  className="w-full cursor-pointer max-w-[200px] bg-primary hover:bg-[#15366b] text-white py-1.5 rounded-sm text-xs font-medium transition-colors"
                 >
                   Sign In
                 </button>
@@ -89,37 +89,37 @@ const SignUpModal = ({ isOpen, onClose, setIsLoginModalOpen }) => {
 
             {/* Right Section - Registration Form */}
             <div className="w-full md:w-1/2 bg-[#C0D3F2] p-8 md:p-12">
-              <h2 className="text-[#1C4587] text-lg font-semibold text-center mb-2">Register a new account</h2>
-              <p className="text-[#1C4587] text-center mb-6 text-xs">Please enter your information to create account</p>
+              <h2 className="text-primary text-lg font-semibold text-center mb-2">Register a new account</h2>
+              <p className="text-primary text-center mb-6 text-xs">Please enter your information to create account</p>
 
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                 {/* Username */}
                 <div>
-                  <label className="block text-[#1C4587] text-xs font-medium mb-1">User name</label>
+                  <label className="block text-primary text-xs font-medium mb-1">User name</label>
                   <input
                     type="text"
                     placeholder="Enter your username"
                     {...register("username", { required: "Username is required" })}
-                    className="w-full px-3 py-1.5 text-xs rounded-sm bg-white border border-gray-300 focus:outline-none focus:border-[#1C4587]"
+                    className="w-full px-3 py-1.5 text-xs rounded-sm bg-white border border-gray-300 focus:outline-none focus:border-primary"
                   />
                   {errors.username && <p className="text-red-500 text-xs mt-1">{errors.username.message}</p>}
                 </div>
 
                 {/* Email */}
                 <div>
-                  <label className="block text-[#1C4587] text-xs font-medium mb-1">Email</label>
+                  <label className="block text-primary text-xs font-medium mb-1">Email</label>
                   <input
                     type="email"
                     placeholder="Enter your email"
                     {...register("email", { required: "Email is required" })}
-                    className="w-full px-3 py-1.5 text-xs rounded-sm bg-white border border-gray-300 focus:outline-none focus:border-[#1C4587]"
+                    className="w-full px-3 py-1.5 text-xs rounded-sm bg-white border border-gray-300 focus:outline-none focus:border-primary"
                   />
                   {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>}
                 </div>
 
                 {/* Skilled People (Optional) */}
               <div className="pt-4">
-                <label className="block text-[#1C4587] text-xs font-semibold mb-2">
+                <label className="block text-primary text-xs font-semibold mb-2">
                   Recommend up to 3 skilled people (Optional)
                 </label>
 
@@ -130,21 +130,21 @@ const SignUpModal = ({ isOpen, onClose, setIsLoginModalOpen }) => {
                       placeholder="Name"
                       value={skilledPeople[index].name}
                       onChange={(e) => handleSkilledChange(index, "name", e.target.value)}
-                      className="px-2 py-1 text-xs rounded-sm bg-white border border-gray-300 focus:outline-none focus:border-[#1C4587]"
+                      className="px-2 py-1 text-xs rounded-sm bg-white border border-gray-300 focus:outline-none focus:border-primary"
                     />
                     <input
                       type="text"
                       placeholder="Profession"
                       value={skilledPeople[index].profession}
                       onChange={(e) => handleSkilledChange(index, "profession", e.target.value)}
-                      className="px-2 py-1 text-xs rounded-sm bg-white border border-gray-300 focus:outline-none focus:border-[#1C4587]"
+                      className="px-2 py-1 text-xs rounded-sm bg-white border border-gray-300 focus:outline-none focus:border-primary"
                     />
                     <input
                       type="number"
                       placeholder="Phone"
                       value={skilledPeople[index].phone}
                       onChange={(e) => handleSkilledChange(index, "phone", e.target.value)}
-                      className="px-2 py-1 text-xs rounded-sm bg-white border border-gray-300 focus:outline-none focus:border-[#1C4587]"
+                      className="px-2 py-1 text-xs rounded-sm bg-white border border-gray-300 focus:outline-none focus:border-primary"
                     />
                   </div>
                 ))}
@@ -152,29 +152,29 @@ const SignUpModal = ({ isOpen, onClose, setIsLoginModalOpen }) => {
 
                 {/* Contact */}
                 <div>
-                  <label className="block text-[#1C4587] text-xs font-medium mb-1">Contact no</label>
+                  <label className="block text-primary text-xs font-medium mb-1">Contact no</label>
                   <input
                     type="tel"
                     placeholder="Enter your contact number"
                     {...register("contact", { required: "Contact number is required" })}
-                    className="w-full px-3 py-1.5 text-xs rounded-sm bg-white border border-gray-300 focus:outline-none focus:border-[#1C4587]"
+                    className="w-full px-3 py-1.5 text-xs rounded-sm bg-white border border-gray-300 focus:outline-none focus:border-primary"
                   />
                   {errors.contact && <p className="text-red-500 text-xs mt-1">{errors.contact.message}</p>}
                 </div>
 
                 {/* Password */}
                 <div>
-                  <label className="block text-[#1C4587] text-xs font-medium mb-1">Password</label>
+                  <label className="block text-primary text-xs font-medium mb-1">Password</label>
                   <div className="relative">
                     <input
                       type={showPassword ? "text" : "password"}
                       placeholder="Enter your password"
                       {...register("password", { required: "Password is required" })}
-                      className="w-full px-3 py-1.5 text-xs rounded-sm bg-white border border-gray-300 focus:outline-none focus:border-[#1C4587]"
+                      className="w-full px-3 py-1.5 text-xs rounded-sm bg-white border border-gray-300 focus:outline-none focus:border-primary"
                     />
                     <button
                       type="button"
-                      className="absolute cursor-pointer right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-[#1C4587]"
+                      className="absolute cursor-pointer right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-primary"
                       onClick={() => setShowPassword(!showPassword)}
                     >
                       {showPassword ? <EyeOff size={15} /> : <Eye size={15} />}

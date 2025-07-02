@@ -12,7 +12,7 @@ const InputField = forwardRef(
       <input
         type={type}
         placeholder={placeholder}
-        className={`w-full text-xs border-b border-gray-300 py-2 focus:border-[#1C4587] outline-none ${error ? "border-red-500" : ""
+        className={`w-full text-xs border-b border-gray-300 py-2 focus:border-primary outline-none ${error ? "border-red-500" : ""
           }`}
         onInput={onInput}
         ref={ref}
@@ -109,7 +109,7 @@ const DonateUsPaymentModal = ({ isOpen, onClose, totalAmount = 155.0 }) => {
                 </button>
 
                 {/* Title */}
-                <h2 className="text-[#1C4587] text-2xl font-bold mb-2">Payment</h2>
+                <h2 className="text-primary text-2xl font-bold mb-2">Payment</h2>
                 <p className="text-gray-500 mb-6 text-center font-semibold">
                   Personal Information
                 </p>
@@ -215,7 +215,7 @@ const DonateUsPaymentModal = ({ isOpen, onClose, totalAmount = 155.0 }) => {
                   {/* Total Amount */}
                   <div className="flex justify-between items-center pt-4">
                     <span className="font-medium text-xs">Total Amount</span>
-                    <span className="font-bold text-[#1C4587]">
+                    <span className="font-bold text-primary">
                       ${totalAmount.toFixed(2)}
                     </span>
                   </div>
@@ -223,7 +223,7 @@ const DonateUsPaymentModal = ({ isOpen, onClose, totalAmount = 155.0 }) => {
                   {/* Payment Button */}
                   <button
                     type="submit"
-                    className="w-full cursor-pointer bg-[#1C4587] hover:bg-[#15366b] text-white text-sm font-medium py-2 rounded transition"
+                    className="w-full cursor-pointer bg-primary hover:bg-[#15366b] text-white text-sm font-medium py-2 rounded transition"
                   >
                     Confirm to pay
                   </button>
@@ -250,7 +250,7 @@ const DonateUsPaymentModal = ({ isOpen, onClose, totalAmount = 155.0 }) => {
                       setIsSuccess(false);
                       onClose();
                     }}
-                    className="mt-4 cursor-pointer w-1/3 bg-[#1C4587] text-white text-[10px] font-medium py-2 rounded-sm hover:bg-opacity-90 transition outline-none"
+                    className="mt-4 cursor-pointer w-1/3 bg-primary text-white text-[10px] font-medium py-2 rounded-sm hover:bg-opacity-90 transition outline-none"
                   >
                     Go Home
                   </button>

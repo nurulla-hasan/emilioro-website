@@ -28,10 +28,10 @@ const ChangePassword = () => {
             className="shadow-[0px_19px_48px_1px_#CFC9DDB2] rounded-lg md:w-3/5 mx-auto my-10"
         >
             <div className="md:w-2/3 px-5 py-10 mx-auto">
-                <h2 className="text-xl text-[#1C4587] font-bold text-center mb-6">Edit Your Profile</h2>
+                <h2 className="text-xl text-primary font-bold text-center mb-6">Edit Your Profile</h2>
                 <div className="mb-6 flex flex-col gap-[2px]">
-                    <p className="text-center text-[#1C4587] font-medium cursor-pointer text-sm">Change password</p>
-                    <div className="border-b-2 border-[#1C4587] w-1/3 mx-auto"></div>
+                    <p className="text-center text-primary font-medium cursor-pointer text-sm">Change password</p>
+                    <div className="border-b-2 border-primary w-1/3 mx-auto"></div>
                 </div>
 
                 <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">

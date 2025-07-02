@@ -12,7 +12,7 @@ const BondsRatingModal = ({showRatingModal, setShowRatingModal, setRating, ratin
                         className="bg-white rounded-sm p-5 w-full max-w-md"
                     >
                         <div className="flex justify-between items-center mb-4">
-                            <h2 className="text-lg font-medium text-[#1C4587]">Rate this Bond</h2>
+                            <h2 className="text-lg font-medium text-primary">Rate this Bond</h2>
                             <button
                                 onClick={() => setShowRatingModal(false)}
                                 className="text-gray-500 hover:text-gray-700 cursor-pointer"
@@ -46,7 +46,7 @@ const BondsRatingModal = ({showRatingModal, setShowRatingModal, setRating, ratin
                                 value={ratingComment}
                                 onChange={(e) => setRatingComment(e.target.value)}
                                 placeholder="Share your experience..."
-                                className="w-full p-2 border border-gray-300 rounded-sm focus:outline-none focus:border-[#1C4587] min-h-[100px]"
+                                className="w-full p-2 border border-gray-300 rounded-sm focus:outline-none focus:border-primary min-h-[100px]"
                             />
                         </div>
 

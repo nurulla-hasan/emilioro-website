@@ -23,7 +23,7 @@ export default function AddEventModal({ onClose }) {
         className="bg-white p-6 rounded-lg shadow-lg w-96 relative"
       >
         {/* Close Button */}
-        <button onClick={onClose} className="absolute cursor-pointer top-3 right-3 bg-[#1C4587] p-1 rounded-full text-white">
+        <button onClick={onClose} className="absolute cursor-pointer top-3 right-3 bg-primary p-1 rounded-full text-white">
           <X size={20} />
         </button>
 

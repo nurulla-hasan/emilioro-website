@@ -20,7 +20,7 @@ export default function AddRelativesModal({ isOpen, onClose }) {
         className="bg-white p-4 rounded-sm shadow-lg w-96 relative"
       >
         {/* Close Button */}
-        <button onClick={onClose} className="absolute cursor-pointer top-3 right-3 text-white bg-[#1C4587] p-1 rounded-full">
+        <button onClick={onClose} className="absolute cursor-pointer top-3 right-3 text-white bg-primary p-1 rounded-full">
           <X size={20} />
         </button>
 

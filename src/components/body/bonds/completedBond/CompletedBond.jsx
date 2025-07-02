@@ -94,7 +94,7 @@ const CompletedBond = () => {
 
   return (
     <div>
-        <h1 className="text-xl text-[#1C4587] font-bold mb-4">Completed Bond</h1>
+        <h1 className="text-xl text-primary font-bold mb-4">Completed Bond</h1>
         <div className="w-full my-20">
       <motion.div
         variants={containerVariants}

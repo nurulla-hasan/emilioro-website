@@ -6,7 +6,7 @@ import { Play, Pause, SkipBack, SkipForward, Shuffle, Repeat, Volume2, Heart } f
 const AudioPlayer = () => {
   const [isPlaying, setIsPlaying] = useState(false)
   const [currentTime, setCurrentTime] = useState(0)
-  const duration = 240 // 4 min in seconds
+  const duration = 240
 
   const togglePlayPause = () => {
     setIsPlaying(!isPlaying)
@@ -41,9 +41,9 @@ const AudioPlayer = () => {
       </div>
 
       {/* Main Controls and Progress - Stacked on mobile, inline on larger screens */}
-      <div className="flex flex-col sm:flex-row items-center gap-3 w-full mt-3 sm:mt-0">
+      <div className="flex items-center gap-3 w-full">
         {/* Controls */}
-        <div className="flex items-center gap-4 text-blue-900 order-2 sm:order-1 mt-3 sm:mt-0 *:cursor-pointer">
+        <div className="flex items-center gap-4 text-blue-900 order-2 sm:order-1 *:cursor-pointer">
           <button className="hidden xs:inline-block hover:text-blue-700">
             <SkipBack size={16} />
           </button>

@@ -28,7 +28,7 @@ const MyFriendList = ({ searchTerm = "" }) => {
 
             {/* Search result count */}
             {searchTerm && filteredFriends.length > 0 && (
-                <div className="text-[#1C4587] absolute -top-3 left-5 text-xs font-semibold text-center mb-4">
+                <div className="text-primary absolute -top-3 left-5 text-xs font-semibold text-center mb-4">
                     {filteredFriends.length > 100 ? "100+ results" : `${filteredFriends.length} results`}
                 </div>
             )}
@@ -59,7 +59,7 @@ const MyFriendList = ({ searchTerm = "" }) => {
                         {/* Roles */}
                         <div className="flex flex-wrap justify-center gap-1 mb-4">
                             {friend.role.map((role, idx) => (
-                                <span key={idx} className="bg-[#9A9A9A33] text-[#1C4587] text-[10px] px-2 py-1 rounded-md">
+                                <span key={idx} className="bg-[#9A9A9A33] text-primary text-[10px] px-2 py-1 rounded-md">
                                     {role}
                                 </span>
                             ))}

@@ -2,6 +2,7 @@ import JoinInstitutionModal from "./modal/JoinInstituteModal";
 import { useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { AllInstitutionsData } from "@/data/data";
+import Image from "next/image";
 
 const AllInstitution = () => {
   const pathname = usePathname()
@@ -13,7 +14,7 @@ const AllInstitution = () => {
 
 
   return (
-    <>
+    <div className="min-h-minus-header">
 
       <div className={`${isInstitutions ? "hidden" : ""} space-y-5 relative`}>
         <div className='grid items-center grid-cols-1 gap-5 mt-10 rounded-lg xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2'>
@@ -22,14 +23,14 @@ const AllInstitution = () => {
               key={card.id}
               className="lg:w-full mx-auto flex flex-col gap-2 shadow-[0px_15px_45px_0px_#CFC9DD99] bg-[#FFFFFF] border border-gray-300 rounded-sm"
             >
-              <div>
-                <img src={card.image || "/placeholder.svg"} alt="image" className="w-full" />
+              <div className="aspect-[8/5] relative">
+                <Image src={card.image || "/placeholder.svg"} alt="image" fill className="w-full" />
               </div>
 
               <div className="flex flex-col gap-2 p-3 rounded-b-sm">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className=" text-[#1C4587] text-sm font-semibold">
+                    <p className=" text-primary text-sm font-semibold">
                       {card.institutionName}
                     </p>
                   </div>
@@ -39,10 +40,6 @@ const AllInstitution = () => {
                   <p className="text-[#6F6F6F] text-xs">{card.description}</p>
 
                   <div className="flex flex-col gap-2">
-                    {/* <div className="flex items-center justify-between">
-                      <h5 className="text-[13px] text-gray-800 font-semibold">Group A</h5>
-                      <h5 className="text-[13px] text-gray-800 font-semibold">Group B</h5>
-                    </div> */}
                     <div className="flex items-center justify-between">
                       <h5 className="text-[13px] text-gray-800 font-semibold">{card.skils[0]}</h5>
                       <h5 className="text-[13px] text-gray-800 font-semibold">{card.skils[1]}</h5>
@@ -62,7 +59,7 @@ const AllInstitution = () => {
                 <div className="flex items-center justify-between gap-2 mt-4">
                   <button
                     onClick={() => router.push(`/institutions/${card.id}`)}
-                    className="px-4 py-[7px] flex-1/2 items-center cursor-pointer bg-white rounded-xs font-medium border border-[#1C4587] text-[#1C4587] text-xs outline-none focus:ring-0"
+                    className="px-4 py-[7px] flex-1/2 items-center cursor-pointer bg-white rounded-xs font-medium border border-primary text-primary text-xs outline-none focus:ring-0"
                   >
                     Open
                   </button>
@@ -81,6 +78,7 @@ const AllInstitution = () => {
         </div>
       </div>
 
+          {/* for institutions details */}
       <div className={`${isInstitutions ? "" : "hidden"} space-y-5 relative`}>
         <div className='flex flex-col gap-2 mx-auto border rounded-sm overflow-hidden border-gray-300 lg:w-full p-2'>
           {AllInstitutionsData.map((card) => (
@@ -91,7 +89,7 @@ const AllInstitution = () => {
               <div className="flex flex-col gap-2 p-3 rounded-b-sm">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className=" text-[#1C4587] text-sm font-semibold">
+                    <p className=" text-primary text-sm font-semibold">
                       {card.institutionName}
                     </p>
                   </div>
@@ -99,10 +97,6 @@ const AllInstitution = () => {
 
                 <div className="flex flex-col gap-4">
                   <div className="flex flex-col gap-2">
-                    {/* <div className="flex items-center justify-between">
-                      <h5 className="text-[10px] text-gray-800 font-semibold">Group A</h5>
-                      <h5 className="text-[10px] text-gray-800 font-semibold">Group B</h5>
-                    </div> */}
                     <div className="flex items-center justify-between">
                       <h5 className="text-[10px] text-gray-800 font-semibold">{card.skils[0]}</h5>
                       <h5 className="text-[10px] text-gray-800 font-semibold">{card.skils[1]}</h5>
@@ -123,7 +117,7 @@ const AllInstitution = () => {
                 <div className="flex justify-between gap-2">
                   <button
                     onClick={() => router.push(`/institutions/${card.id}`)}
-                    className="py-1 flex-1/2 items-center cursor-pointer bg-white rounded-xs font-medium border border-[#1C4587] text-[#1C4587] text-[10px] outline-none focus:ring-0"
+                    className="py-1 flex-1/2 items-center cursor-pointer bg-white rounded-xs font-medium border border-primary text-primary text-[10px] outline-none focus:ring-0"
                   >
                     Open
                   </button>
@@ -142,7 +136,7 @@ const AllInstitution = () => {
         </div>
       </div>
 
-    </>
+    </div>
   );
 };
 

@@ -137,7 +137,7 @@ const MostPlayedSection = () => {
 
                                 {/* Play/Pause Button */}
                                 <button
-                                    className="bg-[#1C4587] text-white rounded-full w-10 h-10 flex items-center justify-center flex-shrink-0 absolute bottom-2 left-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer"
+                                    className="bg-primary text-white rounded-full w-10 h-10 flex items-center justify-center flex-shrink-0 absolute bottom-2 left-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer"
                                     onClick={() => handlePlayPause(item.audioUrl)}
                                 >
                                     {isPlaying ? <FaPause size={14} /> : <FaPlay size={14} />}
@@ -168,7 +168,7 @@ const MostPlayedSection = () => {
                                 <div className="mt-2 flex justify-between items-center">
                                     <div className="flex items-center gap-1 *:px-[4px] *:py-[1px] *:rounded-xs">
                                         {item.tags.map((tag, index) => (
-                                            <p key={index} className="text-[10px] font-[300] bg-[#1C4587] text-white px-2 py-1 rounded">
+                                            <p key={index} className="text-[10px] font-[300] bg-primary text-white px-2 py-1 rounded">
                                                 {tag}
                                             </p>
                                         ))}

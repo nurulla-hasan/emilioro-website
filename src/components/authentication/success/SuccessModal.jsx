@@ -26,7 +26,7 @@ const SuccessModal = ({ isOpen, onClose, setIsLoginModalOpen }) => {
             {/* Close Button */}
             <button
               onClick={onClose}
-              className="absolute cursor-pointer top-4 right-4 z-50 bg-[#1C4587] text-white rounded-full p-1 hover:bg-[#15366b] transition-colors"
+              className="absolute cursor-pointer top-4 right-4 z-50 bg-primary text-white rounded-full p-1 hover:bg-[#15366b] transition-colors"
             >
               <X size={16} />
             </button>
@@ -39,8 +39,8 @@ const SuccessModal = ({ isOpen, onClose, setIsLoginModalOpen }) => {
 
             {/* Right Section - Login Button */}
             <div className="w-full md:w-1/2 bg-[#C0D3F2] p-8 md:p-12 flex flex-col justify-center items-center text-center">
-              <h2 className="text-[#1C4587] text-lg font-semibold mb-2">Ready to go!</h2>
-              <p className="text-[#1C4587] text-xs mb-4">You can now log in with your new password.</p>
+              <h2 className="text-primary text-lg font-semibold mb-2">Ready to go!</h2>
+              <p className="text-primary text-xs mb-4">You can now log in with your new password.</p>
               <button
                 onClick={() => {
                   onClose()

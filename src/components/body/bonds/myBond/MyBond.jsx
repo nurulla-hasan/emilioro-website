@@ -110,7 +110,7 @@ const MyBond = () => {
 
   return (
     <div>
-      <h1 className="text-xl text-[#1C4587] font-bold mb-4">My Bonds</h1>
+      <h1 className="text-xl text-primary font-bold mb-4">My Bonds</h1>
 
       <div className="lg:mt-32 mt-16">
         <div className="my-5 text-center">
@@ -127,7 +127,7 @@ const MyBond = () => {
         <div className="flex flex-col lg:flex-row items-start gap-8 my-8">
           {/* Display "Give" Bonds */}
           <div className="w-full shadow rounded-sm p-8">
-            <h1 className="text-xl text-[#1C4587] font-bold mb-4">Give</h1>
+            <h1 className="text-xl text-primary font-bold mb-4">Give</h1>
             <div className="flex flex-col gap-3">
               {giveBonds.map((bond) => (
                 <div key={bond.id} className="flex justify-between items-center bg-[#EAF0FB] p-3 rounded-sm">
@@ -143,7 +143,7 @@ const MyBond = () => {
 
           {/* Display "Get" Bonds */}
           <div className="w-full shadow rounded-sm p-8">
-            <h1 className="text-xl text-[#1C4587] font-bold mb-4">Get</h1>
+            <h1 className="text-xl text-primary font-bold mb-4">Get</h1>
             <div className="flex flex-col gap-3">
               {getBonds.map((bond) => (
                 <div key={bond.id} className="flex justify-between items-center bg-[#EAF0FB] p-3 rounded-sm">

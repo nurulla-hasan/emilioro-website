@@ -211,7 +211,7 @@ const PlaylistDetails = () => {
                             <div className="flex-1">
                                 <div className="flex flex-col justify-between gap-2 md:flex-row md:items-start md:gap-0">
                                     <div>
-                                        <h2 className="text-md font-semibold text-[#1C4587]">{audio.title}</h2>
+                                        <h2 className="text-md font-semibold text-primary">{audio.title}</h2>
                                         <p className="mt-1 text-xs text-gray-600">{audio.description}</p>
                                     </div>
                                     <div className="flex items-center gap-2 text-xs text-gray-500">
@@ -226,7 +226,7 @@ const PlaylistDetails = () => {
                                 <div className="flex items-center gap-3 mt-2">
                                     <button
                                         onClick={() => togglePlay(audio.id)}
-                                        className="bg-[#1C4587] text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 cursor-pointer"
+                                        className="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 cursor-pointer"
                                     >
                                         {playing === audio.id ? <FaPause size={12} /> : <FaPlay size={12} />}
                                     </button>
@@ -243,7 +243,7 @@ const PlaylistDetails = () => {
                                 {/* Tags */}
                                 <div className="flex flex-wrap gap-2 mt-3">
                                     {audio.tags.map((tag, index) => (
-                                        <span key={index} className="bg-[#1C4587] text-white text-[10px] px-3 py-1 rounded-sm">
+                                        <span key={index} className="bg-primary text-white text-[10px] px-3 py-1 rounded-sm">
                                             {tag}
                                         </span>
                                     ))}

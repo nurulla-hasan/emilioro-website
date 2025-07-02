@@ -42,7 +42,7 @@ const EcoFriendlyCards = () => {
             <div className="flex items-center justify-between mx-auto">
 
                 <h1 className="lg:text-2xl text-lg my-5 font-bold text-blue-900">Browse & Join Institute</h1>
-                <Link href="#" className="text-[#1C4587] lg:text-lg text-sm  font-medium">
+                <Link href="#" className="text-primary lg:text-lg text-sm  font-medium">
                     View all
                 </Link>
             </div>
@@ -67,7 +67,7 @@ const EcoFriendlyCards = () => {
                                     <div className="flex items-center gap-1">
 
                                         <div className="flex items-center gap-1">
-                                            <p className=" rounded-sm px-1 py-[1] text-[#1C4587] text-sm font-semibold">{card.institutionName}</p>
+                                            <p className=" rounded-sm px-1 py-[1] text-primary text-sm font-semibold">{card.institutionName}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -103,7 +103,7 @@ const EcoFriendlyCards = () => {
                             <div className='flex justify-between items-center'>
                                 
 
-                                <button className='px-6 py-[6] items-center bg-white  rounded-lg font-semibold border-2 border-[#1C4587] to-[#3279EA] text-[#1C4587] text-[11px] cursor-pointer'>
+                                <button className='px-6 py-[6] items-center bg-white  rounded-lg font-semibold border-2 border-primary to-[#3279EA] text-primary text-[11px] cursor-pointer'>
                                     View Details
                                 </button>
 

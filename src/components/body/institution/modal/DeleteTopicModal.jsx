@@ -36,7 +36,7 @@ const DeleteTopicModal = ({ isOpen, onClose, handleDeleteConfirm }) => {
         <div className="mt-6 flex justify-center gap-3">
           <button
             onClick={handleDeleteConfirm}
-            className="bg-[#1C4587] cursor-pointer text-white px-5 py-2 rounded-sm text-[10px] outline-none focus:ring-0"
+            className="bg-primary cursor-pointer text-white px-5 py-2 rounded-sm text-[10px] outline-none focus:ring-0"
           >
             Delete
           </button>

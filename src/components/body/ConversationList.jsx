@@ -48,8 +48,8 @@ const ConversationList = () => {
 
             <div className="flex items-center justify-between mx-auto">
 
-                <h1 className="text-xl w-60 lg:w-[500px] font-semibold text-[#1C4587]">Discover Conversations You’ll Love</h1>
-                <Link href="/chatting/allPlaylist" className="text-[#1C4587] text-sm lg:text-md font-medium">
+                <h1 className="text-xl w-60 lg:w-[500px] font-semibold text-primary">Discover Conversations You’ll Love</h1>
+                <Link href="/chatting/allPlaylist" className="text-primary text-sm lg:text-md font-medium">
                     View all
                 </Link>
             </div>
@@ -69,7 +69,7 @@ const ConversationList = () => {
 
                         <div className='flex flex-col gap-2'>
                             <div className='flex items-center justify-between'>
-                                <div className="text-sm text-[#1C4587] font-semibold mb-1">
+                                <div className="text-sm text-primary font-semibold mb-1">
                                     {conversation.title}
                                 </div>
                                 <div>
@@ -96,7 +96,7 @@ const ConversationList = () => {
                                         View
                                     </button>
                                 </Link>
-                                <button className='flex gap-2 px-3 text-xs py-[4.5px] items-center bg-white  rounded-sm font-semibold border-2 border-[#1C4587] to-[#3279EA] text-[#1C4587]'>
+                                <button className='flex gap-2 px-3 text-xs py-[4.5px] items-center bg-white  rounded-sm font-semibold border-2 border-primary to-[#3279EA] text-primary'>
                                     < IoMdShare />
                                     <span>Share</span>
                                 </button>

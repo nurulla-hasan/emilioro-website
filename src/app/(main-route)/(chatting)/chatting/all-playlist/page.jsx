@@ -15,9 +15,9 @@ const AllPlaylist = () => {
     return (
         <div className='px-5 my-5 md:px-8'>
             <div className="flex flex-col items-start justify-between gap-5 mx-auto lg:flex-row">
-                <h1 className="text-xl text-[#1C4587] font-bold">All Playlist</h1>
+                <h1 className="text-xl text-primary font-bold">All Playlist</h1>
                 <div className='flex items-center justify-center gap-5'>
-                    <div className="relative lg:w-[250px] w-[150px] border border-[#1C4587] rounded-sm flex items-center px-2">
+                    <div className="relative lg:w-[250px] w-[150px] border border-primary rounded-sm flex items-center px-2">
                         <CiSearch className='cursor-pointer' color='#1C4587' size={15} />
                         <input
                             type="text"
@@ -52,7 +52,7 @@ const AllPlaylist = () => {
 
                         <div className='flex flex-col gap-2'>
                             <div className='flex items-center justify-between'>
-                                <div className="text-sm text-[#1C4587] font-semibold mb-1">
+                                <div className="text-sm text-primary font-semibold mb-1">
                                     {conversation.title}
                                 </div>
                                 <div>
@@ -79,7 +79,7 @@ const AllPlaylist = () => {
                                         View
                                     </button>
                                 </Link>
-                                <button className='flex gap-2 px-3 text-xs py-[4.5px] items-center bg-white  rounded-sm font-semibold border-2 border-[#1C4587] to-[#3279EA] text-[#1C4587] cursor-pointer'>
+                                <button className='flex gap-2 px-3 text-xs py-[4.5px] items-center bg-white  rounded-sm font-semibold border-2 border-primary to-[#3279EA] text-primary cursor-pointer'>
                                     < IoMdShare />
                                     <span>Share</span>
                                 </button>

@@ -35,7 +35,7 @@ const FriendSelectionModal = ({ isOpen, onClose }) => {
                     className="bg-white w-4/5 lg:w-[600px] mt-12 h-[80vh] lg:h-[88vh] rounded-sm overflow-scroll hide-scrollbar"
                 >
                     {/* Header */}
-                    <div className="bg-[#1C4587] text-white py-4 relative rounded-sm">
+                    <div className="bg-primary text-white py-4 relative rounded-sm">
                         <h2 className="text-center text-lg font-medium">New group chat</h2>
                         <button
                             onClick={onClose}
@@ -51,7 +51,7 @@ const FriendSelectionModal = ({ isOpen, onClose }) => {
                             <input
                                 type="text"
                                 placeholder="Search Friend"
-                                className="w-full text-sm px-4 py-2.5 border border-blue-900 rounded-sm pl-10 focus:outline-none focus:border-[#1C4587] transition-colors"
+                                className="w-full text-sm px-4 py-2.5 border border-blue-900 rounded-sm pl-10 focus:outline-none focus:border-primary transition-colors"
                             />
                             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
                         </div>
@@ -105,7 +105,7 @@ const FriendSelectionModal = ({ isOpen, onClose }) => {
                     <div className="p-4 text-center">
                         <button
                             className={`w-1/2 py-1 rounded-sm text-white font-medium ${
-                                selectedFriends.length > 0 ? "bg-[#1C4587] cursor-pointer hover:bg-[#15366b]" : "bg-gray-300 cursor-not-allowed"
+                                selectedFriends.length > 0 ? "bg-primary cursor-pointer hover:bg-[#15366b]" : "bg-gray-300 cursor-not-allowed"
                             }`}
                             disabled={selectedFriends.length === 0}
                         >

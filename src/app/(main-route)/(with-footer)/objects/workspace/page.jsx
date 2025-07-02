@@ -181,7 +181,7 @@ const WorkSpace = () => {
       <div className="mb-6">
         <div className="flex justify-between items-start mb-2">
           <div className="flex items-center justify-between w-full">
-            <h1 className="text-xl font-semibold text-[#1C4587]">{project.title}</h1>
+            <h1 className="text-xl font-semibold text-primary">{project.title}</h1>
             <img
               onClick={() => router.push(`/object/myProject/myProjectDetails?id=${project.id}`)}
               src="/filter.svg"
@@ -223,7 +223,7 @@ const WorkSpace = () => {
           {/* Producer Section */}
           <div className="lg:col-span-3 bg-white rounded-sm">
             <div className="p-4">
-              <h2 className="text-[#1C4587] font-medium mb-3">Producer</h2>
+              <h2 className="text-primary font-medium mb-3">Producer</h2>
               <div className="relative">
                 <input
                   type="text"
@@ -259,12 +259,12 @@ const WorkSpace = () => {
             {/* Documents */}
             <div className="bg-white border rounded-b-md border-gray-100">
               <div className="flex border-b border-gray-200 p-2 justify-between items-center mb-4">
-                <h2 className="text-[#1C4587] font-medium">All Files</h2>
+                <h2 className="text-primary font-medium">All Files</h2>
               </div>
 
               <div className="p-4">
                 <div className="flex justify-between items-center mb-4">
-                  <h3 className="text-sm font-medium text-[#1C4587]">Document</h3>
+                  <h3 className="text-sm font-medium text-primary">Document</h3>
                   <input
                     type="file"
                     {...register("documentFile")}
@@ -275,7 +275,7 @@ const WorkSpace = () => {
                   />
                   <button
                     onClick={() => documentFileRef.current.click()}
-                    className="text-[#1C4587] cursor-pointer text-xs px-4 py-1 border rounded-sm flex items-center gap-2"
+                    className="text-primary cursor-pointer text-xs px-4 py-1 border rounded-sm flex items-center gap-2"
                   >
                     <Upload className="h-3 w-3" />
                     Upload file
@@ -320,7 +320,7 @@ const WorkSpace = () => {
                   />
                   <button
                     onClick={() => imageFileRef.current.click()}
-                    className="text-[#1C4587] cursor-pointer text-xs px-4 py-1 border rounded-sm flex items-center gap-2"
+                    className="text-primary cursor-pointer text-xs px-4 py-1 border rounded-sm flex items-center gap-2"
                   >
                     <Upload className="h-3 w-3" />
                     Upload file
@@ -370,7 +370,7 @@ const WorkSpace = () => {
           {/* Users Section */}
           <div className="lg:col-span-3 bg-white rounded-sm">
             <div className="p-4">
-              <h2 className="text-[#1C4587] font-medium mb-3">Users</h2>
+              <h2 className="text-primary font-medium mb-3">Users</h2>
               <div className="relative">
                 <input
                   type="text"
@@ -404,7 +404,7 @@ const WorkSpace = () => {
 
         {/* Project Discussion */}
         <div className="mt-6 border-t border-gray-200 mb-10">
-          <h2 className="text-[#1C4587] font-semibold ml-8 my-4">Project Discussion</h2>
+          <h2 className="text-primary font-semibold ml-8 my-4">Project Discussion</h2>
           <div className="bg-[#EAF0FB] rounded-sm p-4">
             <div className="mb-4">
               <p className="text-center font-semibold text-sm text-gray-500 mb-10">Today</p>
@@ -474,7 +474,7 @@ const WorkSpace = () => {
               className="mt-20 lg:w-2/4 mx-auto flex flex-col lg:flex-row gap-2 items-center"
             >
               {/* Input Field */}
-              <div className="flex items-center flex-1 px-4 py-2 border border-[#80A7E5] rounded-sm text-sm focus-within:ring-1 focus-within:ring-[#1C4587] bg-white">
+              <div className="flex items-center flex-1 px-4 py-2 border border-[#80A7E5] rounded-sm text-sm focus-within:ring-1 focus-within:ring-primary bg-white">
                 <input
                   type="text"
                   {...register("message")}
@@ -504,7 +504,7 @@ const WorkSpace = () => {
               <button
                 type="button"
                 onClick={() => messageFileRef.current.click()}
-                className="px-4 py-[6] border rounded-sm text-[#1C4587] bg-white text-sm font-medium cursor-pointer"
+                className="px-4 py-[6] border rounded-sm text-primary bg-white text-sm font-medium cursor-pointer"
               >
                 Upload file
               </button>

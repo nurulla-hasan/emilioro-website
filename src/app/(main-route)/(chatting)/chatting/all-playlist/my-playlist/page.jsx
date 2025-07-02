@@ -18,7 +18,7 @@ const MyPlaylist = () => {
         <div className="px-5 my-5 md:px-8">
 
             <div className="flex flex-col items-center justify-between gap-5 mx-auto md:flex-row">
-                <h1 className="w-full text-xl text-[#1C4587] text-left font-bold">My Playlists</h1>
+                <h1 className="w-full text-xl text-primary text-left font-bold">My Playlists</h1>
                 <div className='flex items-center justify-between w-full gap-5 md:justify-end'>
                     <motion.div
                         className=' border border-[#1e4a9b] px-3 py-[3px] rounded-sm bg-white'
@@ -56,7 +56,7 @@ const MyPlaylist = () => {
 
                         <div className='flex flex-col gap-2 '>
                             <div className='flex items-center justify-between'>
-                                <div className="text-sm text-[#1C4587] font-semibold mb-1">
+                                <div className="text-sm text-primary font-semibold mb-1">
                                     {conversation.title}
                                 </div>
                                 <div>
@@ -84,11 +84,11 @@ const MyPlaylist = () => {
                                     </button>
                                 </Link>
 
-                                <button className='flex gap-2 cursor-pointer px-3 text-xs py-[4.5px] items-center bg-white  rounded-sm font-semibold border-2 border-[#1C4587] to-[#3279EA] text-[#1C4587]'>
+                                <button className='flex gap-2 cursor-pointer px-3 text-xs py-[4.5px] items-center bg-white  rounded-sm font-semibold border-2 border-primary to-[#3279EA] text-primary'>
                                     < AiOutlineEdit />
                                     <span>Edit</span>
                                 </button>
-                                <button className='flex gap-2 cursor-pointer px-3 text-xs py-[4.5px] items-center bg-white  rounded-sm font-semibold border-2 border-[#1C4587] to-[#3279EA] text-[#1C4587]'>
+                                <button className='flex gap-2 cursor-pointer px-3 text-xs py-[4.5px] items-center bg-white  rounded-sm font-semibold border-2 border-primary to-[#3279EA] text-primary'>
                                     < IoMdShare />
                                     <span>Share</span>
                                 </button>

@@ -11,7 +11,7 @@ const Favorite = () => {
         <div className="">
             <div className="px-5 my-5 md:px-8">
                 <div className="flex items-start justify-between gap-4">
-                    <h2 className="text-xl font-bold text-[#1C4587]">My Favorite</h2>
+                    <h2 className="text-xl font-bold text-primary">My Favorite</h2>
 
                     {/* Dropdown */}
                     <div className=" border border-[#1e4a9b] rounded-sm">

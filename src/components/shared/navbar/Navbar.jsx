@@ -13,7 +13,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { logout, setIsSignUpOpen } from "@/store/mainSlice";
 import { CgProfile } from "react-icons/cg";
 import { FaRegHeart } from "react-icons/fa6";
-import { TbLogin } from "react-icons/tb";
 
 const Navbar = () => {
   const pathname = usePathname();
@@ -27,13 +26,12 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const isSignUpOpen = useSelector((state) => state.main.isSignUpOpen);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [isMobileDropdownOpen, setIsMobileDropdownOpen] = useState(false); // এটা এখন দরকার নেই, কারণ মোবাইল ড্রপডাউন মেনু থাকবে না
+  const [isMobileDropdownOpen, setIsMobileDropdownOpen] = useState(false);
   const user = useSelector((state) => state.main.user);
 
   const handleLogout = () => {
     dispatch(logout());
-    // setIsMobileDropdownOpen(false); // এটা এখন দরকার নেই
-    setMenuOpen(false); // লগআউট করলে মোবাইল মেনু বন্ধ হবে
+    setMenuOpen(false);
   };
 
   const navLinks = [
@@ -45,8 +43,6 @@ const Navbar = () => {
     { title: "Message", href: "/message" },
     { title: "We are chatting", href: "/chatting" },
   ];
-
-  // Body overflow হ্যান্ডেল করার জন্য useEffect
   useEffect(() => {
     if (menuOpen) {
       document.body.style.overflow = 'hidden';
@@ -59,8 +55,8 @@ const Navbar = () => {
   }, [menuOpen]);
 
   return (
-    <div className="bg-[#1C4587] sticky top-0 z-50">
-      <nav className="z-50 py-6 px-5 md:px-8 lg:px-30 mx-auto flex justify-between items-center relative">
+    <div className="bg-primary sticky top-0 z-50">
+      <nav className="z-50 py-6 px-2 md:px-0 max-w-7xl mx-auto flex justify-between items-center relative">
         {/* Mobile nav structure: Logo Left, Menu Toggle Right */}
         <div className="flex items-center justify-between w-full xl:w-auto">
           {/* Logo (always on left for mobile) */}
@@ -78,9 +74,6 @@ const Navbar = () => {
           <div className="xl:hidden cursor-pointer bg-[#4080c1] rounded-full p-1 text-white flex justify-end text-xl">
             <span onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <FiX /> : <FiMenu />}</span>
           </div>
-
-          {/* Mobile avatar/login icon removed from here */}
-          {/* Note: User profile/login will be handled inside the mobile sidebar */}
         </div>
 
         {/* Mobile Menu Overlay */}
@@ -94,7 +87,7 @@ const Navbar = () => {
         {/* Mobile Menu Sidebar */}
         <div
           className={`
-            fixed top-0 left-0 h-full rounded-r-2xl w-64 bg-[#1C4587] shadow-lg p-6 transform transition-transform duration-300 ease-in-out z-50 lg:hidden
+            fixed top-0 left-0 h-full rounded-r-2xl w-64 bg-primary shadow-lg p-6 transform transition-transform duration-300 ease-in-out z-50 lg:hidden
             ${menuOpen ? "translate-x-0" : "-translate-x-full"}
           `}
         >
@@ -197,7 +190,7 @@ const Navbar = () => {
                   dispatch(setIsSignUpOpen(true));
                   setMenuOpen(false); // মেনু বন্ধ হবে
                 }}
-                className="text-[14px] font-semibold bg-gradient-to-t from-[#1C4587] to-[#3279EA] border text-white px-6 py-[6px] rounded-md cursor-pointer w-full text-left"
+                className="text-[14px] font-semibold bg-gradient-to-t from-primary to-[#3279EA] border text-white px-6 py-[6px] rounded-md cursor-pointer w-full text-left"
               >
                 Sign Up
               </button>
@@ -276,7 +269,7 @@ const Navbar = () => {
             </button>
             <button
               onClick={() => dispatch(setIsSignUpOpen(true))}
-              className="text-sm font-medium bg-gradient-to-t from-[#1C4587] to-[#3279EA] border text-white px-6 py-[6px] rounded-full cursor-pointer"
+              className="text-sm font-medium bg-gradient-to-t from-primary to-[#3279EA] border text-white px-6 py-[6px] rounded-full cursor-pointer"
             >
               Sign Up
             </button>

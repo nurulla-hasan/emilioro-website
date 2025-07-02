@@ -151,7 +151,7 @@ const TiptapEditor = ({ bio }) => {
 
       {/* Button */}
       <div className="flex justify-center mt-4">
-        <button className="bg-gradient-to-b cursor-pointer from-[#1C4587] to-[#3279EA] text-white text-sm px-4 py-2 rounded-sm hover:opacity-90 transition-opacity">
+        <button className="bg-gradient-to-b cursor-pointer from-primary to-[#3279EA] text-white text-sm px-4 py-2 rounded-sm hover:opacity-90 transition-opacity">
           Generate with AI
         </button>
       </div>

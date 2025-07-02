@@ -321,7 +321,7 @@ const InstitutionDetails = () => {
           <div className="mb-6 px-2">
             <div className="flex justify-between items-start mb-2">
               <div className="flex flex-col">
-                <h1 className="text-lg text-[#1C4587] font-semibold">{project.title}</h1>
+                <h1 className="text-lg text-primary font-semibold">{project.title}</h1>
                 <p className="text-xs text-gray-600 mt-1">{project.description}</p>
 
                 {/* Social Media Links */}
@@ -331,7 +331,7 @@ const InstitutionDetails = () => {
                       href={project.socialLinks.facebook}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-[#1C4587] hover:text-blue-700 cursor-pointer"
+                      className="text-primary hover:text-blue-700 cursor-pointer"
                     >
                       <Facebook size={16} />
                     </a>
@@ -341,7 +341,7 @@ const InstitutionDetails = () => {
                       href={project.socialLinks.instagram}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-[#1C4587] hover:text-pink-600 cursor-pointer"
+                      className="text-primary hover:text-pink-600 cursor-pointer"
                     >
                       <Instagram size={16} />
                     </a>
@@ -350,7 +350,7 @@ const InstitutionDetails = () => {
               </div>
               <div className="flex items-center gap-2">
                 {/* <span className="text-xs text-gray-500">{project.created}</span> */}
-                <img className="w-4 border rounded-sm border-[#1C4587] cursor-pointer" src="/filter.svg" alt="" />
+                <img className="w-4 border rounded-sm border-primary cursor-pointer" src="/filter.svg" alt="" />
               </div>
             </div>
           </div>
@@ -358,9 +358,9 @@ const InstitutionDetails = () => {
           {/* Mediators Section */}
           <div className="mb-6 border border-gray-200 bg-[#FFFFFF] rounded-sm p-4">
             <div className="flex justify-between items-center mb-4">
-              <h2 className="text-sm text-[#1C4587] font-semibold">Mediators</h2>
+              <h2 className="text-sm text-primary font-semibold">Mediators</h2>
               {showInitialVoting && (
-                <span className="text-xs text-[#1C4587]">Click on a mediator to vote for their group name</span>
+                <span className="text-xs text-primary">Click on a mediator to vote for their group name</span>
               )}
             </div>
 
@@ -398,7 +398,7 @@ const InstitutionDetails = () => {
                   </div>
                   <p className="text-xs font-medium mt-1">{mediator.name}</p>
                   <p className="text-[10px] text-gray-500">{mediator.role}</p>
-                  <p className="text-[10px] font-semibold text-[#1C4587] mt-0.5">{mediator.groupName}</p>
+                  <p className="text-[10px] font-semibold text-primary mt-0.5">{mediator.groupName}</p>
                 </div>
               ))}
             </div>
@@ -410,7 +410,7 @@ const InstitutionDetails = () => {
               <div className="lg:col-span-3 bg-white rounded-sm">
                 <div className="p-4">
                   <div className="flex justify-between items-center mb-3">
-                    <h2 className="text-sm text-[#1C4587] font-medium">Innovators Hub</h2>
+                    <h2 className="text-sm text-primary font-medium">Innovators Hub</h2>
                     <img onClick={() => setCreateGroupModal(true)} src="/edit.svg" alt="" className="cursor-pointer" />
                   </div>
                 </div>
@@ -440,7 +440,7 @@ const InstitutionDetails = () => {
                 {/* Conversations List */}
                 <div className="bg-white border rounded-b-sm border-gray-100">
                   <div className="flex border-b border-gray-200 p-4 justify-between items-center mb-4">
-                    <h2 className="text-sm text-[#1C4587] font-medium">Conversations</h2>
+                    <h2 className="text-sm text-primary font-medium">Conversations</h2>
                     <img onClick={() => setIsTopicModalOpen(true)} src="/edit.svg" alt="" className="cursor-pointer" />
                   </div>
 
@@ -480,7 +480,7 @@ const InstitutionDetails = () => {
                         <div className="flex items-center gap-2">
                           <button
                             onClick={() => toggleConversationPrivacy(conversation.id)}
-                            className="cursor-pointer outline-none focus:ring-0 text-xs text-gray-500 hover:text-[#1C4587]"
+                            className="cursor-pointer outline-none focus:ring-0 text-xs text-gray-500 hover:text-primary"
                           >
                             {conversation.isPublic ? "Make Private" : "Make Public"}
                           </button>
@@ -507,7 +507,7 @@ const InstitutionDetails = () => {
               <div className="lg:col-span-3 bg-white rounded-sm">
                 <div className="p-4">
                   <div className="flex flex-row-reverse justify-between items-center mb-3">
-                    <h2 className="text-sm text-[#1C4587] font-medium">Critical Thinkers</h2>
+                    <h2 className="text-sm text-primary font-medium">Critical Thinkers</h2>
                     <img onClick={() => setCreateGroupModal(true)} src="/edit.svg" alt="" className="cursor-pointer" />
                   </div>
                 </div>
@@ -539,7 +539,7 @@ const InstitutionDetails = () => {
                 {/* Add sorting controls to the conversation header */}
                 <div className="flex justify-between items-center mb-4">
                   <div className="flex items-center gap-2">
-                    <h3 className="text-xs font-medium text-[#1C4587]">{selectedConversation.name}</h3>
+                    <h3 className="text-xs font-medium text-primary">{selectedConversation.name}</h3>
                     {selectedConversation.isPublic ? (
                       <Globe size={14} className="text-green-600" />
                     ) : (
@@ -549,7 +549,7 @@ const InstitutionDetails = () => {
                   <div className="flex items-center gap-3">
                     <button
                       onClick={() => setSortOrder(sortOrder === "asc" ? "desc" : "asc")}
-                      className="flex items-center gap-1 p-1 text-[10px] cursor-pointer font-medium rounded-sm transition-colors text-[#1C4587]"
+                      className="flex items-center gap-1 p-1 text-[10px] cursor-pointer font-medium rounded-sm transition-colors text-primary"
                     >
                       <span>Likes</span>
                       {sortOrder === "asc" ? (
@@ -603,7 +603,7 @@ const InstitutionDetails = () => {
                         value={newPost}
                         onChange={(e) => setNewPost(e.target.value)}
                         placeholder={`Share something in ${selectedConversation.name}...`}
-                        className="w-full p-2 text-xs border border-gray-200 rounded-sm focus:outline-none focus:border-[#1C4587] min-h-[60px] resize-none"
+                        className="w-full p-2 text-xs border border-gray-200 rounded-sm focus:outline-none focus:border-primary min-h-[60px] resize-none"
                       />
 
                       {/* File and Image Previews */}
@@ -612,8 +612,8 @@ const InstitutionDetails = () => {
                           {filePreview && (
                             <div className="flex items-center justify-between">
                               <div className="flex items-center gap-2">
-                                <Paperclip className="w-4 h-4 text-[#1C4587]" />
-                                <span className="text-[10px] text-[#1C4587]">{filePreview}</span>
+                                <Paperclip className="w-4 h-4 text-primary" />
+                                <span className="text-[10px] text-primary">{filePreview}</span>
                               </div>
                               <button
                                 onClick={() => {
@@ -630,7 +630,7 @@ const InstitutionDetails = () => {
                           {imagePreview && (
                             <div className="mt-2">
                               <div className="flex items-center justify-between mb-1">
-                                <span className="text-[10px] text-[#1C4587]">{selectedImage.name}</span>
+                                <span className="text-[10px] text-primary">{selectedImage.name}</span>
                                 <button
                                   onClick={() => {
                                     setSelectedImage(null)
@@ -653,11 +653,11 @@ const InstitutionDetails = () => {
 
                       <div className="flex justify-between items-center mt-2">
                         <div className="flex items-center gap-2">
-                          <label htmlFor="file-upload" className="text-gray-500 hover:text-[#1C4587] cursor-pointer">
+                          <label htmlFor="file-upload" className="text-gray-500 hover:text-primary cursor-pointer">
                             <Paperclip className="w-4 h-4" />
                             <input id="file-upload" type="file" className="hidden" onChange={handleFileChange} />
                           </label>
-                          <label htmlFor="image-upload" className="text-gray-500 hover:text-[#1C4587] cursor-pointer">
+                          <label htmlFor="image-upload" className="text-gray-500 hover:text-primary cursor-pointer">
                             <ImageIcon className="w-4 h-4" />
                             <input
                               id="image-upload"
@@ -667,7 +667,7 @@ const InstitutionDetails = () => {
                               onChange={handleImageChange}
                             />
                           </label>
-                          <label htmlFor="link-upload" className="text-gray-500 hover:text-[#1C4587] cursor-pointer">
+                          <label htmlFor="link-upload" className="text-gray-500 hover:text-primary cursor-pointer">
                             <LinkIcon className="w-4 h-4" />
                           </label>
                         </div>
@@ -726,11 +726,11 @@ const InstitutionDetails = () => {
                                 {attachment.type === "image" ? (
                                   <div>
                                     <div className="flex items-center justify-between mb-1">
-                                      <span className="text-[10px] text-[#1C4587]">{attachment.name}</span>
+                                      <span className="text-[10px] text-primary">{attachment.name}</span>
                                       <a
                                         href={attachment.preview}
                                         download={attachment.name}
-                                        className="text-[#1C4587] text-[10px] hover:underline cursor-pointer"
+                                        className="text-primary text-[10px] hover:underline cursor-pointer"
                                       >
                                         Download
                                       </a>
@@ -765,16 +765,16 @@ const InstitutionDetails = () => {
                                           <path d="M15 11h.01"></path>
                                         </svg>
                                       ) : (
-                                        <Paperclip className="w-4 h-4 text-[#1C4587]" />
+                                        <Paperclip className="w-4 h-4 text-primary" />
                                       )}
-                                      <span className="text-[10px] text-[#1C4587]">{attachment.name}</span>
+                                      <span className="text-[10px] text-primary">{attachment.name}</span>
                                       {attachment.size && (
                                         <span className="text-[9px] text-gray-500">({attachment.size})</span>
                                       )}
                                     </div>
                                     <a
                                       href="#"
-                                      className="text-[#1C4587] text-[10px] hover:underline cursor-pointer"
+                                      className="text-primary text-[10px] hover:underline cursor-pointer"
                                       onClick={(e) => {
                                         e.preventDefault()
                                         alert(`Download functionality would be implemented here for ${attachment.name}`)
@@ -794,7 +794,7 @@ const InstitutionDetails = () => {
                             onClick={() => handleLike(selectedConversation.id, post.id)}
                             className={`flex items-center gap-1 ${post.likedBy?.includes(currentUserId)
                               ? "text-red-500"
-                              : "text-gray-500 hover:text-[#1C4587]"
+                              : "text-gray-500 hover:text-primary"
                               } cursor-pointer`}
                           >
                             <Heart
@@ -804,11 +804,11 @@ const InstitutionDetails = () => {
                               {post.likedBy?.includes(currentUserId) ? "Unlike" : "Like"} ({post.likes})
                             </span>
                           </button>
-                          <button className="flex items-center gap-1 text-gray-500 hover:text-[#1C4587] cursor-pointer">
+                          <button className="flex items-center gap-1 text-gray-500 hover:text-primary cursor-pointer">
                             <MessageSquare className="w-3 h-3" />
                             <span>Comment ({post.comments})</span>
                           </button>
-                          <button className="flex items-center gap-1 text-gray-500 hover:text-[#1C4587] cursor-pointer">
+                          <button className="flex items-center gap-1 text-gray-500 hover:text-primary cursor-pointer">
                             <Share2 className="w-3 h-3" />
                             <span>Share</span>
                           </button>

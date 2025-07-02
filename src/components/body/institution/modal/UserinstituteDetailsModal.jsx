@@ -82,7 +82,7 @@ const UserInstituteDetailsModal = ({ selectedCardUserProject, setSelectedCardUse
             <div>
               {/* Title & description*/}
               <div className="flex flex-col gap-3">
-                <h1 className="text-md font-bold text-[#1C4587]">{selectedCardUserProject.institutionName}</h1>
+                <h1 className="text-md font-bold text-primary">{selectedCardUserProject.institutionName}</h1>
                 <p className="text-gray-600 text-xs mb-4">{selectedCardUserProject.description}</p>
               </div>
 
@@ -166,7 +166,7 @@ const UserInstituteDetailsModal = ({ selectedCardUserProject, setSelectedCardUse
                   {!showAllGroupA && sampleData.producers.length > 3 && (
                     <button
                       onClick={() => setShowAllGroupA(true)}
-                      className="text-[#1C4587] text-xs hover:underline mt-2 cursor-pointer"
+                      className="text-primary text-xs hover:underline mt-2 cursor-pointer"
                     >
                       View all
                     </button>
@@ -206,7 +206,7 @@ const UserInstituteDetailsModal = ({ selectedCardUserProject, setSelectedCardUse
                     <div className="text-right">
                       <button
                         onClick={() => setShowAllGroupB(true)}
-                        className="text-[#1C4587] text-xs hover:underline mt-2 cursor-pointer"
+                        className="text-primary text-xs hover:underline mt-2 cursor-pointer"
                       >
                         View all
                       </button>
@@ -242,7 +242,7 @@ const UserInstituteDetailsModal = ({ selectedCardUserProject, setSelectedCardUse
 
               {/* View All Link for Topics */}
               <div className="text-right">
-                <button className="text-[#1C4587] text-xs hover:underline outline-none focus:ring-0 cursor-pointer">
+                <button className="text-primary text-xs hover:underline outline-none focus:ring-0 cursor-pointer">
                   View all
                 </button>
               </div>
@@ -250,13 +250,13 @@ const UserInstituteDetailsModal = ({ selectedCardUserProject, setSelectedCardUse
             {/* Join Button */}
             <div className="flex gap-5 mt-4">
               <motion.button
-                className="w-1/2 bg-[#1C4587] text-white py-1 text-sm rounded-sm font-medium cursor-pointer"
+                className="w-1/2 bg-primary text-white py-1 text-sm rounded-sm font-medium cursor-pointer"
                 whileTap={{ scale: 0.98 }}
               >
                 Leave
               </motion.button>
               <motion.button
-                className="w-1/2 bg-[#1C4587] text-white py-1 text-sm rounded-sm font-medium cursor-pointer"
+                className="w-1/2 bg-primary text-white py-1 text-sm rounded-sm font-medium cursor-pointer"
                 whileTap={{ scale: 0.98 }}
                 onClick={() => router.push(`/institutions/${selectedCardUserProject.id}`)}
               >

@@ -22,7 +22,7 @@ const RatingModal = ({ isOpen, onClose }) => {
         </div>
 
         {/* Header */}
-        <h2 className="text-lg text-[#1C4587] font-semibold my-4">Bond Completed! Rate Your Experience</h2>
+        <h2 className="text-lg text-primary font-semibold my-4">Bond Completed! Rate Your Experience</h2>
 
         {/* Rating Selection */}
         <p className="text-xs font-medium mb-1">Select 01 - 10 to rate the bond</p>

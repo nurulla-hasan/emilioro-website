@@ -62,7 +62,7 @@ const JoinInstitutionModal = ({ isOpen, setIsOpen }) => {
             <button
               type="button"
               onClick={() => setIsOpen(false)}
-              className="px-4 py-1.5 border border-[#1C4587] text-[#1C4587] rounded-sm font-medium text-xs outline-none focus:ring-0"
+              className="px-4 py-1.5 border border-primary text-primary rounded-sm font-medium text-xs outline-none focus:ring-0"
             >
               Cancel
             </button>

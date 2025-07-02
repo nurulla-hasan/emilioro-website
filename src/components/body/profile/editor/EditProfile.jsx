@@ -38,7 +38,7 @@ const EditProfile = () => {
             className="shadow-[0px_19px_48px_1px_#CFC9DDB2] rounded-lg md:w-3/5 mx-auto my-10"
         >
             <div className="md:w-2/3 px-4 py-8 mx-auto">
-                <h2 className="text-xl text-[#1C4587] font-bold text-center mb-4">Edit Your Profile</h2>
+                <h2 className="text-xl text-primary font-bold text-center mb-4">Edit Your Profile</h2>
 
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-3">
                     {/* User Name */}
@@ -46,7 +46,7 @@ const EditProfile = () => {
                         <label className="block font-semibold text-gray-700 text-xs mb-1">User Name</label>
                         <input
                             {...register("username", { required: "User Name is required" })}
-                            className="w-full border border-[#1C4587] rounded-sm p-2 text-sm outline-none"
+                            className="w-full border border-primary rounded-sm p-2 text-sm outline-none"
                             placeholder="Enter your name"
                         />
                         {errors.username && <p className="text-red-500 text-xs">{errors.username.message}</p>}
@@ -66,7 +66,7 @@ const EditProfile = () => {
                         </div>
                         <input type="hidden" {...register("skills", { required: "At least one skill is required" })} />
 
-                        <div className="mt-1 flex flex-col gap-3 py-2 px-3 w-full border border-[#1C4587] rounded-sm">
+                        <div className="mt-1 flex flex-col gap-3 py-2 px-3 w-full border border-primary rounded-sm">
                             <div className="flex gap-2">
                                 {selectedSkills.map((skill, index) => (
                                     <motion.div
@@ -74,7 +74,7 @@ const EditProfile = () => {
                                         initial={{ scale: 0 }}
                                         animate={{ scale: 1 }}
                                         exit={{ scale: 0 }}
-                                        className="bg-gray-200 text-xs text-[#1C4587] px-2 py-1 rounded-sm flex items-center gap-2"
+                                        className="bg-gray-200 text-xs text-primary px-2 py-1 rounded-sm flex items-center gap-2"
                                     >
                                         {skill}
                                         <button
@@ -97,7 +97,7 @@ const EditProfile = () => {
                         <label className="block font-semibold text-gray-700 text-xs mb-1">Bio</label>
                         <textarea
                             {...register("bio")}
-                            className="w-full border border-[#1C4587] rounded-sm p-2 text-sm outline-none"
+                            className="w-full border border-primary rounded-sm p-2 text-sm outline-none"
                             placeholder="Write something about yourself..."
                         />
                     </div>
@@ -110,7 +110,7 @@ const EditProfile = () => {
                                 required: "Email is required",
                                 pattern: { value: /^\S+@\S+\.\S+$/, message: "Invalid email format" }
                             })}
-                            className="w-full border border-[#1C4587] rounded-sm p-2 text-sm outline-none"
+                            className="w-full border border-primary rounded-sm p-2 text-sm outline-none"
                             placeholder="Enter your email"
                         />
                         {errors.email && <p className="text-red-500 text-xs">{errors.email.message}</p>}
@@ -123,7 +123,7 @@ const EditProfile = () => {
                             {...register("contact", {
                                 pattern: { value: /^[0-9]+$/, message: "Only numbers are allowed" }
                             })}
-                            className="w-full border border-[#1C4587] rounded-sm p-2 text-sm outline-none"
+                            className="w-full border border-primary rounded-sm p-2 text-sm outline-none"
                             placeholder="Enter your phone number"
                         />
                         {errors.contact && <p className="text-red-500 text-xs">{errors.contact.message}</p>}
@@ -134,7 +134,7 @@ const EditProfile = () => {
                         <label className="block font-semibold text-gray-700 text-xs mb-1">Address</label>
                         <input
                             {...register("address")}
-                            className="w-full border border-[#1C4587] rounded-sm p-2 text-sm outline-none"
+                            className="w-full border border-primary rounded-sm p-2 text-sm outline-none"
                             placeholder="Enter your address"
                         />
                     </div>

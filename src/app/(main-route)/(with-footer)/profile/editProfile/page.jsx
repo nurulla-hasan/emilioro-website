@@ -14,8 +14,8 @@ const ProfileSettings = () => {
         <button
           className={`pb-1 font-semibold md:text-md text-sm transition-all duration-300 cursor-pointer ${
             activeTab === "editProfile"
-              ? "text-[#1C4587] border-b-2 border-[#1C4587]"
-              : "text-gray-500 hover:text-[#1C4587]"
+              ? "text-primary border-b-2 border-primary"
+              : "text-gray-500 hover:text-primary"
           }`}
           onClick={() => setActiveTab("editProfile")}
         >
@@ -24,8 +24,8 @@ const ProfileSettings = () => {
         <button
           className={`pb-1 font-semibold md:text-md text-sm transition-all duration-300 cursor-pointer ${
             activeTab === "changePassword"
-              ? "text-[#1C4587] border-b-2 border-[#1C4587]"
-              : "text-gray-500 hover:text-[#1C4587]"
+              ? "text-primary border-b-2 border-primary"
+              : "text-gray-500 hover:text-primary"
           }`}
           onClick={() => setActiveTab("changePassword")}
         >

@@ -81,7 +81,7 @@ const OngoingBond = () => {
 
     return (
         <div>
-            <h1 className="text-xl text-[#1C4587] font-bold mb-4">Ongoing Bond</h1>
+            <h1 className="text-xl text-primary font-bold mb-4">Ongoing Bond</h1>
             <div className="w-full my-20">
             <motion.div
                 variants={containerVariants}
@@ -109,7 +109,7 @@ const OngoingBond = () => {
                                             <span className="text-gray-600 text-xs">{bond.requestedService}</span>
                                         </p>
                                     </div>
-                                    <span className="bg-[#E3F2FD] text-[#1C4587] text-xs px-3 py-1 rounded-sm">
+                                    <span className="bg-[#E3F2FD] text-primary text-xs px-3 py-1 rounded-sm">
                                         {bond.status}
                                     </span>
                                 </div>
@@ -125,7 +125,7 @@ const OngoingBond = () => {
                                         whileHover={{ scale: 1.02 }}
                                         whileTap={{ scale: 0.98 }}
                                         onClick={() => handleChat(bond.id)}
-                                        className="flex-1 py-1 cursor-pointer px-2 border border-[#1C4587] text-[#1C4587] rounded-sm text-xs font-medium hover:bg-gray-50 transition-colors"
+                                        className="flex-1 py-1 cursor-pointer px-2 border border-primary text-primary rounded-sm text-xs font-medium hover:bg-gray-50 transition-colors"
                                     >
                                         Chat
                                     </motion.button>
@@ -133,7 +133,7 @@ const OngoingBond = () => {
                                         whileHover={{ scale: 1.02 }}
                                         whileTap={{ scale: 0.98 }}
                                         onClick={() => handleMarkComplete(bond.id)}
-                                        className="flex-1 py-1 cursor-pointer px-2 bg-[#1C4587] text-white rounded-sm text-xs font-medium hover:bg-[#15366b] transition-colors"
+                                        className="flex-1 py-1 cursor-pointer px-2 bg-primary text-white rounded-sm text-xs font-medium hover:bg-[#15366b] transition-colors"
                                     >
                                         Mark Complete
                                     </motion.button>

@@ -5,7 +5,7 @@ const SocialLinksSection = ({profileData, setIsSocialAccountModalOpen, setIsDele
     <>
       <div className="mt-8">
         <div className="flex justify-between items-center mb-4">
-          <h2 className="text-xl lg:text-2xl font-semibold text-[#1C4587]">Social Links</h2>
+          <h2 className="text-xl lg:text-2xl font-semibold text-primary">Social Links</h2>
           <button
             onClick={() => setIsSocialAccountModalOpen(true)}
             className="bg-button cursor-pointer gap-1 flex items-center text-white text-sm px-4 py-1.5 rounded-sm"

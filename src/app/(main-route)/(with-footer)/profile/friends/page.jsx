@@ -17,7 +17,7 @@ const Friends = () => {
                 <div className="flex flex-col md:flex-row gap-5 justify-between items-center mb-8">
                     <div className="flex gap-8 *:text-sm *:font-semibold">
                         <button
-                            className={`font-medium relative cursor-pointer ${activeTab === "my-friend" ? "text-[#1C4587] font-medium" : "text-[#1c4587c3] font-normal"
+                            className={`font-medium relative cursor-pointer ${activeTab === "my-friend" ? "text-primary font-medium" : "text-[#1c4587c3] font-normal"
                                 }`}
                             onClick={() => setActiveTab("my-friend")}
                         >
@@ -25,12 +25,12 @@ const Friends = () => {
                             {activeTab === "my-friend" && (
                                 <motion.div
                                     layoutId="activeTab"
-                                    className="absolute -bottom-[1px] left-0 right-0 h-0.5 bg-[#1C4587]"
+                                    className="absolute -bottom-[1px] left-0 right-0 h-0.5 bg-primary"
                                 />
                             )}
                         </button>
                         <button
-                            className={`text-xl relative cursor-pointer ${activeTab === "friend-request" ? "text-[#1C4587] font-medium" : "text-[#1c4587c3] font-normal"
+                            className={`text-xl relative cursor-pointer ${activeTab === "friend-request" ? "text-primary font-medium" : "text-[#1c4587c3] font-normal"
                                 }`}
                             onClick={() => setActiveTab("friend-request")}
                         >
@@ -38,7 +38,7 @@ const Friends = () => {
                             {activeTab === "friend-request" && (
                                 <motion.div
                                     layoutId="activeTab"
-                                    className="absolute -bottom-[1px] left-0 right-0 h-0.5 bg-[#1C4587]"
+                                    className="absolute -bottom-[1px] left-0 right-0 h-0.5 bg-primary"
                                 />
                             )}
                         </button>
@@ -52,7 +52,7 @@ const Friends = () => {
                             placeholder="Search Friend"
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
-                            className="pl-8 text-sm pr-4 py-1.5 border rounded-sm outline-none text-[#1C4587] border-[#1C4587]"
+                            className="pl-8 text-sm pr-4 py-1.5 border rounded-sm outline-none text-primary border-primary"
                         />
                     </div>
                 </div>

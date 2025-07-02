@@ -3,6 +3,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { motion } from 'framer-motion';
 import { useState } from "react";
 import { myProject } from "@/data/data";
+import Image from "next/image";
 
 const MyProject = () => {
 
@@ -17,12 +18,11 @@ const MyProject = () => {
 
     console.log('my project page')
     return (
-        <>
+        <div className="min-h-minus-header">
             <div className={`${isWorkspace ? "hidden" : ""} relative`}>
 
-                <motion.div
-                    className='w-fit absolute -top-10 md:-top-16 md:right-0 right-32 border border-[#1C4587] px-1 rounded-sm bg-white'
-                    whileHover={{ scale: 1.05 }}
+                <div
+                    className='w-fit absolute -top-10 md:-top-16 md:right-0 right-32 border border-primary px-1 rounded-sm bg-white'
                     value={status}
                     onChange={(e) => setStatus(e.target.value)}
                 >
@@ -34,35 +34,34 @@ const MyProject = () => {
                         <option value="Active">Active</option>
                         <option value="Completed">Completed</option>
                     </select>
-                </motion.div>
+                </div>
 
                 <div className='mt-13.5 md:mt-10 grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 items-center gap-5 rounded-lg'>
                     {filteredCards.map((card) => (
-                        <motion.div
+                        <div
                             key={card.id}
-                            className="lg:w-full mx-auto flex flex-col gap-2 shadow-[0px_15px_45px_0px_#CFC9DD99]"
-                            whileHover={{ scale: 1.02 }}
-                            transition={{ type: "tween", duration: 0.2, ease: "easeInOut" }}
+                            className="lg:w-full mx-auto flex flex-col gap-2 group"
                         >
-                            <div>
-                                <img
+                            <div className="aspect-[8/5] relative">
+                                <Image
                                     onClick={() => router.push(`/objects/workspace?id=${card.id}`)}
                                     src={card.image}
+                                    fill
                                     alt="image"
-                                    className="w-full cursor-pointer"
+                                    className="w-full cursor-pointer group-hover:scale-98 duration-300"
                                 />
                             </div>
 
                             <div className="flex flex-col gap-2 bg-[#FFFFFF] shadow-2xl p-3 rounded-b-sm">
                                 <div className="flex items-center justify-between">
-                                    <div className="text-sm text-[#1C4587] font-semibold mb-1">
+                                    <div className="text-sm text-primary font-semibold mb-1">
                                         {card.title}
                                     </div>
                                     <div className="flex items-center gap-1">
-                                        <p className={`bg-[#9A9A9A33] rounded-xs px-1 py-[1] text-[#1C4587] text-[9px] font-normal ${card.status[0] === 'Completed' ? 'bg-green-100 text-green-800' : ''}`}>
+                                        <p className={`bg-[#9A9A9A33] rounded-xs px-1 py-[1] text-primary text-[9px] font-normal ${card.status[0] === 'Completed' ? 'bg-green-100 text-green-800' : ''}`}>
                                             {card.status[0]}
                                         </p>
-                                        <p className="bg-[#9A9A9A33] rounded-xs px-1 py-[1] text-[#1C4587] text-[9px] font-normal">
+                                        <p className="bg-[#9A9A9A33] rounded-xs px-1 py-[1] text-primary text-[9px] font-normal">
                                             {card.status[1]}
                                         </p>
                                     </div>
@@ -92,7 +91,7 @@ const MyProject = () => {
                                 <div className="flex gap-2 items-center justify-between mt-4">
                                     <button
                                         onClick={() => router.push(`/objects/my-projects/my-project-details?id=${card.id}`)}
-                                        className="cursor-pointer w-full bg-white text-[#1C4587] border border-[#1C4587] text-[10px] px-4 py-[6px] rounded-xs font-medium"
+                                        className="cursor-pointer w-full bg-white text-primary border border-primary text-[10px] px-4 py-[6px] rounded-xs font-medium"
                                     >
                                         View Details
                                     </button>
@@ -105,7 +104,7 @@ const MyProject = () => {
                                     </button>
                                 </div>
                             </div>
-                        </motion.div>
+                        </div>
                     ))}
 
                 </div>
@@ -138,14 +137,14 @@ const MyProject = () => {
 
                         <div className="flex flex-col gap-2 bg-[#FFFFFF] p-3 rounded-b-sm">
                             <div className="flex items-center justify-between">
-                                <div className="text-sm text-[#1C4587] font-semibold mb-1">
+                                <div className="text-sm text-primary font-semibold mb-1">
                                     {card.title}
                                 </div>
                                 <div className="flex items-center gap-1">
-                                    <p className={`bg-[#9A9A9A33] rounded-xs px-1 py-[1] text-[#1C4587] text-[9px] font-normal ${card.status[0] === 'Completed' ? 'bg-green-100 text-green-800' : ''}`}>
+                                    <p className={`bg-[#9A9A9A33] rounded-xs px-1 py-[1] text-primary text-[9px] font-normal ${card.status[0] === 'Completed' ? 'bg-green-100 text-green-800' : ''}`}>
                                         {card.status[0]}
                                     </p>
-                                    <p className="bg-[#9A9A9A33] rounded-xs px-1 py-[1] text-[#1C4587] text-[9px] font-normal">
+                                    <p className="bg-[#9A9A9A33] rounded-xs px-1 py-[1] text-primary text-[9px] font-normal">
                                         {card.status[1]}
                                     </p>
                                 </div>
@@ -154,7 +153,7 @@ const MyProject = () => {
                             <div className="flex items-center justify-between mt-4">
                                 <button
                                     onClick={() => router.push(`/objects/my-projects/my-project-details?id=${card.id}`)}
-                                    className="cursor-pointer bg-white text-[#1C4587] border border-[#1C4587] text-[8px] px-2 py-[3px] rounded-sm font-medium"
+                                    className="cursor-pointer bg-white text-primary border border-primary text-[8px] px-2 py-[3px] rounded-sm font-medium"
                                 >
                                     View Details
                                 </button>
@@ -170,7 +169,7 @@ const MyProject = () => {
                     </motion.div>
                 ))}
             </div>
-        </>
+        </div>
     );
 };
 

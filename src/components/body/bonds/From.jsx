@@ -44,7 +44,7 @@ const From = ({
                     >
                         <label className="block text-sm text-gray-700 font-medium mb-1">Give</label>
                         <div className="relative">
-                            <div className="border p-1 border-[#1C4587] rounded-sm ">
+                            <div className="border p-1 border-primary rounded-sm ">
                                 <div className="flex items-center">
                                     <input
                                         onClick={() => {
@@ -66,7 +66,7 @@ const From = ({
                                         className="relative w-full text-end cursor-pointer">
                                         <button
                                             type="button"
-                                            className="p-1 text-gray-500 hover:text-[#1C4587] cursor-pointer"
+                                            className="p-1 text-gray-500 hover:text-primary cursor-pointer"
                                         >
                                             <ChevronDown size={16} />
                                         </button>
@@ -103,7 +103,7 @@ const From = ({
                     >
                         <label className="block text-sm text-gray-700 font-medium mb-1">Get</label>
                         <div className="relative">
-                            <div className="border p-1 border-[#1C4587] rounded-sm">
+                            <div className="border p-1 border-primary rounded-sm">
                                 <div className="flex items-center">
                                     <input
                                         onClick={() => {
@@ -126,7 +126,7 @@ const From = ({
                                         <button
                                             type="button"
 
-                                            className="p-1 text-gray-500 hover:text-[#1C4587] cursor-pointer"
+                                            className="p-1 text-gray-500 hover:text-primary cursor-pointer"
                                         >
                                             <ChevronDown size={16} />
                                         </button>
@@ -160,7 +160,7 @@ const From = ({
                     <button
                         type="button"
                         onClick={() => setShowLocationFilter(!showLocationFilter)}
-                        className="flex items-center gap-1 text-[#1C4587] text-sm hover:underline cursor-pointer"
+                        className="flex items-center gap-1 text-primary text-sm hover:underline cursor-pointer"
                     >
                         <MapPin size={16} />
                         {showLocationFilter ? "Hide location filter" : "Add location filter"}
@@ -175,7 +175,7 @@ const From = ({
                         >
                             <div>
                                 <label className="block text-xs text-gray-700 font-medium mb-1">Location</label>
-                                <div className="border p-1 border-[#1C4587] rounded-sm">
+                                <div className="border p-1 border-primary rounded-sm">
                                     <input
                                         {...register("location")}
                                         placeholder="Enter your location"
@@ -204,7 +204,7 @@ const From = ({
                         <button
                             type="button"
                             onClick={() => setShowCreateListModal(true)}
-                            className="flex items-center gap-1 text-[#1C4587] text-sm hover:underline cursor-pointer"
+                            className="flex items-center gap-1 text-primary text-sm hover:underline cursor-pointer"
                         >
                             <List size={16} />
                             Manage Lists
@@ -219,7 +219,7 @@ const From = ({
                                     className="px-3 py-1 bg-[#EAF0FB] text-xs rounded-full flex items-center gap-1 cursor-pointer hover:bg-[#D5E3F7]"
                                 >
                                     <span>{list.name}</span>
-                                    <span className="bg-[#1C4587] text-white rounded-full w-4 h-4 flex items-center justify-center text-[10px]">
+                                    <span className="bg-primary text-white rounded-full w-4 h-4 flex items-center justify-center text-[10px]">
                                         {list.count}
                                     </span>
                                 </div>
@@ -240,12 +240,12 @@ const From = ({
                         >
                             <div className="border p-4 border-gray-200 rounded-sm">
                                 <div className="flex justify-between items-center mb-4">
-                                    <h1 className="text-sm font-semibold text-[#1C4587]">Matching Bonds</h1>
+                                    <h1 className="text-sm font-semibold text-primary">Matching Bonds</h1>
 
                                     <button
                                         type="button"
                                         onClick={toggleNotifications}
-                                        className="flex items-center gap-1 text-xs text-gray-600 hover:text-[#1C4587] cursor-pointer"
+                                        className="flex items-center gap-1 text-xs text-gray-600 hover:text-primary cursor-pointer"
                                     >
                                         {notifications ? (
                                             <>
@@ -269,8 +269,8 @@ const From = ({
                                         animate={{ opacity: 1 }}
                                         className="flex justify-center items-center py-8"
                                     >
-                                        <div className="w-8 h-8 border-t-2 border-b-2 border-[#1C4587] rounded-full animate-spin"></div>
-                                        <p className="ml-3 text-[#1C4587]">Searching for matches...</p>
+                                        <div className="w-8 h-8 border-t-2 border-b-2 border-primary rounded-full animate-spin"></div>
+                                        <p className="ml-3 text-primary">Searching for matches...</p>
                                     </motion.div>
                                 )}
                             </div>

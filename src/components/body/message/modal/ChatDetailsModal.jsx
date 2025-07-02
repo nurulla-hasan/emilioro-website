@@ -28,11 +28,11 @@ const ChatDetailsModal = ({ chat, onClose }) => {
     <div className="fixed inset-0 bg-black/40 flex justify-center items-center p-4 z-50">
       <div className="bg-white w-full max-w-md rounded-sm shadow-lg overflow-hidden relative">
         {/* Header */}
-        <div className="bg-[#1C4587] text-white p-6 flex flex-col items-center">
+        <div className="bg-primary text-white p-6 flex flex-col items-center">
           <div className="relative w-16 h-16 rounded-full bg-white/20 flex items-center justify-center">
             {chat.isGroup ? (
               <div className="relative w-full h-full flex items-center justify-center">
-                <div className="rounded-full overflow-hidden border-2 border-[#1C4587]">
+                <div className="rounded-full overflow-hidden border-2 border-primary">
                   <Image
                     src={chat.avatar || "/placeholder.svg?height=48&width=48"}
                     alt="Avatar"
@@ -80,7 +80,7 @@ const ChatDetailsModal = ({ chat, onClose }) => {
             <>
               <div className="space-y-4">
                 {/* Copy Link */}
-                <button className="flex items-center gap-2 text-[#1C4587] text-sm w-full cursor-pointer">
+                <button className="flex items-center gap-2 text-primary text-sm w-full cursor-pointer">
                   <Link size={18} />
                   <div className="flex-1 text-left">
                     <span>copy link to clipboard</span>
@@ -89,7 +89,7 @@ const ChatDetailsModal = ({ chat, onClose }) => {
                 </button>
 
                 {/* Send Message */}
-                <button className="flex items-center gap-2 text-[#1C4587] text-sm cursor-pointer">
+                <button className="flex items-center gap-2 text-primary text-sm cursor-pointer">
                   <MessageSquare size={18} />
                   <span>Send message</span>
                 </button>
@@ -97,9 +97,9 @@ const ChatDetailsModal = ({ chat, onClose }) => {
                 {/* Participants */}
                 <div className="mt-2">
                   <div className="flex items-center gap-2 mb-3">
-                    <Users size={18} className="text-[#1C4587]" />
+                    <Users size={18} className="text-primary" />
                     <span className="text-sm font-medium">{chat.participants?.length || 0} participant</span>
-                    <button className="ml-auto bg-[#1C4587] text-white text-xs px-2 py-1 rounded-sm cursor-pointer">
+                    <button className="ml-auto bg-primary text-white text-xs px-2 py-1 rounded-sm cursor-pointer">
                       + Add participant
                     </button>
                   </div>
@@ -131,7 +131,7 @@ const ChatDetailsModal = ({ chat, onClose }) => {
 
                   {chat.participants?.length > 5 && (
                     <button
-                      className="text-[#1C4587] text-sm mt-2 w-full text-right cursor-pointer"
+                      className="text-primary text-sm mt-2 w-full text-right cursor-pointer"
                       onClick={() => setShowAllParticipants(!showAllParticipants)}
                     >
                       {showAllParticipants ? "Show less" : "View all"}

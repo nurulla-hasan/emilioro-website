@@ -154,7 +154,7 @@ const AllProjectDetailsModal = ({ selectedCardAllProject, setSelectedCardAllProj
             {/* Join Button */}
             <div className="flex justify-center">
               <motion.button
-                className="w-1/2 bg-[#1C4587] text-white py-1 text-sm rounded-sm font-medium cursor-pointer"
+                className="w-1/2 bg-primary text-white py-1 text-sm rounded-sm font-medium cursor-pointer"
                 whileTap={{ scale: 0.98 }}
               >
                 Request to join

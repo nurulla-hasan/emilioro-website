@@ -24,7 +24,7 @@ const FriendRequestList = ({ searchTerm = "" }) => {
         <div className="relative grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 p-4">
             {/* Search result count */}
             {searchTerm && filteredRequests.length > 0 && (
-                <div className="text-[#1C4587] absolute -top-3 left-5 text-sm font-semibold text-center mb-4">
+                <div className="text-primary absolute -top-3 left-5 text-sm font-semibold text-center mb-4">
                     {filteredRequests.length > 100 ? "100+ results" : `${filteredRequests.length} results`}
                 </div>
             )}
@@ -53,7 +53,7 @@ const FriendRequestList = ({ searchTerm = "" }) => {
                         {/* Roles */}
                         <div className="flex flex-wrap justify-center gap-1 mb-4">
                             {request.role.map((role, idx) => (
-                                <span key={idx} className="bg-[#9A9A9A33] text-[#1C4587] text-[10px] px-2 py-1 rounded-md">
+                                <span key={idx} className="bg-[#9A9A9A33] text-primary text-[10px] px-2 py-1 rounded-md">
                                     {role}
                                 </span>
                             ))}

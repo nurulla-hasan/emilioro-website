@@ -1,34 +1,36 @@
 import { allProject } from '@/data/data';
-import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 
 const AllProject = ({ setSelectedCardAllProject }) => {
-    
 
     return (
-        <div className='grid items-center grid-cols-1 gap-5 mt-10 rounded-lg xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2'>
+        <div className='min-h-minus-header grid items-center grid-cols-1 gap-5 mt-10 rounded-lg xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2'>
             {allProject.map((card) => (
-                <motion.div
+                <div
                     onClick={() => setSelectedCardAllProject(card)}
                     key={card.id}
-                    className="cursor-pointer lg:w-full mx-auto flex flex-col gap-2 shadow-[0px_15px_45px_0px_#CFC9DD99] "
-                    whileHover={{ scale: 1.02 }}
-                    transition={{ type: "tween", duration: 0.2, ease: "easeInOut" }}
+                    className="cursor-pointer lg:w-full mx-auto flex flex-col gap-2  group"
                 >
-                    <div>
-                        <img src={card.image || "/placeholder.svg"} alt="image" className="w-full" />
+                    <div className='aspect-[8/5] relative'>
+                        <Image
+                            src={card.image || "/placeholder.svg"}
+                            alt="image"
+                            fill
+                            className="w-full group-hover:scale-98 duration-300"
+                        />
                     </div>
 
                     <div className="flex flex-col gap-2 bg-[#FFFFFF] shadow-2xl p-3 rounded-b-sm">
                         <div className="flex items-center justify-between">
-                            <div className="text-sm text-[#1C4587] font-semibold mb-1">{card.title}</div>
+                            <div className="text-sm text-primary font-semibold mb-1">{card.title}</div>
                             <div>
                                 <div className="flex items-center gap-1">
                                     <div className="flex items-center gap-1">
-                                        <p className="bg-[#9A9A9A33] rounded-xs px-1 py-[1] text-[#1C4587] text-[9px] font-normal">
+                                        <p className="bg-[#9A9A9A33] rounded-xs px-1 py-[1] text-primary text-[9px] font-normal">
                                             {card.status[0]}
                                         </p>
-                                        <p className="bg-[#9A9A9A33] rounded-xs px-1 py-[1] text-[#1C4587] text-[9px] font-normal">
+                                        <p className="bg-[#9A9A9A33] rounded-xs px-1 py-[1] text-primary text-[9px] font-normal">
                                             {card.status[1]}
                                         </p>
                                     </div>
@@ -61,7 +63,7 @@ const AllProject = ({ setSelectedCardAllProject }) => {
                             </button>
                         </div>
                     </div>
-                </motion.div>
+                </div>
             ))}
         </div>
     );

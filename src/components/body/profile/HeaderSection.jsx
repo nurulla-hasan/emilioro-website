@@ -46,7 +46,7 @@ const HeaderSection = ({coverPhotoInputRef, handleCoverPhotoUpload, profilePhoto
               className="w-20 h-20 rounded-full border-4 border-white object-cover"
             />
             <div className="text-center text-sm font-semibold">
-              <h1 className="text-[#1C4587]">Mother</h1>
+              <h1 className="text-primary">Mother</h1>
             </div>
           </div>
         </div>
@@ -76,7 +76,7 @@ const HeaderSection = ({coverPhotoInputRef, handleCoverPhotoUpload, profilePhoto
               className="w-20 h-20 rounded-full border-4 border-white object-cover"
             />
             <div className="text-center text-sm font-semibold">
-              <h1 className="text-[#1C4587]">Father</h1>
+              <h1 className="text-primary">Father</h1>
             </div>
           </div>
         </div>
@@ -86,7 +86,7 @@ const HeaderSection = ({coverPhotoInputRef, handleCoverPhotoUpload, profilePhoto
       <div className="mt-4 ">
         <div className="flex flex-col gap-3 w-full items-center justify-center text-center">
           <div className="relative">
-            <h1 className="text-2xl font-bold text-[#1C4587]">{profileData.profile.name}</h1>
+            <h1 className="text-2xl font-bold text-primary">{profileData.profile.name}</h1>
 
             {/* only for profile owner */}
             <Link className="absolute top-2 right-7" href="/profile/editProfile">
@@ -97,11 +97,11 @@ const HeaderSection = ({coverPhotoInputRef, handleCoverPhotoUpload, profilePhoto
             {/* if request A friend */}
             <div className="hidden">
               <div className="flex gap-3 items-center justify-center mt-2">
-                <button className="border cursor-pointer border-[#1C4587] text-[#1C4587] gap-1 flex items-center bg-white text-xs px-2 py-0.5 rounded-sm">
+                <button className="border cursor-pointer border-primary text-primary gap-1 flex items-center bg-white text-xs px-2 py-0.5 rounded-sm">
                   {" "}
                   Reject
                 </button>
-                <button className="bg-gradient-to-b cursor-pointer from-[#1C4587] to-[#3279EA] gap-1 flex items-center text-white text-xs px-2 py-[3px] rounded-sm">
+                <button className="bg-gradient-to-b cursor-pointer from-primary to-[#3279EA] gap-1 flex items-center text-white text-xs px-2 py-[3px] rounded-sm">
                   Accept
                 </button>
                 <img onClick={() => setModal(true)} className="w-5 h-5 cursor-pointer" src="/requestMenu.svg" alt="" />
@@ -112,11 +112,11 @@ const HeaderSection = ({coverPhotoInputRef, handleCoverPhotoUpload, profilePhoto
             {/* only for not friend profile view */}
             <div className="hidden">
               <div className="flex gap-3 items-center justify-center mt-2">
-                <button className="border cursor-pointer border-[#1C4587] text-[#1C4587] gap-1 flex items-center bg-white text-xs px-2 py-0.5 rounded-sm">
+                <button className="border cursor-pointer border-primary text-primary gap-1 flex items-center bg-white text-xs px-2 py-0.5 rounded-sm">
                   {" "}
                   Follow
                 </button>
-                <button className="bg-gradient-to-b cursor-pointer from-[#1C4587] to-[#3279EA] gap-1 flex items-center text-white text-xs px-2 py-[3px] rounded-sm">
+                <button className="bg-gradient-to-b cursor-pointer from-primary to-[#3279EA] gap-1 flex items-center text-white text-xs px-2 py-[3px] rounded-sm">
                   Add Friend
                 </button>
               </div>
@@ -125,7 +125,7 @@ const HeaderSection = ({coverPhotoInputRef, handleCoverPhotoUpload, profilePhoto
 
             <div className="flex gap-2 mt-2">
               {profileData.profile.tags.map((tag, index) => (
-                <span key={index} className="bg-blue-50 text-[#1C4587] text-xs px-3 py-1 rounded-md">
+                <span key={index} className="bg-blue-50 text-primary text-xs px-3 py-1 rounded-md">
                   {tag}
                 </span>
               ))}

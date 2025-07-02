@@ -91,12 +91,12 @@ const BondRequest = () => {
     return (
 
         <div>
-            <h1 className="text-xl text-[#1C4587] font-bold mb-4">Bond Request</h1>
+            <h1 className="text-xl text-primary font-bold mb-4">Bond Request</h1>
             <div className="w-full my-20">
                 {/* Tabs */}
                 <div className="flex gap-8 mb-8 *:text-sm *:font-semibold">
                     <button
-                        className={`text-lg font-medium relative cursor-pointer ${activeTab === "sent" ? "text-[#1C4587]" : "text-gray-400"
+                        className={`text-lg font-medium relative cursor-pointer ${activeTab === "sent" ? "text-primary" : "text-gray-400"
                             }`}
                         onClick={() => setActiveTab("sent")}
                     >
@@ -104,12 +104,12 @@ const BondRequest = () => {
                         {activeTab === "sent" && (
                             <motion.div
                                 layoutId="activeTab"
-                                className="absolute -bottom-[1px] left-0 right-0 h-0.5 bg-[#1C4587]"
+                                className="absolute -bottom-[1px] left-0 right-0 h-0.5 bg-primary"
                             />
                         )}
                     </button>
                     <button
-                        className={`text-lg font-medium relative cursor-pointer ${activeTab === "received" ? "text-[#1C4587]" : "text-gray-400"
+                        className={`text-lg font-medium relative cursor-pointer ${activeTab === "received" ? "text-primary" : "text-gray-400"
                             }`}
                         onClick={() => setActiveTab("received")}
                     >
@@ -117,7 +117,7 @@ const BondRequest = () => {
                         {activeTab === "received" && (
                             <motion.div
                                 layoutId="activeTab"
-                                className="absolute -bottom-[1px] left-0 right-0 h-0.5 bg-[#1C4587]"
+                                className="absolute -bottom-[1px] left-0 right-0 h-0.5 bg-primary"
                             />
                         )}
                     </button>
@@ -150,7 +150,7 @@ const BondRequest = () => {
                                                 <span className="text-gray-600">{req.requestedService}</span>
                                             </p>
                                         </div>
-                                        <span className="bg-[#E3F2FD] text-[#1C4587] text-xs py-1 px-2 rounded-sm">
+                                        <span className="bg-[#E3F2FD] text-primary text-xs py-1 px-2 rounded-sm">
                                             {req.status}
                                         </span>
                                     </div>
@@ -166,7 +166,7 @@ const BondRequest = () => {
                                                 whileHover={{ scale: 1.02 }}
                                                 whileTap={{ scale: 0.98 }}
                                                 onClick={() => handleDecline(req.id)}
-                                                className="flex-1 py-1 cursor-pointer px-4 border border-[#1C4587] text-[#1C4587] rounded-md text-xs font-medium hover:bg-gray-50 transition-colors"
+                                                className="flex-1 py-1 cursor-pointer px-4 border border-primary text-primary rounded-md text-xs font-medium hover:bg-gray-50 transition-colors"
                                             >
                                                 Decline
                                             </motion.button>
@@ -174,7 +174,7 @@ const BondRequest = () => {
                                                 whileHover={{ scale: 1.02 }}
                                                 whileTap={{ scale: 0.98 }}
                                                 onClick={() => handleAccept(req.id)}
-                                                className="flex-1 py-1 cursor-pointer px-4 bg-[#1C4587] text-white rounded-md text-xs font-medium hover:bg-[#15366b] transition-colors"
+                                                className="flex-1 py-1 cursor-pointer px-4 bg-primary text-white rounded-md text-xs font-medium hover:bg-[#15366b] transition-colors"
                                             >
                                                 Accept
                                             </motion.button>

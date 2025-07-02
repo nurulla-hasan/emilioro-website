@@ -37,16 +37,16 @@ const DonateUs = () => {
     };
 
     return (
-        <div className="px-5 md:pt-40 pt-20 flex flex-col items-center justify-between p-6 bg-[#1C4587] h-[calc(100vh-88px)]">
+        <div className="px-5 md:pt-40 pt-20 flex flex-col items-center justify-between p-6 bg-primary h-[calc(100vh-88px)]">
             <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5 }}
                 className="bg-white rounded-sm p-6 text-center z-1"
             >
-                <h2 className="text-lg font-semibold text-[#1C4587]">Support the Community</h2>
+                <h2 className="text-lg font-semibold text-primary">Support the Community</h2>
                 <p className="text-gray-700 text-xs mt-3">
-                    The average donation is <span className="font-semibold text-[#1C4587]">$25</span>. Every contribution helps us improve and expand!
+                    The average donation is <span className="font-semibold text-primary">$25</span>. Every contribution helps us improve and expand!
                 </p>
 
                 <div className="flex flex-wrap justify-center lg:gap-5 gap-2 mt-5">
@@ -54,7 +54,7 @@ const DonateUs = () => {
                         <button
                             key={amount}
                             onClick={() => handleSelectAmount(amount)}
-                            className={`w-[110px] cursor-pointer py-2 rounded-sm border transition text-xs font-medium focus:outline-none ${selectedAmounts.includes(amount) ? "bg-[#1C4587] text-white hover:bg-opacity-80" : "bg-white text-[#1C4587] border-[#1C4587]"}`}
+                            className={`w-[110px] cursor-pointer py-2 rounded-sm border transition text-xs font-medium focus:outline-none ${selectedAmounts.includes(amount) ? "bg-primary text-white hover:bg-opacity-80" : "bg-white text-primary border-primary"}`}
                         >
                             {amount}$
                         </button>
@@ -67,14 +67,14 @@ const DonateUs = () => {
                     placeholder="30.00$"
                     value={customAmount}
                     onChange={(e) => setCustomAmount(e.target.value)}
-                    className="w-2/3 px-3 py-2 mt-2 border border-[#1C4587] rounded-sm text-xs text-gray-700 focus:outline-none"
+                    className="w-2/3 px-3 py-2 mt-2 border border-primary rounded-sm text-xs text-gray-700 focus:outline-none"
                 />
 
                 <motion.button
                     onClick={() => setIsPaymentOpen(true)}
                     whileTap={{ scale: selectedAmounts.length > 0 || customAmount > 0 ? 0.95 : 1 }}
                     disabled={selectedAmounts.length === 0 && customAmount <= 0}
-                    className={`mt-5 w-3/6 font-medium py-2 px-5 rounded-sm text-xs transition focus:outline-none ${selectedAmounts.length > 0 || customAmount > 0 ? "bg-[#1C4587] text-white hover:bg-opacity-80 cursor-pointer" : "bg-gray-500 text-white cursor-not-allowed"}`}
+                    className={`mt-5 w-3/6 font-medium py-2 px-5 rounded-sm text-xs transition focus:outline-none ${selectedAmounts.length > 0 || customAmount > 0 ? "bg-primary text-white hover:bg-opacity-80 cursor-pointer" : "bg-gray-500 text-white cursor-not-allowed"}`}
                 >
                     Donate now
                 </motion.button>

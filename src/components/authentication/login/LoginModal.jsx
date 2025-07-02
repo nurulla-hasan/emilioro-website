@@ -43,14 +43,14 @@ const LoginModal = ({ isOpen, onClose, setIsSignUpOpen, setIsForgotPassModalOpen
             {/* Close Button */}
             <button
               onClick={onClose}
-              className="absolute cursor-pointer top-4 right-4 z-50 bg-[#1C4587] text-white rounded-full p-1 hover:bg-[#15366b] transition-colors"
+              className="absolute cursor-pointer top-4 right-4 z-50 bg-primary text-white rounded-full p-1 hover:bg-[#15366b] transition-colors"
             >
               <X size={16} />
             </button>
 
             {/* Left Section - Login Form */}
             <div className="mx-auto p-8 md:p-12">
-              <h2 className="text-[#1C4587] text-lg font-semibold text-center mb-2">Login to Account</h2>
+              <h2 className="text-primary text-lg font-semibold text-center mb-2">Login to Account</h2>
               <p className="text-gray-500 text-center mb-6 text-xs">Please enter your email and password to continue</p>
 
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
@@ -61,7 +61,7 @@ const LoginModal = ({ isOpen, onClose, setIsSignUpOpen, setIsForgotPassModalOpen
                     type="email"
                     placeholder="Enter your email"
                     {...register("email", { required: "Email is required" })}
-                    className="w-full px-3 py-1.5 text-xs rounded-sm border border-gray-300 focus:outline-none focus:border-[#1C4587]"
+                    className="w-full px-3 py-1.5 text-xs rounded-sm border border-gray-300 focus:outline-none focus:border-primary"
                   />
                   {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>}
                 </div>
@@ -74,11 +74,11 @@ const LoginModal = ({ isOpen, onClose, setIsSignUpOpen, setIsForgotPassModalOpen
                       type={showPassword ? "text" : "password"}
                       placeholder="Enter your password"
                       {...register("password", { required: "Password is required" })}
-                      className="w-full px-3 py-1.5 text-xs rounded-sm border border-gray-300 focus:outline-none focus:border-[#1C4587]"
+                      className="w-full px-3 py-1.5 text-xs rounded-sm border border-gray-300 focus:outline-none focus:border-primary"
                     />
                     <button
                       type="button"
-                      className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-[#1C4587] cursor-pointer"
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-primary cursor-pointer"
                       onClick={() => setShowPassword(!showPassword)}
                     >
                       {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
@@ -91,7 +91,7 @@ const LoginModal = ({ isOpen, onClose, setIsSignUpOpen, setIsForgotPassModalOpen
                 <div className="flex justify-between items-center">
                   <label className="flex items-center space-x-2 cursor-pointer">
                     <div
-                      className={`w-3.5 h-3.5 border rounded-sm flex items-center justify-center ${remember ? "bg-[#1C4587] border-[#1C4587]" : "border-gray-300"
+                      className={`w-3.5 h-3.5 border rounded-sm flex items-center justify-center ${remember ? "bg-primary border-primary" : "border-gray-300"
                         }`}
                       onClick={() => setRemember(!remember)}
                     >

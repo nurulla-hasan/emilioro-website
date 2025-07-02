@@ -45,7 +45,7 @@ const EcoFriendlyCards = () => {
       <div className="flex items-center justify-between mx-auto">
 
         <h1 className="lg:text-2xl text-lg my-5 font-bold text-blue-900">Browse & Join Project</h1>
-        <Link href="#" className="text-[#1C4587] text-sm font-medium">
+        <Link href="#" className="text-primary text-sm font-medium">
           View all
         </Link>
       </div>
@@ -62,15 +62,15 @@ const EcoFriendlyCards = () => {
 
             <div className='flex flex-col gap-2 bg-[#FFFFFF] shadow-2xl p-3 rounded-b-sm'>
               <div className='flex justify-between items-center'>
-                <div className="text-sm text-[#1C4587] font-semibold mb-1">
+                <div className="text-sm text-primary font-semibold mb-1">
                   {card.title}
                 </div>
                 <div>
                   <div className="flex items-center gap-1">
 
                     <div className="flex items-center gap-1">
-                      <p className="bg-[#9A9A9A33] rounded-sm px-1 py-[1] text-[#1C4587] text-[10px] font-normal">{card.status[0]}</p>
-                      <p className="bg-[#9A9A9A33] rounded-sm px-1 py-[1] text-[#1C4587] text-[10px] font-normal">{card.status[1]}</p>
+                      <p className="bg-[#9A9A9A33] rounded-sm px-1 py-[1] text-primary text-[10px] font-normal">{card.status[0]}</p>
+                      <p className="bg-[#9A9A9A33] rounded-sm px-1 py-[1] text-primary text-[10px] font-normal">{card.status[1]}</p>
                     </div>
                   </div>
                 </div>

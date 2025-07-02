@@ -12,7 +12,7 @@ const EntriesSection = ({ showSimulatedEntries, simulatedEntries }) => {
                     className="mt-5 overflow-hidden"
                 >
                     <div className="border border-[#ABC4ED] rounded-sm p-4 bg-[#F5F8FF]">
-                        <h2 className="text-sm font-medium text-[#1C4587] mb-3">Simulated Entries</h2>
+                        <h2 className="text-sm font-medium text-primary mb-3">Simulated Entries</h2>
                         <p className="text-xs text-gray-600 mb-3">
                             These are simulated entries that might match your interests. They'll help provide faster responses when
                             you search.
@@ -26,8 +26,8 @@ const EntriesSection = ({ showSimulatedEntries, simulatedEntries }) => {
                                         <div className="font-medium">Wants:</div>
                                     </div>
                                     <div className="flex justify-between text-xs">
-                                        <div className="text-[#1C4587] font-medium">{entry.give}</div>
-                                        <div className="text-[#1C4587] font-medium">{entry.get}</div>
+                                        <div className="text-primary font-medium">{entry.give}</div>
+                                        <div className="text-primary font-medium">{entry.get}</div>
                                     </div>
                                 </div>
                             ))}

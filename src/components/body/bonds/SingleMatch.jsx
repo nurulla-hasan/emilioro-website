@@ -14,7 +14,7 @@ const SingleMatch = ({ match, handleBondAction, handleRateBond, confirmRealLifeM
             <div className="flex justify-between items-start mb-3">
                 <div className="flex items-center gap-2">
                     <img
-                        className="h-10 w-10 rounded-full object-cover border-2 border-[#1C4587]"
+                        className="h-10 w-10 rounded-full object-cover border-2 border-primary"
                         src={user.avatar || "/avatar.png"}
                         alt="User avatar"
                     />
@@ -42,7 +42,7 @@ const SingleMatch = ({ match, handleBondAction, handleRateBond, confirmRealLifeM
                         <>
                             <button
                                 onClick={() => handleBondAction(match.id, "pause")}
-                                className="p-1 text-gray-500 hover:text-[#1C4587] cursor-pointer"
+                                className="p-1 text-gray-500 hover:text-primary cursor-pointer"
                                 title="Pause"
                             >
                                 <Pause size={16} />
@@ -73,15 +73,15 @@ const SingleMatch = ({ match, handleBondAction, handleRateBond, confirmRealLifeM
                     <div className="text-xs font-medium">Wants:</div>
                 </div>
                 <div className="flex justify-between">
-                    <div className="text-xs text-[#1C4587] font-medium">{user.give}</div>
-                    <div className="text-xs text-[#1C4587] font-medium">{user.get}</div>
+                    <div className="text-xs text-primary font-medium">{user.give}</div>
+                    <div className="text-xs text-primary font-medium">{user.get}</div>
                 </div>
             </div>
 
             <div className="mt-3 flex justify-between">
                 <button
                     onClick={() => handleRateBond(match)}
-                    className="text-xs flex items-center gap-1 text-[#1C4587] hover:underline cursor-pointer"
+                    className="text-xs flex items-center gap-1 text-primary hover:underline cursor-pointer"
                 >
                     <Star size={14} /> Rate this bond
                 </button>

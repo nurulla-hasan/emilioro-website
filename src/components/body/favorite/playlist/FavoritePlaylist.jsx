@@ -25,7 +25,7 @@ const FavoritePlaylist = () => {
 
                         <div className='flex flex-col gap-2'>
                             <div className='flex items-center justify-between'>
-                                <div className="text-sm text-[#1C4587] font-semibold mb-1">
+                                <div className="text-sm text-primary font-semibold mb-1">
                                     {conversation.title}
                                 </div>
                                 <div>
@@ -53,11 +53,11 @@ const FavoritePlaylist = () => {
                                     </button>
                                 </Link>
 
-                                <button className='flex cursor-pointer gap-2 px-3 text-xs py-[4.5px] items-center bg-white  rounded-sm font-semibold border-2 border-[#1C4587] to-[#3279EA] text-[#1C4587]'>
+                                <button className='flex cursor-pointer gap-2 px-3 text-xs py-[4.5px] items-center bg-white  rounded-sm font-semibold border-2 border-primary to-[#3279EA] text-primary'>
                                     < AiOutlineEdit />
                                     <span>Edit</span>
                                 </button>
-                                <button className='flex cursor-pointer gap-2 px-3 text-xs py-[4.5px] items-center bg-white  rounded-sm font-semibold border-2 border-[#1C4587] to-[#3279EA] text-[#1C4587]'>
+                                <button className='flex cursor-pointer gap-2 px-3 text-xs py-[4.5px] items-center bg-white  rounded-sm font-semibold border-2 border-primary to-[#3279EA] text-primary'>
                                     < IoMdShare />
                                     <span>Share</span>
                                 </button>

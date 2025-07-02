@@ -8,8 +8,8 @@ const FriendsSection = ({ profileData }) => {
         {/* Friends Section */}
         <div className="mt-8">
           <div className="flex justify-between items-center mb-6">
-            <h2 className="xl:text-2xl text-xl font-semibold text-[#1C4587]">Friends</h2>
-            <Link href="/profile/friends" className="text-[#1C4587] text-sm hover:underline">
+            <h2 className="xl:text-2xl text-xl font-semibold text-primary">Friends</h2>
+            <Link href="/profile/friends" className="text-primary text-sm hover:underline">
               view more
             </Link>
           </div>

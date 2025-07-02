@@ -12,14 +12,14 @@ const BidirectionalMatch = ({ match, handleBondAction, handleRateBond, confirmRe
             className={`mb-4 p-4 border ${match.status === "paused" ? "bg-gray-100 opacity-70" : "bg-white"} border-[#ABC4ED] rounded-sm`}
         >
             <div className="flex justify-between items-center mb-3">
-                <h3 className="text-sm font-medium text-[#1C4587]">Bidirectional Match</h3>
+                <h3 className="text-sm font-medium text-primary">Bidirectional Match</h3>
 
                 <div className="flex gap-2">
                     {match.status === "active" ? (
                         <>
                             <button
                                 onClick={() => handleBondAction(match.id, "pause")}
-                                className="p-1 text-gray-500 hover:text-[#1C4587] cursor-pointer"
+                                className="p-1 text-gray-500 hover:text-primary cursor-pointer"
                                 title="Pause"
                             >
                                 <Pause size={16} />
@@ -49,7 +49,7 @@ const BidirectionalMatch = ({ match, handleBondAction, handleRateBond, confirmRe
                 <div className="w-full md:w-1/2 p-3 bg-[#EAF0FB] rounded-sm">
                     <div className="flex items-center gap-2 mb-2">
                         <img
-                            className="h-8 w-8 rounded-full object-cover border-2 border-[#1C4587]"
+                            className="h-8 w-8 rounded-full object-cover border-2 border-primary"
                             src={users[0].avatar || "/avatar.png"}
                             alt="User avatar"
                         />
@@ -78,8 +78,8 @@ const BidirectionalMatch = ({ match, handleBondAction, handleRateBond, confirmRe
                             <div className="font-medium">Wants:</div>
                         </div>
                         <div className="flex justify-between">
-                            <div className="text-[#1C4587] font-medium">{users[0].give}</div>
-                            <div className="text-[#1C4587] font-medium">{users[0].get}</div>
+                            <div className="text-primary font-medium">{users[0].give}</div>
+                            <div className="text-primary font-medium">{users[0].get}</div>
                         </div>
                     </div>
                 </div>
@@ -88,7 +88,7 @@ const BidirectionalMatch = ({ match, handleBondAction, handleRateBond, confirmRe
                 <div className="w-full md:w-1/2 p-3 bg-[#EAF0FB] rounded-sm">
                     <div className="flex items-center gap-2 mb-2">
                         <img
-                            className="h-8 w-8 rounded-full object-cover border-2 border-[#1C4587]"
+                            className="h-8 w-8 rounded-full object-cover border-2 border-primary"
                             src={users[1].avatar || "/avatar.png"}
                             alt="User avatar"
                         />
@@ -117,8 +117,8 @@ const BidirectionalMatch = ({ match, handleBondAction, handleRateBond, confirmRe
                             <div className="font-medium">Wants:</div>
                         </div>
                         <div className="flex justify-between">
-                            <div className="text-[#1C4587] font-medium">{users[1].give}</div>
-                            <div className="text-[#1C4587] font-medium">{users[1].get}</div>
+                            <div className="text-primary font-medium">{users[1].give}</div>
+                            <div className="text-primary font-medium">{users[1].get}</div>
                         </div>
                     </div>
                 </div>
@@ -127,7 +127,7 @@ const BidirectionalMatch = ({ match, handleBondAction, handleRateBond, confirmRe
             <div className="mt-3 flex justify-between">
                 <button
                     onClick={() => handleRateBond(match)}
-                    className="text-xs flex items-center gap-1 text-[#1C4587] hover:underline cursor-pointer"
+                    className="text-xs flex items-center gap-1 text-primary hover:underline cursor-pointer"
                 >
                     <Star size={14} /> Rate this bond
                 </button>

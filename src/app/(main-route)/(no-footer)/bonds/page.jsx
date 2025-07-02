@@ -192,13 +192,13 @@ const BondExchangePage = () => {
   return (
     <Container>
       <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-        <h1 className="text-lg md:text-xl text-[#1C4587] font-bold mb-4 md:mb-0 text-center md:text-start">
+        <h1 className="text-lg md:text-xl text-primary font-bold mb-4 md:mb-0 text-center md:text-start">
           Exchange Services & Goods
         </h1>
         <div className="flex gap-3">
           <button
             onClick={() => setShowSimulatedEntries(!showSimulatedEntries)}
-            className="text-[#1C4587] border border-[#1C4587] px-3 py-[7px] rounded-sm text-xs font-medium cursor-pointer"
+            className="text-primary border border-primary px-3 py-[7px] rounded-sm text-xs font-medium cursor-pointer"
           >
             {showSimulatedEntries ? "Hide Simulated Entries" : "Show Simulated Entries"}
           </button>

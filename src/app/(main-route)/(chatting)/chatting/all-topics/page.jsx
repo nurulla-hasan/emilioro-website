@@ -14,9 +14,9 @@ const AllTopics = () => {
         <>
             <div className='px-5 md:px-8'>
                 <div className="flex-row items-center justify-between gap-5 md:flex">
-                    <h1 className="text-xl text-[#1C4587] font-bold">Trending topics</h1>
+                    <h1 className="text-xl text-primary font-bold">Trending topics</h1>
                     <div className='flex items-center justify-center gap-5 mt-5'>
-                        <div className="relative border border-[#1C4587] w-[45%] rounded-sm px-2 flex items-center">
+                        <div className="relative border border-primary w-[45%] rounded-sm px-2 flex items-center">
                             <CiSearch className='absolute cursor-pointer ' color='#1C4587' size={16} />
                             <input
                                 type="text"
@@ -40,7 +40,7 @@ const AllTopics = () => {
                     {trendingData.map((item) => (
                         <div
                             key={item.id}
-                            className="bg-[#1C4587] w-full rounded-sm flex p-2 gap-3 items-center text-white"
+                            className="bg-primary w-full rounded-sm flex p-2 gap-3 items-center text-white"
                         >
                             <div>
                                 {/* Image */}
@@ -62,7 +62,7 @@ const AllTopics = () => {
                                 </div>
                                 {/* Button */}
                                 <Link href="/chatting/allTopics/familyConversion/audio">
-                                    <button className="border mt-8 border-white px-3 py-1 rounded-sm hover:bg-white hover:text-[#1C4587] cursor-pointer text-xs bg-button transition">
+                                    <button className="border mt-8 border-white px-3 py-1 rounded-sm hover:bg-white hover:text-primary cursor-pointer text-xs bg-button transition">
                                         Listen Now
                                     </button>
                                 </Link>

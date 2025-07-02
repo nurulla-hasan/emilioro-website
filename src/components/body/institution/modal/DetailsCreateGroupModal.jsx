@@ -74,7 +74,7 @@ const DetailsCreateGroupModal = ({ isOpen, onClose }) => {
                                 value={groupName}
                                 onChange={handleInputChange}
                                 placeholder="Type here"
-                                className="w-full p-2.5 border border-gray-300 rounded-sm text-xs focus:outline-none focus:border-[#1C4587]"
+                                className="w-full p-2.5 border border-gray-300 rounded-sm text-xs focus:outline-none focus:border-primary"
                             />
 
                             {/* Added Names List */}
@@ -92,7 +92,7 @@ const DetailsCreateGroupModal = ({ isOpen, onClose }) => {
                             )}
                             <button
                                 onClick={addGroupName}
-                                className="w-full mt-2 p-2.5 cursor-pointer text-[#1C4587] border border-gray-300 rounded-sm text-xs hover:bg-gray-50"
+                                className="w-full mt-2 p-2.5 cursor-pointer text-primary border border-gray-300 rounded-sm text-xs hover:bg-gray-50"
                             >
                                 + Add more
                             </button>
@@ -107,7 +107,7 @@ const DetailsCreateGroupModal = ({ isOpen, onClose }) => {
                                         selected={expirationDate}
                                         onChange={(date) => setExpirationDate(date)}
                                         dateFormat="dd/MM/yyyy"
-                                        className="w-full p-2.5 text-xs focus:outline-none focus:border-[#1C4587]"
+                                        className="w-full p-2.5 text-xs focus:outline-none focus:border-primary"
                                     />
                                     <FaRegCalendarAlt className="absolute right-5 top-1/2 -translate-y-1/2 text-gray-400" />
                                 </div>
@@ -172,7 +172,7 @@ const DetailsCreateGroupModal = ({ isOpen, onClose }) => {
                     <div className="p-4">
                         <button
                             onClick={handleSubmit(onSubmit)}
-                            className="w-full bg-[#1C4587] cursor-pointer cursopoi text-white py-2.5 rounded-sm text-xs font-medium transition-colors"
+                            className="w-full bg-primary cursor-pointer cursopoi text-white py-2.5 rounded-sm text-xs font-medium transition-colors"
                         >
                             Submit
                         </button>
