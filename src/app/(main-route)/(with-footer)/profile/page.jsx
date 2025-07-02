@@ -1,8 +1,5 @@
 "use client"
 import { useState, useRef } from "react"
-import SocialAccountModal from "../../../components/body/profile/modal/SocialAccountModal"
-import DeleteConfirmationModal from "../../../components/body/profile/modal/DeleteConfirmationModal"
-import AddRelativesModal from "../../../components/body/profile/modal/AddRelativesModal"
 import ReportModal from "@/components/body/profile/modal/ReportModal"
 import EditModal from "@/components/body/profile/modal/EditdModal"
 import Container from "@/components/layout/Container"
@@ -11,6 +8,9 @@ import HeaderSection from "@/components/body/profile/HeaderSection"
 import SocialLinksSection from "@/components/body/profile/SocialLinksSection"
 import FriendsSection from "@/components/body/profile/FriendsSection"
 import RelativesSection from "@/components/body/profile/RelativesSection"
+import SocialAccountModal from "@/components/body/profile/modal/SocialAccountModal"
+import DeleteConfirmationModal from "@/components/body/profile/modal/DeleteConfirmationModal"
+import AddRelativesModal from "@/components/body/profile/modal/AddRelativesModal"
 
 const ProfilePage = () => {
   // Added refs for file inputs
